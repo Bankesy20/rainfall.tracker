@@ -1,82 +1,79 @@
 const fs = require('fs');
 const path = require('path');
-const https = require('https');
 
 exports.handler = async (event, context) => {
-  // Set CORS headers
   const headers = {
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Headers': 'Content-Type',
     'Access-Control-Allow-Methods': 'GET, OPTIONS',
     'Content-Type': 'application/json',
-    'Cache-Control': 'public, max-age=300', // Cache for 5 minutes
+    'Cache-Control': 'public, max-age=300',
   };
 
-  // Handle preflight requests
   if (event.httpMethod === 'OPTIONS') {
-    return {
-      statusCode: 200,
-      headers,
-      body: '',
-    };
+    return { statusCode: 200, headers, body: '' };
   }
-
-  // Only allow GET requests
   if (event.httpMethod !== 'GET') {
-    return {
-      statusCode: 405,
-      headers,
-      body: JSON.stringify({ error: 'Method not allowed' }),
-    };
+    return { statusCode: 405, headers, body: JSON.stringify({ error: 'Method not allowed' }) };
   }
 
-  // Helper to fetch JSON via HTTPS GET
-  const fetchJson = (url) => new Promise((resolve, reject) => {
-    const req = https.get(url, { headers: { 'User-Agent': 'rainfall-tracker/1.0' }, timeout: 10000 }, (res) => {
-      if (res.statusCode !== 200) {
-        return reject(new Error(`HTTP ${res.statusCode} fetching ${url}`));
-      }
-      let data = '';
-      res.setEncoding('utf8');
-      res.on('data', (chunk) => { data += chunk; });
-      res.on('end', () => {
-        try {
-          resolve(JSON.parse(data));
-        } catch (e) {
-          reject(new Error(`Invalid JSON from ${url}: ${e.message}`));
-        }
+  const qs = event.queryStringParameters || {};
+  const debugMode = qs.debug === '1';
+  const diagnostics = { attempts: [], decided: null };
+
+  const tryFetchJson = async (url, timeoutMs = 10000) => {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), timeoutMs);
+    try {
+      const res = await fetch(url, {
+        headers: {
+          'Accept': 'application/json,text/plain;q=0.9,*/*;q=0.8',
+          'User-Agent': 'rainfall-tracker/1.0 (+netlify-function)'
+        },
+        signal: controller.signal,
       });
-    });
-    req.on('error', reject);
-    req.on('timeout', () => {
-      req.destroy();
-      reject(new Error(`Timeout fetching ${url}`));
-    });
-  });
+      const status = res.status;
+      let bodyText = '';
+      try { bodyText = await res.text(); } catch (_) {}
+      if (status !== 200) {
+        diagnostics.attempts.push({ url, ok: false, status, note: 'non-200', sample: bodyText.slice(0, 200) });
+        throw new Error(`HTTP ${status}`);
+      }
+      try {
+        const json = JSON.parse(bodyText);
+        diagnostics.attempts.push({ url, ok: true, status, size: bodyText.length });
+        return json;
+      } catch (e) {
+        diagnostics.attempts.push({ url, ok: false, status, note: 'invalid json', error: e.message });
+        throw new Error(`Invalid JSON: ${e.message}`);
+      }
+    } finally {
+      clearTimeout(timeout);
+    }
+  };
 
   try {
-    // 1) Prefer live data from GitHub raw (always latest on main, no Netlify rebuild required)
-    const githubRawUrl = 'https://raw.githubusercontent.com/Bankesy20/rainfall.tracker/main/data/processed/rainfall-history.json';
-    try {
-      const githubData = await fetchJson(githubRawUrl);
-      if (githubData && githubData.data && Array.isArray(githubData.data)) {
-        return {
-          statusCode: 200,
-          headers,
-          body: JSON.stringify({
-            success: true,
-            data: githubData,
-            timestamp: new Date().toISOString(),
-            source: 'github-raw'
-          }),
-        };
+    // 1) Remote live sources (prefer live data, no rebuilds)
+    const remoteSources = [
+      'https://raw.githubusercontent.com/Bankesy20/rainfall.tracker/main/data/processed/rainfall-history.json',
+      'https://cdn.jsdelivr.net/gh/Bankesy20/rainfall.tracker@main/data/processed/rainfall-history.json'
+    ];
+
+    for (const url of remoteSources) {
+      try {
+        const remoteData = await tryFetchJson(url, 10000);
+        if (remoteData && remoteData.data && Array.isArray(remoteData.data)) {
+          diagnostics.decided = { type: 'remote', url };
+          const body = { success: true, data: remoteData, timestamp: new Date().toISOString(), source: 'remote', url };
+          if (debugMode) body.diagnostics = diagnostics;
+          return { statusCode: 200, headers, body: JSON.stringify(body) };
+        }
+      } catch (e) {
+        // continue to next source
       }
-    } catch (e) {
-      // Continue to local fallbacks
-      console.log('GitHub raw fetch failed:', e.message);
     }
 
-    // 2) Local file fallbacks (for local dev or when packaged in function bundle)
+    // 2) Local file fallbacks
     const possiblePaths = [
       path.join(__dirname, 'rainfall-data.json'),
       path.join(__dirname, 'data', 'processed', 'rainfall-history.json'),
@@ -93,20 +90,11 @@ exports.handler = async (event, context) => {
     let dataPath = null;
     for (const candidate of possiblePaths) {
       try {
-        if (fs.existsSync(candidate)) {
-          dataPath = candidate;
-          break;
-        }
-      } catch (_) {
-        // ignore
-      }
+        if (fs.existsSync(candidate)) { dataPath = candidate; break; }
+      } catch (_) {}
     }
 
-    // Check if file exists
     if (!dataPath) {
-      console.log('No data file found locally, returning embedded data with actual rainfall');
-
-      // 3) Embedded minimal sample with actual rainfall
       const embeddedData = {
         lastUpdated: new Date().toISOString(),
         station: '1141',
@@ -118,59 +106,25 @@ exports.handler = async (event, context) => {
           { date: '2025-08-04', time: '13:45', rainfall_mm: 0.2, total_mm: 0 }
         ]
       };
-
-      return {
-        statusCode: 200,
-        headers,
-        body: JSON.stringify({
-          success: true,
-          data: embeddedData,
-          timestamp: new Date().toISOString(),
-          source: 'embedded-fallback',
-          note: 'Using embedded data - could not fetch from GitHub or local file'
-        }),
-      };
+      diagnostics.decided = { type: 'embedded' };
+      const body = { success: true, data: embeddedData, timestamp: new Date().toISOString(), source: 'embedded-fallback' };
+      if (debugMode) body.diagnostics = diagnostics;
+      return { statusCode: 200, headers, body: JSON.stringify(body) };
     }
 
-    // Read and parse the JSON file
     const fileData = fs.readFileSync(dataPath, 'utf8');
     const rainfallData = JSON.parse(fileData);
-
-    // Validate the data structure
     if (!rainfallData || !rainfallData.data || !Array.isArray(rainfallData.data)) {
-      return {
-        statusCode: 500,
-        headers,
-        body: JSON.stringify({ 
-          error: 'Invalid data format',
-          message: 'Data file is corrupted or invalid'
-        }),
-      };
+      return { statusCode: 500, headers, body: JSON.stringify({ error: 'Invalid data format', message: 'Data file is corrupted or invalid' }) };
     }
-
-    // Return the data with success status
-    return {
-      statusCode: 200,
-      headers,
-      body: JSON.stringify({
-        success: true,
-        data: rainfallData,
-        timestamp: new Date().toISOString(),
-        source: dataPath.startsWith('http') ? 'github-raw' : 'local-file'
-      }),
-    };
+    diagnostics.decided = { type: 'local', path: dataPath };
+    const body = { success: true, data: rainfallData, timestamp: new Date().toISOString(), source: 'local-file', path: dataPath };
+    if (debugMode) body.diagnostics = diagnostics;
+    return { statusCode: 200, headers, body: JSON.stringify(body) };
 
   } catch (error) {
-    console.error('Error reading rainfall data:', error);
-
-    return {
-      statusCode: 500,
-      headers,
-      body: JSON.stringify({ 
-        error: 'Internal server error',
-        message: 'Failed to load rainfall data',
-        timestamp: new Date().toISOString()
-      }),
-    };
+    const body = { error: 'Internal server error', message: 'Failed to load rainfall data', timestamp: new Date().toISOString() };
+    if (debugMode) body.diagnostics = diagnostics;
+    return { statusCode: 500, headers, body: JSON.stringify(body) };
   }
 }; 
