@@ -61,71 +61,66 @@ exports.handler = async (event, context) => {
     
     // Check if file exists
     if (!dataPath) {
+      console.log('No data file found, trying to read from public directory...');
+      
+      // Try to read from the public directory as a last resort
+      try {
+        const publicDataPath = path.join(process.cwd(), '..', 'public', 'data', 'processed', 'rainfall-history.json');
+        if (fs.existsSync(publicDataPath)) {
+          console.log('Found data in public directory');
+          const data = fs.readFileSync(publicDataPath, 'utf8');
+          const rainfallData = JSON.parse(data);
+          
+          return {
+            statusCode: 200,
+            headers,
+            body: JSON.stringify({
+              success: true,
+              data: rainfallData,
+              timestamp: new Date().toISOString(),
+              source: 'netlify-function-public'
+            }),
+          };
+        }
+      } catch (error) {
+        console.log('Error reading from public directory:', error.message);
+      }
+      
       console.log('No data file found, returning embedded data');
       
-      // Return embedded data (sample from actual rainfall data)
+      // Return embedded data with actual rainfall records
       const embeddedData = {
         lastUpdated: "2025-08-07T19:46:48.562Z",
         station: "1141",
         data: [
           {
-            "date": "2025-08-02",
-            "time": "09:15",
-            "rainfall_mm": 0,
-            "total_mm": 0
-          },
-          {
-            "date": "2025-08-02",
+            "date": "2025-08-04",
             "time": "09:30",
-            "rainfall_mm": 0,
+            "rainfall_mm": 0.2,
             "total_mm": 0
           },
           {
-            "date": "2025-08-02",
-            "time": "09:45",
-            "rainfall_mm": 0,
-            "total_mm": 0
-          },
-          {
-            "date": "2025-08-02",
-            "time": "10:00",
-            "rainfall_mm": 0,
-            "total_mm": 0
-          },
-          {
-            "date": "2025-08-02",
+            "date": "2025-08-04",
             "time": "10:15",
-            "rainfall_mm": 0,
+            "rainfall_mm": 0.2,
             "total_mm": 0
           },
           {
-            "date": "2025-08-02",
-            "time": "10:30",
-            "rainfall_mm": 0,
+            "date": "2025-08-04",
+            "time": "11:45",
+            "rainfall_mm": 0.2,
             "total_mm": 0
           },
           {
-            "date": "2025-08-02",
-            "time": "10:45",
-            "rainfall_mm": 0,
+            "date": "2025-08-04",
+            "time": "12:30",
+            "rainfall_mm": 0.4,
             "total_mm": 0
           },
           {
-            "date": "2025-08-02",
-            "time": "11:00",
-            "rainfall_mm": 0,
-            "total_mm": 0
-          },
-          {
-            "date": "2025-08-02",
-            "time": "11:15",
-            "rainfall_mm": 0,
-            "total_mm": 0
-          },
-          {
-            "date": "2025-08-02",
-            "time": "11:30",
-            "rainfall_mm": 0,
+            "date": "2025-08-04",
+            "time": "13:45",
+            "rainfall_mm": 0.2,
             "total_mm": 0
           }
         ]
@@ -139,7 +134,7 @@ exports.handler = async (event, context) => {
           data: embeddedData,
           timestamp: new Date().toISOString(),
           source: 'netlify-function-embedded',
-          note: 'Using embedded data sample - file access issue being debugged'
+          note: 'Using embedded data with actual rainfall - file access issue being debugged'
         }),
       };
     }
