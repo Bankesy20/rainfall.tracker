@@ -22,8 +22,8 @@ function App() {
         setLoading(true);
         setError(null);
         
-        // Try to load from GitHub raw data (always fresh)
-        const response = await fetch('https://raw.githubusercontent.com/Bankesy20/rainfall.tracker/main/data/processed/rainfall-history.json');
+        // Try to load from the public data directory
+        const response = await fetch('/data/processed/rainfall-history.json');
         
         if (!response.ok) {
           throw new Error(`Failed to load data: ${response.status} ${response.statusText}`);
