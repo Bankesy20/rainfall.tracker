@@ -13,6 +13,7 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [darkMode, setDarkMode] = useState(false);
+  const [statsExpanded, setStatsExpanded] = useState(true);
 
   // Load data from the processed JSON file
   useEffect(() => {
@@ -99,19 +100,18 @@ function App() {
       <header className="bg-white dark:bg-gray-800 shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            <div className="flex items-center space-x-4">
-              <div className="text-2xl">🌧️</div>
-              <div>
-                <h1 className="text-xl font-bold text-gray-900 dark:text-white">
-                  UK Rainfall Tracker
-                </h1>
-                <p className="text-sm text-gray-600 dark:text-gray-400">
-                  Station 1141 - Real-time rainfall monitoring
-                </p>
-              </div>
+            <div className="flex items-center space-x-2 sm:space-x-4">
+                              <div>
+                  <h1 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">
+                    UK Rainfall Tracker
+                  </h1>
+                  <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">
+                    Miserden Gauge - Station 1141
+                  </p>
+                </div>
             </div>
             
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-2 sm:space-x-4">
               {/* Theme Toggle */}
               <button
                 onClick={toggleTheme}
@@ -126,53 +126,70 @@ function App() {
       </header>
 
       {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-8">
         {rainfallData ? (
-          <div className="space-y-8">
-            {/* Data Summary */}
-            <section>
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
-                Rainfall Summary
-              </h2>
-              <DataSummary 
-                data={rainfallData.data} 
-                lastUpdated={rainfallData.lastUpdated}
-              />
+          <div className="space-y-6 sm:space-y-8">
+            {/* Collapsible Statistics */}
+            <section className="bg-white dark:bg-gray-800 rounded-lg shadow-lg">
+              <button
+                onClick={() => setStatsExpanded(!statsExpanded)}
+                className="w-full px-4 sm:px-6 py-4 flex items-center justify-between text-left hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors rounded-lg"
+              >
+                <h2 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">
+                  Rainfall Statistics
+                </h2>
+                <div className="flex items-center space-x-2">
+                  <span className="text-sm text-gray-600 dark:text-gray-400">
+                    {statsExpanded ? 'Hide' : 'Show'}
+                  </span>
+                  <span className="text-gray-400 dark:text-gray-500">
+                    {statsExpanded ? '▼' : '▶'}
+                  </span>
+                </div>
+              </button>
+              
+              {statsExpanded && (
+                <div className="px-4 sm:px-6 pb-4 sm:pb-6">
+                  <DataSummary 
+                    data={rainfallData.data} 
+                    lastUpdated={rainfallData.lastUpdated}
+                  />
+                </div>
+              )}
             </section>
 
             {/* Rainfall Chart */}
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+              <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">
                 Rainfall Trends
               </h2>
               <RainfallChart 
                 data={rainfallData.data} 
-                height={500}
+                height={400}
               />
             </section>
 
             {/* Data Source Info */}
-            <section className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
-                Data Source Information
+            <section className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-4 sm:p-6">
+              <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white mb-3 sm:mb-4">
+                Data Source
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-600 dark:text-gray-400">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 text-sm text-gray-600 dark:text-gray-400">
                 <div>
-                  <p><strong>Station ID:</strong> {rainfallData.station}</p>
-                  <p><strong>Data Source:</strong> UK Government Flood Information Service</p>
-                  <p><strong>Last Updated:</strong> {dayjs(rainfallData.lastUpdated).format('MMM DD, YYYY HH:mm')}</p>
+                  <p><strong>Location:</strong> Miserden Gauge (Station {rainfallData.station})</p>
+                  <p><strong>Source:</strong> UK Government Flood Information Service</p>
+                  <p><strong>Updated:</strong> {dayjs(rainfallData.lastUpdated).format('MMM DD, YYYY HH:mm')}</p>
                 </div>
                 <div>
-                  <p><strong>Total Records:</strong> {rainfallData.data.length}</p>
-                  <p><strong>Data Collection:</strong> Automated daily scraping</p>
-                  <p><strong>Update Frequency:</strong> Every 24 hours</p>
+                  <p><strong>Records:</strong> {rainfallData.data.length.toLocaleString()}</p>
+                  <p><strong>Collection:</strong> Automated scraping</p>
+                  <p><strong>Frequency:</strong> Every 4 hours</p>
                 </div>
               </div>
             </section>
           </div>
         ) : (
           <div className="text-center py-12">
-            <div className="text-gray-400 dark:text-gray-500 text-6xl mb-4">🌧️</div>
             <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
               No Data Available
             </h2>

@@ -86,7 +86,6 @@ const RainfallChart = ({ data, days = 30, height = 400 }) => {
     return (
       <div className="flex items-center justify-center h-64 bg-gray-50 dark:bg-gray-800 rounded-lg">
         <div className="text-center">
-          <div className="text-gray-400 dark:text-gray-500 text-6xl mb-4">🌧️</div>
           <p className="text-gray-500 dark:text-gray-400">No rainfall data available</p>
         </div>
       </div>
@@ -94,33 +93,33 @@ const RainfallChart = ({ data, days = 30, height = 400 }) => {
   }
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
+    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-4 sm:p-6">
       {/* Chart Controls */}
-      <div className="flex flex-wrap items-center justify-between mb-6 gap-4">
-        <div className="flex items-center space-x-4">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 sm:mb-6 gap-3 sm:gap-4">
+        <div className="flex flex-wrap items-center gap-2 sm:gap-4">
           <div className="flex items-center space-x-2">
-            <label className="text-sm font-medium text-gray-700 dark:text-gray-300">
-              Chart Type:
+            <label className="text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-300">
+              Type:
             </label>
             <select
               value={chartType}
               onChange={(e) => setChartType(e.target.value)}
-              className="px-3 py-1 border border-gray-300 dark:border-gray-600 rounded-md text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              className="px-2 sm:px-3 py-1 border border-gray-300 dark:border-gray-600 rounded-md text-xs sm:text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             >
-              <option value="bar">Bar Chart</option>
-              <option value="line">Line Chart</option>
-              <option value="area">Area Chart</option>
+              <option value="bar">Bar</option>
+              <option value="line">Line</option>
+              <option value="area">Area</option>
             </select>
           </div>
           
           <div className="flex items-center space-x-2">
-            <label className="text-sm font-medium text-gray-700 dark:text-gray-300">
-              Aggregation:
+            <label className="text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-300">
+              View:
             </label>
             <select
               value={aggregation}
               onChange={(e) => setAggregation(e.target.value)}
-              className="px-3 py-1 border border-gray-300 dark:border-gray-600 rounded-md text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              className="px-2 sm:px-3 py-1 border border-gray-300 dark:border-gray-600 rounded-md text-xs sm:text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             >
               <option value="hourly">Hourly</option>
               <option value="daily">Daily</option>
@@ -131,13 +130,13 @@ const RainfallChart = ({ data, days = 30, height = 400 }) => {
           </div>
 
           <div className="flex items-center space-x-2">
-            <label className="text-sm font-medium text-gray-700 dark:text-gray-300">
-              Time Range:
+            <label className="text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-300">
+              Range:
             </label>
             <select
               value={timeRange}
               onChange={(e) => setTimeRange(e.target.value)}
-              className="px-3 py-1 border border-gray-300 dark:border-gray-600 rounded-md text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              className="px-2 sm:px-3 py-1 border border-gray-300 dark:border-gray-600 rounded-md text-xs sm:text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             >
               <option value="7">7 days</option>
               <option value="30">30 days</option>
@@ -148,8 +147,8 @@ const RainfallChart = ({ data, days = 30, height = 400 }) => {
           </div>
         </div>
 
-        <div className="text-sm text-gray-500 dark:text-gray-400">
-          Showing {timeRange === 'all' ? 'all available data' : `last ${timeRange} days`}
+        <div className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">
+          {timeRange === 'all' ? 'All data' : `${timeRange} days`}
         </div>
       </div>
 
