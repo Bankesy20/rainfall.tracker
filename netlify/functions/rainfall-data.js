@@ -61,18 +61,72 @@ exports.handler = async (event, context) => {
     
     // Check if file exists
     if (!dataPath) {
-      console.log('No data file found, returning fallback data');
+      console.log('No data file found, returning embedded data');
       
-      // Return fallback data for now
-      const fallbackData = {
-        lastUpdated: new Date().toISOString(),
+      // Return embedded data (sample from actual rainfall data)
+      const embeddedData = {
+        lastUpdated: "2025-08-07T19:46:48.562Z",
         station: "1141",
         data: [
           {
-            date: "2025-08-07",
-            time: "12:00",
-            rainfall_mm: 0,
-            total_mm: 0
+            "date": "2025-08-02",
+            "time": "09:15",
+            "rainfall_mm": 0,
+            "total_mm": 0
+          },
+          {
+            "date": "2025-08-02",
+            "time": "09:30",
+            "rainfall_mm": 0,
+            "total_mm": 0
+          },
+          {
+            "date": "2025-08-02",
+            "time": "09:45",
+            "rainfall_mm": 0,
+            "total_mm": 0
+          },
+          {
+            "date": "2025-08-02",
+            "time": "10:00",
+            "rainfall_mm": 0,
+            "total_mm": 0
+          },
+          {
+            "date": "2025-08-02",
+            "time": "10:15",
+            "rainfall_mm": 0,
+            "total_mm": 0
+          },
+          {
+            "date": "2025-08-02",
+            "time": "10:30",
+            "rainfall_mm": 0,
+            "total_mm": 0
+          },
+          {
+            "date": "2025-08-02",
+            "time": "10:45",
+            "rainfall_mm": 0,
+            "total_mm": 0
+          },
+          {
+            "date": "2025-08-02",
+            "time": "11:00",
+            "rainfall_mm": 0,
+            "total_mm": 0
+          },
+          {
+            "date": "2025-08-02",
+            "time": "11:15",
+            "rainfall_mm": 0,
+            "total_mm": 0
+          },
+          {
+            "date": "2025-08-02",
+            "time": "11:30",
+            "rainfall_mm": 0,
+            "total_mm": 0
           }
         ]
       };
@@ -82,10 +136,10 @@ exports.handler = async (event, context) => {
         headers,
         body: JSON.stringify({
           success: true,
-          data: fallbackData,
+          data: embeddedData,
           timestamp: new Date().toISOString(),
-          source: 'netlify-function-fallback',
-          note: 'Using fallback data - file access issue being debugged'
+          source: 'netlify-function-embedded',
+          note: 'Using embedded data sample - file access issue being debugged'
         }),
       };
     }
