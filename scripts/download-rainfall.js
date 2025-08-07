@@ -17,6 +17,8 @@ async function downloadRainfallCSV() {
   console.log('🌧️ Downloading rainfall data from UK government website...');
   console.log(`📥 URL: ${csvUrl}`);
   console.log(`💾 Saving to: ${outputPath}`);
+  console.log(`🔍 Node.js version: ${process.version}`);
+  console.log(`🌐 Platform: ${process.platform}`);
   
   // Proper headers to mimic a real browser
   const headers = {
@@ -45,9 +47,10 @@ async function downloadRainfallCSV() {
     
     const request = https.request(options, (response) => {
       console.log(`📊 Response status: ${response.statusCode}`);
-      console.log(`📋 Response headers:`, response.headers);
+      console.log(`📋 Response headers:`, JSON.stringify(response.headers, null, 2));
       
       if (response.statusCode !== 200) {
+        console.error(`❌ HTTP Error: ${response.statusCode} - ${response.statusMessage}`);
         reject(new Error(`HTTP ${response.statusCode}: ${response.statusMessage}`));
         return;
       }
@@ -82,6 +85,8 @@ async function downloadRainfallCSV() {
     });
     
     request.on('error', (err) => {
+      console.error(`❌ Request error: ${err.message}`);
+      console.error(`🔍 Error details:`, err);
       reject(err);
     });
     
