@@ -205,7 +205,9 @@ async function processDownloadedCSV(csvPath) {
     await fsPromises.writeFile(outputPath, JSON.stringify(history, null, 2));
     
     // Also copy to public directory for development
-    const publicPath = path.join(__dirname, '..', 'public', 'data', 'processed', 'rainfall-history.json');
+    const publicDir = path.join(__dirname, '..', 'public', 'data', 'processed');
+    await fsPromises.mkdir(publicDir, { recursive: true });
+    const publicPath = path.join(publicDir, 'rainfall-history.json');
     await fsPromises.writeFile(publicPath, JSON.stringify(history, null, 2));
     
     console.log(`✅ Successfully processed ${processedData.length} records`);
