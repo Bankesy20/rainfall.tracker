@@ -40,7 +40,7 @@ jobs:
     - name: Handle errors
       if: failure()
       run: |
-        echo "Rainfall scraping failed at $(date)" >> error.log
-        git add error.log
+        echo "Rainfall scraping failed at $(date)" >> workflow-error.txt
+        git add workflow-error.txt
         git commit -m "Log scraping error - $(date -u +'%Y-%m-%d %H:%M:%S UTC')" || true
         git push || true 
