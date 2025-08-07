@@ -2,7 +2,7 @@ name: Scrape Rainfall Data
 
 on:
   schedule:
-    - cron: '0 9 * * *'  # Run daily at 9 AM UTC
+    - cron: '0 */4 * * *'  # Run every 4 hours
   workflow_dispatch:  # Allow manual triggers
 
 permissions:
