@@ -9,7 +9,12 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "scrape": "node scripts/scrape-rainfall.js",
-    "dev": "concurrently \"npm run start\" \"npm run scrape\""
+    "dev": "concurrently \"npm run start\" \"npm run scrape\"",
+    "dev:functions": "netlify dev",
+    "dev:full": "concurrently \"netlify dev\" \"npm run scrape\"",
+    "dev:netlify": "REACT_APP_USE_API=true netlify dev",
+    "dev:simple": "concurrently \"npm run start\" \"npx netlify dev --port 8888 --functions-only\"",
+    "dev:clean": "npm start"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -24,7 +29,8 @@
   "devDependencies": {
     "puppeteer-core": "^21.6.1",
     "@sparticuz/chromium": "^119.0.2",
-    "concurrently": "^8.2.2"
+    "concurrently": "^8.2.2",
+    "netlify-cli": "^17.0.0"
   },
   "browserslist": {
     "production": [

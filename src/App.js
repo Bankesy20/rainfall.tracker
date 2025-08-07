@@ -3,49 +3,15 @@ import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import RainfallChart from './components/RainfallChart';
 import DataSummary from './components/DataSummary';
-import { validateRainfallData } from './utils/dataProcessor';
+import useRainfallData from './hooks/useRainfallData';
 
 // Extend dayjs with relative time plugin
 dayjs.extend(relativeTime);
 
 function App() {
-  const [rainfallData, setRainfallData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const { data: rainfallData, loading, error, lastUpdated, refetch, refetchCount, isDevelopment } = useRainfallData();
   const [darkMode, setDarkMode] = useState(false);
   const [statsExpanded, setStatsExpanded] = useState(true);
-
-  // Load data from the processed JSON file
-  useEffect(() => {
-    const loadData = async () => {
-      try {
-        setLoading(true);
-        setError(null);
-        
-        // Try to load from the public data directory
-        const response = await fetch('/data/processed/rainfall-history.json');
-        
-        if (!response.ok) {
-          throw new Error(`Failed to load data: ${response.status} ${response.statusText}`);
-        }
-        
-        const data = await response.json();
-        
-        if (!validateRainfallData(data)) {
-          throw new Error('Invalid data format');
-        }
-        
-        setRainfallData(data);
-      } catch (err) {
-        console.error('Error loading rainfall data:', err);
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    loadData();
-  }, []);
 
   // Handle theme toggle
   const toggleTheme = () => {
@@ -83,12 +49,20 @@ function App() {
           <p className="text-gray-600 dark:text-gray-400 mb-4">
             {error}
           </p>
-          <button
-            onClick={() => window.location.reload()}
-            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors"
-          >
-            Try Again
-          </button>
+          <div className="space-y-2">
+            <button
+              onClick={refetch}
+              className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors mr-2"
+            >
+              Retry
+            </button>
+            <button
+              onClick={() => window.location.reload()}
+              className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors"
+            >
+              Reload Page
+            </button>
+          </div>
         </div>
       </div>
     );
@@ -112,6 +86,29 @@ function App() {
             </div>
             
             <div className="flex items-center space-x-2 sm:space-x-4">
+              {/* Refresh Button */}
+              <button
+                onClick={refetch}
+                disabled={loading}
+                className="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors disabled:opacity-50"
+                aria-label="Refresh data"
+                title="Refresh rainfall data"
+              >
+                {loading ? (
+                  <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-blue-600"></div>
+                ) : (
+                  '🔄'
+                )}
+              </button>
+              
+              {/* Status Indicator */}
+              {rainfallData && (
+                <div className="hidden sm:flex items-center space-x-1 text-xs text-gray-600 dark:text-gray-400">
+                  <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                  <span>Live</span>
+                </div>
+              )}
+              
               {/* Theme Toggle */}
               <button
                 onClick={toggleTheme}
@@ -178,12 +175,13 @@ function App() {
                 <div>
                   <p><strong>Location:</strong> Miserden Gauge (Station {rainfallData.station})</p>
                   <p><strong>Source:</strong> UK Government Flood Information Service</p>
-                  <p><strong>Updated:</strong> {dayjs(rainfallData.lastUpdated).format('MMM DD, YYYY HH:mm')}</p>
+                  <p><strong>Updated:</strong> {dayjs(lastUpdated || rainfallData.lastUpdated).format('MMM DD, YYYY HH:mm')}</p>
                 </div>
                 <div>
                   <p><strong>Records:</strong> {rainfallData.data.length.toLocaleString()}</p>
                   <p><strong>Collection:</strong> Automated scraping</p>
                   <p><strong>Frequency:</strong> Every hour</p>
+                  <p><strong>Source:</strong> {isDevelopment ? 'Development Mode' : 'API'} ({refetchCount} refreshes)</p>
                 </div>
               </div>
             </section>

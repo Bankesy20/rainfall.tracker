@@ -40,7 +40,7 @@ jobs:
     - name: Commit and push changes
       run: |
         git add data/
-        git diff --quiet && git diff --staged --quiet || (git commit -m "Update rainfall data - $(date -u +'%Y-%m-%d %H:%M:%S UTC')" && git push origin main)
+        git diff --quiet && git diff --staged --quiet || (git commit -m "[skip ci] Update rainfall data - $(date -u +'%Y-%m-%d %H:%M:%S UTC')" && git push origin main)
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     
@@ -49,5 +49,5 @@ jobs:
       run: |
         echo "Rainfall scraping failed at $(date)" >> workflow-error.txt
         git add workflow-error.txt
-        git commit -m "Log scraping error - $(date -u +'%Y-%m-%d %H:%M:%S UTC')" || true
+        git commit -m "[skip ci] Log scraping error - $(date -u +'%Y-%m-%d %H:%M:%S UTC')" || true
         git push || true 
