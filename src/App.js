@@ -183,7 +183,7 @@ function App() {
                 <div>
                   <p><strong>Records:</strong> {rainfallData.data.length.toLocaleString()}</p>
                   <p><strong>Collection:</strong> Automated scraping</p>
-                  <p><strong>Frequency:</strong> Every 4 hours</p>
+                  <p><strong>Frequency:</strong> Every hour</p>
                 </div>
               </div>
             </section>
