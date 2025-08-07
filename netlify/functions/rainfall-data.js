@@ -32,12 +32,13 @@ exports.handler = async (event, context) => {
   try {
     // Try multiple possible paths for the rainfall data file
     const possiblePaths = [
+      path.join(__dirname, 'rainfall-data.json'),
+      path.join(__dirname, 'data', 'processed', 'rainfall-history.json'),
       path.join(process.cwd(), 'data', 'processed', 'rainfall-history.json'),
       path.join(process.cwd(), 'public', 'data', 'processed', 'rainfall-history.json'),
       path.join(process.cwd(), 'build', 'data', 'processed', 'rainfall-history.json'),
       path.join(process.cwd(), '..', 'data', 'processed', 'rainfall-history.json'),
       path.join(process.cwd(), '..', 'public', 'data', 'processed', 'rainfall-history.json'),
-      path.join(__dirname, 'data', 'processed', 'rainfall-history.json'),
       path.join(__dirname, 'rainfall-history.json'),
       '/var/task/data/processed/rainfall-history.json',
       '/var/task/rainfall-history.json'
