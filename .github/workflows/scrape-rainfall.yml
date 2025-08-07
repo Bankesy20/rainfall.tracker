@@ -2,8 +2,8 @@ name: Scrape Rainfall Data
 
 on:
   schedule:
-    - cron: '15 * * * *'  # Run 15 minutes past every hour
-  workflow_dispatch:  # Allow manual triggers
+    - cron: '28 * * * *'
+  workflow_dispatch:
 
 permissions:
   contents: write
