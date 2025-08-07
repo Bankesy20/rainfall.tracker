@@ -36,7 +36,8 @@ exports.handler = async (event, context) => {
       path.join(process.cwd(), 'public', 'data', 'processed', 'rainfall-history.json'),
       path.join(process.cwd(), 'build', 'data', 'processed', 'rainfall-history.json'),
       path.join(process.cwd(), '..', 'data', 'processed', 'rainfall-history.json'),
-      path.join(process.cwd(), '..', 'public', 'data', 'processed', 'rainfall-history.json')
+      path.join(process.cwd(), '..', 'public', 'data', 'processed', 'rainfall-history.json'),
+      path.join(__dirname, 'data', 'processed', 'rainfall-history.json')
     ];
     
     let dataPath = null;
