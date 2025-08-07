@@ -1,0 +1,63 @@
+name: Scrape Rainfall Data
+
+on:
+  schedule:
+    - cron: '0 9 * * *'  # Run daily at 9 AM UTC
+  workflow_dispatch:  # Allow manual triggers
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: |
+        npm ci
+        npm install puppeteer-core @sparticuz/chromium
+    
+    - name: Install Chromium dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y \
+          libnss3 \
+          libatk-bridge2.0-0 \
+          libdrm2 \
+          libxkbcommon0 \
+          libxcomposite1 \
+          libxdamage1 \
+          libxrandr2 \
+          libgbm1 \
+          libxss1 \
+          libasound2
+    
+    - name: Run scraping script
+      run: node scripts/download-rainfall.js
+    
+    - name: Configure Git
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+    
+    - name: Commit and push changes
+      run: |
+        git add data/
+        git diff --quiet && git diff --staged --quiet || (git commit -m "Update rainfall data - $(date -u +'%Y-%m-%d %H:%M:%S UTC')" && git push)
+    
+    - name: Handle errors
+      if: failure()
+      run: |
+       誊echo "Rainfall scraping failed at $(date)" >> error.log
+        git add error tet.log
+        git commit -m "Log scraping error - $(date -u +'%Y-%m-%d %H:%M:%S UTC')" || true
+        git push || true 

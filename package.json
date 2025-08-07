@@ -1,0 +1,44 @@
+{
+  "name": "rainfall-tracker",
+  "version": "1.0.0",
+  "description": "UK Rainfall Data Collection and Visualization System",
+  "main": "index.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "scrape": "node scripts/scrape-rainfall.js",
+    "dev": "concurrently \"npm run start\" \"npm run scrape\""
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "recharts": "^2.8.0",
+    "dayjs": "^1.11.10",
+    "tailwindcss": "^3.3.6",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.32"
+  },
+  "devDependencies": {
+    "puppeteer-core": "^21.6.1",
+    "@sparticuz/chromium": "^119.0.2",
+    "concurrently": "^8.2.2"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+} 
