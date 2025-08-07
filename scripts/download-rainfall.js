@@ -167,15 +167,41 @@ async function processDownloadedCSV(csvPath) {
       };
     }).filter(item => item.date && item.date !== '');
 
+    // Load existing data if it exists
+    const outputPath = path.join(__dirname, '..', 'data', 'processed', 'rainfall-history.json');
+    let existingData = [];
+    try {
+      const existingFile = await fsPromises.readFile(outputPath, 'utf-8');
+      const existingHistory = JSON.parse(existingFile);
+      existingData = existingHistory.data || [];
+      console.log(`📚 Loaded ${existingData.length} existing records`);
+    } catch (error) {
+      console.log('📚 No existing data found, starting fresh');
+    }
+
+    // Merge new data with existing data, avoiding duplicates
+    const existingDates = new Set(existingData.map(item => `${item.date} ${item.time}`));
+    const newData = processedData.filter(item => {
+      const key = `${item.date} ${item.time}`;
+      if (existingDates.has(key)) {
+        console.log(`🔄 Skipping duplicate: ${key}`);
+        return false;
+      }
+      return true;
+    });
+
+    const mergedData = [...existingData, ...newData];
+    console.log(`📊 Added ${newData.length} new records`);
+    console.log(`📈 Total records: ${mergedData.length}`);
+
     // Create the history object
     const history = {
       lastUpdated: new Date().toISOString(),
       station: "1141",
-      data: processedData
+      data: mergedData
     };
 
     // Save to the processed directory
-    const outputPath = path.join(__dirname, '..', 'data', 'processed', 'rainfall-history.json');
     await fsPromises.writeFile(outputPath, JSON.stringify(history, null, 2));
     
     // Also copy to public directory for development
