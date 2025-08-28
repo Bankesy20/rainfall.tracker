@@ -179,19 +179,40 @@ async function processDownloadedCSV(csvPath) {
       console.log('📚 No existing data found, starting fresh');
     }
 
-    // Merge new data with existing data, avoiding duplicates
-    const existingDates = new Set(existingData.map(item => `${item.date} ${item.time}`));
-    const newData = processedData.filter(item => {
-      const key = `${item.date} ${item.time}`;
-      if (existingDates.has(key)) {
-        console.log(`🔄 Skipping duplicate: ${key}`);
-        return false;
+    // Merge new data with existing data.
+    // If the same date/time appears again with a higher rainfall value,
+    // prefer the newer (non-zero/higher) reading – government data can backfill.
+    const toKey = (item) => `${item.date} ${item.time}`;
+    const mergedMap = new Map(existingData.map(item => [toKey(item), item]));
+
+    let addedCount = 0;
+    let updatedCount = 0;
+    for (const item of processedData) {
+      const key = toKey(item);
+      const existing = mergedMap.get(key);
+      if (!existing) {
+        mergedMap.set(key, item);
+        addedCount++;
+      } else {
+        const existingVal = Number(existing.rainfall_mm) || 0;
+        const incomingVal = Number(item.rainfall_mm) || 0;
+        // Replace if incoming reading is higher (e.g., previously zero → later backfilled)
+        if (incomingVal > existingVal) {
+          console.log(`🔁 Updating ${key}: ${existingVal} → ${incomingVal}`);
+          mergedMap.set(key, item);
+          updatedCount++;
+        }
       }
-      return true;
+    }
+
+    // Convert back to array and sort chronologically for consistency
+    const mergedData = Array.from(mergedMap.values()).sort((a, b) => {
+      const dateA = new Date(`${a.date} ${a.time}`);
+      const dateB = new Date(`${b.date} ${b.time}`);
+      return dateA - dateB;
     });
 
-    const mergedData = [...existingData, ...newData];
-    console.log(`📊 Added ${newData.length} new records`);
+    console.log(`📊 Added ${addedCount} new records, updated ${updatedCount} records`);
     console.log(`📈 Total records: ${mergedData.length}`);
 
     // Create the history object

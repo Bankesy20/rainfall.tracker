@@ -14,7 +14,8 @@
     "dev:full": "concurrently \"netlify dev\" \"npm run scrape\"",
     "dev:netlify": "REACT_APP_USE_API=true netlify dev",
     "dev:simple": "concurrently \"npm run start\" \"npx netlify dev --port 8888 --functions-only\"",
-    "dev:clean": "npm start"
+    "dev:clean": "npm start",
+    "audit": "node scripts/audit-history.js"
   },
   "dependencies": {
     "react": "^18.2.0",

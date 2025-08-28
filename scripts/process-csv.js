@@ -80,15 +80,46 @@ async function processCSVFile(csvPath) {
       };
     }).filter(item => item.date && item.date !== '');
 
+    // Merge with existing processed data and prefer higher readings for the same slot
+    const outputPath = path.join(__dirname, '..', 'data', 'processed', 'rainfall-history.json');
+    let existingData = [];
+    try {
+      const existingFile = await fs.readFile(outputPath, 'utf-8');
+      const existingHistory = JSON.parse(existingFile);
+      existingData = existingHistory.data || [];
+    } catch (_) {}
+
+    const toKey = (item) => `${item.date} ${item.time}`;
+    const mergedMap = new Map(existingData.map(item => [toKey(item), item]));
+
+    for (const item of processedData) {
+      const key = toKey(item);
+      const existing = mergedMap.get(key);
+      if (!existing) {
+        mergedMap.set(key, item);
+      } else {
+        const existingVal = Number(existing.rainfall_mm) || 0;
+        const incomingVal = Number(item.rainfall_mm) || 0;
+        if (incomingVal > existingVal) {
+          mergedMap.set(key, item);
+        }
+      }
+    }
+
+    const mergedData = Array.from(mergedMap.values()).sort((a, b) => {
+      const dateA = new Date(`${a.date} ${a.time}`);
+      const dateB = new Date(`${b.date} ${b.time}`);
+      return dateA - dateB;
+    });
+
     // Create the history object
     const history = {
       lastUpdated: new Date().toISOString(),
       station: "1141",
-      data: processedData
+      data: mergedData
     };
 
     // Save to the processed directory
-    const outputPath = path.join(__dirname, '..', 'data', 'processed', 'rainfall-history.json');
     await fs.writeFile(outputPath, JSON.stringify(history, null, 2));
     
     // Also copy to public directory for development
