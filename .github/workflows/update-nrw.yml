@@ -9,6 +9,10 @@ on:
         description: 'Backfill last N days (run manually)'
         required: false
         default: '30'
+      targetRef:
+        description: 'Branch or tag to run against (e.g. nrw-ci-test)'
+        required: false
+        default: 'main'
 
 jobs:
   scrape:
@@ -19,6 +23,8 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.targetRef || github.ref }}
       - uses: actions/setup-node@v4
         with:
           node-version: 18
