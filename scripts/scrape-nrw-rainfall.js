@@ -126,75 +126,94 @@ class NRWRainfallScraper {
   }
 
   async downloadCSV() {
-    console.log('Looking for CSV download for NRW station...');
+    console.log('Looking for NRW CSV download...');
     
     try {
-      // This would be the actual implementation to find and download CSV from NRW
-      // For now, we'll use the sample data approach
-      
+      // Wait for page to load completely
       await this.page.waitForTimeout(3000);
       
-      // Look for download buttons or links specific to NRW
-      const downloadSelectors = [
-        'button[data-download]',
-        'a[href*=".csv"]',
-        'button:contains("Download")',
-        'a:contains("CSV")',
-        'a:contains("Lawrlwytho")', // Welsh for "Download"
-        '[data-testid*="download"]',
-        '.download-button',
-        'button[aria-label*="download"]'
-      ];
-
-      let downloadButton = null;
+      // Step 1: Click the "Export CSV" button
+      console.log('Looking for Export CSV button...');
+      const exportButton = await this.page.$('a.button--export-data.graph-filters__export-control--csv');
       
-      for (const selector of downloadSelectors) {
-        try {
-          downloadButton = await this.page.$(selector);
-          if (downloadButton) {
-            console.log(`Found download button with selector: ${selector}`);
-            break;
-          }
-        } catch (e) {
-          // Continue to next selector
-        }
+      if (!exportButton) {
+        throw new Error('Could not find Export CSV button on NRW page');
+      }
+      
+      console.log('Found Export CSV button, clicking...');
+      await exportButton.click();
+      
+      // Wait for the modal to appear
+      await this.page.waitForTimeout(2000);
+      
+      // Step 2: Handle the export modal
+      console.log('Looking for export modal...');
+      const exportModal = await this.page.$('.export-data-modal.modal--visible');
+      
+      if (!exportModal) {
+        throw new Error('Export modal did not appear');
+      }
+      
+      console.log('Export modal found, setting up date range...');
+      
+      // Set the date range for the last 4 days (standard unit as mentioned)
+      const endDate = dayjs().subtract(1, 'day'); // Yesterday (since today might not have complete data)
+      const startDate = endDate.subtract(3, 'days'); // 4 days total
+      
+      // Fill in the date inputs
+      const fromInput = await this.page.$('.export-data-modal__from');
+      const toInput = await this.page.$('.export-data-modal__to');
+      
+      if (fromInput && toInput) {
+        await fromInput.click({ clickCount: 3 }); // Select all text
+        await fromInput.type(startDate.format('DD/MM/YY'));
+        
+        await toInput.click({ clickCount: 3 }); // Select all text
+        await toInput.type(endDate.format('DD/MM/YY'));
+        
+        console.log(`Set date range: ${startDate.format('DD/MM/YY')} to ${endDate.format('DD/MM/YY')}`);
+      }
+      
+      // Set up download handling
+      const client = await this.page.target().createCDPSession();
+      await client.send('Page.setDownloadBehavior', {
+        behavior: 'allow',
+        downloadPath: RAW_DIR
+      });
+      
+      // Step 3: Click the "Export data as CSV" button in the modal
+      console.log('Clicking Export data as CSV button...');
+      const submitButton = await this.page.$('button.export-data-modal__button[type="submit"]');
+      
+      if (!submitButton) {
+        throw new Error('Could not find Export data as CSV button in modal');
+      }
+      
+      await submitButton.click();
+      console.log('Clicked Export data as CSV button');
+      
+      // Wait for download to complete
+      await this.page.waitForTimeout(8000);
+      
+      // Look for the downloaded file
+      const files = await fs.readdir(RAW_DIR);
+      const csvFiles = files.filter(file => file.endsWith('.csv'));
+      
+      if (csvFiles.length === 0) {
+        throw new Error('No CSV file was downloaded from NRW site');
       }
 
-      if (downloadButton) {
-        // Set up download handling
-        const client = await this.page.target().createCDPSession();
-        await client.send('Page.setDownloadBehavior', {
-          behavior: 'allow',
-          downloadPath: RAW_DIR
-        });
+      // Find the most recently downloaded file
+      const csvFile = csvFiles.sort().pop();
+      const today = dayjs().format('YYYY-MM-DD');
+      const newFileName = `nrw-${this.stationId}-${today}.csv`;
+      const oldPath = path.join(RAW_DIR, csvFile);
+      const newPath = path.join(RAW_DIR, newFileName);
 
-        // Click the download button
-        await downloadButton.click();
-        console.log('Clicked NRW download button');
+      await fs.rename(oldPath, newPath);
+      console.log(`Downloaded and renamed NRW CSV file to: ${newFileName}`);
 
-        // Wait for download to complete
-        await this.page.waitForTimeout(5000);
-        
-        // Look for the downloaded file
-        const files = await fs.readdir(RAW_DIR);
-        const csvFiles = files.filter(file => file.endsWith('.csv'));
-        
-        if (csvFiles.length > 0) {
-          const downloadedFile = csvFiles[0];
-          const today = dayjs().format('YYYY-MM-DD');
-          const newFileName = `nrw-${this.stationId}-${today}.csv`;
-          const oldPath = path.join(RAW_DIR, downloadedFile);
-          const newPath = path.join(RAW_DIR, newFileName);
-
-          await fs.rename(oldPath, newPath);
-          console.log(`Downloaded and renamed NRW file to: ${newFileName}`);
-
-          return await this.processCSV(newPath);
-        }
-      }
-
-      // No CSV download found
-      throw new Error('No CSV download found for NRW station');
+      return await this.processCSV(newPath);
 
     } catch (error) {
       console.error('Failed to download NRW CSV:', error.message);
