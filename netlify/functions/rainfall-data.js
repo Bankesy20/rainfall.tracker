@@ -19,6 +19,7 @@ exports.handler = async (event, context) => {
 
   const qs = event.queryStringParameters || {};
   const debugMode = qs.debug === '1';
+  const station = qs.station || 'miserden1141'; // Default to Miserden
   const diagnostics = { attempts: [], decided: null };
 
   const tryFetchJson = async (url, timeoutMs = 10000) => {
@@ -54,9 +55,10 @@ exports.handler = async (event, context) => {
 
   try {
     // 1) Remote live sources (prefer live data, no rebuilds)
+    const dataFile = station === 'maenclochog1099' ? 'wales-1099.json' : 'rainfall-history.json';
     const remoteSources = [
-      'https://raw.githubusercontent.com/Bankesy20/rainfall.tracker/main/data/processed/rainfall-history.json',
-      'https://cdn.jsdelivr.net/gh/Bankesy20/rainfall.tracker@main/data/processed/rainfall-history.json'
+      `https://raw.githubusercontent.com/Bankesy20/rainfall.tracker/main/data/processed/${dataFile}`,
+      `https://cdn.jsdelivr.net/gh/Bankesy20/rainfall.tracker@main/data/processed/${dataFile}`
     ];
 
     for (const url of remoteSources) {
@@ -76,15 +78,15 @@ exports.handler = async (event, context) => {
     // 2) Local file fallbacks
     const possiblePaths = [
       path.join(__dirname, 'rainfall-data.json'),
-      path.join(__dirname, 'data', 'processed', 'rainfall-history.json'),
-      path.join(process.cwd(), 'data', 'processed', 'rainfall-history.json'),
-      path.join(process.cwd(), 'public', 'data', 'processed', 'rainfall-history.json'),
-      path.join(process.cwd(), 'build', 'data', 'processed', 'rainfall-history.json'),
-      path.join(process.cwd(), '..', 'data', 'processed', 'rainfall-history.json'),
-      path.join(process.cwd(), '..', 'public', 'data', 'processed', 'rainfall-history.json'),
-      path.join(__dirname, 'rainfall-history.json'),
-      '/var/task/data/processed/rainfall-history.json',
-      '/var/task/rainfall-history.json'
+      path.join(__dirname, 'data', 'processed', dataFile),
+      path.join(process.cwd(), 'data', 'processed', dataFile),
+      path.join(process.cwd(), 'public', 'data', 'processed', dataFile),
+      path.join(process.cwd(), 'build', 'data', 'processed', dataFile),
+      path.join(process.cwd(), '..', 'data', 'processed', dataFile),
+      path.join(process.cwd(), '..', 'public', 'data', 'processed', dataFile),
+      path.join(__dirname, dataFile),
+      `/var/task/data/processed/${dataFile}`,
+      `/var/task/${dataFile}`
     ];
 
     let dataPath = null;

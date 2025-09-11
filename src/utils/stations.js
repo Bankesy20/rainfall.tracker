@@ -15,7 +15,7 @@ const stations = {
     label: 'Maenclochog (1099)',
     source: 'NRW',
     staticPath: '/data/processed/wales-1099.json',
-    apiPath: null
+    apiPath: '/.netlify/functions/rainfall-data?station=maenclochog1099'
   }
 };
 
