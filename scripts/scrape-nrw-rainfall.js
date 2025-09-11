@@ -156,9 +156,15 @@ class NRWRainfallScraper {
       
       console.log('Export modal found, setting up date range...');
       
-      // Set the date range for the last 4 days (standard unit as mentioned)
-      const endDate = dayjs().subtract(1, 'day'); // Yesterday (since today might not have complete data)
-      const startDate = endDate.subtract(3, 'days'); // 4 days total
+      // Calculate date range based on environment variables or default to last 4 days
+      const rangeDays = parseInt(NRW_RANGE_DAYS) || 4;
+      const prevDays = parseInt(NRW_PREV_DAY) || 1;
+      
+      const endDate = dayjs().subtract(prevDays, 'day');
+      const startDate = endDate.subtract(rangeDays - 1, 'days');
+      
+      console.log(`Using date range: ${rangeDays} days ending ${prevDays} day(s) ago`);
+      console.log(`Calculated range: ${startDate.format('YYYY-MM-DD')} to ${endDate.format('YYYY-MM-DD')}`);
       
       // Fill in the date inputs
       const fromInput = await this.page.$('.export-data-modal__from');
@@ -172,6 +178,8 @@ class NRWRainfallScraper {
         await toInput.type(endDate.format('DD/MM/YY'));
         
         console.log(`Set date range: ${startDate.format('DD/MM/YY')} to ${endDate.format('DD/MM/YY')}`);
+      } else {
+        console.log('Warning: Could not find date input fields, using default range');
       }
       
       // Set up download handling
