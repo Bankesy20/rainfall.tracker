@@ -6,7 +6,7 @@ const dayjs = require('dayjs');
 
 // Configuration for NRW Station 1099
 const STATION_ID = '1099';
-const STATION_URL = 'https://rlg.wales.gov.uk/river-and-rainfall'; // Need to find the actual URL
+const STATION_URL = 'https://rivers-and-seas.naturalresources.wales/station/1099';
 const DATA_DIR = path.join(__dirname, '..', 'data');
 const RAW_DIR = path.join(DATA_DIR, 'raw');
 const PROCESSED_DIR = path.join(DATA_DIR, 'processed');
