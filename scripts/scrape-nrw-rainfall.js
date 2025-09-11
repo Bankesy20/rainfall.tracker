@@ -76,6 +76,14 @@ class NRWRainfallScraper {
       await this.page.waitForSelector('body', { timeout: 10000 });
       console.log('Successfully loaded NRW station page');
       
+      // Log the actual URL after navigation (in case of redirects)
+      const actualUrl = this.page.url();
+      console.log(`Actual URL after navigation: ${actualUrl}`);
+      
+      // Log page title to verify we're on the right page
+      const pageTitle = await this.page.title();
+      console.log(`Page title: ${pageTitle}`);
+      
     } catch (error) {
       console.error('Failed to navigate to NRW station page:', error.message);
       throw error;
@@ -220,6 +228,13 @@ class NRWRainfallScraper {
         throw new Error('NRW CSV file is empty or invalid');
       }
 
+      // Log first few lines of raw CSV for debugging
+      console.log('=== RAW CSV CONTENT (first 10 lines) ===');
+      lines.slice(0, 10).forEach((line, index) => {
+        console.log(`Line ${index + 1}: ${line}`);
+      });
+      console.log('=== END RAW CSV CONTENT ===');
+
       // Parse CSV header
       const headers = lines[0].split(',').map(h => h.trim().replace(/"/g, ''));
       console.log('NRW CSV headers:', headers);
@@ -238,6 +253,13 @@ class NRWRainfallScraper {
       }
 
       console.log(`Parsed ${data.length} NRW data rows`);
+      
+      // Log first few parsed rows for debugging
+      console.log('=== PARSED DATA (first 5 rows) ===');
+      data.slice(0, 5).forEach((row, index) => {
+        console.log(`Row ${index + 1}:`, JSON.stringify(row, null, 2));
+      });
+      console.log('=== END PARSED DATA ===');
 
       // Convert to our standard format
       const processedData = data.map(row => {
@@ -297,6 +319,13 @@ class NRWRainfallScraper {
         return dateA - dateB;
       });
 
+      // Log final processed data for debugging
+      console.log('=== FINAL PROCESSED DATA (first 5 records) ===');
+      processedData.slice(0, 5).forEach((record, index) => {
+        console.log(`Record ${index + 1}:`, JSON.stringify(record, null, 2));
+      });
+      console.log('=== END FINAL PROCESSED DATA ===');
+
       return processedData;
 
     } catch (error) {
@@ -328,6 +357,11 @@ class NRWRainfallScraper {
 
       // Add new data
       if (newData && newData.length > 0) {
+        console.log(`=== ADDING NEW DATA TO HISTORY ===`);
+        console.log(`New data count: ${newData.length}`);
+        console.log(`First 3 new records:`, JSON.stringify(newData.slice(0, 3), null, 2));
+        console.log(`=== END NEW DATA ===`);
+        
         history.data = [...history.data, ...newData];
         history.lastUpdated = new Date().toISOString();
         
@@ -351,6 +385,11 @@ class NRWRainfallScraper {
           const dateB = new Date(`${b.date} ${b.time}`);
           return dateA - dateB;
         });
+        
+        console.log(`=== FINAL HISTORY DATA (last 3 records) ===`);
+        console.log(`Total records in history: ${history.data.length}`);
+        console.log(`Last 3 records:`, JSON.stringify(history.data.slice(-3), null, 2));
+        console.log(`=== END FINAL HISTORY DATA ===`);
       }
 
       // Save to processed directory
