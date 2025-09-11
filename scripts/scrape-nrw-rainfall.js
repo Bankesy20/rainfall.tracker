@@ -85,10 +85,7 @@ class NRWRainfallScraper {
       
     } catch (error) {
       console.error('Failed to navigate to NRW station page:', error.message);
-      console.log('Note: This might be expected if the exact NRW URL is not yet configured');
-      
-      // For now, create sample data
-      return this.createSampleData();
+      throw error;
     }
   }
 
@@ -196,14 +193,12 @@ class NRWRainfallScraper {
         }
       }
 
-      // Fallback to sample data if download fails
-      console.log('No CSV download found, using sample data for NRW station');
-      return await this.createSampleData();
+      // No CSV download found
+      throw new Error('No CSV download found for NRW station');
 
     } catch (error) {
       console.error('Failed to download NRW CSV:', error.message);
-      console.log('Falling back to sample data generation...');
-      return await this.createSampleData();
+      throw error;
     }
   }
 
@@ -282,8 +277,7 @@ class NRWRainfallScraper {
 
     } catch (error) {
       console.error('Failed to process NRW CSV:', error.message);
-      console.log('Falling back to sample data generation...');
-      return await this.createSampleData();
+      throw error;
     }
   }
 
@@ -386,15 +380,8 @@ class NRWRainfallScraper {
         newData = await this.downloadCSV();
       } catch (error) {
         console.log('Browser-based scraping failed:', error.message);
-        
-        // Only generate sample data if we don't have recent data
-        if (!hasRecentData) {
-          console.log('No recent data available, generating sample data...');
-          newData = await this.createSampleData();
-        } else {
-          console.log('Recent data exists, skipping sample data generation');
-          newData = [];
-        }
+        console.log('No sample data will be generated - keeping existing data unchanged');
+        newData = [];
       }
       
       if (newData && newData.length > 0) {
