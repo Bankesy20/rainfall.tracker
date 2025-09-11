@@ -136,6 +136,20 @@ class NRWRainfallScraper {
         throw new Error('Could not find download button on NRW page');
       }
 
+      // Debug the button element
+      const buttonInfo = await this.page.evaluate((element) => {
+        return {
+          tagName: element.tagName,
+          className: element.className,
+          textContent: element.textContent,
+          disabled: element.disabled,
+          visible: element.offsetParent !== null,
+          clickable: element.offsetWidth > 0 && element.offsetHeight > 0
+        };
+      }, downloadButton);
+      
+      console.log('Button info:', buttonInfo);
+
       // Set up download handling
       const client = await this.page.target().createCDPSession();
       await client.send('Page.setDownloadBehavior', {
@@ -143,9 +157,28 @@ class NRWRainfallScraper {
         downloadPath: RAW_DIR
       });
 
-      // Click the download button
-      await downloadButton.click();
-      console.log('Clicked NRW download button');
+      // Try different methods to click the button
+      try {
+        // Method 1: Regular click
+        await downloadButton.click();
+        console.log('Clicked NRW download button');
+      } catch (error) {
+        console.log('Regular click failed, trying alternative methods...');
+        
+        try {
+          // Method 2: Force click
+          await downloadButton.click({ force: true });
+          console.log('Force clicked NRW download button');
+        } catch (error2) {
+          console.log('Force click failed, trying JavaScript click...');
+          
+          // Method 3: JavaScript click
+          await this.page.evaluate((element) => {
+            element.click();
+          }, downloadButton);
+          console.log('JavaScript clicked NRW download button');
+        }
+      }
       
       // Wait for download to complete
       await this.page.waitForTimeout(8000);
