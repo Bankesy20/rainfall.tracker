@@ -5,7 +5,6 @@ const path = require('path');
 const dayjs = require('dayjs');
 
 // Configuration for NRW Station 1099
-const STATION_ID = '1099';
 const STATION_URL = 'https://rivers-and-seas.naturalresources.wales/station/1099';
 const DATA_DIR = path.join(__dirname, '..', 'data');
 const RAW_DIR = path.join(DATA_DIR, 'raw');
@@ -15,18 +14,17 @@ const PUBLIC_DATA_DIR = path.join(__dirname, '..', 'public', 'data', 'processed'
 const PUBLIC_HISTORY_FILE = path.join(PUBLIC_DATA_DIR, 'wales-1099.json');
 
 // Environment variables for date range control
-const NRW_RANGE_DAYS = process.env.NRW_RANGE_DAYS || '7'; // Default to 7 days
+const NRW_RANGE_DAYS = process.env.NRW_RANGE_DAYS || '4'; // Default to 4 days
 const NRW_PREV_DAY = process.env.NRW_PREV_DAY || '1'; // Default to 1 day
 
 class NRWRainfallScraper {
   constructor() {
     this.browser = null;
     this.page = null;
-    this.stationId = STATION_ID;
   }
 
   async init() {
-    console.log('Initializing browser for NRW station', this.stationId);
+    console.log('Initializing browser for NRW station...');
     
     // Configure Chromium for serverless environment
     let executablePath;
@@ -66,20 +64,15 @@ class NRWRainfallScraper {
   }
 
   async navigateToStation() {
-    console.log(`Navigating to NRW station ${this.stationId}`);
+    console.log(`Navigating to: ${STATION_URL}`);
     
     try {
-      // For now, we'll use a placeholder URL - this needs to be updated with the actual NRW portal URL
-      // Common NRW data portals include:
-      // - https://rlg.wales/
-      // - Natural Resources Wales data portal
-      const testUrl = STATION_URL;
-      
-      await this.page.goto(testUrl, { 
+      await this.page.goto(STATION_URL, { 
         waitUntil: 'networkidle2',
         timeout: 30000 
       });
       
+      // Wait for the page to load completely
       await this.page.waitForSelector('body', { timeout: 10000 });
       console.log('Successfully loaded NRW station page');
       
@@ -87,42 +80,6 @@ class NRWRainfallScraper {
       console.error('Failed to navigate to NRW station page:', error.message);
       throw error;
     }
-  }
-
-  async createSampleData() {
-    console.log('Creating sample data for NRW station 1099...');
-    
-    const now = dayjs();
-    const daysToGenerate = parseInt(NRW_RANGE_DAYS) || 1;
-    
-    const sampleData = [];
-    
-    for (let d = 0; d < daysToGenerate; d++) {
-      const date = now.subtract(d, 'day');
-      
-      // Generate 15-minute intervals for 24 hours
-      for (let h = 0; h < 24; h++) {
-        for (let m = 0; m < 60; m += 15) {
-          const time = `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}`;
-          
-          // Generate realistic rainfall data (mostly 0, occasional rainfall)
-          const rainfall_mm = Math.random() < 0.1 ? Math.round(Math.random() * 5 * 100) / 100 : 0;
-          
-          sampleData.push({
-            date: date.format('YYYY-MM-DD'),
-            time: time,
-            rainfall_mm: rainfall_mm,
-            total_mm: rainfall_mm // For now, same as rainfall_mm
-          });
-        }
-      }
-    }
-    
-    return sampleData.sort((a, b) => {
-      const dateA = new Date(`${a.date} ${a.time}`);
-      const dateB = new Date(`${b.date} ${b.time}`);
-      return dateA - dateB;
-    });
   }
 
   async downloadCSV() {
@@ -156,7 +113,7 @@ class NRWRainfallScraper {
       
       console.log('Export modal found, setting up date range...');
       
-      // Calculate date range based on environment variables or default to last 4 days
+      // Calculate date range based on environment variables
       const rangeDays = parseInt(NRW_RANGE_DAYS) || 4;
       const prevDays = parseInt(NRW_PREV_DAY) || 1;
       
@@ -214,14 +171,14 @@ class NRWRainfallScraper {
       // Find the most recently downloaded file
       const csvFile = csvFiles.sort().pop();
       const today = dayjs().format('YYYY-MM-DD');
-      const newFileName = `nrw-${this.stationId}-${today}.csv`;
+      const newFileName = `rainfall-${today}.csv`;
       const oldPath = path.join(RAW_DIR, csvFile);
       const newPath = path.join(RAW_DIR, newFileName);
 
       await fs.rename(oldPath, newPath);
       console.log(`Downloaded and renamed NRW CSV file to: ${newFileName}`);
 
-      return await this.processCSV(newPath);
+      return newPath;
 
     } catch (error) {
       console.error('Failed to download NRW CSV:', error.message);
@@ -279,17 +236,27 @@ class NRWRainfallScraper {
             } else if (dateTime.includes(' ')) {
               // Space separated
               const parts = dateTime.split(' ');
-              date = parts[0];
-              time = parts[1];
+              if (parts.length >= 2) {
+                const dt = dayjs(`${parts[0]} ${parts[1]}`);
+                date = dt.format('YYYY-MM-DD');
+                time = dt.format('HH:mm');
+              }
             } else {
-              // Assume it's just a date
-              date = dateTime;
+              // Try to parse as date
+              const dt = dayjs(dateTime);
+              if (dt.isValid()) {
+                date = dt.format('YYYY-MM-DD');
+                time = dt.format('HH:mm');
+              }
             }
-          } else if (lowerKey.includes('rainfall') || lowerKey.includes('precipitation') || lowerKey.includes('glaw')) {
+          } else if (lowerKey.includes('rainfall') || lowerKey.includes('glaw') || lowerKey.includes('value') || lowerKey.includes('gwerth')) {
             rainfall_mm = parseFloat(value) || 0;
-          } else if (lowerKey.includes('total') || lowerKey.includes('cyfanswm')) {
-            total_mm = parseFloat(value) || 0;
           }
+        }
+
+        // Calculate total if not provided
+        if (total_mm === 0) {
+          total_mm = rainfall_mm;
         }
 
         return {
@@ -300,6 +267,13 @@ class NRWRainfallScraper {
         };
       }).filter(item => item.date && item.date !== '');
 
+      // Sort by date and time
+      processedData.sort((a, b) => {
+        const dateA = new Date(`${a.date} ${a.time}`);
+        const dateB = new Date(`${b.date} ${b.time}`);
+        return dateA - dateB;
+      });
+
       return processedData;
 
     } catch (error) {
@@ -309,58 +283,64 @@ class NRWRainfallScraper {
   }
 
   async updateHistory(newData) {
-    console.log(`Updating NRW station ${this.stationId} history...`);
+    console.log(`Updating NRW station history...`);
     
     try {
-      let history = {
-        lastUpdated: new Date().toISOString(),
-        station: `wales-${this.stationId}`,
-        data: []
-      };
-
-      // Load existing history if it exists
+      // Load existing history
+      let history = { data: [] };
       try {
-        const existingHistory = await fs.readFile(HISTORY_FILE, 'utf-8');
-        history = JSON.parse(existingHistory);
+        const existingContent = await fs.readFile(HISTORY_FILE, 'utf-8');
+        history = JSON.parse(existingContent);
       } catch (error) {
-        console.log('No existing NRW history file found, creating new one');
+        console.log('No existing history found, creating new one');
+        history = {
+          lastUpdated: new Date().toISOString(),
+          station: 'wales-1099',
+          nameEN: 'Maenclochog',
+          nameCY: 'Maenclochog',
+          source: 'NRW',
+          data: []
+        };
       }
 
-      // Add new data, avoiding duplicates
-      const existingDates = new Set(history.data.map(item => `${item.date}_${item.time}`));
-      
-      let newRecordsCount = 0;
-      for (const item of newData) {
-        const key = `${item.date}_${item.time}`;
-        if (!existingDates.has(key)) {
-          history.data.push(item);
-          existingDates.add(key);
-          newRecordsCount++;
+      // Add new data
+      if (newData && newData.length > 0) {
+        history.data = [...history.data, ...newData];
+        history.lastUpdated = new Date().toISOString();
+        
+        // Remove duplicates based on date and time
+        const uniqueData = [];
+        const seen = new Set();
+        
+        for (const item of history.data) {
+          const key = `${item.date}_${item.time}`;
+          if (!seen.has(key)) {
+            seen.add(key);
+            uniqueData.push(item);
+          }
         }
+        
+        history.data = uniqueData;
+        
+        // Sort by date and time
+        history.data.sort((a, b) => {
+          const dateA = new Date(`${a.date} ${a.time}`);
+          const dateB = new Date(`${b.date} ${b.time}`);
+          return dateA - dateB;
+        });
       }
 
-      // If no new data was added and we're using sample data, don't update the file
-      if (newRecordsCount === 0 && newData.length > 0) {
-        console.log('No new data to add, keeping existing data unchanged');
-        return;
-      }
-
-      // Sort by date and time
-      history.data.sort((a, b) => {
-        const dateA = new Date(`${a.date} ${a.time}`);
-        const dateB = new Date(`${b.date} ${b.time}`);
-        return dateA - dateB;
-      });
-
-      // Update last updated timestamp
-      history.lastUpdated = new Date().toISOString();
-
-      // Save updated history to both locations
+      // Save to processed directory
       await fs.writeFile(HISTORY_FILE, JSON.stringify(history, null, 2));
-      await fs.writeFile(PUBLIC_HISTORY_FILE, JSON.stringify(history, null, 2));
-      
-      console.log(`Updated NRW history with ${newRecordsCount} new records. Total records: ${history.data.length}`);
-      console.log('Saved to both data/processed/ and public/data/processed/');
+      console.log(`Updated NRW history with ${newData ? newData.length : 0} new records`);
+
+      // Also save to public directory for development
+      try {
+        await fs.writeFile(PUBLIC_HISTORY_FILE, JSON.stringify(history, null, 2));
+        console.log('Copied NRW data to public directory for development server');
+      } catch (error) {
+        console.log('Could not copy to public directory (this is normal in production):', error.message);
+      }
 
     } catch (error) {
       console.error('Failed to update NRW history:', error.message);
@@ -377,41 +357,18 @@ class NRWRainfallScraper {
 
   async run() {
     try {
-      console.log(`Starting NRW rainfall data scraping for station ${this.stationId}...`);
+      console.log('Starting NRW rainfall data scraping for station 1099...');
       console.log(`Current time: ${new Date().toISOString()}`);
       console.log(`Range days: ${NRW_RANGE_DAYS}, Previous day: ${NRW_PREV_DAY}`);
 
       await this.ensureDirectories();
+      await this.init();
+      await this.navigateToStation();
       
-      // Check if we already have recent data (within last 2 days)
-      let hasRecentData = false;
-      try {
-        const existingHistory = await fs.readFile(HISTORY_FILE, 'utf-8');
-        const history = JSON.parse(existingHistory);
-        if (history.data && history.data.length > 0) {
-          const lastDataDate = history.data[history.data.length - 1].date;
-          const daysSinceLastData = dayjs().diff(dayjs(lastDataDate), 'day');
-          hasRecentData = daysSinceLastData <= 2;
-          console.log(`Last data date: ${lastDataDate}, days since: ${daysSinceLastData}`);
-        }
-      } catch (error) {
-        console.log('No existing data found');
-      }
+      const csvPath = await this.downloadCSV();
+      const newData = await this.processCSV(csvPath);
       
-      let newData;
-      
-      // Try browser-based scraping first
-      try {
-        await this.init();
-        await this.navigateToStation();
-        newData = await this.downloadCSV();
-      } catch (error) {
-        console.log('Browser-based scraping failed:', error.message);
-        console.log('No sample data will be generated - keeping existing data unchanged');
-        newData = [];
-      }
-      
-      if (newData && newData.length > 0) {
+      if (newData.length > 0) {
         await this.updateHistory(newData);
         console.log(`Successfully processed ${newData.length} NRW rainfall records`);
       } else {
