@@ -318,6 +318,12 @@ class NRWRainfallScraper {
         }
       }
 
+      // If no new data was added and we're using sample data, don't update the file
+      if (newRecordsCount === 0 && newData.length > 0) {
+        console.log('No new data to add, keeping existing data unchanged');
+        return;
+      }
+
       // Sort by date and time
       history.data.sort((a, b) => {
         const dateA = new Date(`${a.date} ${a.time}`);
@@ -356,16 +362,39 @@ class NRWRainfallScraper {
 
       await this.ensureDirectories();
       
+      // Check if we already have recent data (within last 2 days)
+      let hasRecentData = false;
+      try {
+        const existingHistory = await fs.readFile(HISTORY_FILE, 'utf-8');
+        const history = JSON.parse(existingHistory);
+        if (history.data && history.data.length > 0) {
+          const lastDataDate = history.data[history.data.length - 1].date;
+          const daysSinceLastData = dayjs().diff(dayjs(lastDataDate), 'day');
+          hasRecentData = daysSinceLastData <= 2;
+          console.log(`Last data date: ${lastDataDate}, days since: ${daysSinceLastData}`);
+        }
+      } catch (error) {
+        console.log('No existing data found');
+      }
+      
       let newData;
       
-      // Try browser-based scraping first, fall back to sample data if it fails
+      // Try browser-based scraping first
       try {
         await this.init();
         await this.navigateToStation();
         newData = await this.downloadCSV();
       } catch (error) {
-        console.log('Browser-based scraping failed, using sample data:', error.message);
-        newData = await this.createSampleData();
+        console.log('Browser-based scraping failed:', error.message);
+        
+        // Only generate sample data if we don't have recent data
+        if (!hasRecentData) {
+          console.log('No recent data available, generating sample data...');
+          newData = await this.createSampleData();
+        } else {
+          console.log('Recent data exists, skipping sample data generation');
+          newData = [];
+        }
       }
       
       if (newData && newData.length > 0) {
