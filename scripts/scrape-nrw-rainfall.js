@@ -97,6 +97,39 @@ class NRWRainfallScraper {
       // Wait for page to load completely
       await this.page.waitForTimeout(3000);
       
+      // Try to set date range to current dates
+      console.log('Attempting to set date range to current dates...');
+      try {
+        // Look for date input fields
+        const dateInputs = await this.page.$$('input[type="date"], input[type="datetime-local"]');
+        console.log(`Found ${dateInputs.length} date input fields`);
+        
+        if (dateInputs.length >= 2) {
+          // Set start date to 7 days ago
+          const startDate = dayjs().subtract(7, 'days').format('YYYY-MM-DD');
+          const endDate = dayjs().format('YYYY-MM-DD');
+          
+          console.log(`Setting date range: ${startDate} to ${endDate}`);
+          
+          // Try to set the start date
+          await dateInputs[0].click();
+          await dateInputs[0].type(startDate);
+          
+          // Try to set the end date
+          await dateInputs[1].click();
+          await dateInputs[1].type(endDate);
+          
+          // Wait a bit for the page to update
+          await this.page.waitForTimeout(2000);
+          
+          console.log('Date range set successfully');
+        } else {
+          console.log('No date input fields found, proceeding with default data');
+        }
+      } catch (dateError) {
+        console.log('Could not set date range, proceeding with default data:', dateError.message);
+      }
+      
       // Look for download buttons or links (same approach as Miserden scraper)
       const downloadSelectors = [
         'a.button--export-data.graph-filters__export-control--csv',
@@ -234,6 +267,16 @@ class NRWRainfallScraper {
         console.log(`Line ${index + 1}: ${line}`);
       });
       console.log('=== END RAW CSV CONTENT ===');
+      
+      // Log the date range of the data
+      if (lines.length > 1) {
+        const firstDataLine = lines[1];
+        const lastDataLine = lines[lines.length - 1];
+        console.log(`=== DATA DATE RANGE ===`);
+        console.log(`First data: ${firstDataLine}`);
+        console.log(`Last data: ${lastDataLine}`);
+        console.log(`=== END DATA DATE RANGE ===`);
+      }
 
       // Parse CSV header
       const headers = lines[0].split(',').map(h => h.trim().replace(/"/g, ''));
