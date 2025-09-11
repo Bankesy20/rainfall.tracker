@@ -1,0 +1,41 @@
+name: Update NRW Station (1099)
+
+on:
+  schedule:
+    - cron: '0 * * * *' # every hour
+  workflow_dispatch:
+    inputs:
+      backfillDays:
+        description: 'Backfill last N days (run manually)'
+        required: false
+        default: '30'
+
+jobs:
+  scrape:
+    # Allow schedule only on main; manual runs allowed on any branch
+    if: github.event_name != 'schedule' || github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - run: npm ci
+      - name: Run NRW scraper (daily or backfill)
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ -n "${{ github.event.inputs.backfillDays }}" ]; then
+            NRW_RANGE_DAYS="${{ github.event.inputs.backfillDays }}" node scripts/scrape-nrw-rainfall.js
+          else
+            NRW_PREV_DAY='1' node scripts/scrape-nrw-rainfall.js
+          fi
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add data/processed/wales-1099.json public/data/processed/wales-1099.json data/raw/*.csv
+          git commit -m "chore(nrw): update station 1099 data [skip ci]" || echo "No changes"
+          git push
+
+

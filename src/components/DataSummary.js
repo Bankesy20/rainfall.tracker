@@ -6,12 +6,14 @@ import {
   formatRainfall
 } from '../utils/dataProcessor';
 
-const DataSummary = ({ data, lastUpdated }) => {
+const DataSummary = ({ data, lastUpdated, compareData = null, labelA = 'A', labelB = 'B' }) => {
   const [timeRange, setTimeRange] = useState(30);
   const stats = calculateStatistics(data, timeRange);
+  const compareStats = compareData ? calculateStatistics(compareData, timeRange) : null;
   const latestReading = getLatestReading(data);
 
   const timeRangeOptions = [
+    { value: 1, label: '1 Day' },
     { value: 7, label: '7 Days' },
     { value: 30, label: '30 Days' },
     { value: 90, label: '90 Days' },
@@ -19,22 +21,37 @@ const DataSummary = ({ data, lastUpdated }) => {
     { value: 'all', label: 'All Time' }
   ];
 
-  const StatCard = ({ title, value, unit, subtitle, color = 'blue' }) => (
-    <div className={`bg-white dark:bg-gray-800 rounded-lg shadow-lg p-4 sm:p-6 border-l-4 border-${color}-500`}>
-      <div className="flex items-center justify-between">
-        <div className="min-w-0 flex-1">
-          <p className="text-sm font-medium text-gray-600 dark:text-gray-400 truncate">{title}</p>
-          <p className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">
-            {value} {unit}
-          </p>
-          {subtitle && (
-            <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mt-1 truncate">{subtitle}</p>
-          )}
+  const StatCard = ({ title, value, unit, subtitle, color = 'blue', valueB, unitB, labelA: labelAOverride, labelB: labelBOverride }) => {
+    const borderClass = `border-${color}-500`;
+    const aLabel = labelAOverride || labelA;
+    const bLabel = labelBOverride || labelB;
+    return (
+      <div className={`bg-white dark:bg-gray-800 rounded-lg shadow-lg p-4 sm:p-6 border-l-4 ${borderClass}`}>
+        <div className="flex items-center justify-between">
+          <div className="min-w-0 flex-1">
+            <p className="text-sm font-medium text-gray-600 dark:text-gray-400 truncate">{title}</p>
+            {valueB === undefined ? (
+              <p className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">
+                {value} {unit}
+              </p>
+            ) : (
+              <div className="mt-1 space-y-1">
+                <p className="text-sm sm:text-base text-gray-700 dark:text-gray-200">
+                  <span className="font-semibold text-blue-600 dark:text-blue-400">{aLabel}:</span> {value} {unit}
+                </p>
+                <p className="text-sm sm:text-base text-gray-700 dark:text-gray-200">
+                  <span className="font-semibold text-emerald-600 dark:text-emerald-400">{bLabel}:</span> {valueB} {unitB || unit}
+                </p>
+              </div>
+            )}
+            {subtitle && (
+              <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mt-1 truncate">{subtitle}</p>
+            )}
+          </div>
         </div>
-
       </div>
-    </div>
-  );
+    );
+  };
 
   const LatestReadingCard = () => {
     if (!latestReading) {
@@ -103,6 +120,7 @@ const DataSummary = ({ data, lastUpdated }) => {
           unit="mm"
           subtitle={`${stats.days_with_rain} days with rain`}
           color="blue"
+          {...(compareStats ? { valueB: formatRainfall(compareStats.total_rainfall), unitB: 'mm' } : {})}
         />
         <StatCard
           title="Average Daily"
@@ -110,6 +128,7 @@ const DataSummary = ({ data, lastUpdated }) => {
           unit="mm"
           subtitle={`Over ${stats.total_days} days`}
           color="green"
+          {...(compareStats ? { valueB: formatRainfall(compareStats.average_daily), unitB: 'mm' } : {})}
         />
         <StatCard
           title="Maximum Daily"
@@ -117,13 +136,15 @@ const DataSummary = ({ data, lastUpdated }) => {
           unit="mm"
           subtitle="Highest single day"
           color="yellow"
+          {...(compareStats ? { valueB: formatRainfall(compareStats.max_daily), unitB: 'mm' } : {})}
         />
         <StatCard
           title="Days with Rain"
           value={stats.days_with_rain}
           unit="days"
-          subtitle={`${((stats.days_with_rain / stats.total_days) * 100).toFixed(1)}% of days`}
+          subtitle={`${((stats.days_with_rain / (stats.total_days || 1)) * 100).toFixed(1)}% of days`}
           color="purple"
+          {...(compareStats ? { valueB: compareStats.days_with_rain, unitB: 'days' } : {})}
         />
       </div>
 

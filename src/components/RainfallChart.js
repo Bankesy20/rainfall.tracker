@@ -16,19 +16,32 @@ import {
 import dayjs from 'dayjs';
 import { getChartData, formatRainfall, getRainfallColor } from '../utils/dataProcessor';
 
-const RainfallChart = ({ data, days = 30, height = 400 }) => {
+const RainfallChart = ({ data, compareData = null, compareLabel = null, primaryLabel = 'Station A', height = 400 }) => {
   const [chartType, setChartType] = useState('bar');
   const [aggregation, setAggregation] = useState('daily');
   const [timeRange, setTimeRange] = useState('30');
 
   const chartData = useMemo(() => {
-    const rangeDays = timeRange === 'all' ? 365 * 10 : parseInt(timeRange); // 10 years for all-time
-    return getChartData(data, rangeDays, aggregation);
-  }, [data, timeRange, aggregation]);
+    const rangeDays = timeRange === 'all' ? 365 * 10 : parseInt(timeRange);
+    const primary = getChartData(data, rangeDays, aggregation);
+    if (!compareData || compareData.length === 0) return primary;
+    const secondary = getChartData(compareData, rangeDays, aggregation);
+    // Align by date key
+    const map = new Map(primary.map(d => [d.date, { ...d, rainfallA: d.rainfall }]));
+    for (const s of secondary) {
+      const existing = map.get(s.date);
+      if (existing) {
+        existing.rainfallB = s.rainfall;
+      } else {
+        map.set(s.date, { date: s.date, rainfallB: s.rainfall });
+      }
+    }
+    return Array.from(map.values()).sort((a, b) => new Date(a.date) - new Date(b.date));
+  }, [data, compareData, timeRange, aggregation]);
 
   const CustomTooltip = ({ active, payload, label }) => {
     if (active && payload && payload.length) {
-      const data = payload[0].payload;
+      const row = payload[0].payload;
       return (
         <div className="bg-white dark:bg-gray-800 p-3 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg">
           <p className="font-semibold text-gray-900 dark:text-white">
@@ -45,17 +58,29 @@ const RainfallChart = ({ data, days = 30, height = 400 }) => {
               : dayjs(label).format('MMM DD, YYYY')
             }
           </p>
-          <p className="text-blue-600 dark:text-blue-400">
-            Rainfall: {formatRainfall(data.rainfall)} mm
-          </p>
+          {row.rainfall !== undefined && (
+            <p className="text-blue-600 dark:text-blue-400">
+              Rainfall: {formatRainfall(row.rainfall)} mm
+            </p>
+          )}
+          {row.rainfallA !== undefined && (
+            <p className="text-blue-600 dark:text-blue-400">
+              A: {formatRainfall(row.rainfallA)} mm
+            </p>
+          )}
+          {row.rainfallB !== undefined && (
+            <p className="text-emerald-600 dark:text-emerald-400">
+              B: {formatRainfall(row.rainfallB)} mm
+            </p>
+          )}
           {aggregation === 'daily' && data.max_hourly !== undefined && (
             <p className="text-gray-600 dark:text-gray-400">
-              Max hourly: {formatRainfall(data.max_hourly)} mm
+              Max hourly: {formatRainfall(row.max_hourly)} mm
             </p>
           )}
           {(aggregation === 'weekly' || aggregation === 'monthly' || aggregation === 'yearly') && data.max_daily !== undefined && (
             <p className="text-gray-600 dark:text-gray-400">
-              Max daily: {formatRainfall(data.max_daily)} mm
+              Max daily: {formatRainfall(row.max_daily)} mm
             </p>
           )}
         </div>
@@ -138,6 +163,7 @@ const RainfallChart = ({ data, days = 30, height = 400 }) => {
               onChange={(e) => setTimeRange(e.target.value)}
               className="px-2 sm:px-3 py-1 border border-gray-300 dark:border-gray-600 rounded-md text-xs sm:text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             >
+              <option value="1">1 day</option>
               <option value="7">7 days</option>
               <option value="30">30 days</option>
               <option value="90">90 days</option>
@@ -184,12 +210,19 @@ const RainfallChart = ({ data, days = 30, height = 400 }) => {
                 tickFormatter={(value) => `${value}mm`}
               />
               <Tooltip content={<CustomTooltip />} />
-              <Bar
-                dataKey="rainfall"
-                name="Rainfall"
-                shape={<CustomBar />}
-                radius={[2, 2, 0, 0]}
-              />
+              {compareData ? (
+                <>
+                  <Bar dataKey="rainfallA" name="Station A" fill="#3b82f6" radius={[2,2,0,0]} />
+                  <Bar dataKey="rainfallB" name={compareLabel || 'Station B'} fill="#10b981" radius={[2,2,0,0]} />
+                </>
+              ) : (
+                <Bar
+                  dataKey="rainfall"
+                  name="Rainfall"
+                  shape={<CustomBar />}
+                  radius={[2, 2, 0, 0]}
+                />
+              )}
             </BarChart>
           ) : chartType === 'line' ? (
             <LineChart data={chartData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
@@ -220,14 +253,21 @@ const RainfallChart = ({ data, days = 30, height = 400 }) => {
                 tickFormatter={(value) => `${value}mm`}
               />
               <Tooltip content={<CustomTooltip />} />
-              <Line
-                type="monotone"
-                dataKey="rainfall"
-                stroke="#3b82f6"
-                strokeWidth={3}
-                dot={{ fill: '#3b82f6', strokeWidth: 2, r: 4 }}
-                activeDot={{ r: 6, stroke: '#1d4ed8', strokeWidth: 2 }}
-              />
+              {compareData ? (
+                <>
+                  <Line type="monotone" dataKey="rainfallA" name="Station A" stroke="#3b82f6" strokeWidth={3} dot={{ fill: '#3b82f6', strokeWidth: 2, r: 3 }} activeDot={{ r: 5, stroke: '#1d4ed8', strokeWidth: 2 }} />
+                  <Line type="monotone" dataKey="rainfallB" name={compareLabel || 'Station B'} stroke="#10b981" strokeWidth={3} dot={{ fill: '#10b981', strokeWidth: 2, r: 3 }} activeDot={{ r: 5, stroke: '#065f46', strokeWidth: 2 }} />
+                </>
+              ) : (
+                <Line
+                  type="monotone"
+                  dataKey="rainfall"
+                  stroke="#3b82f6"
+                  strokeWidth={3}
+                  dot={{ fill: '#3b82f6', strokeWidth: 2, r: 4 }}
+                  activeDot={{ r: 6, stroke: '#1d4ed8', strokeWidth: 2 }}
+                />
+              )}
             </LineChart>
           ) : (
             <AreaChart data={chartData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
@@ -258,18 +298,39 @@ const RainfallChart = ({ data, days = 30, height = 400 }) => {
                 tickFormatter={(value) => `${value}mm`}
               />
               <Tooltip content={<CustomTooltip />} />
-              <Area
-                type="monotone"
-                dataKey="rainfall"
-                stroke="#3b82f6"
-                strokeWidth={2}
-                fill="#3b82f6"
-                fillOpacity={0.3}
-              />
+              {compareData ? (
+                <>
+                  <Area type="monotone" dataKey="rainfallA" name="Station A" stroke="#3b82f6" strokeWidth={2} fill="#3b82f6" fillOpacity={0.25} />
+                  <Area type="monotone" dataKey="rainfallB" name={compareLabel || 'Station B'} stroke="#10b981" strokeWidth={2} fill="#10b981" fillOpacity={0.25} />
+                </>
+              ) : (
+                <Area
+                  type="monotone"
+                  dataKey="rainfall"
+                  stroke="#3b82f6"
+                  strokeWidth={2}
+                  fill="#3b82f6"
+                  fillOpacity={0.3}
+                />
+              )}
             </AreaChart>
           )}
         </ResponsiveContainer>
       </div>
+
+      {/* Station Legend (only in compare mode) */}
+      {compareData && (
+        <div className="mt-3 flex items-center justify-center space-x-6 text-sm">
+          <div className="flex items-center space-x-2">
+            <div className="w-4 h-4 rounded" style={{ backgroundColor: '#3b82f6' }}></div>
+            <span className="text-gray-700 dark:text-gray-300">{primaryLabel || 'Station A'}</span>
+          </div>
+          <div className="flex items-center space-x-2">
+            <div className="w-4 h-4 rounded" style={{ backgroundColor: '#10b981' }}></div>
+            <span className="text-gray-700 dark:text-gray-300">{compareLabel || 'Station B'}</span>
+          </div>
+        </div>
+      )}
 
       {/* Chart Legend */}
       <div className="mt-4 flex items-center justify-center space-x-6 text-sm">

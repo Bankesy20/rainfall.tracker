@@ -4,12 +4,16 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 import RainfallChart from './components/RainfallChart';
 import DataSummary from './components/DataSummary';
 import useRainfallData from './hooks/useRainfallData';
+import stations from './utils/stations';
 
 // Extend dayjs with relative time plugin
 dayjs.extend(relativeTime);
 
 function App() {
-  const { data: rainfallData, loading, error, lastUpdated, refetch, refetchCount, isDevelopment } = useRainfallData();
+  const [primaryStation, setPrimaryStation] = useState('miserden1141');
+  const [compareStation, setCompareStation] = useState('');
+  const { data: rainfallData, loading, error, lastUpdated, refetch, refetchCount, isDevelopment } = useRainfallData(primaryStation);
+  const { data: compareDataResult } = useRainfallData(compareStation || 'invalid_key');
   const [darkMode, setDarkMode] = useState(false);
   const [statsExpanded, setStatsExpanded] = useState(true);
 
@@ -80,12 +84,35 @@ function App() {
                     UK Rainfall Tracker
                   </h1>
                   <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">
-                    Miserden Gauge - Station 1141
+                    {stations[primaryStation]?.label}
                   </p>
                 </div>
             </div>
             
             <div className="flex items-center space-x-2 sm:space-x-4">
+              {/* Station Selectors */}
+              <div className="hidden md:flex items-center space-x-2">
+                <select
+                  value={primaryStation}
+                  onChange={(e) => setPrimaryStation(e.target.value)}
+                  className="px-2 py-1 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-xs"
+                >
+                  {Object.values(stations).map(s => (
+                    <option key={s.key} value={s.key}>{s.label}</option>
+                  ))}
+                </select>
+                <span className="text-gray-400 text-xs">vs</span>
+                <select
+                  value={compareStation}
+                  onChange={(e) => setCompareStation(e.target.value)}
+                  className="px-2 py-1 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-xs"
+                >
+                  <option value="">None</option>
+                  {Object.values(stations).map(s => (
+                    <option key={s.key} value={s.key}>{s.label}</option>
+                  ))}
+                </select>
+              </div>
               {/* Refresh Button */}
               <button
                 onClick={refetch}
@@ -150,6 +177,9 @@ function App() {
                   <DataSummary 
                     data={rainfallData.data} 
                     lastUpdated={rainfallData.lastUpdated}
+                    compareData={compareStation && compareDataResult ? compareDataResult.data : null}
+                    labelA={stations[primaryStation]?.label}
+                    labelB={compareStation ? stations[compareStation]?.label : 'B'}
                   />
                 </div>
               )}
@@ -162,6 +192,9 @@ function App() {
               </h2>
               <RainfallChart 
                 data={rainfallData.data} 
+                compareData={compareStation && compareDataResult ? compareDataResult.data : null}
+                compareLabel={compareStation ? stations[compareStation]?.label : null}
+                primaryLabel={stations[primaryStation]?.label}
                 height={400}
               />
             </section>
@@ -173,7 +206,7 @@ function App() {
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 text-sm text-gray-600 dark:text-gray-400">
                 <div>
-                  <p><strong>Location:</strong> Miserden Gauge (Station {rainfallData.station})</p>
+                  <p><strong>Location:</strong> {stations[primaryStation]?.label} (Station {rainfallData.station})</p>
                   <p><strong>Source:</strong> UK Government Flood Information Service</p>
                   <p><strong>Updated:</strong> {dayjs(lastUpdated || rainfallData.lastUpdated).format('MMM DD, YYYY HH:mm')}</p>
                 </div>

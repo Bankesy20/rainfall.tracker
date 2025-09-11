@@ -1,7 +1,8 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { validateRainfallData } from '../utils/dataProcessor';
+import stations from '../utils/stations';
 
-const useRainfallData = () => {
+const useRainfallData = (stationKey = 'miserden1141') => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -13,19 +14,26 @@ const useRainfallData = () => {
 
   // Determine the API endpoint
   const getApiEndpoint = () => {
+    const station = stations[stationKey];
+    if (!station) return null;
     if (isDevelopment) {
       // In development, use static file fallback to avoid WebSocket issues
       // The API will be available in production
       return null; // This will trigger the static fallback
     }
     // In production, use the deployed function
-    return '/.netlify/functions/rainfall-data';
+    return station.apiPath || '/.netlify/functions/rainfall-data';
   };
 
   // Fallback to static file loading
   const loadStaticData = async () => {
+    const station = stations[stationKey];
+    if (!station) {
+      // No station selected; return null to indicate no data
+      return null;
+    }
     try {
-      const response = await fetch('/data/processed/rainfall-history.json');
+      const response = await fetch(station?.staticPath || '/data/processed/rainfall-history.json');
       if (!response.ok) {
         throw new Error(`Failed to load static data: ${response.status}`);
       }
@@ -47,6 +55,14 @@ const useRainfallData = () => {
     try {
       setLoading(true);
       setError(null);
+
+      // If station unknown, clear data and exit early
+      if (!stations[stationKey]) {
+        setData(null);
+        setLastUpdated(new Date().toISOString());
+        setRefetchCount(prev => prev + 1);
+        return;
+      }
 
       const endpoint = getApiEndpoint();
       
@@ -110,7 +126,7 @@ const useRainfallData = () => {
     } finally {
       setLoading(false);
     }
-  }, [isDevelopment]);
+  }, [isDevelopment, stationKey]);
 
   // Manual refresh function
   const refetch = useCallback(() => {
