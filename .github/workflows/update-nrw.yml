@@ -4,11 +4,6 @@ on:
   schedule:
     - cron: '0 * * * *' # every hour
   workflow_dispatch:
-    inputs:
-      backfillDays:
-        description: 'Backfill last N days (run manually)'
-        required: false
-        default: '30'
 
 jobs:
   scrape:
@@ -23,13 +18,8 @@ jobs:
         with:
           node-version: 18
       - run: npm ci
-      - name: Run NRW scraper (daily or backfill)
-        run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ -n "${{ github.event.inputs.backfillDays }}" ]; then
-            NRW_RANGE_DAYS="${{ github.event.inputs.backfillDays }}" node scripts/scrape-nrw-rainfall.js
-          else
-            NRW_PREV_DAY='1' node scripts/scrape-nrw-rainfall.js
-          fi
+      - name: Run NRW scraper
+        run: node scripts/scrape-nrw-rainfall.js
       - name: Commit and push
         run: |
           git config user.name "github-actions"

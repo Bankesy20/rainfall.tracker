@@ -89,73 +89,63 @@ class NRWRainfallScraper {
       // Wait for page to load completely
       await this.page.waitForTimeout(3000);
       
-      // Step 1: Click the "Export CSV" button
-      console.log('Looking for Export CSV button...');
-      const exportButton = await this.page.$('a.button--export-data.graph-filters__export-control--csv');
+      // Look for download buttons or links (same approach as Miserden scraper)
+      const downloadSelectors = [
+        'a.button--export-data.graph-filters__export-control--csv',
+        'button[data-download]',
+        'a[href*=".csv"]',
+        'button:contains("Download")',
+        'a:contains("CSV")',
+        'a:contains("Export")',
+        '[data-testid*="download"]',
+        '.download-button',
+        'button[aria-label*="download"]'
+      ];
+
+      let downloadButton = null;
       
-      if (!exportButton) {
-        throw new Error('Could not find Export CSV button on NRW page');
+      for (const selector of downloadSelectors) {
+        try {
+          downloadButton = await this.page.$(selector);
+          if (downloadButton) {
+            console.log(`Found download button with selector: ${selector}`);
+            break;
+          }
+        } catch (e) {
+          // Continue to next selector
+        }
       }
-      
-      console.log('Found Export CSV button, clicking...');
-      await exportButton.click();
-      
-      // Wait for the modal to appear
-      await this.page.waitForTimeout(2000);
-      
-      // Step 2: Handle the export modal
-      console.log('Looking for export modal...');
-      const exportModal = await this.page.$('.export-data-modal.modal--visible');
-      
-      if (!exportModal) {
-        throw new Error('Export modal did not appear');
-      }
-      
-      console.log('Export modal found, setting up date range...');
-      
-      // Calculate date range based on environment variables
-      const rangeDays = parseInt(NRW_RANGE_DAYS) || 4;
-      const prevDays = parseInt(NRW_PREV_DAY) || 1;
-      
-      const endDate = dayjs().subtract(prevDays, 'day');
-      const startDate = endDate.subtract(rangeDays - 1, 'days');
-      
-      console.log(`Using date range: ${rangeDays} days ending ${prevDays} day(s) ago`);
-      console.log(`Calculated range: ${startDate.format('YYYY-MM-DD')} to ${endDate.format('YYYY-MM-DD')}`);
-      
-      // Fill in the date inputs
-      const fromInput = await this.page.$('.export-data-modal__from');
-      const toInput = await this.page.$('.export-data-modal__to');
-      
-      if (fromInput && toInput) {
-        await fromInput.click({ clickCount: 3 }); // Select all text
-        await fromInput.type(startDate.format('DD/MM/YY'));
+
+      if (!downloadButton) {
+        // Try to find any button that might be for downloading
+        const buttons = await this.page.$$('button, a');
+        console.log(`Found ${buttons.length} buttons/links on page`);
         
-        await toInput.click({ clickCount: 3 }); // Select all text
-        await toInput.type(endDate.format('DD/MM/YY'));
-        
-        console.log(`Set date range: ${startDate.format('DD/MM/YY')} to ${endDate.format('DD/MM/YY')}`);
-      } else {
-        console.log('Warning: Could not find date input fields, using default range');
+        // Look for buttons with download-related text
+        for (let i = 0; i < buttons.length; i++) {
+          const text = await this.page.evaluate(el => el.textContent?.toLowerCase(), buttons[i]);
+          if (text && (text.includes('download') || text.includes('csv') || text.includes('export'))) {
+            downloadButton = buttons[i];
+            console.log(`Found download button with text: ${text}`);
+            break;
+          }
+        }
       }
-      
+
+      if (!downloadButton) {
+        throw new Error('Could not find download button on NRW page');
+      }
+
       // Set up download handling
       const client = await this.page.target().createCDPSession();
       await client.send('Page.setDownloadBehavior', {
         behavior: 'allow',
         downloadPath: RAW_DIR
       });
-      
-      // Step 3: Click the "Export data as CSV" button in the modal
-      console.log('Clicking Export data as CSV button...');
-      const submitButton = await this.page.$('button.export-data-modal__button[type="submit"]');
-      
-      if (!submitButton) {
-        throw new Error('Could not find Export data as CSV button in modal');
-      }
-      
-      await submitButton.click();
-      console.log('Clicked Export data as CSV button');
+
+      // Click the download button
+      await downloadButton.click();
+      console.log('Clicked NRW download button');
       
       // Wait for download to complete
       await this.page.waitForTimeout(8000);
@@ -359,7 +349,6 @@ class NRWRainfallScraper {
     try {
       console.log('Starting NRW rainfall data scraping for station 1099...');
       console.log(`Current time: ${new Date().toISOString()}`);
-      console.log(`Range days: ${NRW_RANGE_DAYS}, Previous day: ${NRW_PREV_DAY}`);
 
       await this.ensureDirectories();
       await this.init();
