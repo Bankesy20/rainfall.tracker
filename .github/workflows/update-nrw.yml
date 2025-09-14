@@ -18,10 +18,11 @@ jobs:
         with:
           node-version: 18
       - run: npm ci
-      - name: Run NRW downloader (last 4 days)
-        env:
-          NRW_DAYS: "4"
-        run: node scripts/download-nrw.js
+      - name: Run NRW downloader (last 4 days, include today)
+        run: |
+          export NRW_DAYS=4
+          export NRW_TO=$(date -u -d 'tomorrow' +%Y-%m-%d)
+          node scripts/download-nrw.js
       - name: Commit and push
         run: |
           git config user.name "github-actions"
