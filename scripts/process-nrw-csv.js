@@ -85,18 +85,48 @@ async function main() {
       }
     }
 
-    const merged = Array.from(mergedMap.values()).sort((a, b) => {
+    let merged = Array.from(mergedMap.values()).sort((a, b) => {
       const aDt = new Date(`${a.date} ${a.time}`);
       const bDt = new Date(`${b.date} ${b.time}`);
       return aDt - bDt;
     });
 
+    // Attempt to merge with existing history to preserve full timeline
+    const outPath = path.join(processedDir, outputFileName);
+    let existing = null;
+    try {
+      const existingRaw = await fs.readFile(outPath, 'utf8');
+      existing = JSON.parse(existingRaw);
+    } catch (_) {
+      existing = null;
+    }
+
+    if (existing && Array.isArray(existing.data)) {
+      const existingMap = new Map(existing.data.map(r => [`${r.date} ${r.time}`, r]));
+      for (const r of merged) {
+        const key = `${r.date} ${r.time}`;
+        const prev = existingMap.get(key);
+        if (!prev) {
+          existingMap.set(key, r);
+        } else {
+          const incoming = Number(r.rainfall_mm) || 0;
+          const current = Number(prev.rainfall_mm) || 0;
+          if (incoming > current) existingMap.set(key, r);
+        }
+      }
+      merged = Array.from(existingMap.values()).sort((a, b) => {
+        const aDt = new Date(`${a.date} ${a.time}`);
+        const bDt = new Date(`${b.date} ${b.time}`);
+        return aDt - bDt;
+      });
+    }
+
     const history = {
       lastUpdated: new Date().toISOString(),
-      // Try to use NRW metadata when present
-      station: meta.Location || meta.Station || 'unknown',
-      nameEN: meta.NameEN || meta.TitleEN || undefined,
-      nameCY: meta.NameCY || meta.TitleCY || undefined,
+      // Prefer prior metadata if present, otherwise use NRW metadata
+      station: (existing && existing.station) || meta.Location || meta.Station || 'unknown',
+      nameEN: (existing && existing.nameEN) || meta.NameEN || meta.TitleEN || undefined,
+      nameCY: (existing && existing.nameCY) || meta.NameCY || meta.TitleCY || undefined,
       source: 'NRW',
       data: merged
     };
@@ -104,13 +134,12 @@ async function main() {
     await fs.mkdir(processedDir, { recursive: true });
     await fs.mkdir(publicDir, { recursive: true });
 
-    const outPath = path.join(processedDir, outputFileName);
     const outPublic = path.join(publicDir, outputFileName);
     await fs.writeFile(outPath, JSON.stringify(history, null, 2));
     await fs.writeFile(outPublic, JSON.stringify(history, null, 2));
 
     console.log(`NRW CSV processed → ${outputFileName}`);
-    console.log(`Records: ${merged.length} (added ${added}, updated ${updated})`);
+    console.log(`Records (after merge): ${merged.length} (added ${added}, updated ${updated} within CSV)`);
     console.log(`Saved: ${outPath}`);
     console.log(`Copied: ${outPublic}`);
   } catch (err) {
