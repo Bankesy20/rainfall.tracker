@@ -1,0 +1,141 @@
+name: Trial EA Stations Download (Single Job)
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 7 * * *'  # Daily at 7 AM UTC
+
+jobs:
+  trial-download-single:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Download all EA stations data
+        id: download
+        run: |
+          echo "Starting batch download for 10 EA stations"
+          start_time=$(date +%s)
+          
+          # Create output directory
+          mkdir -p data/trial
+          
+          # Station list
+          stations=(E24879 E5170 E23518 E24913 50110 577271 031555 E8290 3307 E19017)
+          
+          total_duration=0
+          total_size=0
+          successful=0
+          failed=0
+          
+          for station in "${stations[@]}"; do
+            echo "Processing station: $station"
+            station_start=$(date +%s)
+            
+            # Download station JSON
+            echo "  Fetching station metadata..."
+            if curl -s "https://environment.data.gov.uk/flood-monitoring/id/stations/$station.json" \
+              -o "data/trial/station-$station.json"; then
+              station_json_success=true
+            else
+              echo "  Failed to fetch station JSON for $station"
+              station_json_success=false
+            fi
+            
+            # Download readings JSON (last 7 days)
+            echo "  Fetching readings data..."
+            if curl -s "https://environment.data.gov.uk/flood-monitoring/id/measures/$station-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings?since=$(date -d '7 days ago' -u +%Y-%m-%dT%H:%M:%S.000Z)" \
+              -o "data/trial/readings-$station.json"; then
+              readings_json_success=true
+            else
+              echo "  Failed to fetch readings JSON for $station"
+              readings_json_success=false
+            fi
+            
+            # Download readings CSV (last 7 days)
+            echo "  Fetching CSV data..."
+            if curl -s "https://environment.data.gov.uk/flood-monitoring/id/measures/$station-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv?since=$(date -d '7 days ago' -u +%Y-%m-%dT%H:%M:%S.000Z)" \
+              -o "data/trial/readings-$station.csv"; then
+              readings_csv_success=true
+            else
+              echo "  Failed to fetch readings CSV for $station"
+              readings_csv_success=false
+            fi
+            
+            station_end=$(date +%s)
+            station_duration=$((station_end - station_start))
+            total_duration=$((total_duration + station_duration))
+            
+            # Calculate file sizes
+            station_size=$(stat -c%s "data/trial/station-$station.json" 2>/dev/null || echo 0)
+            readings_json_size=$(stat -c%s "data/trial/readings-$station.json" 2>/dev/null || echo 0)
+            readings_csv_size=$(stat -c%s "data/trial/readings-$station.csv" 2>/dev/null || echo 0)
+            station_total_size=$((station_size + readings_json_size + readings_csv_size))
+            total_size=$((total_size + station_total_size))
+            
+            # Check if station was successful
+            if [[ "$station_json_success" == "true" && "$readings_json_success" == "true" && "$readings_csv_success" == "true" ]]; then
+              successful=$((successful + 1))
+              echo "  ✅ $station: ${station_duration}s, ${station_total_size} bytes"
+            else
+              failed=$((failed + 1))
+              echo "  ❌ $station: ${station_duration}s, ${station_total_size} bytes (some downloads failed)"
+            fi
+            
+            echo "  Station JSON: ${station_size} bytes"
+            echo "  Readings JSON: ${readings_json_size} bytes"
+            echo "  Readings CSV: ${readings_csv_size} bytes"
+            echo ""
+          done
+          
+          end_time=$(date +%s)
+          total_workflow_duration=$((end_time - start_time))
+          
+          echo "=== BATCH SUMMARY ==="
+          echo "Total workflow duration: ${total_workflow_duration}s"
+          echo "Total download time: ${total_duration}s"
+          echo "Successful stations: ${successful}"
+          echo "Failed stations: ${failed}"
+          echo "Total data size: ${total_size} bytes"
+          echo "Average per station: $((total_duration / ${#stations[@]}))s"
+          echo "Average size per station: $((total_size / ${#stations[@]})) bytes"
+          
+          # Save metrics
+          echo "total_workflow_duration=${total_workflow_duration}" >> $GITHUB_OUTPUT
+          echo "total_download_duration=${total_duration}" >> $GITHUB_OUTPUT
+          echo "total_size=${total_size}" >> $GITHUB_OUTPUT
+          echo "successful=${successful}" >> $GITHUB_OUTPUT
+          echo "failed=${failed}" >> $GITHUB_OUTPUT
+      
+      - name: Upload trial data
+        uses: actions/upload-artifact@v4
+        with:
+          name: trial-data-single-job
+          path: data/trial/
+          retention-days: 7
+      
+      - name: Summary
+        run: |
+          echo "## Single Job Trial Results" >> $GITHUB_STEP_SUMMARY
+          echo "- **Total workflow duration:** ${{ steps.download.outputs.total_workflow_duration }}s" >> $GITHUB_STEP_SUMMARY
+          echo "- **Total download time:** ${{ steps.download.outputs.total_download_duration }}s" >> $GITHUB_STEP_SUMMARY
+          echo "- **Successful stations:** ${{ steps.download.outputs.successful }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Failed stations:** ${{ steps.download.outputs.failed }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Total data size:** ${{ steps.download.outputs.total_size }} bytes" >> $GITHUB_STEP_SUMMARY
+          echo "- **Average per station:** $(( ${{ steps.download.outputs.total_download_duration }} / 10 ))s" >> $GITHUB_STEP_SUMMARY
+          echo "- **Average size per station:** $(( ${{ steps.download.outputs.total_size }} / 10 )) bytes" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Efficiency comparison:**" >> $GITHUB_STEP_SUMMARY
+          echo "- Matrix jobs: ~10 minutes total runner time" >> $GITHUB_STEP_SUMMARY
+          echo "- Single job: ~$(( ${{ steps.download.outputs.total_workflow_duration }} / 60 )) minutes total runner time" >> $GITHUB_STEP_SUMMARY
