@@ -18,8 +18,10 @@ jobs:
         with:
           node-version: 18
       - run: npm ci
-      - name: Run NRW scraper
-        run: node scripts/scrape-nrw-rainfall.js
+      - name: Run NRW downloader (last 4 days)
+        env:
+          NRW_DAYS: "4"
+        run: node scripts/download-nrw.js
       - name: Commit and push
         run: |
           git config user.name "github-actions"
