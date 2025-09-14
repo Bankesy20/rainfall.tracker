@@ -1,6 +1,8 @@
 const fs = require('fs').promises;
 const path = require('path');
 const dayjs = require('dayjs');
+const utc = require('dayjs/plugin/utc');
+dayjs.extend(utc);
 
 /**
  * Process an NRW (Natural Resources Wales) CSV export into the dashboard format.
@@ -56,11 +58,13 @@ async function main() {
       if (!line) continue;
       const [dateStr, valueStr] = line.split(',');
       if (!dateStr) continue;
-      const dt = dayjs(dateStr);
+      const dt = dayjs.utc(dateStr);
       const date = dt.isValid() ? dt.format('YYYY-MM-DD') : '';
       const time = dt.isValid() ? dt.format('HH:mm') : '';
-      const rainfall_mm = parseFloat(valueStr || '0') || 0;
-      rows.push({ date, time, rainfall_mm, total_mm: 0 });
+      const rainfallValue = Number(valueStr);
+      const rainfall_mm = Number.isFinite(rainfallValue) ? Math.max(0, rainfallValue) : 0;
+      const dateTimeUtc = dt.isValid() ? dt.toISOString() : null;
+      rows.push({ date, time, dateTimeUtc, rainfall_mm, total_mm: 0 });
     }
 
     // Merge by exact date+time, prefer higher reading (backfill handling)
@@ -86,9 +90,9 @@ async function main() {
     }
 
     let merged = Array.from(mergedMap.values()).sort((a, b) => {
-      const aDt = new Date(`${a.date} ${a.time}`);
-      const bDt = new Date(`${b.date} ${b.time}`);
-      return aDt - bDt;
+      const aTs = Date.parse(`${a.date}T${a.time || '00:00'}:00Z`);
+      const bTs = Date.parse(`${b.date}T${b.time || '00:00'}:00Z`);
+      return aTs - bTs;
     });
 
     // Attempt to merge with existing history to preserve full timeline
@@ -115,11 +119,20 @@ async function main() {
         }
       }
       merged = Array.from(existingMap.values()).sort((a, b) => {
-        const aDt = new Date(`${a.date} ${a.time}`);
-        const bDt = new Date(`${b.date} ${b.time}`);
-        return aDt - bDt;
+        const aTs = Date.parse(`${a.date}T${a.time || '00:00'}:00Z`);
+        const bTs = Date.parse(`${b.date}T${b.time || '00:00'}:00Z`);
+        return aTs - bTs;
       });
     }
+
+    // Compute running totals and backfill dateTimeUtc where missing
+    let runningTotal = 0;
+    merged = merged.map((r) => {
+      const rainfall = Number.isFinite(r.rainfall_mm) ? Math.max(0, r.rainfall_mm) : 0;
+      runningTotal += rainfall;
+      const ensuredDateTimeUtc = r.dateTimeUtc || `${r.date}T${r.time || '00:00'}:00.000Z`;
+      return { ...r, rainfall_mm: rainfall, total_mm: runningTotal, dateTimeUtc: ensuredDateTimeUtc };
+    });
 
     const history = {
       lastUpdated: new Date().toISOString(),

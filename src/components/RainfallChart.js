@@ -73,12 +73,12 @@ const RainfallChart = ({ data, compareData = null, compareLabel = null, primaryL
               B: {formatRainfall(row.rainfallB)} mm
             </p>
           )}
-          {aggregation === 'daily' && data.max_hourly !== undefined && (
+          {aggregation === 'daily' && row.max_hourly !== undefined && (
             <p className="text-gray-600 dark:text-gray-400">
               Max hourly: {formatRainfall(row.max_hourly)} mm
             </p>
           )}
-          {(aggregation === 'weekly' || aggregation === 'monthly' || aggregation === 'yearly') && data.max_daily !== undefined && (
+          {(aggregation === 'weekly' || aggregation === 'monthly' || aggregation === 'yearly') && row.max_daily !== undefined && (
             <p className="text-gray-600 dark:text-gray-400">
               Max daily: {formatRainfall(row.max_daily)} mm
             </p>

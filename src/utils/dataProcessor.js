@@ -1,7 +1,19 @@
 import dayjs from 'dayjs';
 import weekOfYear from 'dayjs/plugin/weekOfYear';
+import utc from 'dayjs/plugin/utc';
 
 dayjs.extend(weekOfYear);
+dayjs.extend(utc);
+
+const parseUtcDateMs = (dateStr) => {
+  const ts = Date.parse(`${dateStr}T00:00:00Z`);
+  return Number.isFinite(ts) ? ts : 0;
+};
+const parseUtcDateTimeMs = (dateStr, timeStr) => {
+  const time = timeStr || '00:00';
+  const ts = Date.parse(`${dateStr}T${time}:00Z`);
+  return Number.isFinite(ts) ? ts : 0;
+};
 
 /**
  * Process raw rainfall data into a consistent format
@@ -16,8 +28,8 @@ export const processRainfallData = (rawData) => {
   return rawData.map(item => ({
     date: item.date || '',
     time: item.time || '',
-    rainfall_mm: parseFloat(item.rainfall_mm) || 0,
-    total_mm: parseFloat(item.total_mm) || 0
+    rainfall_mm: Number.isFinite(Number(item.rainfall_mm)) ? Math.max(0, Number(item.rainfall_mm)) : 0,
+    total_mm: Number.isFinite(Number(item.total_mm)) ? Math.max(0, Number(item.total_mm)) : 0
   })).filter(item => item.date && item.date !== '');
 };
 
@@ -54,7 +66,7 @@ export const aggregateDailyData = (data) => {
       min_hourly: daily.min_hourly === Infinity ? 0 : daily.min_hourly,
       average_hourly: daily.total_rainfall / daily.readings_count
     }))
-    .sort((a, b) => new Date(a.date) - new Date(b.date));
+    .sort((a, b) => parseUtcDateMs(a.date) - parseUtcDateMs(b.date));
 };
 
 /**
@@ -95,7 +107,7 @@ export const aggregateWeeklyData = (data) => {
       min_daily: weekly.min_daily === Infinity ? 0 : weekly.min_daily,
       average_daily: weekly.total_rainfall / weekly.days_count
     }))
-    .sort((a, b) => new Date(a.date) - new Date(b.date));
+    .sort((a, b) => parseUtcDateMs(a.date) - parseUtcDateMs(b.date));
 };
 
 /**
@@ -135,7 +147,11 @@ export const aggregateMonthlyData = (data) => {
       min_daily: monthly.min_daily === Infinity ? 0 : monthly.min_daily,
       average_daily: monthly.total_rainfall / monthly.days_count
     }))
-    .sort((a, b) => new Date(a.date) - new Date(b.date));
+    .sort((a, b) => {
+      const aTs = Date.parse(`${a.date}-01T00:00:00Z`);
+      const bTs = Date.parse(`${b.date}-01T00:00:00Z`);
+      return aTs - bTs;
+    });
 };
 
 /**
@@ -197,10 +213,8 @@ export const calculateStatistics = (data, days = 30) => {
 
   // For demo purposes, if we have sample data from the past, use all available data
   // In production, this would filter by the actual cutoff date
-  const cutoffDate = dayjs().subtract(days, 'day');
-  let recentData = data.filter(item => 
-    dayjs(item.date).isAfter(cutoffDate)
-  );
+  const cutoffDate = dayjs.utc().subtract(days, 'day');
+  let recentData = data.filter(item => dayjs.utc(item.date).isAfter(cutoffDate));
   
   // If no recent data found, use all available data for demo
   if (recentData.length === 0 && data.length > 0) {
@@ -248,10 +262,8 @@ export const getChartData = (data, days = 30, aggregation = 'daily') => {
     return [];
   }
 
-  const cutoffDate = dayjs().subtract(days, 'day');
-  let recentData = data.filter(item => 
-    dayjs(item.date).isAfter(cutoffDate)
-  );
+  const cutoffDate = dayjs.utc().subtract(days, 'day');
+  let recentData = data.filter(item => dayjs.utc(item.date).isAfter(cutoffDate));
   
   // If no recent data found, use all available data for demo
   if (recentData.length === 0 && data.length > 0) {
@@ -260,7 +272,7 @@ export const getChartData = (data, days = 30, aggregation = 'daily') => {
   }
 
   // Sort data chronologically first
-  recentData.sort((a, b) => new Date(`${a.date} ${a.time}`) - new Date(`${b.date} ${b.time}`));
+  recentData.sort((a, b) => parseUtcDateTimeMs(a.date, a.time) - parseUtcDateTimeMs(b.date, b.time));
 
   if (aggregation === 'hourly') {
     // Hourly data
@@ -372,11 +384,7 @@ export const getLatestReading = (data) => {
   }
 
   // Sort by date and time, get the latest
-  const sorted = data.sort((a, b) => {
-    const dateA = new Date(`${a.date} ${a.time}`);
-    const dateB = new Date(`${b.date} ${b.time}`);
-    return dateB - dateA;
-  });
+  const sorted = [...data].sort((a, b) => parseUtcDateTimeMs(b.date, b.time) - parseUtcDateTimeMs(a.date, a.time));
 
   return sorted[0];
 };
