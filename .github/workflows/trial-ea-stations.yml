@@ -1,0 +1,100 @@
+name: Trial EA Stations Download
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 6 * * *'  # Daily at 6 AM UTC
+
+jobs:
+  trial-download:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        station: [E24879, E5170, E23518, E24913, 50110, 577271, 031555, E8290, 3307, E19017]
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Download EA station data
+        id: download
+        run: |
+          echo "Starting download for station ${{ matrix.station }}"
+          start_time=$(date +%s)
+          
+          # Create output directory
+          mkdir -p data/trial
+          
+          # Download station JSON
+          echo "Fetching station metadata..."
+          curl -s "https://environment.data.gov.uk/flood-monitoring/id/stations/${{ matrix.station }}.json" \
+            -o "data/trial/station-${{ matrix.station }}.json"
+          
+          # Download readings JSON (last 7 days)
+          echo "Fetching readings data..."
+          curl -s "https://environment.data.gov.uk/flood-monitoring/id/measures/${{ matrix.station }}-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings?since=$(date -d '7 days ago' -u +%Y-%m-%dT%H:%M:%S.000Z)" \
+            -o "data/trial/readings-${{ matrix.station }}.json"
+          
+          # Download readings CSV (last 7 days)
+          echo "Fetching CSV data..."
+          curl -s "https://environment.data.gov.uk/flood-monitoring/id/measures/${{ matrix.station }}-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv?since=$(date -d '7 days ago' -u +%Y-%m-%dT%H:%M:%S.000Z)" \
+            -o "data/trial/readings-${{ matrix.station }}.csv"
+          
+          end_time=$(date +%s)
+          duration=$((end_time - start_time))
+          
+          # Calculate file sizes
+          station_size=$(stat -c%s "data/trial/station-${{ matrix.station }}.json" 2>/dev/null || echo 0)
+          readings_json_size=$(stat -c%s "data/trial/readings-${{ matrix.station }}.json" 2>/dev/null || echo 0)
+          readings_csv_size=$(stat -c%s "data/trial/readings-${{ matrix.station }}.csv" 2>/dev/null || echo 0)
+          total_size=$((station_size + readings_json_size + readings_csv_size))
+          
+          echo "Station: ${{ matrix.station }}"
+          echo "Duration: ${duration}s"
+          echo "Station JSON: ${station_size} bytes"
+          echo "Readings JSON: ${readings_json_size} bytes"
+          echo "Readings CSV: ${readings_csv_size} bytes"
+          echo "Total size: ${total_size} bytes"
+          
+          # Save metrics
+          echo "duration=${duration}" >> $GITHUB_OUTPUT
+          echo "total_size=${total_size}" >> $GITHUB_OUTPUT
+          echo "station_size=${station_size}" >> $GITHUB_OUTPUT
+          echo "readings_json_size=${readings_json_size}" >> $GITHUB_OUTPUT
+          echo "readings_csv_size=${readings_csv_size}" >> $GITHUB_OUTPUT
+      
+      - name: Upload trial data
+        uses: actions/upload-artifact@v4
+        with:
+          name: trial-data-${{ matrix.station }}
+          path: data/trial/
+          retention-days: 7
+      
+      - name: Summary
+        run: |
+          echo "## Trial Results for ${{ matrix.station }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Duration: ${{ steps.download.outputs.duration }}s" >> $GITHUB_STEP_SUMMARY
+          echo "- Total size: ${{ steps.download.outputs.total_size }} bytes" >> $GITHUB_STEP_SUMMARY
+          echo "- Station JSON: ${{ steps.download.outputs.station_size }} bytes" >> $GITHUB_STEP_SUMMARY
+          echo "- Readings JSON: ${{ steps.download.outputs.readings_json_size }} bytes" >> $GITHUB_STEP_SUMMARY
+          echo "- Readings CSV: ${{ steps.download.outputs.readings_csv_size }} bytes" >> $GITHUB_STEP_SUMMARY
+
+  summary:
+    runs-on: ubuntu-latest
+    needs: trial-download
+    if: always()
+    steps:
+      - name: Trial Summary
+        run: |
+          echo "## EA Stations Trial Complete" >> $GITHUB_STEP_SUMMARY
+          echo "Downloaded 10 stations to test performance and data sizes." >> $GITHUB_STEP_SUMMARY
+          echo "Check individual job results above for timing and size metrics." >> $GITHUB_STEP_SUMMARY
