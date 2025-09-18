@@ -32,8 +32,16 @@ async function uploadNewData() {
   console.log(`🔑 Token length: ${process.env.NETLIFY_AUTH_TOKEN ? process.env.NETLIFY_AUTH_TOKEN.length : 'not set'}`);
   const dataDir = path.join(process.cwd(), 'data', 'processed');
   
-  // Station mapping - England-only EA stations with verified humanPage URLs
-  const STATIONS = {
+  // Determine which stations to upload based on workflow
+  const isEATestWorkflow = process.env.GITHUB_WORKFLOW && process.env.GITHUB_WORKFLOW.includes('EA Stations');
+  const isProductionWorkflow = process.env.GITHUB_WORKFLOW && process.env.GITHUB_WORKFLOW.includes('Scrape Rainfall');
+  
+  console.log(`🔍 Workflow: ${process.env.GITHUB_WORKFLOW}`);
+  console.log(`📊 EA Test Mode: ${isEATestWorkflow}`);
+  console.log(`🏭 Production Mode: ${isProductionWorkflow}`);
+  
+  // Production stations (only for scrape-and-upload workflow)
+  const PRODUCTION_STATIONS = {
     'miserden1141': {
       file: 'rainfall-history.json',
       description: 'Miserden EA Station'
@@ -41,7 +49,11 @@ async function uploadNewData() {
     'maenclochog1099': {
       file: 'wales-1099.json', 
       description: 'Maenclochog NRW Station'
-    },
+    }
+  };
+  
+  // EA test stations (only for EA test workflows)
+  const EA_TEST_STATIONS = {
     'ea-E7050': {
       file: 'ea-E7050.json',
       description: 'Preston Capes (E7050)'
@@ -83,6 +95,20 @@ async function uploadNewData() {
       description: 'Lyndhurst (E13600)'
     }
   };
+  
+  // Select appropriate stations based on workflow
+  let STATIONS;
+  if (isEATestWorkflow) {
+    STATIONS = EA_TEST_STATIONS;
+    console.log('🧪 Using EA TEST stations only');
+  } else if (isProductionWorkflow) {
+    STATIONS = PRODUCTION_STATIONS;
+    console.log('🏭 Using PRODUCTION stations only');
+  } else {
+    // Fallback for manual runs or unknown workflows
+    STATIONS = { ...PRODUCTION_STATIONS, ...EA_TEST_STATIONS };
+    console.log('🔄 Using ALL stations (fallback mode)');
+  }
   
   let successCount = 0;
   let errorCount = 0;
