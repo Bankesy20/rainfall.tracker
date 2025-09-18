@@ -61,14 +61,11 @@ const useRainfallData = (stationKey = 'miserden1141', availableStations = null) 
 
       // If station unknown, clear data and exit early
       if (!stationsToUse[stationKey]) {
-        console.warn('Station not found:', stationKey, 'Available stations:', Object.keys(stationsToUse));
         setData(null);
         setLastUpdated(new Date().toISOString());
         setRefetchCount(prev => prev + 1);
         return;
       }
-
-      console.log('Fetching data for station:', stationKey, 'with config:', stationsToUse[stationKey]);
 
       const endpoint = getApiEndpoint();
       
@@ -95,14 +92,6 @@ const useRainfallData = (stationKey = 'miserden1141', availableStations = null) 
 
       const result = await response.json();
       
-      // Debug logging
-      console.log('API Response for station', stationKey, ':', {
-        success: result.success,
-        hasData: !!result.data,
-        dataKeys: result.data ? Object.keys(result.data) : null,
-        dataLength: result.data?.data?.length || 0
-      });
-      
       // Check if the API returned an error
       if (result.error) {
         throw new Error(result.error);
@@ -111,15 +100,7 @@ const useRainfallData = (stationKey = 'miserden1141', availableStations = null) 
       // Extract the actual rainfall data from the API response
       const rainfallData = result.data || result;
       
-      console.log('Extracted rainfall data:', {
-        hasRequiredFields: !!(rainfallData.lastUpdated && rainfallData.station && rainfallData.data),
-        lastUpdated: rainfallData.lastUpdated,
-        station: rainfallData.station,
-        dataLength: rainfallData.data?.length || 0
-      });
-      
       if (!validateRainfallData(rainfallData)) {
-        console.error('Data validation failed for station', stationKey, rainfallData);
         throw new Error('Invalid data format from API');
       }
 
