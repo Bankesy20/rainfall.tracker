@@ -5,7 +5,8 @@
  * Adapted from download-rainfall.js to handle multiple stations efficiently
  */
 
-const fs = require('fs').promises;
+const fs = require('fs');
+const fsPromises = require('fs').promises;
 const path = require('path');
 const https = require('https');
 const dayjs = require('dayjs');
@@ -94,7 +95,7 @@ const PUBLIC_PROCESSED_DIR = path.join(__dirname, '..', 'public', 'data', 'proce
 
 async function ensureDirectoryExists(directoryPath) {
   try {
-    await fs.mkdir(directoryPath, { recursive: true });
+    await fsPromises.mkdir(directoryPath, { recursive: true });
   } catch (_) {
     // Directory already exists
   }
@@ -109,7 +110,7 @@ async function downloadStationData(station) {
   
   // Check if we already downloaded this station today
   try {
-    await fs.access(csvPath);
+    await fsPromises.access(csvPath);
     console.log(`  ⏭️  Already downloaded today, skipping download`);
     return await processStationData(station, csvPath);
   } catch {
@@ -141,7 +142,7 @@ async function downloadStationData(station) {
       if (response.statusCode !== 200) {
         console.error(`  ❌ HTTP Error: ${response.statusCode}`);
         file.close();
-        await fs.unlink(csvPath).catch(() => {});
+        await fsPromises.unlink(csvPath).catch(() => {});
         reject(new Error(`HTTP ${response.statusCode} for station ${station.id}`));
         return;
       }
@@ -162,7 +163,7 @@ async function downloadStationData(station) {
       });
       
       file.on('error', async (err) => {
-        await fs.unlink(csvPath).catch(() => {});
+        await fsPromises.unlink(csvPath).catch(() => {});
         reject(err);
       });
     });
@@ -185,7 +186,7 @@ async function processStationData(station, csvPath) {
   console.log(`  🔄 Processing CSV data...`);
   
   try {
-    const csvContent = await fs.readFile(csvPath, 'utf-8');
+    const csvContent = await fsPromises.readFile(csvPath, 'utf-8');
     const lines = csvContent.split('\n').filter(line => line.trim());
     
     if (lines.length < 2) {
@@ -241,7 +242,7 @@ async function processStationData(station, csvPath) {
     
     let existingData = [];
     try {
-      const existingFile = await fs.readFile(outputPath, 'utf-8');
+      const existingFile = await fsPromises.readFile(outputPath, 'utf-8');
       const existingHistory = JSON.parse(existingFile);
       existingData = existingHistory.data || [];
       console.log(`  📚 Loaded ${existingData.length} existing records`);
@@ -298,11 +299,11 @@ async function processStationData(station, csvPath) {
     };
     
     // Save to processed directory
-    await fs.writeFile(outputPath, JSON.stringify(history, null, 2));
+    await fsPromises.writeFile(outputPath, JSON.stringify(history, null, 2));
     
     // Also save to public directory
     const publicPath = path.join(PUBLIC_PROCESSED_DIR, outputFileName);
-    await fs.writeFile(publicPath, JSON.stringify(history, null, 2));
+    await fsPromises.writeFile(publicPath, JSON.stringify(history, null, 2));
     
     console.log(`  ✅ Successfully processed and saved ${mergedData.length} records`);
     console.log(`  📁 Saved to: ${outputPath}`);
