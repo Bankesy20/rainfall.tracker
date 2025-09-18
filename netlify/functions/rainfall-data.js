@@ -68,15 +68,24 @@ exports.handler = async (event, context) => {
     try {
       // Dynamic import for @netlify/blobs to avoid module compatibility issues
       const { getStore } = await import('@netlify/blobs');
-      const store = getStore('rainfall-data');
+      
+      // Use explicit configuration with environment variables
+      const store = getStore({
+        name: 'rainfall-data',
+        siteID: process.env.NETLIFY_SITE_ID,
+        token: process.env.NETLIFY_AUTH_TOKEN
+      });
       const blobKey = `stations/${station}.json`;
       
       diagnostics.attempts.push({ type: 'blob', key: blobKey, attempting: true });
       
-      const blobData = await store.get(blobKey, { type: 'json' });
+      const blobContent = await store.get(blobKey);
+      
+      // Parse the JSON string stored in the blob
+      const blobData = typeof blobContent === 'string' ? JSON.parse(blobContent) : blobContent;
       
       if (blobData && blobData.data && Array.isArray(blobData.data)) {
-        diagnostics.attempts.push({ type: 'blob', key: blobKey, ok: true, size: JSON.stringify(blobData).length });
+        diagnostics.attempts.push({ type: 'blob', key: blobKey, ok: true, size: blobContent.length, records: blobData.data.length });
         return blobData;
       } else {
         diagnostics.attempts.push({ type: 'blob', key: blobKey, ok: false, note: 'invalid format or no data' });
