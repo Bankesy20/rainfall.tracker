@@ -12,8 +12,8 @@ dayjs.extend(relativeTime);
 function App() {
   const [primaryStation, setPrimaryStation] = useState('miserden1141');
   const [compareStation, setCompareStation] = useState('');
-  const { data: rainfallData, loading, error, lastUpdated, refetch, refetchCount, isDevelopment } = useRainfallData(primaryStation);
-  const { data: compareDataResult } = useRainfallData(compareStation || 'invalid_key');
+  const { data: rainfallData, loading, error, lastUpdated, refetch, refetchCount, isDevelopment } = useRainfallData(primaryStation, availableStations);
+  const { data: compareDataResult } = useRainfallData(compareStation || 'invalid_key', availableStations);
   const [darkMode, setDarkMode] = useState(false);
   const [statsExpanded, setStatsExpanded] = useState(true);
   const [availableStations, setAvailableStations] = useState(stations);
@@ -235,8 +235,8 @@ function App() {
                     data={rainfallData.data} 
                     lastUpdated={rainfallData.lastUpdated}
                     compareData={compareStation && compareDataResult ? compareDataResult.data : null}
-                    labelA={stations[primaryStation]?.label}
-                    labelB={compareStation ? stations[compareStation]?.label : 'B'}
+                    labelA={availableStations[primaryStation]?.label}
+                    labelB={compareStation ? availableStations[compareStation]?.label : 'B'}
                   />
                 </div>
               )}
@@ -250,8 +250,8 @@ function App() {
               <RainfallChart 
                 data={rainfallData.data} 
                 compareData={compareStation && compareDataResult ? compareDataResult.data : null}
-                compareLabel={compareStation ? stations[compareStation]?.label : null}
-                primaryLabel={stations[primaryStation]?.label}
+                compareLabel={compareStation ? availableStations[compareStation]?.label : null}
+                primaryLabel={availableStations[primaryStation]?.label}
                 height={400}
               />
             </section>
@@ -263,7 +263,7 @@ function App() {
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 text-sm text-gray-600 dark:text-gray-400">
                 <div>
-                  <p><strong>Location:</strong> {stations[primaryStation]?.label} (Station {rainfallData.station})</p>
+                  <p><strong>Location:</strong> {availableStations[primaryStation]?.label} (Station {rainfallData.station})</p>
                   <p><strong>Source:</strong> UK Government Flood Information Service</p>
                   <p><strong>Updated:</strong> {dayjs(lastUpdated || rainfallData.lastUpdated).format('MMM DD, YYYY HH:mm')}</p>
                 </div>

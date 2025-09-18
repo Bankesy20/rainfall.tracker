@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import { validateRainfallData } from '../utils/dataProcessor';
 import stations from '../utils/stations';
 
-const useRainfallData = (stationKey = 'miserden1141') => {
+const useRainfallData = (stationKey = 'miserden1141', availableStations = null) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -12,9 +12,12 @@ const useRainfallData = (stationKey = 'miserden1141') => {
   const intervalRef = useRef(null);
   const isDevelopment = process.env.NODE_ENV === 'development';
 
+  // Use dynamic stations if available, otherwise fallback to static
+  const stationsToUse = availableStations || stations;
+
   // Determine the API endpoint
   const getApiEndpoint = () => {
-    const station = stations[stationKey];
+    const station = stationsToUse[stationKey];
     if (!station) return null;
     if (isDevelopment) {
       // In development, use static file fallback to avoid WebSocket issues
@@ -27,7 +30,7 @@ const useRainfallData = (stationKey = 'miserden1141') => {
 
   // Fallback to static file loading
   const loadStaticData = async () => {
-    const station = stations[stationKey];
+    const station = stationsToUse[stationKey];
     if (!station) {
       // No station selected; return null to indicate no data
       return null;
@@ -57,7 +60,7 @@ const useRainfallData = (stationKey = 'miserden1141') => {
       setError(null);
 
       // If station unknown, clear data and exit early
-      if (!stations[stationKey]) {
+      if (!stationsToUse[stationKey]) {
         setData(null);
         setLastUpdated(new Date().toISOString());
         setRefetchCount(prev => prev + 1);
@@ -126,7 +129,7 @@ const useRainfallData = (stationKey = 'miserden1141') => {
     } finally {
       setLoading(false);
     }
-  }, [isDevelopment, stationKey]);
+  }, [isDevelopment, stationKey, stationsToUse]);
 
   // Manual refresh function
   const refetch = useCallback(() => {
