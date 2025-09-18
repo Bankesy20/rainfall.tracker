@@ -32,7 +32,7 @@ async function uploadNewData() {
   console.log(`🔑 Token length: ${process.env.NETLIFY_AUTH_TOKEN ? process.env.NETLIFY_AUTH_TOKEN.length : 'not set'}`);
   const dataDir = path.join(process.cwd(), 'data', 'processed');
   
-  // Station mapping - updated with verified EA stations that have humanPage URLs
+  // Station mapping - England-only EA stations with verified humanPage URLs
   const STATIONS = {
     'miserden1141': {
       file: 'rainfall-history.json',
@@ -44,43 +44,43 @@ async function uploadNewData() {
     },
     'eaE7050': {
       file: 'ea-E7050.json',
-      description: 'EA Rainfall Station E7050'
-    },
-    'ea4163': {
-      file: 'ea-4163.json', 
-      description: 'EA Day Brook Station (4163)'
+      description: 'EA Rainfall Station E7050 (England)'
     },
     'ea3680': {
       file: 'ea-3680.json',
-      description: 'EA Rainfall Station 3680'
+      description: 'EA Rainfall Station 3680 (England)'
     },
     'ea3275': {
       file: 'ea-3275.json',
-      description: 'EA Rainfall Station 3275'
+      description: 'EA Rainfall Station 3275 (England)'
     },
     'ea3167': {
       file: 'ea-3167.json',
-      description: 'EA Rainfall Station 3167'
+      description: 'EA Rainfall Station 3167 (England)'
     },
     'ea3307': {
       file: 'ea-3307.json',
-      description: 'EA Rainfall Station 3307'
+      description: 'EA Rainfall Station 3307 (England)'
     },
     'ea3404': {
       file: 'ea-3404.json',
-      description: 'EA Rainfall Station 3404'
+      description: 'EA Rainfall Station 3404 (England)'
     },
     'ea3014': {
       file: 'ea-3014.json',
-      description: 'EA Rainfall Station 3014'
+      description: 'EA Rainfall Station 3014 (England)'
     },
     'ea3901': {
       file: 'ea-3901.json',
-      description: 'EA Rainfall Station 3901'
+      description: 'EA Rainfall Station 3901 (England)'
     },
     'ea3999': {
       file: 'ea-3999.json',
-      description: 'EA Rainfall Station 3999'
+      description: 'EA Rainfall Station 3999 (England)'
+    },
+    'eaE6380': {
+      file: 'ea-E6380.json',
+      description: 'EA SCOTS FLOAT SLUICE RL (England)'
     }
   };
   

@@ -14,7 +14,7 @@ const utc = require('dayjs/plugin/utc');
 
 dayjs.extend(utc);
 
-// Selected 10 EA stations WITH humanPage URLs (proven active stations)
+// Selected 10 England-only EA stations WITH humanPage URLs (verified working)
 const EA_STATIONS = [
   {
     id: 'E7050',
@@ -23,14 +23,6 @@ const EA_STATIONS = [
     long: -1.171327,
     humanPage: 'https://check-for-flooding.service.gov.uk/rainfall-station/E7050',
     csvUrl: 'http://environment.data.gov.uk/flood-monitoring/id/measures/E7050-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv'
-  },
-  {
-    id: '4163',
-    name: 'Day Brook Station',
-    lat: 52.986245,
-    long: -1.163701,
-    humanPage: 'https://check-for-flooding.service.gov.uk/station/4163?parameter=rainfall',
-    csvUrl: 'http://environment.data.gov.uk/flood-monitoring/id/measures/4163-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv'
   },
   {
     id: '3680',
@@ -95,6 +87,14 @@ const EA_STATIONS = [
     long: -1.199634,
     humanPage: 'https://check-for-flooding.service.gov.uk/rainfall-station/3999',
     csvUrl: 'http://environment.data.gov.uk/flood-monitoring/id/measures/3999-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv'
+  },
+  {
+    id: 'E6380',
+    name: 'SCOTS FLOAT SLUICE RL',
+    lat: 50.989632,
+    long: 0.75505,
+    humanPage: 'https://check-for-flooding.service.gov.uk/rainfall-station/E6380',
+    csvUrl: 'http://environment.data.gov.uk/flood-monitoring/id/measures/E6380-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv'
   }
 ];
 
