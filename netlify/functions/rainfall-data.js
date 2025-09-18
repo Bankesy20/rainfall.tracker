@@ -72,8 +72,8 @@ exports.handler = async (event, context) => {
       // Use explicit configuration with environment variables
       const store = getStore({
         name: 'rainfall-data',
-        siteID: process.env.NETLIFY_SITE_ID,
-        token: process.env.NETLIFY_AUTH_TOKEN
+        siteID: process.env.NETLIFY_SITE_ID || 'f9735549-2ceb-4b4b-8263-fd2d52f641bb',
+        token: process.env.NETLIFY_AUTH_TOKEN || 'nfp_DfAAJ5BgQ3FX7HtRJkaJWsYRwUozjtw73a99'
       });
       const blobKey = `stations/${station}.json`;
       
