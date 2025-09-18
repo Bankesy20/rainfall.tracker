@@ -76,13 +76,17 @@ jobs:
           exit 1
         fi
     
-    - name: Test blob upload (dry run)
+    - name: Upload to Netlify Blobs (EA stations)
       env:
         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
         NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-        DRY_RUN: true
       run: |
-        echo "🧪 Testing blob upload (dry run mode)..."
+        echo "☁️ Uploading EA station data to Netlify Blobs..."
+        node scripts/github-actions-blob-upload.js
+    
+    - name: Test blob upload verification
+      run: |
+        echo "🧪 Verification of blob upload process..."
         node -e "
           const fs = require('fs');
           const path = require('path');
