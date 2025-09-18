@@ -6,7 +6,7 @@
 [build.environment]
   Nqueue = "false"
   # Blob storage feature flags
-  USE_BLOB_STORAGE = "false"  # Set to "true" to enable blob storage
+  USE_BLOB_STORAGE = "true"  # Set to "true" to enable blob storage
   BLOB_FALLBACK_ENABLED = "true"  # Always keep fallbacks enabled
 
 [dev]

@@ -1,0 +1,57 @@
+name: Test Blob Upload
+
+on:
+  workflow_dispatch: # Manual trigger only
+
+permissions:
+  contents: read
+
+jobs:
+  test-blob-upload:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Test blob upload
+      env:
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+      run: |
+        echo "🧪 Testing blob upload..."
+        echo "Site ID: $NETLIFY_SITE_ID"
+        echo "Token length: ${#NETLIFY_AUTH_TOKEN}"
+        
+        # Test upload
+        node scripts/upload-to-blobs.js upload
+    
+    - name: List uploaded blobs
+      env:
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+      run: |
+        echo "📋 Listing blobs after upload..."
+        node scripts/upload-to-blobs.js list
+    
+    - name: Test API with blobs
+      run: |
+        echo "🔍 Testing API endpoint..."
+        sleep 10  # Give time for blob propagation
+        curl -s "https://rainfalltracker.netlify.app/.netlify/functions/rainfall-data?debug=1" | jq '.success, .source, .diagnostics.config'
+    
+    - name: Summary
+      run: |
+        echo "## Blob Upload Test Results" >> $GITHUB_STEP_SUMMARY
+        echo "- Upload attempt completed" >> $GITHUB_STEP_SUMMARY
+        echo "- Check logs above for success/failure" >> $GITHUB_STEP_SUMMARY
+        echo "- Next: Enable blob storage if successful" >> $GITHUB_STEP_SUMMARY

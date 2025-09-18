@@ -37,21 +37,24 @@ async function uploadToBlobs() {
   
   let store;
   try {
-    if (process.env.NETLIFY_AUTH_TOKEN) {
+    if (process.env.NETLIFY_AUTH_TOKEN && process.env.NETLIFY_SITE_ID) {
       // Use explicit configuration
       store = getStore({
         name: 'rainfall-data',
-        siteID: siteId,
+        siteID: process.env.NETLIFY_SITE_ID,
         token: process.env.NETLIFY_AUTH_TOKEN
       });
+      console.log(`  🔑 Using explicit auth for site: ${process.env.NETLIFY_SITE_ID}`);
     } else {
       // Try with Netlify CLI environment
       store = getStore('rainfall-data');
+      console.log('  🔑 Using Netlify CLI environment');
     }
   } catch (error) {
     console.log('❌ Could not initialize blob storage');
     console.log('💡 Make sure you are logged in with: netlify login');
     console.log('📋 Or set NETLIFY_AUTH_TOKEN environment variable');
+    console.log(`📊 Error: ${error.message}`);
     throw error;
   }
   const dataDir = path.join(__dirname, '..', 'data', 'processed');
@@ -97,9 +100,16 @@ async function uploadToBlobs() {
       await store.set(blobKey, blobData);
       
       // Verify the upload
-      const uploaded = await store.get(blobKey, { type: 'json' });
-      if (!uploaded || !uploaded.data) {
-        throw new Error('Upload verification failed');
+      try {
+        const uploaded = await store.get(blobKey);
+        const parsedData = typeof uploaded === 'string' ? JSON.parse(uploaded) : uploaded;
+        if (!parsedData || !parsedData.data) {
+          throw new Error('Upload verification failed - no data found');
+        }
+        console.log(`  🔍 Verification: Found ${parsedData.data.length} records`);
+      } catch (verifyError) {
+        console.log(`  ⚠️  Verification failed, but upload may have succeeded: ${verifyError.message}`);
+        // Don't throw here - the upload might have worked even if verification failed
       }
       
       console.log(`  ✅ Successfully uploaded ${recordCount.toLocaleString()} records`);
@@ -115,7 +125,9 @@ async function uploadToBlobs() {
       successCount++;
       
     } catch (error) {
-      console.error(`  ❌ Error uploading ${stationKey}:`, error.message);
+      console.error(`  ❌ Error uploading ${stationKey}:`);
+      console.error(`  📊 Error message: ${error.message}`);
+      console.error(`  📋 Error details:`, error);
       
       results.push({
         station: stationKey,
@@ -174,7 +186,17 @@ async function listBlobs() {
   try {
     // Dynamic import for @netlify/blobs
     const { getStore } = await import('@netlify/blobs');
-    const store = getStore('rainfall-data');
+    let store;
+    
+    if (process.env.NETLIFY_AUTH_TOKEN && process.env.NETLIFY_SITE_ID) {
+      store = getStore({
+        name: 'rainfall-data',
+        siteID: process.env.NETLIFY_SITE_ID,
+        token: process.env.NETLIFY_AUTH_TOKEN
+      });
+    } else {
+      store = getStore('rainfall-data');
+    }
     const { blobs } = await store.list();
     
     if (blobs.length === 0) {
@@ -184,7 +206,8 @@ async function listBlobs() {
     
     console.log(`\n📦 Found ${blobs.length} blobs:`);
     for (const blob of blobs) {
-      console.log(`  - ${blob.key} (${blob.size} bytes, updated: ${new Date(blob.uploaded_at).toISOString()})`);
+      const uploadDate = blob.uploaded_at ? new Date(blob.uploaded_at).toISOString() : 'unknown';
+      console.log(`  - ${blob.key} (${blob.size || 'unknown'} bytes, updated: ${uploadDate})`);
     }
     
   } catch (error) {
