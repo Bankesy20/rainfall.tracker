@@ -52,47 +52,57 @@ async function uploadNewData() {
     }
   };
   
-  // EA test stations (only for EA test workflows)
+  // EA test stations (only for EA test workflows) - using proper names as keys
   const EA_TEST_STATIONS = {
-    'ea-E7050': {
+    'preston-capes': {
       file: 'ea-E7050.json',
-      description: 'Preston Capes (E7050)'
+      description: 'Preston Capes (E7050)',
+      stationId: 'E7050'
     },
-    'ea-3680': {
+    'brooksby': {
       file: 'ea-3680.json',
-      description: 'Brooksby (3680)'
+      description: 'Brooksby (3680)',
+      stationId: '3680'
     },
-    'ea-3275': {
+    'walsall-wood': {
       file: 'ea-3275.json',
-      description: 'Walsall Wood (3275)'
+      description: 'Walsall Wood (3275)',
+      stationId: '3275'
     },
-    'ea-3167': {
+    'frankley': {
       file: 'ea-3167.json',
-      description: 'Frankley (3167)'
+      description: 'Frankley (3167)',
+      stationId: '3167'
     },
-    'ea-3307': {
+    'hollinsclough': {
       file: 'ea-3307.json',
-      description: 'Hollinsclough (3307)'
+      description: 'Hollinsclough (3307)',
+      stationId: '3307'
     },
-    'ea-3404': {
+    'barbrook': {
       file: 'ea-3404.json',
-      description: 'Barbrook (3404)'
+      description: 'Barbrook (3404)',
+      stationId: '3404'
     },
-    'ea-3014': {
+    'stone': {
       file: 'ea-3014.json',
-      description: 'Stone (3014)'
+      description: 'Stone (3014)',
+      stationId: '3014'
     },
-    'ea-3901': {
+    'worksop': {
       file: 'ea-3901.json',
-      description: 'Worksop (3901)'
+      description: 'Worksop (3901)',
+      stationId: '3901'
     },
-    'ea-3999': {
+    'littlethorpe': {
       file: 'ea-3999.json',
-      description: 'Littlethorpe (3999)'
+      description: 'Littlethorpe (3999)',
+      stationId: '3999'
     },
-    'ea-E13600': {
+    'lyndhurst': {
       file: 'ea-E13600.json',
-      description: 'Lyndhurst (E13600)'
+      description: 'Lyndhurst (E13600)',
+      stationId: 'E13600'
     }
   };
   
