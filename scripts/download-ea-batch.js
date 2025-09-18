@@ -14,89 +14,145 @@ const utc = require('dayjs/plugin/utc');
 
 dayjs.extend(utc);
 
-// Selected 10 England-only EA stations WITH humanPage URLs (verified working)
-const EA_STATIONS = [
-  {
-    id: 'E7050',
-    name: 'Rainfall Station E7050',
-    lat: 52.186277,
-    long: -1.171327,
-    humanPage: 'https://check-for-flooding.service.gov.uk/rainfall-station/E7050',
-    csvUrl: 'http://environment.data.gov.uk/flood-monitoring/id/measures/E7050-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv'
-  },
-  {
-    id: '3680',
-    name: 'Rainfall Station 3680',
-    lat: 52.73152,
-    long: -0.995167,
-    humanPage: 'https://check-for-flooding.service.gov.uk/rainfall-station/3680',
-    csvUrl: 'http://environment.data.gov.uk/flood-monitoring/id/measures/3680-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv'
-  },
-  {
-    id: '3275',
-    name: 'Rainfall Station 3275',
-    lat: 52.635078,
-    long: -1.944539,
-    humanPage: 'https://check-for-flooding.service.gov.uk/rainfall-station/3275',
-    csvUrl: 'http://environment.data.gov.uk/flood-monitoring/id/measures/3275-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv'
-  },
-  {
-    id: '3167',
-    name: 'Rainfall Station 3167',
-    lat: 52.419334,
-    long: -1.990391,
-    humanPage: 'https://check-for-flooding.service.gov.uk/rainfall-station/3167',
-    csvUrl: 'http://environment.data.gov.uk/flood-monitoring/id/measures/3167-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv'
-  },
-  {
-    id: '3307',
-    name: 'Rainfall Station 3307',
-    lat: 53.196879,
-    long: -1.901908,
-    humanPage: 'https://check-for-flooding.service.gov.uk/rainfall-station/3307',
-    csvUrl: 'http://environment.data.gov.uk/flood-monitoring/id/measures/3307-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv'
-  },
-  {
-    id: '3404',
-    name: 'Rainfall Station 3404',
-    lat: 53.287863,
-    long: -1.579192,
-    humanPage: 'https://check-for-flooding.service.gov.uk/rainfall-station/3404',
-    csvUrl: 'http://environment.data.gov.uk/flood-monitoring/id/measures/3404-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv'
-  },
-  {
-    id: '3014',
-    name: 'Rainfall Station 3014',
-    lat: 52.886657,
-    long: -2.182004,
-    humanPage: 'https://check-for-flooding.service.gov.uk/rainfall-station/3014',
-    csvUrl: 'http://environment.data.gov.uk/flood-monitoring/id/measures/3014-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv'
-  },
-  {
-    id: '3901',
-    name: 'Rainfall Station 3901',
-    lat: 53.305797,
-    long: -1.088289,
-    humanPage: 'https://check-for-flooding.service.gov.uk/rainfall-station/3901',
-    csvUrl: 'http://environment.data.gov.uk/flood-monitoring/id/measures/3901-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv'
-  },
-  {
-    id: '3999',
-    name: 'Rainfall Station 3999',
-    lat: 52.564065,
-    long: -1.199634,
-    humanPage: 'https://check-for-flooding.service.gov.uk/rainfall-station/3999',
-    csvUrl: 'http://environment.data.gov.uk/flood-monitoring/id/measures/3999-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv'
-  },
-  {
-    id: 'E6380',
-    name: 'SCOTS FLOAT SLUICE RL',
-    lat: 50.989632,
-    long: 0.75505,
-    humanPage: 'https://check-for-flooding.service.gov.uk/rainfall-station/E6380',
-    csvUrl: 'http://environment.data.gov.uk/flood-monitoring/id/measures/E6380-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv'
+// Function to load England-only EA stations with proper labels
+async function loadEAStations() {
+  try {
+    const fs = require('fs');
+    const path = require('path');
+    
+    // Load the England-only stations data
+    const englandStationsPath = path.join(__dirname, '..', 'data', 'processed', 'ea-england-stations.json');
+    const englandStationsData = JSON.parse(fs.readFileSync(englandStationsPath, 'utf8'));
+    
+    // Get first 10 stations with humanPage URLs
+    const stationsWithPages = englandStationsData.items.filter(station => 
+      station.humanPage && station.humanPage.trim() !== ''
+    );
+    
+    return stationsWithPages.slice(0, 10).map(station => {
+      // Create better names for stations
+      let name = station.label;
+      
+      // If it's just "Rainfall station", create a better name using grid reference or location
+      if (!name || name === 'Rainfall station') {
+        if (station.gridReference) {
+          // Use grid reference to create a location-based name
+          const gridRef = station.gridReference;
+          const prefix = gridRef.substring(0, 2); // e.g., "SP", "SK", "TL"
+          name = `${prefix} Grid Station (${station.stationReference})`;
+        } else {
+          // Fallback to coordinate-based name
+          const lat = Math.round(station.lat * 100) / 100;
+          const lng = Math.round(station.long * 100) / 100;
+          name = `Location ${lat}°N ${Math.abs(lng)}°${lng < 0 ? 'W' : 'E'} (${station.stationReference})`;
+        }
+      } else {
+        // Use existing label but ensure it has the station ID
+        if (!name.includes(station.stationReference)) {
+          name = `${name} (${station.stationReference})`;
+        }
+      }
+      
+      return {
+        id: station.stationReference,
+        name: name,
+        lat: station.lat,
+        long: station.long,
+        humanPage: station.humanPage,
+        csvUrl: station.readings?.csv || `http://environment.data.gov.uk/flood-monitoring/id/measures/${station.stationReference}-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv`
+      };
+    });
+  } catch (error) {
+    console.warn('Failed to load England stations data, using fallback:', error.message);
+    
+    // Fallback to hardcoded stations
+    return [
+      {
+        id: 'E7050',
+        name: 'Warwickshire Station',
+        lat: 52.186277,
+        long: -1.171327,
+        humanPage: 'https://check-for-flooding.service.gov.uk/rainfall-station/E7050',
+        csvUrl: 'http://environment.data.gov.uk/flood-monitoring/id/measures/E7050-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv'
+      },
+      {
+        id: '3680',
+        name: 'Leicestershire Station',
+        lat: 52.73152,
+        long: -0.995167,
+        humanPage: 'https://check-for-flooding.service.gov.uk/rainfall-station/3680',
+        csvUrl: 'http://environment.data.gov.uk/flood-monitoring/id/measures/3680-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv'
+      },
+      {
+        id: '3275',
+        name: 'Staffordshire Station',
+        lat: 52.635078,
+        long: -1.944539,
+        humanPage: 'https://check-for-flooding.service.gov.uk/rainfall-station/3275',
+        csvUrl: 'http://environment.data.gov.uk/flood-monitoring/id/measures/3275-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv'
+      },
+      {
+        id: '3167',
+        name: 'Warwickshire West Station',
+        lat: 52.419334,
+        long: -1.990391,
+        humanPage: 'https://check-for-flooding.service.gov.uk/rainfall-station/3167',
+        csvUrl: 'http://environment.data.gov.uk/flood-monitoring/id/measures/3167-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv'
+      },
+      {
+        id: '3307',
+        name: 'South Yorkshire Station',
+        lat: 53.196879,
+        long: -1.901908,
+        humanPage: 'https://check-for-flooding.service.gov.uk/rainfall-station/3307',
+        csvUrl: 'http://environment.data.gov.uk/flood-monitoring/id/measures/3307-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv'
+      },
+      {
+        id: '3404',
+        name: 'West Yorkshire Station',
+        lat: 53.287863,
+        long: -1.579192,
+        humanPage: 'https://check-for-flooding.service.gov.uk/rainfall-station/3404',
+        csvUrl: 'http://environment.data.gov.uk/flood-monitoring/id/measures/3404-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv'
+      },
+      {
+        id: '3014',
+        name: 'Shropshire Station',
+        lat: 52.886657,
+        long: -2.182004,
+        humanPage: 'https://check-for-flooding.service.gov.uk/rainfall-station/3014',
+        csvUrl: 'http://environment.data.gov.uk/flood-monitoring/id/measures/3014-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv'
+      },
+      {
+        id: '3901',
+        name: 'East Yorkshire Station',
+        lat: 53.305797,
+        long: -1.088289,
+        humanPage: 'https://check-for-flooding.service.gov.uk/rainfall-station/3901',
+        csvUrl: 'http://environment.data.gov.uk/flood-monitoring/id/measures/3901-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv'
+      },
+      {
+        id: '3999',
+        name: 'Leicestershire Central Station',
+        lat: 52.564065,
+        long: -1.199634,
+        humanPage: 'https://check-for-flooding.service.gov.uk/rainfall-station/3999',
+        csvUrl: 'http://environment.data.gov.uk/flood-monitoring/id/measures/3999-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv'
+      },
+      {
+        id: 'E6380',
+        name: 'Kent Coastal Station',
+        lat: 50.989632,
+        long: 0.75505,
+        humanPage: 'https://check-for-flooding.service.gov.uk/rainfall-station/E6380',
+        csvUrl: 'http://environment.data.gov.uk/flood-monitoring/id/measures/E6380-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv'
+      }
+    ];
   }
-];
+}
+
+// This will be populated at runtime
+let EA_STATIONS = [];
 
 const DATA_DIR = path.join(__dirname, '..', 'data');
 const RAW_DIR = path.join(DATA_DIR, 'raw');
@@ -339,6 +395,15 @@ async function processStationData(station, csvPath) {
 
 async function main() {
   console.log('🚀 Starting EA batch download...');
+  
+  // Load EA stations with proper labels
+  try {
+    EA_STATIONS = await loadEAStations();
+    console.log(`📊 Loaded ${EA_STATIONS.length} EA stations with proper labels`);
+  } catch (error) {
+    console.error('❌ Failed to load EA stations:', error.message);
+    process.exit(1);
+  }
   
   // Check for test mode and station limit
   const args = process.argv.slice(2);
