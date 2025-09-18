@@ -24,52 +24,46 @@ async function loadEAStations() {
     const englandStationsPath = path.join(__dirname, '..', 'data', 'processed', 'ea-england-stations.json');
     const englandStationsData = JSON.parse(fs.readFileSync(englandStationsPath, 'utf8'));
     
-    // Get first 10 stations with humanPage URLs
-    const stationsWithPages = englandStationsData.items.filter(station => 
-      station.humanPage && station.humanPage.trim() !== ''
-    );
+    // Use the specific 10 stations with extracted proper names
+    const selectedStationIds = ['E7050', '3680', '3275', '3167', '3307', '3404', '3014', '3901', '3999', 'E13600'];
+    const extractedNames = {
+      'E7050': 'Preston Capes',
+      '3680': 'Brooksby',
+      '3275': 'Walsall Wood',
+      '3167': 'Frankley',
+      '3307': 'Hollinsclough',
+      '3404': 'Barbrook',
+      '3014': 'Stone',
+      '3901': 'Worksop',
+      '3999': 'Littlethorpe',
+      'E13600': 'Lyndhurst'
+    };
     
-    return stationsWithPages.slice(0, 10).map(station => {
-      // Create better names for stations
-      let name = station.label;
-      
-      // If it's just "Rainfall station", create a better name using grid reference or location
-      if (!name || name === 'Rainfall station') {
-        if (station.gridReference) {
-          // Use grid reference to create a location-based name
-          const gridRef = station.gridReference;
-          const prefix = gridRef.substring(0, 2); // e.g., "SP", "SK", "TL"
-          name = `${prefix} Grid Station (${station.stationReference})`;
-        } else {
-          // Fallback to coordinate-based name
-          const lat = Math.round(station.lat * 100) / 100;
-          const lng = Math.round(station.long * 100) / 100;
-          name = `Location ${lat}°N ${Math.abs(lng)}°${lng < 0 ? 'W' : 'E'} (${station.stationReference})`;
-        }
-      } else {
-        // Use existing label but ensure it has the station ID
-        if (!name.includes(station.stationReference)) {
-          name = `${name} (${station.stationReference})`;
-        }
+    const selectedStations = [];
+    
+    for (const stationId of selectedStationIds) {
+      const station = englandStationsData.items.find(s => s.stationReference === stationId);
+      if (station && station.humanPage) {
+        selectedStations.push({
+          id: station.stationReference,
+          name: extractedNames[stationId] || station.label || `Station ${stationId}`,
+          lat: station.lat,
+          long: station.long,
+          humanPage: station.humanPage,
+          csvUrl: station.readings?.csv || `http://environment.data.gov.uk/flood-monitoring/id/measures/${station.stationReference}-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv`
+        });
       }
-      
-      return {
-        id: station.stationReference,
-        name: name,
-        lat: station.lat,
-        long: station.long,
-        humanPage: station.humanPage,
-        csvUrl: station.readings?.csv || `http://environment.data.gov.uk/flood-monitoring/id/measures/${station.stationReference}-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv`
-      };
-    });
+    }
+    
+    return selectedStations;
   } catch (error) {
     console.warn('Failed to load England stations data, using fallback:', error.message);
     
-    // Fallback to hardcoded stations
+    // Use 10 stations with extracted proper names
     return [
       {
         id: 'E7050',
-        name: 'Warwickshire Station',
+        name: 'Preston Capes',
         lat: 52.186277,
         long: -1.171327,
         humanPage: 'https://check-for-flooding.service.gov.uk/rainfall-station/E7050',
@@ -77,7 +71,7 @@ async function loadEAStations() {
       },
       {
         id: '3680',
-        name: 'Leicestershire Station',
+        name: 'Brooksby',
         lat: 52.73152,
         long: -0.995167,
         humanPage: 'https://check-for-flooding.service.gov.uk/rainfall-station/3680',
@@ -85,7 +79,7 @@ async function loadEAStations() {
       },
       {
         id: '3275',
-        name: 'Staffordshire Station',
+        name: 'Walsall Wood',
         lat: 52.635078,
         long: -1.944539,
         humanPage: 'https://check-for-flooding.service.gov.uk/rainfall-station/3275',
@@ -93,7 +87,7 @@ async function loadEAStations() {
       },
       {
         id: '3167',
-        name: 'Warwickshire West Station',
+        name: 'Frankley',
         lat: 52.419334,
         long: -1.990391,
         humanPage: 'https://check-for-flooding.service.gov.uk/rainfall-station/3167',
@@ -101,7 +95,7 @@ async function loadEAStations() {
       },
       {
         id: '3307',
-        name: 'South Yorkshire Station',
+        name: 'Hollinsclough',
         lat: 53.196879,
         long: -1.901908,
         humanPage: 'https://check-for-flooding.service.gov.uk/rainfall-station/3307',
@@ -109,7 +103,7 @@ async function loadEAStations() {
       },
       {
         id: '3404',
-        name: 'West Yorkshire Station',
+        name: 'Barbrook',
         lat: 53.287863,
         long: -1.579192,
         humanPage: 'https://check-for-flooding.service.gov.uk/rainfall-station/3404',
@@ -117,7 +111,7 @@ async function loadEAStations() {
       },
       {
         id: '3014',
-        name: 'Shropshire Station',
+        name: 'Stone',
         lat: 52.886657,
         long: -2.182004,
         humanPage: 'https://check-for-flooding.service.gov.uk/rainfall-station/3014',
@@ -125,7 +119,7 @@ async function loadEAStations() {
       },
       {
         id: '3901',
-        name: 'East Yorkshire Station',
+        name: 'Worksop',
         lat: 53.305797,
         long: -1.088289,
         humanPage: 'https://check-for-flooding.service.gov.uk/rainfall-station/3901',
@@ -133,19 +127,19 @@ async function loadEAStations() {
       },
       {
         id: '3999',
-        name: 'Leicestershire Central Station',
+        name: 'Littlethorpe',
         lat: 52.564065,
         long: -1.199634,
         humanPage: 'https://check-for-flooding.service.gov.uk/rainfall-station/3999',
         csvUrl: 'http://environment.data.gov.uk/flood-monitoring/id/measures/3999-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv'
       },
       {
-        id: 'E6380',
-        name: 'Kent Coastal Station',
-        lat: 50.989632,
-        long: 0.75505,
-        humanPage: 'https://check-for-flooding.service.gov.uk/rainfall-station/E6380',
-        csvUrl: 'http://environment.data.gov.uk/flood-monitoring/id/measures/E6380-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv'
+        id: 'E13600',
+        name: 'Lyndhurst',
+        lat: 50.880106,
+        long: -1.558591,
+        humanPage: 'https://check-for-flooding.service.gov.uk/rainfall-station/E13600',
+        csvUrl: 'http://environment.data.gov.uk/flood-monitoring/id/measures/E13600-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv'
       }
     ];
   }
