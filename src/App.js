@@ -12,12 +12,13 @@ dayjs.extend(relativeTime);
 function App() {
   const [primaryStation, setPrimaryStation] = useState('miserden1141');
   const [compareStation, setCompareStation] = useState('');
-  const { data: rainfallData, loading, error, lastUpdated, refetch, refetchCount, isDevelopment } = useRainfallData(primaryStation, availableStations);
-  const { data: compareDataResult } = useRainfallData(compareStation || 'invalid_key', availableStations);
   const [darkMode, setDarkMode] = useState(false);
   const [statsExpanded, setStatsExpanded] = useState(true);
   const [availableStations, setAvailableStations] = useState(stations);
   const [stationsLoading, setStationsLoading] = useState(true);
+  
+  const { data: rainfallData, loading, error, lastUpdated, refetch, refetchCount, isDevelopment } = useRainfallData(primaryStation, availableStations);
+  const { data: compareDataResult } = useRainfallData(compareStation || 'invalid_key', availableStations);
 
   // Handle theme toggle
   const toggleTheme = () => {
