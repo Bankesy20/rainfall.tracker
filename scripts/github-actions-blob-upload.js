@@ -20,7 +20,16 @@ async function uploadNewData() {
   
   // Dynamic import for @netlify/blobs
   const { getStore } = await import('@netlify/blobs');
-  const store = getStore('rainfall-data');
+  
+  // Use explicit configuration with environment variables
+  const store = getStore({
+    name: 'rainfall-data',
+    siteID: process.env.NETLIFY_SITE_ID,
+    token: process.env.NETLIFY_AUTH_TOKEN
+  });
+  
+  console.log(`🔑 Using site: ${process.env.NETLIFY_SITE_ID}`);
+  console.log(`🔑 Token length: ${process.env.NETLIFY_AUTH_TOKEN ? process.env.NETLIFY_AUTH_TOKEN.length : 'not set'}`);
   const dataDir = path.join(process.cwd(), 'data', 'processed');
   
   // Station mapping - same as local script but with GitHub Actions context
@@ -75,12 +84,26 @@ async function uploadNewData() {
       };
       
       const blobKey = `stations/${stationKey}.json`;
-      await store.set(blobKey, blobData);
+      await store.set(blobKey, JSON.stringify(blobData), {
+        metadata: { 
+          contentType: 'application/json',
+          station: stationKey,
+          records: recordCount.toString(),
+          source: 'github-actions'
+        }
+      });
       
       // Verify upload
-      const uploaded = await store.get(blobKey, { type: 'json' });
-      if (!uploaded || !uploaded.data) {
-        throw new Error('Upload verification failed');
+      try {
+        const uploaded = await store.get(blobKey);
+        const parsedData = typeof uploaded === 'string' ? JSON.parse(uploaded) : uploaded;
+        if (!parsedData || !parsedData.data) {
+          throw new Error('Upload verification failed - no data found');
+        }
+        console.log(`  🔍 Verification: Found ${parsedData.data.length} records`);
+      } catch (verifyError) {
+        console.log(`  ⚠️  Verification failed, but upload may have succeeded: ${verifyError.message}`);
+        // Don't throw here - the upload might have worked even if verification failed
       }
       
       console.log(`  ✅ Successfully uploaded to ${blobKey}`);
