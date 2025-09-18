@@ -97,7 +97,14 @@ async function uploadToBlobs() {
         stationKey: stationKey
       };
       
-      await store.set(blobKey, blobData);
+      // Store as JSON string
+      await store.set(blobKey, JSON.stringify(blobData), {
+        metadata: { 
+          contentType: 'application/json',
+          station: stationKey,
+          records: recordCount.toString()
+        }
+      });
       
       // Verify the upload
       try {
