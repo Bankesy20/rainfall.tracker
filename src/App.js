@@ -146,6 +146,31 @@ function App() {
               </button>
             </div>
           </div>
+      {/* Mobile station selectors */}
+      <div className="md:hidden mt-2 pb-2">
+        <div className="flex items-center space-x-2">
+          <select
+            value={primaryStation}
+            onChange={(e) => setPrimaryStation(e.target.value)}
+            className="flex-1 px-2 py-1 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-xs"
+          >
+            {Object.values(stations).map(s => (
+              <option key={s.key} value={s.key}>{s.label}</option>
+            ))}
+          </select>
+          <span className="text-gray-400 text-xs">vs</span>
+          <select
+            value={compareStation}
+            onChange={(e) => setCompareStation(e.target.value)}
+            className="flex-1 px-2 py-1 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-xs"
+          >
+            <option value="">None</option>
+            {Object.values(stations).map(s => (
+              <option key={s.key} value={s.key}>{s.label}</option>
+            ))}
+          </select>
+        </div>
+      </div>
         </div>
       </header>
 
