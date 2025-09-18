@@ -32,7 +32,7 @@ async function uploadNewData() {
   console.log(`🔑 Token length: ${process.env.NETLIFY_AUTH_TOKEN ? process.env.NETLIFY_AUTH_TOKEN.length : 'not set'}`);
   const dataDir = path.join(process.cwd(), 'data', 'processed');
   
-  // Station mapping - updated to include new EA stations
+  // Station mapping - updated with verified EA stations that have humanPage URLs
   const STATIONS = {
     'miserden1141': {
       file: 'rainfall-history.json',
@@ -42,45 +42,45 @@ async function uploadNewData() {
       file: 'wales-1099.json', 
       description: 'Maenclochog NRW Station'
     },
-    'ea573674': {
-      file: 'ea-573674.json',
-      description: 'EA Northern Station (573674)'
+    'eaE7050': {
+      file: 'ea-E7050.json',
+      description: 'EA Rainfall Station E7050'
     },
-    'eaE19017': {
-      file: 'ea-E19017.json', 
-      description: 'EA East England Station (E19017)'
+    'ea4163': {
+      file: 'ea-4163.json', 
+      description: 'EA Day Brook Station (4163)'
     },
-    'ea240662TP': {
-      file: 'ea-240662TP.json',
-      description: 'EA Central England Station (240662TP)'
+    'ea3680': {
+      file: 'ea-3680.json',
+      description: 'EA Rainfall Station 3680'
     },
-    'ea558491': {
-      file: 'ea-558491.json',
-      description: 'EA Midlands Station (558491)'
+    'ea3275': {
+      file: 'ea-3275.json',
+      description: 'EA Rainfall Station 3275'
     },
-    'ea059793': {
-      file: 'ea-059793.json',
-      description: 'EA Yorkshire Station (059793)'
+    'ea3167': {
+      file: 'ea-3167.json',
+      description: 'EA Rainfall Station 3167'
     },
-    'ea013553': {
-      file: 'ea-013553.json',
-      description: 'EA Northern Border Station (013553)'
+    'ea3307': {
+      file: 'ea-3307.json',
+      description: 'EA Rainfall Station 3307'
     },
-    'ea50108': {
-      file: 'ea-50108.json',
-      description: 'EA Southwest Station (50108)'
+    'ea3404': {
+      file: 'ea-3404.json',
+      description: 'EA Rainfall Station 3404'
     },
-    'eaE14920': {
-      file: 'ea-E14920.json',
-      description: 'EA South Coast Station (E14920)'
+    'ea3014': {
+      file: 'ea-3014.json',
+      description: 'EA Rainfall Station 3014'
     },
-    'ea038476': {
-      file: 'ea-038476.json',
-      description: 'EA East Coast Station (038476)'
+    'ea3901': {
+      file: 'ea-3901.json',
+      description: 'EA Rainfall Station 3901'
     },
-    'eaE11461': {
-      file: 'ea-E11461.json',
-      description: 'EA South Station (E11461)'
+    'ea3999': {
+      file: 'ea-3999.json',
+      description: 'EA Rainfall Station 3999'
     }
   };
   

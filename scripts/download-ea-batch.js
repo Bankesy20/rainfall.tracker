@@ -14,77 +14,87 @@ const utc = require('dayjs/plugin/utc');
 
 dayjs.extend(utc);
 
-// Selected 10 EA stations for testing
+// Selected 10 EA stations WITH humanPage URLs (proven active stations)
 const EA_STATIONS = [
   {
-    id: '573674',
-    name: 'Northern Station',
-    lat: 53.971437,
-    long: -2.529714,
-    csvUrl: 'http://environment.data.gov.uk/flood-monitoring/id/measures/573674-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv'
+    id: 'E7050',
+    name: 'Rainfall Station E7050',
+    lat: 52.186277,
+    long: -1.171327,
+    humanPage: 'https://check-for-flooding.service.gov.uk/rainfall-station/E7050',
+    csvUrl: 'http://environment.data.gov.uk/flood-monitoring/id/measures/E7050-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv'
   },
   {
-    id: 'E19017', 
-    name: 'East England Station',
-    lat: 52.058925,
-    long: 0.296651,
-    csvUrl: 'http://environment.data.gov.uk/flood-monitoring/id/measures/E19017-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv'
+    id: '4163',
+    name: 'Day Brook Station',
+    lat: 52.986245,
+    long: -1.163701,
+    humanPage: 'https://check-for-flooding.service.gov.uk/station/4163?parameter=rainfall',
+    csvUrl: 'http://environment.data.gov.uk/flood-monitoring/id/measures/4163-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv'
   },
   {
-    id: '240662TP',
-    name: 'Central England Station', 
-    lat: 51.937159,
-    long: -0.384591,
-    csvUrl: 'http://environment.data.gov.uk/flood-monitoring/id/measures/240662TP-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv'
+    id: '3680',
+    name: 'Rainfall Station 3680',
+    lat: 52.73152,
+    long: -0.995167,
+    humanPage: 'https://check-for-flooding.service.gov.uk/rainfall-station/3680',
+    csvUrl: 'http://environment.data.gov.uk/flood-monitoring/id/measures/3680-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv'
   },
   {
-    id: '558491',
-    name: 'Midlands Station',
-    lat: 53.38925,
-    long: -1.919511,
-    csvUrl: 'http://environment.data.gov.uk/flood-monitoring/id/measures/558491-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv'
+    id: '3275',
+    name: 'Rainfall Station 3275',
+    lat: 52.635078,
+    long: -1.944539,
+    humanPage: 'https://check-for-flooding.service.gov.uk/rainfall-station/3275',
+    csvUrl: 'http://environment.data.gov.uk/flood-monitoring/id/measures/3275-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv'
   },
   {
-    id: '059793',
-    name: 'Yorkshire Station',
-    lat: 53.966652,
-    long: -1.115089,
-    csvUrl: 'http://environment.data.gov.uk/flood-monitoring/id/measures/059793-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv'
+    id: '3167',
+    name: 'Rainfall Station 3167',
+    lat: 52.419334,
+    long: -1.990391,
+    humanPage: 'https://check-for-flooding.service.gov.uk/rainfall-station/3167',
+    csvUrl: 'http://environment.data.gov.uk/flood-monitoring/id/measures/3167-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv'
   },
   {
-    id: '013553',
-    name: 'Northern Border Station',
-    lat: 54.820161,
-    long: -2.445834,
-    csvUrl: 'http://environment.data.gov.uk/flood-monitoring/id/measures/013553-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv'
+    id: '3307',
+    name: 'Rainfall Station 3307',
+    lat: 53.196879,
+    long: -1.901908,
+    humanPage: 'https://check-for-flooding.service.gov.uk/rainfall-station/3307',
+    csvUrl: 'http://environment.data.gov.uk/flood-monitoring/id/measures/3307-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv'
   },
   {
-    id: '50108',
-    name: 'Southwest Station',
-    lat: 50.925011,
-    long: -3.713738,
-    csvUrl: 'http://environment.data.gov.uk/flood-monitoring/id/measures/50108-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv'
+    id: '3404',
+    name: 'Rainfall Station 3404',
+    lat: 53.287863,
+    long: -1.579192,
+    humanPage: 'https://check-for-flooding.service.gov.uk/rainfall-station/3404',
+    csvUrl: 'http://environment.data.gov.uk/flood-monitoring/id/measures/3404-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv'
   },
   {
-    id: 'E14920',
-    name: 'South Coast Station',
-    lat: 50.691845,
-    long: -1.308358,
-    csvUrl: 'http://environment.data.gov.uk/flood-monitoring/id/measures/E14920-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv'
+    id: '3014',
+    name: 'Rainfall Station 3014',
+    lat: 52.886657,
+    long: -2.182004,
+    humanPage: 'https://check-for-flooding.service.gov.uk/rainfall-station/3014',
+    csvUrl: 'http://environment.data.gov.uk/flood-monitoring/id/measures/3014-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv'
   },
   {
-    id: '038476',
-    name: 'East Coast Station',
-    lat: 54.107252,
-    long: -0.128568,
-    csvUrl: 'http://environment.data.gov.uk/flood-monitoring/id/measures/038476-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv'
+    id: '3901',
+    name: 'Rainfall Station 3901',
+    lat: 53.305797,
+    long: -1.088289,
+    humanPage: 'https://check-for-flooding.service.gov.uk/rainfall-station/3901',
+    csvUrl: 'http://environment.data.gov.uk/flood-monitoring/id/measures/3901-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv'
   },
   {
-    id: 'E11461',
-    name: 'South Station',
-    lat: 50.902688,
-    long: -1.10472,
-    csvUrl: 'http://environment.data.gov.uk/flood-monitoring/id/measures/E11461-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv'
+    id: '3999',
+    name: 'Rainfall Station 3999',
+    lat: 52.564065,
+    long: -1.199634,
+    humanPage: 'https://check-for-flooding.service.gov.uk/rainfall-station/3999',
+    csvUrl: 'http://environment.data.gov.uk/flood-monitoring/id/measures/3999-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv'
   }
 ];
 
