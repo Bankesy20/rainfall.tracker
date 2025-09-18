@@ -42,45 +42,45 @@ async function uploadNewData() {
       file: 'wales-1099.json', 
       description: 'Maenclochog NRW Station'
     },
-    'eaE7050': {
+    'ea-E7050': {
       file: 'ea-E7050.json',
-      description: 'EA Rainfall Station E7050 (England)'
+      description: 'Preston Capes (E7050)'
     },
-    'ea3680': {
+    'ea-3680': {
       file: 'ea-3680.json',
-      description: 'EA Rainfall Station 3680 (England)'
+      description: 'Brooksby (3680)'
     },
-    'ea3275': {
+    'ea-3275': {
       file: 'ea-3275.json',
-      description: 'EA Rainfall Station 3275 (England)'
+      description: 'Walsall Wood (3275)'
     },
-    'ea3167': {
+    'ea-3167': {
       file: 'ea-3167.json',
-      description: 'EA Rainfall Station 3167 (England)'
+      description: 'Frankley (3167)'
     },
-    'ea3307': {
+    'ea-3307': {
       file: 'ea-3307.json',
-      description: 'EA Rainfall Station 3307 (England)'
+      description: 'Hollinsclough (3307)'
     },
-    'ea3404': {
+    'ea-3404': {
       file: 'ea-3404.json',
-      description: 'EA Rainfall Station 3404 (England)'
+      description: 'Barbrook (3404)'
     },
-    'ea3014': {
+    'ea-3014': {
       file: 'ea-3014.json',
-      description: 'EA Rainfall Station 3014 (England)'
+      description: 'Stone (3014)'
     },
-    'ea3901': {
+    'ea-3901': {
       file: 'ea-3901.json',
-      description: 'EA Rainfall Station 3901 (England)'
+      description: 'Worksop (3901)'
     },
-    'ea3999': {
+    'ea-3999': {
       file: 'ea-3999.json',
-      description: 'EA Rainfall Station 3999 (England)'
+      description: 'Littlethorpe (3999)'
     },
-    'eaE6380': {
-      file: 'ea-E6380.json',
-      description: 'EA SCOTS FLOAT SLUICE RL (England)'
+    'ea-E13600': {
+      file: 'ea-E13600.json',
+      description: 'Lyndhurst (E13600)'
     }
   };
   
