@@ -1,8 +1,8 @@
 name: Scrape Rainfall Data
 
 on:
-  schedule:
-    - cron: '38 * * * *'
+  # schedule:
+  #   - cron: '38 * * * *'  # Disabled - using scrape-and-upload.yml instead
   workflow_dispatch:
 
 permissions:

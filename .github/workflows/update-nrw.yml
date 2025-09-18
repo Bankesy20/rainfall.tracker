@@ -1,8 +1,8 @@
 name: Update NRW Station (1099)
 
 on:
-  schedule:
-    - cron: '0 * * * *' # every hour
+  # schedule:
+  #   - cron: '0 * * * *' # every hour - Disabled - using scrape-and-upload.yml instead
   workflow_dispatch:
 
 jobs:
