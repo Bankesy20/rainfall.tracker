@@ -16,23 +16,30 @@
     "dev:netlify": "REACT_APP_USE_API=true netlify dev",
     "dev:simple": "concurrently \"npm run start\" \"npx netlify dev --port 8888 --functions-only\"",
     "dev:clean": "npm start",
-    "audit": "node scripts/audit-history.js"
+    "audit": "node scripts/audit-history.js",
+    "blob:upload": "node scripts/upload-to-blobs.js upload",
+    "blob:list": "node scripts/upload-to-blobs.js list",
+    "blob:enable": "node scripts/toggle-blob-storage.js enable",
+    "blob:disable": "node scripts/toggle-blob-storage.js disable",
+    "blob:status": "node scripts/toggle-blob-storage.js status",
+    "test:api": "node scripts/test-api.js"
   },
   "dependencies": {
+    "@netlify/blobs": "^10.0.10",
+    "autoprefixer": "^10.4.16",
+    "dayjs": "^1.11.10",
+    "postcss": "^8.4.32",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
     "recharts": "^2.8.0",
-    "dayjs": "^1.11.10",
-    "tailwindcss": "^3.3.6",
-    "autoprefixer": "^10.4.16",
-    "postcss": "^8.4.32"
+    "tailwindcss": "^3.3.6"
   },
   "devDependencies": {
-    "puppeteer-core": "^21.6.1",
     "@sparticuz/chromium": "^119.0.2",
     "concurrently": "^8.2.2",
-    "netlify-cli": "^17.0.0"
+    "netlify-cli": "^17.0.0",
+    "puppeteer-core": "^21.6.1"
   },
   "browserslist": {
     "production": [
@@ -49,4 +56,4 @@
   "engines": {
     "node": ">=18.0.0"
   }
-} 
+}

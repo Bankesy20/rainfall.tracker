@@ -21,6 +21,14 @@ exports.handler = async (event, context) => {
   const debugMode = qs.debug === '1';
   const station = qs.station || 'miserden1141'; // Default to Miserden
   const diagnostics = { attempts: [], decided: null };
+  
+  // Feature flags for blob storage
+  const useBlobStorage = process.env.USE_BLOB_STORAGE === 'true';
+  const blobFallbackEnabled = process.env.BLOB_FALLBACK_ENABLED !== 'false';
+  
+  if (debugMode) {
+    diagnostics.config = { useBlobStorage, blobFallbackEnabled };
+  }
 
   const tryFetchJson = async (url, timeoutMs = 10000) => {
     const controller = new AbortController();
@@ -53,8 +61,49 @@ exports.handler = async (event, context) => {
     }
   };
 
+  // Helper function to try blob storage
+  const tryBlobStorage = async (station) => {
+    if (!useBlobStorage) return null;
+    
+    try {
+      // Dynamic import for @netlify/blobs to avoid module compatibility issues
+      const { getStore } = await import('@netlify/blobs');
+      const store = getStore('rainfall-data');
+      const blobKey = `stations/${station}.json`;
+      
+      diagnostics.attempts.push({ type: 'blob', key: blobKey, attempting: true });
+      
+      const blobData = await store.get(blobKey, { type: 'json' });
+      
+      if (blobData && blobData.data && Array.isArray(blobData.data)) {
+        diagnostics.attempts.push({ type: 'blob', key: blobKey, ok: true, size: JSON.stringify(blobData).length });
+        return blobData;
+      } else {
+        diagnostics.attempts.push({ type: 'blob', key: blobKey, ok: false, note: 'invalid format or no data' });
+        return null;
+      }
+    } catch (error) {
+      diagnostics.attempts.push({ type: 'blob', ok: false, error: error.message });
+      if (debugMode) {
+        console.log('Blob storage failed:', error.message);
+      }
+      return null;
+    }
+  };
+
   try {
-    // 1) Remote live sources (prefer live data, no rebuilds)
+    // 1) Try blob storage first (if enabled)
+    if (useBlobStorage) {
+      const blobData = await tryBlobStorage(station);
+      if (blobData) {
+        diagnostics.decided = { type: 'blob', station };
+        const body = { success: true, data: blobData, timestamp: new Date().toISOString(), source: 'blob-storage', station };
+        if (debugMode) body.diagnostics = diagnostics;
+        return { statusCode: 200, headers, body: JSON.stringify(body) };
+      }
+    }
+    
+    // 2) Remote live sources (prefer live data, no rebuilds)
     const dataFile = station === 'maenclochog1099' ? 'wales-1099.json' : 'rainfall-history.json';
     const remoteSources = [
       `https://raw.githubusercontent.com/Bankesy20/rainfall.tracker/main/data/processed/${dataFile}`,
@@ -75,7 +124,7 @@ exports.handler = async (event, context) => {
       }
     }
 
-    // 2) Local file fallbacks
+    // 3) Local file fallbacks (always available)
     const possiblePaths = [
       path.join(__dirname, 'rainfall-data.json'),
       path.join(__dirname, 'data', 'processed', dataFile),
