@@ -4,7 +4,7 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 import RainfallChart from './components/RainfallChart';
 import DataSummary from './components/DataSummary';
 import useRainfallData from './hooks/useRainfallData';
-import stations from './utils/stations';
+import stations, { fetchAvailableStations } from './utils/stations';
 
 // Extend dayjs with relative time plugin
 dayjs.extend(relativeTime);
@@ -16,11 +16,30 @@ function App() {
   const { data: compareDataResult } = useRainfallData(compareStation || 'invalid_key');
   const [darkMode, setDarkMode] = useState(false);
   const [statsExpanded, setStatsExpanded] = useState(true);
+  const [availableStations, setAvailableStations] = useState(stations);
+  const [stationsLoading, setStationsLoading] = useState(true);
 
   // Handle theme toggle
   const toggleTheme = () => {
     setDarkMode(!darkMode);
   };
+
+  // Load available stations on mount
+  useEffect(() => {
+    const loadStations = async () => {
+      try {
+        const fetchedStations = await fetchAvailableStations();
+        setAvailableStations(fetchedStations);
+      } catch (error) {
+        console.warn('Failed to load stations:', error);
+        // Keep fallback stations
+      } finally {
+        setStationsLoading(false);
+      }
+    };
+    
+    loadStations();
+  }, []);
 
   // Apply dark mode to document
   useEffect(() => {
@@ -84,7 +103,8 @@ function App() {
                     UK Rainfall Tracker
                   </h1>
                   <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">
-                    {stations[primaryStation]?.label}
+                    {availableStations[primaryStation]?.label || 'Loading...'}
+                    {stationsLoading && <span className="ml-1">🔄</span>}
                   </p>
                 </div>
             </div>
@@ -96,9 +116,12 @@ function App() {
                   value={primaryStation}
                   onChange={(e) => setPrimaryStation(e.target.value)}
                   className="px-2 py-1 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-xs"
+                  disabled={stationsLoading}
                 >
-                  {Object.values(stations).map(s => (
-                    <option key={s.key} value={s.key}>{s.label}</option>
+                  {Object.values(availableStations).map(s => (
+                    <option key={s.key} value={s.key}>
+                      {s.label} {s.provider && `• ${s.provider}`}
+                    </option>
                   ))}
                 </select>
                 <span className="text-gray-400 text-xs">vs</span>
@@ -106,10 +129,13 @@ function App() {
                   value={compareStation}
                   onChange={(e) => setCompareStation(e.target.value)}
                   className="px-2 py-1 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-xs"
+                  disabled={stationsLoading}
                 >
                   <option value="">None</option>
-                  {Object.values(stations).map(s => (
-                    <option key={s.key} value={s.key}>{s.label}</option>
+                  {Object.values(availableStations).map(s => (
+                    <option key={s.key} value={s.key}>
+                      {s.label} {s.provider && `• ${s.provider}`}
+                    </option>
                   ))}
                 </select>
               </div>
@@ -153,9 +179,12 @@ function App() {
             value={primaryStation}
             onChange={(e) => setPrimaryStation(e.target.value)}
             className="flex-1 px-2 py-1 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-xs"
+            disabled={stationsLoading}
           >
-            {Object.values(stations).map(s => (
-              <option key={s.key} value={s.key}>{s.label}</option>
+            {Object.values(availableStations).map(s => (
+              <option key={s.key} value={s.key}>
+                {s.label} {s.provider && `• ${s.provider}`}
+              </option>
             ))}
           </select>
           <span className="text-gray-400 text-xs">vs</span>
@@ -163,10 +192,13 @@ function App() {
             value={compareStation}
             onChange={(e) => setCompareStation(e.target.value)}
             className="flex-1 px-2 py-1 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-xs"
+            disabled={stationsLoading}
           >
             <option value="">None</option>
-            {Object.values(stations).map(s => (
-              <option key={s.key} value={s.key}>{s.label}</option>
+            {Object.values(availableStations).map(s => (
+              <option key={s.key} value={s.key}>
+                {s.label} {s.provider && `• ${s.provider}`}
+              </option>
             ))}
           </select>
         </div>

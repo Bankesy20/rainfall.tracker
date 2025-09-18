@@ -294,16 +294,20 @@ async function processStationData(station, csvPath) {
     console.log(`  📈 Added ${addedCount} new records, updated ${updatedCount} records`);
     console.log(`  📊 Total records: ${mergedData.length}`);
     
-    // Create the history object
+    // Create the history object with enhanced metadata
     const history = {
       lastUpdated: new Date().toISOString(),
       station: station.id,
       stationName: station.name,
+      label: `${station.name} (${station.id})`, // Human-readable label
       location: {
         lat: station.lat,
         long: station.long
       },
       dataSource: 'EA API',
+      provider: 'Environment Agency',
+      country: 'England',
+      humanPage: station.humanPage,
       recordCount: mergedData.length,
       data: mergedData
     };
