@@ -1,0 +1,160 @@
+name: Test EA Stations (10 New Stations)
+
+on:
+  workflow_dispatch:  # Manual trigger only
+    inputs:
+      test_stations:
+        description: 'Number of stations to test (1-10)'
+        required: false
+        default: '3'
+        type: choice
+        options:
+        - '1'
+        - '3'
+        - '5'
+        - '10'
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  test-ea-stations:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        fetch-depth: 0
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Test EA batch download script
+      env:
+        TEST_STATION_COUNT: ${{ github.event.inputs.test_stations || '3' }}
+      run: |
+        echo "🧪 Testing EA download script with $TEST_STATION_COUNT stations..."
+        node scripts/download-ea-batch.js --test --limit=$TEST_STATION_COUNT
+    
+    - name: Verify downloaded data
+      run: |
+        echo "🔍 Verifying downloaded data files..."
+        
+        # Check if any EA station files were created
+        if ls data/processed/ea-*.json 1> /dev/null 2>&1; then
+          echo "✅ EA station files found:"
+          ls -la data/processed/ea-*.json
+          
+          # Show summary of each file
+          for file in data/processed/ea-*.json; do
+            if [ -f "$file" ]; then
+              echo "📊 $(basename "$file"):"
+              node -e "
+                const fs = require('fs');
+                try {
+                  const data = JSON.parse(fs.readFileSync('$file', 'utf8'));
+                  console.log('  Records: ' + (data.data?.length || 0));
+                  console.log('  Station: ' + (data.stationName || data.station || 'Unknown'));
+                  console.log('  Last updated: ' + (data.lastUpdated || 'Unknown'));
+                } catch(e) {
+                  console.log('  ❌ Error reading file: ' + e.message);
+                }
+              "
+            fi
+          done
+        else
+          echo "❌ No EA station files found"
+          exit 1
+        fi
+    
+    - name: Test blob upload (dry run)
+      env:
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        DRY_RUN: true
+      run: |
+        echo "🧪 Testing blob upload (dry run mode)..."
+        node -e "
+          const fs = require('fs');
+          const path = require('path');
+          
+          console.log('📊 EA station files that would be uploaded:');
+          const files = fs.readdirSync('data/processed').filter(f => f.startsWith('ea-') && f.endsWith('.json'));
+          
+          for (const file of files) {
+            const filePath = path.join('data/processed', file);
+            const stats = fs.statSync(filePath);
+            const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+            
+            console.log(\`  \${file}: \${(stats.size/1024).toFixed(1)}KB, \${data.data?.length || 0} records\`);
+          }
+          
+          console.log('✅ Dry run complete - files look good for blob upload');
+        "
+    
+    - name: Create test summary
+      run: |
+        echo "## 🧪 EA Stations Test Results" >> $GITHUB_STEP_SUMMARY
+        echo "### Test Configuration" >> $GITHUB_STEP_SUMMARY
+        echo "- **Stations tested**: ${{ github.event.inputs.test_stations || '3' }}" >> $GITHUB_STEP_SUMMARY
+        echo "- **Timestamp**: $(date -u +'%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY
+        
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "### Downloaded Files" >> $GITHUB_STEP_SUMMARY
+        
+        if ls data/processed/ea-*.json 1> /dev/null 2>&1; then
+          echo "| Station File | Size | Records |" >> $GITHUB_STEP_SUMMARY
+          echo "|--------------|------|---------|" >> $GITHUB_STEP_SUMMARY
+          
+          for file in data/processed/ea-*.json; do
+            if [ -f "$file" ]; then
+              size=$(stat -f%z "$file" 2>/dev/null || stat -c%s "$file" 2>/dev/null || echo "0")
+              size_kb=$(echo "scale=1; $size/1024" | bc -l 2>/dev/null || echo "0")
+              
+              records=$(node -e "
+                try {
+                  const data = JSON.parse(require('fs').readFileSync('$file', 'utf8'));
+                  console.log(data.data?.length || 0);
+                } catch(e) { console.log('Error'); }
+              ")
+              
+              echo "| $(basename "$file") | ${size_kb}KB | $records |" >> $GITHUB_STEP_SUMMARY
+            fi
+          done
+        else
+          echo "❌ No files were downloaded" >> $GITHUB_STEP_SUMMARY
+        fi
+        
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "### Next Steps" >> $GITHUB_STEP_SUMMARY
+        echo "- ✅ If this test passed, the EA stations are working correctly" >> $GITHUB_STEP_SUMMARY
+        echo "- 🔄 You can now run with more stations or integrate into main workflow" >> $GITHUB_STEP_SUMMARY
+        echo "- 🚀 Use \`workflow_dispatch\` to test different station counts" >> $GITHUB_STEP_SUMMARY
+    
+    - name: Handle test failure
+      if: failure()
+      run: |
+        echo "## ❌ EA Stations Test Failed" >> $GITHUB_STEP_SUMMARY
+        echo "- **Timestamp**: $(date -u +'%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY
+        echo "- **Check logs above for details**" >> $GITHUB_STEP_SUMMARY
+        echo "- **This test failure does not affect production data collection**" >> $GITHUB_STEP_SUMMARY
+        
+        # Show any error files that might help debug
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "### Debug Information" >> $GITHUB_STEP_SUMMARY
+        
+        if ls data/raw/ea-*.csv 1> /dev/null 2>&1; then
+          echo "**Raw CSV files downloaded:**" >> $GITHUB_STEP_SUMMARY
+          ls -la data/raw/ea-*.csv >> $GITHUB_STEP_SUMMARY 2>/dev/null || echo "None" >> $GITHUB_STEP_SUMMARY
+        fi
+
+

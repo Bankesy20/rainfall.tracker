@@ -32,7 +32,7 @@ async function uploadNewData() {
   console.log(`🔑 Token length: ${process.env.NETLIFY_AUTH_TOKEN ? process.env.NETLIFY_AUTH_TOKEN.length : 'not set'}`);
   const dataDir = path.join(process.cwd(), 'data', 'processed');
   
-  // Station mapping - same as local script but with GitHub Actions context
+  // Station mapping - updated to include new EA stations
   const STATIONS = {
     'miserden1141': {
       file: 'rainfall-history.json',
@@ -41,6 +41,46 @@ async function uploadNewData() {
     'maenclochog1099': {
       file: 'wales-1099.json', 
       description: 'Maenclochog NRW Station'
+    },
+    'ea573674': {
+      file: 'ea-573674.json',
+      description: 'EA Northern Station (573674)'
+    },
+    'eaE19017': {
+      file: 'ea-E19017.json', 
+      description: 'EA East England Station (E19017)'
+    },
+    'ea240662TP': {
+      file: 'ea-240662TP.json',
+      description: 'EA Central England Station (240662TP)'
+    },
+    'ea558491': {
+      file: 'ea-558491.json',
+      description: 'EA Midlands Station (558491)'
+    },
+    'ea059793': {
+      file: 'ea-059793.json',
+      description: 'EA Yorkshire Station (059793)'
+    },
+    'ea013553': {
+      file: 'ea-013553.json',
+      description: 'EA Northern Border Station (013553)'
+    },
+    'ea50108': {
+      file: 'ea-50108.json',
+      description: 'EA Southwest Station (50108)'
+    },
+    'eaE14920': {
+      file: 'ea-E14920.json',
+      description: 'EA South Coast Station (E14920)'
+    },
+    'ea038476': {
+      file: 'ea-038476.json',
+      description: 'EA East Coast Station (038476)'
+    },
+    'eaE11461': {
+      file: 'ea-E11461.json',
+      description: 'EA South Station (E11461)'
     }
   };
   
