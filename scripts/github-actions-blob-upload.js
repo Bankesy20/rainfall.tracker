@@ -72,9 +72,9 @@ async function uploadNewData() {
       description: 'Preston Capes (E7050)',
       stationId: 'E7050'
     },
-    'cambridge': {
+    'ashdon': {
       file: 'ea-E19017.json',
-      description: 'Cambridge (E19017)',
+      description: 'Ashdon (E19017)',
       stationId: 'E19017'
     },
     'lyndhurst': {
@@ -82,40 +82,35 @@ async function uploadNewData() {
       description: 'Lyndhurst (E13600)',
       stationId: 'E13600'
     },
-    'bournemouth': {
+    'hullbridge-raine': {
       file: 'ea-E24879.json',
-      description: 'Bournemouth (E24879)',
+      description: 'Hullbridge Raine (E24879)',
       stationId: 'E24879'
     },
-    'bristol': {
+    'lower-standen': {
       file: 'ea-E5170.json',
-      description: 'Bristol (E5170)',
+      description: 'Lower Standen (E5170)',
       stationId: 'E5170'
     },
-    'manchester': {
+    'hethersett': {
       file: 'ea-E23518.json',
-      description: 'Manchester (E23518)',
+      description: 'Hethersett (E23518)',
       stationId: 'E23518'
     },
-    'liverpool': {
+    'tiptree': {
       file: 'ea-E24913.json',
-      description: 'Liverpool (E24913)',
+      description: 'Tiptree (E24913)',
       stationId: 'E24913'
     },
-    'sheffield': {
+    'isfield-weir': {
       file: 'ea-E8290.json',
-      description: 'Sheffield (E8290)',
+      description: 'Isfield Weir (E8290)',
       stationId: 'E8290'
     },
-    'newcastle': {
+    'red-br': {
       file: 'ea-577271.json',
-      description: 'Newcastle (577271)',
+      description: 'Red Br (577271)',
       stationId: '577271'
-    },
-    'birmingham': {
-      file: 'ea-031555.json',
-      description: 'Birmingham (031555)',
-      stationId: '031555'
     }
   };
 

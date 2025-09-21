@@ -74,13 +74,7 @@ const STATIONS_CONFIG = [
     humanPage: 'https://check-for-flooding.service.gov.uk/station/577271?parameter=rainfall',
     region: 'North West'
   },
-  {
-    stationId: '031555',
-    stationName: 'Birmingham Area (031555)', // Keep original name - extraction failed
-    csvUrl: 'https://check-for-flooding.service.gov.uk/rainfall-station-csv/031555',
-    humanPage: 'https://check-for-flooding.service.gov.uk/station/031555?parameter=rainfall',
-    region: 'West Midlands'
-  }
+  
 ];
 
 async function downloadEACSV(station) {
