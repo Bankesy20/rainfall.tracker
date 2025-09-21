@@ -226,7 +226,8 @@ async function processDownloadedCSV(csvPath, station) {
         date: date,
         time: time,
         dateTime: timestamp,
-        value: value,
+        rainfall_mm: value,
+        total_mm: 0, // EA stations don't provide cumulative totals
         station: station.stationId,
         stationName: station.stationName,
         region: station.region
