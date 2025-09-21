@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-09-21T12:11:25.307Z",
+  "lastUpdated": "2025-09-21T12:18:00.339Z",
   "station": "E23518",
   "stationName": "Manchester",
   "region": "North West",
@@ -10,15 +10,6 @@
   "dataSource": "EA API",
   "recordCount": 480,
   "data": [
-    {
-      "date": "2025-09-16",
-      "time": "12:15:00.000",
-      "dateTime": "2025-09-16T12:15:00Z",
-      "value": 0,
-      "station": "E23518",
-      "stationName": "Manchester",
-      "region": "North West"
-    },
     {
       "date": "2025-09-16",
       "time": "12:30:00.000",
@@ -4325,6 +4316,15 @@
       "date": "2025-09-21",
       "time": "12:00:00.000",
       "dateTime": "2025-09-21T12:00:00Z",
+      "value": 0,
+      "station": "E23518",
+      "stationName": "Manchester",
+      "region": "North West"
+    },
+    {
+      "date": "2025-09-21",
+      "time": "12:15:00.000",
+      "dateTime": "2025-09-21T12:15:00Z",
       "value": 0,
       "station": "E23518",
       "stationName": "Manchester",
