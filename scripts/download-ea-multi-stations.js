@@ -13,70 +13,70 @@ const zlib = require('zlib');
 const STATIONS_CONFIG = [
   {
     stationId: 'E7050',
-    stationName: 'Preston Capes',
+    stationName: 'Preston Capes (E7050)',
     csvUrl: 'https://check-for-flooding.service.gov.uk/rainfall-station-csv/E7050',
     humanPage: 'https://check-for-flooding.service.gov.uk/rainfall-station/E7050',
     region: 'East Midlands'
   },
   {
     stationId: 'E19017',
-    stationName: 'Cambridge',
+    stationName: 'Ashdon (E19017)',
     csvUrl: 'https://check-for-flooding.service.gov.uk/rainfall-station-csv/E19017',
     humanPage: 'https://check-for-flooding.service.gov.uk/rainfall-station/E19017',
     region: 'East of England'
   },
   {
     stationId: 'E13600',
-    stationName: 'Lyndhurst',
+    stationName: 'Lyndhurst (E13600)',
     csvUrl: 'https://check-for-flooding.service.gov.uk/rainfall-station-csv/E13600',
     humanPage: 'https://check-for-flooding.service.gov.uk/rainfall-station/E13600',
     region: 'South East'
   },
   {
     stationId: 'E24879',
-    stationName: 'Bournemouth',
+    stationName: 'Hullbridge Raine (E24879)',
     csvUrl: 'https://check-for-flooding.service.gov.uk/rainfall-station-csv/E24879',
     humanPage: 'https://check-for-flooding.service.gov.uk/rainfall-station/E24879',
-    region: 'South West'
+    region: 'South East'
   },
   {
     stationId: 'E5170',
-    stationName: 'Bristol',
+    stationName: 'Lower Standen (E5170)',
     csvUrl: 'https://check-for-flooding.service.gov.uk/rainfall-station-csv/E5170',
     humanPage: 'https://check-for-flooding.service.gov.uk/rainfall-station/E5170',
     region: 'South West'
   },
   {
     stationId: 'E23518',
-    stationName: 'Manchester',
+    stationName: 'Hethersett (E23518)',
     csvUrl: 'https://check-for-flooding.service.gov.uk/rainfall-station-csv/E23518',
     humanPage: 'https://check-for-flooding.service.gov.uk/rainfall-station/E23518',
-    region: 'North West'
+    region: 'East of England'
   },
   {
     stationId: 'E24913',
-    stationName: 'Liverpool',
+    stationName: 'Tiptree (E24913)',
     csvUrl: 'https://check-for-flooding.service.gov.uk/rainfall-station-csv/E24913',
     humanPage: 'https://check-for-flooding.service.gov.uk/rainfall-station/E24913',
-    region: 'North West'
+    region: 'East of England'
   },
   {
     stationId: 'E8290',
-    stationName: 'Sheffield',
+    stationName: 'Isfield Weir (E8290)',
     csvUrl: 'https://check-for-flooding.service.gov.uk/rainfall-station-csv/E8290',
     humanPage: 'https://check-for-flooding.service.gov.uk/rainfall-station/E8290',
-    region: 'Yorkshire'
+    region: 'South East'
   },
   {
     stationId: '577271',
-    stationName: 'Newcastle',
+    stationName: 'Red Br (577271)',
     csvUrl: 'https://check-for-flooding.service.gov.uk/rainfall-station-csv/577271',
     humanPage: 'https://check-for-flooding.service.gov.uk/station/577271?parameter=rainfall',
-    region: 'North East'
+    region: 'North West'
   },
   {
     stationId: '031555',
-    stationName: 'Birmingham',
+    stationName: 'Birmingham Area (031555)', // Keep original name - extraction failed
     csvUrl: 'https://check-for-flooding.service.gov.uk/rainfall-station-csv/031555',
     humanPage: 'https://check-for-flooding.service.gov.uk/station/031555?parameter=rainfall',
     region: 'West Midlands'
