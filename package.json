@@ -10,8 +10,6 @@
     "eject": "react-scripts eject",
     "scrape": "node scripts/scrape-rainfall.js",
     "scrape:nrw": "node scripts/scrape-nrw-rainfall.js",
-    "scrape:ea:10": "node scripts/scrape-ea-stations.js --limit=10",
-    "scrape:ea:test": "node scripts/scrape-ea-stations.js --test --limit=2",
     "dev": "concurrently \"npm run start\" \"npm run scrape\"",
     "dev:functions": "netlify dev",
     "dev:full": "concurrently \"netlify dev\" \"npm run scrape\"",

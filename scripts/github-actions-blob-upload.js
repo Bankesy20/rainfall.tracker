@@ -35,10 +35,12 @@ async function uploadNewData() {
   // Determine which stations to upload based on workflow
   const isEATestWorkflow = process.env.GITHUB_WORKFLOW && process.env.GITHUB_WORKFLOW.includes('EA Stations');
   const isProductionWorkflow = process.env.GITHUB_WORKFLOW && process.env.GITHUB_WORKFLOW.includes('Scrape Rainfall');
+  const isEAStationWorkflow = process.env.GITHUB_WORKFLOW && process.env.GITHUB_WORKFLOW.includes('EA Station');
   
   console.log(`🔍 Workflow: ${process.env.GITHUB_WORKFLOW}`);
   console.log(`📊 EA Test Mode: ${isEATestWorkflow}`);
   console.log(`🏭 Production Mode: ${isProductionWorkflow}`);
+  console.log(`🌧️ EA Station Mode: ${isEAStationWorkflow}`);
   
   // Production stations (only for scrape-and-upload workflow)
   const PRODUCTION_STATIONS = {
@@ -52,6 +54,15 @@ async function uploadNewData() {
     }
   };
   
+  // Individual EA stations (for individual EA station workflows)
+  const EA_STATION_E7050 = {
+    'preston-capes': {
+      file: 'ea-E7050.json',
+      description: 'Preston Capes (E7050)',
+      stationId: 'E7050'
+    }
+  };
+
   // EA test stations (only for EA test workflows) - using proper names as keys
   const EA_TEST_STATIONS = {
     'preston-capes': {
@@ -114,6 +125,9 @@ async function uploadNewData() {
   } else if (isProductionWorkflow) {
     STATIONS = PRODUCTION_STATIONS;
     console.log('🏭 Using PRODUCTION stations only');
+  } else if (isEAStationWorkflow) {
+    STATIONS = EA_STATION_E7050;
+    console.log('🌧️ Using individual EA station (E7050) only');
   } else {
     // Fallback for manual runs or unknown workflows
     STATIONS = { ...PRODUCTION_STATIONS, ...EA_TEST_STATIONS };
