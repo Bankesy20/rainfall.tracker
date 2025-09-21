@@ -254,13 +254,23 @@ class RainfallScraper {
       let history = {
         lastUpdated: new Date().toISOString(),
         station: "1141",
+        stationName: "Miserden (1141)",
+        label: "Miserden (1141)",
+        provider: "Environment Agency",
+        country: "England",
         data: []
       };
 
       // Load existing history if it exists
       try {
         const existingHistory = await fs.readFile(HISTORY_FILE, 'utf-8');
-        history = JSON.parse(existingHistory);
+        const existing = JSON.parse(existingHistory);
+        // Preserve existing metadata while updating data
+        history = {
+          ...existing,
+          lastUpdated: new Date().toISOString(),
+          data: existing.data || []
+        };
       } catch (error) {
         console.log('No existing history file found, creating new one');
       }

@@ -63,7 +63,11 @@ async function processNRWCSV() {
     // Create the JSON structure
     const jsonData = {
       lastUpdated: new Date().toISOString(),
-      station: "wales-1099",
+      station: "1099",
+      stationName: "Maenclochog (1099)",
+      label: "Maenclochog (1099)",
+      provider: "Natural Resources Wales",
+      country: "Wales",
       nameEN: "Maenclochog",
       nameCY: "Maenclochog",
       source: "NRW",
