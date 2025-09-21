@@ -1,4 +1,4 @@
-name: EA Station E7050 (Preston Capes)
+name: EA Multi-Stations (10 Stations)
 
 on:
   schedule:
@@ -10,7 +10,7 @@ permissions:
   actions: read
 
 jobs:
-  ea-station-e7050:
+  ea-multi-stations:
     runs-on: ubuntu-latest
     
     steps:
@@ -29,8 +29,8 @@ jobs:
     - name: Install dependencies
       run: npm ci
     
-    - name: Run EA station E7050 scraping script
-      run: node scripts/download-ea-station.js
+    - name: Run EA multi-stations scraping script
+      run: node scripts/download-ea-multi-stations.js
     
     - name: Upload to Netlify Blobs
       env:
@@ -46,14 +46,15 @@ jobs:
     - name: Commit and push changes (backup)
       run: |
         git add data/
-        git diff --quiet && git diff --staged --quiet || (git commit -m "[skip ci] Update EA station E7050 data + blob backup - $(date -u +'%Y-%m-%d %H:%M:%S UTC')" && git push origin main)
+        git diff --quiet && git diff --staged --quiet || (git commit -m "[skip ci] Update EA multi-stations data + blob backup - $(date -u +'%Y-%m-%d %H:%M:%S UTC')" && git push origin main)
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     
     - name: Summary
       run: |
-        echo "## EA Station E7050 Data Update Complete" >> $GITHUB_STEP_SUMMARY
-        echo "- Station: Preston Capes (E7050)" >> $GITHUB_STEP_SUMMARY
+        echo "## EA Multi-Stations Data Update Complete" >> $GITHUB_STEP_SUMMARY
+        echo "- **Stations**: 10 EA stations across UK regions" >> $GITHUB_STEP_SUMMARY
+        echo "- **Regions**: East Midlands, South East, South West, North West, Yorkshire, North East, West Midlands" >> $GITHUB_STEP_SUMMARY
         echo "- Data scraped and processed" >> $GITHUB_STEP_SUMMARY
         echo "- Uploaded to Netlify Blobs" >> $GITHUB_STEP_SUMMARY
         echo "- Backup committed to repository" >> $GITHUB_STEP_SUMMARY
@@ -62,8 +63,8 @@ jobs:
     - name: Handle errors
       if: failure()
       run: |
-        echo "## EA Station E7050 Update Failed" >> $GITHUB_STEP_SUMMARY
-        echo "- Station: Preston Capes (E7050)" >> $GITHUB_STEP_SUMMARY
+        echo "## EA Multi-Stations Update Failed" >> $GITHUB_STEP_SUMMARY
+        echo "- **Stations**: 10 EA stations" >> $GITHUB_STEP_SUMMARY
         echo "- Timestamp: $(date -u +'%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY
         echo "- Check logs for details" >> $GITHUB_STEP_SUMMARY
         echo "- Fallback: Data should still be available from Git repository" >> $GITHUB_STEP_SUMMARY

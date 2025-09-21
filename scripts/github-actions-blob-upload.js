@@ -36,11 +36,13 @@ async function uploadNewData() {
   const isEATestWorkflow = process.env.GITHUB_WORKFLOW && process.env.GITHUB_WORKFLOW.includes('EA Stations');
   const isProductionWorkflow = process.env.GITHUB_WORKFLOW && process.env.GITHUB_WORKFLOW.includes('Scrape Rainfall');
   const isEAStationWorkflow = process.env.GITHUB_WORKFLOW && process.env.GITHUB_WORKFLOW.includes('EA Station');
+  const isEAMultiStationsWorkflow = process.env.GITHUB_WORKFLOW && process.env.GITHUB_WORKFLOW.includes('EA Multi-Stations');
   
   console.log(`🔍 Workflow: ${process.env.GITHUB_WORKFLOW}`);
   console.log(`📊 EA Test Mode: ${isEATestWorkflow}`);
   console.log(`🏭 Production Mode: ${isProductionWorkflow}`);
   console.log(`🌧️ EA Station Mode: ${isEAStationWorkflow}`);
+  console.log(`🌧️ EA Multi-Stations Mode: ${isEAMultiStationsWorkflow}`);
   
   // Production stations (only for scrape-and-upload workflow)
   const PRODUCTION_STATIONS = {
@@ -60,6 +62,60 @@ async function uploadNewData() {
       file: 'ea-E7050.json',
       description: 'Preston Capes (E7050)',
       stationId: 'E7050'
+    }
+  };
+
+  // Multi-station EA workflow (for EA Multi-Stations workflow)
+  const EA_MULTI_STATIONS = {
+    'preston-capes': {
+      file: 'ea-E7050.json',
+      description: 'Preston Capes (E7050)',
+      stationId: 'E7050'
+    },
+    'cambridge': {
+      file: 'ea-E19017.json',
+      description: 'Cambridge (E19017)',
+      stationId: 'E19017'
+    },
+    'lyndhurst': {
+      file: 'ea-E13600.json',
+      description: 'Lyndhurst (E13600)',
+      stationId: 'E13600'
+    },
+    'bournemouth': {
+      file: 'ea-E24879.json',
+      description: 'Bournemouth (E24879)',
+      stationId: 'E24879'
+    },
+    'bristol': {
+      file: 'ea-E5170.json',
+      description: 'Bristol (E5170)',
+      stationId: 'E5170'
+    },
+    'manchester': {
+      file: 'ea-E23518.json',
+      description: 'Manchester (E23518)',
+      stationId: 'E23518'
+    },
+    'liverpool': {
+      file: 'ea-E24913.json',
+      description: 'Liverpool (E24913)',
+      stationId: 'E24913'
+    },
+    'sheffield': {
+      file: 'ea-E8290.json',
+      description: 'Sheffield (E8290)',
+      stationId: 'E8290'
+    },
+    'newcastle': {
+      file: 'ea-577271.json',
+      description: 'Newcastle (577271)',
+      stationId: '577271'
+    },
+    'birmingham': {
+      file: 'ea-031555.json',
+      description: 'Birmingham (031555)',
+      stationId: '031555'
     }
   };
 
@@ -125,6 +181,9 @@ async function uploadNewData() {
   } else if (isProductionWorkflow) {
     STATIONS = PRODUCTION_STATIONS;
     console.log('🏭 Using PRODUCTION stations only');
+  } else if (isEAMultiStationsWorkflow) {
+    STATIONS = EA_MULTI_STATIONS;
+    console.log('🌧️ Using EA Multi-Stations (10 stations) only');
   } else if (isEAStationWorkflow) {
     STATIONS = EA_STATION_E7050;
     console.log('🌧️ Using individual EA station (E7050) only');
