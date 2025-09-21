@@ -12,8 +12,8 @@ ParamNameEN,Rainfall
 ParamNameCY,Glawiad
 TitleEN,Maenclochog raingauge
 TitleCY,Mesurydd glaw Maenclochog
-ParameterStatusEN,Rainfall Dry
-ParameterStatusCY,Drws glaw
+ParameterStatusEN,Rainfall Light Rain
+ParameterStatusCY,Glaw golau glaw
 Units,mm
 
 Date (UTC),Value
@@ -314,3 +314,7 @@ Date (UTC),Value
 2025-09-21 01:30:00,0
 2025-09-21 01:45:00,0
 2025-09-21 02:00:00,0
+2025-09-21 02:15:00,0.2
+2025-09-21 02:30:00,0
+2025-09-21 02:45:00,0.2
+2025-09-21 03:00:00,0
