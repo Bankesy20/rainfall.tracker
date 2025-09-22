@@ -1,0 +1,1023 @@
+{
+  "lastUpdated": "2025-09-22T09:40:49.066Z",
+  "totalStations": 838,
+  "areaIndex": {
+    "london": {
+      "city": "London",
+      "coordinates": {
+        "lat": 51.5074,
+        "long": -0.1278,
+        "counties": [
+          "Greater London",
+          "London"
+        ]
+      },
+      "stationCount": 56,
+      "sampleStations": [
+        "Holland Park",
+        "Hornsey",
+        "Norwood Reservoir",
+        "Mitcham",
+        "The Avenue North"
+      ]
+    },
+    "manchester": {
+      "city": "Manchester",
+      "coordinates": {
+        "lat": 53.4808,
+        "long": -2.2426,
+        "counties": [
+          "Greater Manchester",
+          "Lancashire"
+        ]
+      },
+      "stationCount": 44,
+      "sampleStations": [
+        "Heaton Park",
+        "Denton",
+        "Oldham",
+        "Sale Depot",
+        "Ringley"
+      ]
+    },
+    "birmingham": {
+      "city": "Birmingham",
+      "coordinates": {
+        "lat": 52.4862,
+        "long": -1.8904,
+        "counties": [
+          "West Midlands",
+          "Warwickshire"
+        ]
+      },
+      "stationCount": 32,
+      "sampleStations": [
+        "Saltley",
+        "Sutton Coldfield",
+        "Frankley",
+        "Birmingham Airport Falcon Way",
+        "Tudor Grange"
+      ]
+    },
+    "leeds": {
+      "city": "Leeds",
+      "coordinates": {
+        "lat": 53.8008,
+        "long": -1.5491,
+        "counties": [
+          "West Yorkshire",
+          "Yorkshire"
+        ]
+      },
+      "stationCount": 32,
+      "sampleStations": [
+        "Headingley",
+        "Farnley Hall",
+        "Eccup Reservoir",
+        "Heckmondwike Bottoms",
+        "Wakefield"
+      ]
+    },
+    "glasgow": {
+      "city": "Glasgow",
+      "coordinates": {
+        "lat": 55.8642,
+        "long": -4.2518,
+        "counties": [
+          "Glasgow",
+          "Lanarkshire"
+        ]
+      },
+      "stationCount": 0,
+      "sampleStations": []
+    },
+    "sheffield": {
+      "city": "Sheffield",
+      "coordinates": {
+        "lat": 53.3811,
+        "long": -1.4701,
+        "counties": [
+          "South Yorkshire",
+          "Yorkshire"
+        ]
+      },
+      "stationCount": 35,
+      "sampleStations": [
+        "Ringing Low",
+        "Dore",
+        "Woodhouse Mill",
+        "Redmires Reservoir",
+        "Harley"
+      ]
+    },
+    "bradford": {
+      "city": "Bradford",
+      "coordinates": {
+        "lat": 53.796,
+        "long": -1.7594,
+        "counties": [
+          "West Yorkshire",
+          "Yorkshire"
+        ]
+      },
+      "stationCount": 39,
+      "sampleStations": [
+        "Bradford Chellow Heights",
+        "Farnley Hall",
+        "Halifax Ogden Reservoir",
+        "Thornton Moor Reservoir",
+        "Headingley"
+      ]
+    },
+    "liverpool": {
+      "city": "Liverpool",
+      "coordinates": {
+        "lat": 53.4084,
+        "long": -2.9916,
+        "counties": [
+          "Merseyside",
+          "Lancashire"
+        ]
+      },
+      "stationCount": 12,
+      "sampleStations": [
+        "Fazakerley",
+        "Folly Gates",
+        "Edgehill",
+        "Billinge Hill",
+        "Hoscar"
+      ]
+    },
+    "bristol": {
+      "city": "Bristol",
+      "coordinates": {
+        "lat": 51.4545,
+        "long": -2.5879,
+        "counties": [
+          "Bristol",
+          "Somerset",
+          "Gloucestershire"
+        ]
+      },
+      "stationCount": 32,
+      "sampleStations": [
+        "Clifton Oakfield Road",
+        "Bristol Bourchier Gardens",
+        "Barrow Gurney",
+        "Keynsham",
+        "Chew Magna Reservoir"
+      ]
+    },
+    "newcastle": {
+      "city": "Newcastle",
+      "coordinates": {
+        "lat": 54.9783,
+        "long": -1.6178,
+        "counties": [
+          "Tyne and Wear",
+          "Northumberland"
+        ]
+      },
+      "stationCount": 10,
+      "sampleStations": [
+        "Washington",
+        "Stanley Hustledown",
+        "Fulwell",
+        "Knitsley",
+        "Esh Winning"
+      ]
+    },
+    "nottingham": {
+      "city": "Nottingham",
+      "coordinates": {
+        "lat": 52.9548,
+        "long": -1.1581,
+        "counties": [
+          "Nottinghamshire",
+          "East Midlands"
+        ]
+      },
+      "stationCount": 33,
+      "sampleStations": [
+        "Colwick",
+        "Lambley",
+        "Nottingham Watnall",
+        "Calverton",
+        "Newstead Abbey"
+      ]
+    },
+    "leicester": {
+      "city": "Leicester",
+      "coordinates": {
+        "lat": 52.6369,
+        "long": -1.1398,
+        "counties": [
+          "Leicestershire",
+          "East Midlands"
+        ]
+      },
+      "stationCount": 37,
+      "sampleStations": [
+        "Evington",
+        "Wanlip",
+        "Littlethorpe",
+        "Thornton",
+        "Fleckney"
+      ]
+    },
+    "coventry": {
+      "city": "Coventry",
+      "coordinates": {
+        "lat": 52.4068,
+        "long": -1.5197,
+        "counties": [
+          "West Midlands",
+          "Warwickshire"
+        ]
+      },
+      "stationCount": 38,
+      "sampleStations": [
+        "Finham",
+        "Corley",
+        "Kings Newnham",
+        "Warwick Racecourse",
+        "Birmingham Airport Falcon Way"
+      ]
+    },
+    "belfast": {
+      "city": "Belfast",
+      "coordinates": {
+        "lat": 54.5973,
+        "long": -5.9301,
+        "counties": [
+          "Belfast",
+          "Antrim"
+        ]
+      },
+      "stationCount": 0,
+      "sampleStations": []
+    },
+    "cardiff": {
+      "city": "Cardiff",
+      "coordinates": {
+        "lat": 51.4816,
+        "long": -3.1791,
+        "counties": [
+          "Cardiff",
+          "Glamorgan"
+        ]
+      },
+      "stationCount": 6,
+      "sampleStations": [
+        "Wick St Lawrence",
+        "Clevedon Rgw",
+        "Clewer",
+        "Barrow Gurney",
+        "Gold Corner"
+      ]
+    },
+    "edinburgh": {
+      "city": "Edinburgh",
+      "coordinates": {
+        "lat": 55.9533,
+        "long": -3.1883,
+        "counties": [
+          "Edinburgh",
+          "Midlothian"
+        ]
+      },
+      "stationCount": 0,
+      "sampleStations": []
+    },
+    "york": {
+      "city": "York",
+      "coordinates": {
+        "lat": 53.959,
+        "long": -1.0815,
+        "counties": [
+          "North Yorkshire",
+          "Yorkshire"
+        ]
+      },
+      "stationCount": 10,
+      "sampleStations": [
+        "York Acomb Landing",
+        "Lower Dunsforth",
+        "East Ness",
+        "Eccup Reservoir",
+        "High Mowthorpe"
+      ]
+    },
+    "plymouth": {
+      "city": "Plymouth",
+      "coordinates": {
+        "lat": 50.3755,
+        "long": -4.1427,
+        "counties": [
+          "Devon",
+          "South West"
+        ]
+      },
+      "stationCount": 31,
+      "sampleStations": [
+        "Crownhill",
+        "Torpoint",
+        "Plympton",
+        "Hatt",
+        "Lee Moor"
+      ]
+    },
+    "southampton": {
+      "city": "Southampton",
+      "coordinates": {
+        "lat": 50.9097,
+        "long": -1.4044,
+        "counties": [
+          "Hampshire",
+          "Southampton"
+        ]
+      },
+      "stationCount": 34,
+      "sampleStations": [
+        "Testwood",
+        "Romsey",
+        "Lyndhurst",
+        "Otterbourne",
+        "Bishops Waltham"
+      ]
+    },
+    "norwich": {
+      "city": "Norwich",
+      "coordinates": {
+        "lat": 52.6309,
+        "long": 1.2974,
+        "counties": [
+          "Norfolk",
+          "East Anglia"
+        ]
+      },
+      "stationCount": 17,
+      "sampleStations": [
+        "Hethersett",
+        "Poringland",
+        "Acle",
+        "Forncett End",
+        "Salle"
+      ]
+    },
+    "bournemouth": {
+      "city": "Bournemouth",
+      "coordinates": {
+        "lat": 50.7192,
+        "long": -1.8808,
+        "counties": [
+          "Dorset",
+          "South West"
+        ]
+      },
+      "stationCount": 15,
+      "sampleStations": [
+        "Alderney",
+        "Holdenhurst Rg Old",
+        "Swanage",
+        "Stem Lane",
+        "Efford"
+      ]
+    },
+    "brighton": {
+      "city": "Brighton",
+      "coordinates": {
+        "lat": 50.8225,
+        "long": -0.1372,
+        "counties": [
+          "East Sussex",
+          "Sussex"
+        ]
+      },
+      "stationCount": 35,
+      "sampleStations": [
+        "Ditchling Road",
+        "Plumpton",
+        "Denton",
+        "Poverty Bottom",
+        "Barcombe"
+      ]
+    },
+    "hull": {
+      "city": "Hull",
+      "coordinates": {
+        "lat": 53.7676,
+        "long": -0.3274,
+        "counties": [
+          "East Yorkshire",
+          "Yorkshire"
+        ]
+      },
+      "stationCount": 16,
+      "sampleStations": [
+        "Great Culvert",
+        "Tickton",
+        "Goxhill",
+        "South Ferriby",
+        "Winestead"
+      ]
+    },
+    "reading": {
+      "city": "Reading",
+      "coordinates": {
+        "lat": 51.4543,
+        "long": -0.9781,
+        "counties": [
+          "Berkshire",
+          "Thames Valley"
+        ]
+      },
+      "stationCount": 26,
+      "sampleStations": [
+        "Reading University",
+        "Cleeve",
+        "Bracknell",
+        "Yattendon",
+        "Basingstoke"
+      ]
+    },
+    "preston": {
+      "city": "Preston",
+      "coordinates": {
+        "lat": 53.7632,
+        "long": -2.7031,
+        "counties": [
+          "Lancashire",
+          "North West"
+        ]
+      },
+      "stationCount": 37,
+      "sampleStations": [
+        "Moor Park Fulwood",
+        "Haighton Reservoir",
+        "Clifton Marsh",
+        "Common Bank",
+        "Sunnyhurst"
+      ]
+    },
+    "swansea": {
+      "city": "Swansea",
+      "coordinates": {
+        "lat": 51.6214,
+        "long": -3.9436,
+        "counties": [
+          "Swansea",
+          "Glamorgan"
+        ]
+      },
+      "stationCount": 0,
+      "sampleStations": []
+    },
+    "southend": {
+      "city": "Southend",
+      "coordinates": {
+        "lat": 51.5459,
+        "long": 0.7077,
+        "counties": [
+          "Essex",
+          "East of England"
+        ]
+      },
+      "stationCount": 46,
+      "sampleStations": [
+        "Southchurch Park",
+        "Rayleigh",
+        "Croppenburg",
+        "Metoff Shoeburyness",
+        "Scarhouse Gsm"
+      ]
+    },
+    "middlesbrough": {
+      "city": "Middlesbrough",
+      "coordinates": {
+        "lat": 54.5742,
+        "long": -1.2349,
+        "counties": [
+          "North Yorkshire",
+          "Yorkshire"
+        ]
+      },
+      "stationCount": 20,
+      "sampleStations": [
+        "Hartlepool",
+        "Easby",
+        "Harpington Hill",
+        "Darlington Lingfield Way",
+        "Peterlee"
+      ]
+    },
+    "huddersfield": {
+      "city": "Huddersfield",
+      "coordinates": {
+        "lat": 53.6458,
+        "long": -1.785,
+        "counties": [
+          "West Yorkshire",
+          "Yorkshire"
+        ]
+      },
+      "stationCount": 46,
+      "sampleStations": [
+        "Honley Ludhill Farm",
+        "Ringstone Reservoir",
+        "Heckmondwike Bottoms",
+        "Brownhill Reservoir",
+        "Marsden Butterley Reservoir"
+      ]
+    },
+    "oxford": {
+      "city": "Oxford",
+      "coordinates": {
+        "lat": 51.752,
+        "long": -1.2577,
+        "counties": [
+          "Oxfordshire",
+          "Thames Valley"
+        ]
+      },
+      "stationCount": 22,
+      "sampleStations": [
+        "Osney",
+        "Eynsham",
+        "Wheatley",
+        "Abingdon",
+        "Bicester"
+      ]
+    },
+    "cambridge": {
+      "city": "Cambridge",
+      "coordinates": {
+        "lat": 52.2053,
+        "long": 0.1218,
+        "counties": [
+          "Cambridgeshire",
+          "East Anglia"
+        ]
+      },
+      "stationCount": 30,
+      "sampleStations": [
+        "Uttons Drove",
+        "Bourn Raine",
+        "Burwell",
+        "Bassingbourn",
+        "Elmdon"
+      ]
+    },
+    "ipswich": {
+      "city": "Ipswich",
+      "coordinates": {
+        "lat": 52.0594,
+        "long": 1.1554,
+        "counties": [
+          "Suffolk",
+          "East Anglia"
+        ]
+      },
+      "stationCount": 23,
+      "sampleStations": [
+        "Chantry",
+        "Woodbridge",
+        "Needham Market Rain",
+        "Metoff Wattisham",
+        "Horsley Cross Rain"
+      ]
+    },
+    "blackpool": {
+      "city": "Blackpool",
+      "coordinates": {
+        "lat": 53.8175,
+        "long": -3.0357,
+        "counties": [
+          "Lancashire",
+          "North West"
+        ]
+      },
+      "stationCount": 20,
+      "sampleStations": [
+        "Red Br",
+        "Fleetwood",
+        "Pilling Sewage Works",
+        "Clifton Marsh",
+        "Crossens"
+      ]
+    },
+    "northampton": {
+      "city": "Northampton",
+      "coordinates": {
+        "lat": 52.2405,
+        "long": -0.9027,
+        "counties": [
+          "Northamptonshire",
+          "East Midlands"
+        ]
+      },
+      "stationCount": 32,
+      "sampleStations": [
+        "Quinton",
+        "Pitsford",
+        "Ravensthorpe",
+        "Yardley Hastings Rain-e Wits",
+        "Towcester"
+      ]
+    },
+    "peterborough": {
+      "city": "Peterborough",
+      "coordinates": {
+        "lat": 52.5695,
+        "long": -0.2405,
+        "counties": [
+          "Cambridgeshire",
+          "East Anglia"
+        ]
+      },
+      "stationCount": 30,
+      "sampleStations": [
+        "Chesterton",
+        "Dog In A Doublet Sluice Rain-e Wits",
+        "Etton",
+        "Crowland Rain-e Wits",
+        "Stamford Rain-e Wits"
+      ]
+    },
+    "luton": {
+      "city": "Luton",
+      "coordinates": {
+        "lat": 51.8787,
+        "long": -0.42,
+        "counties": [
+          "Bedfordshire",
+          "East of England"
+        ]
+      },
+      "stationCount": 41,
+      "sampleStations": [
+        "Runley Wood",
+        "Markyate",
+        "Lilley Manor",
+        "Whitwell",
+        "Toddington"
+      ]
+    },
+    "exeter": {
+      "city": "Exeter",
+      "coordinates": {
+        "lat": 50.7184,
+        "long": -3.5339,
+        "counties": [
+          "Devon",
+          "South West"
+        ]
+      },
+      "stationCount": 36,
+      "sampleStations": [
+        "Exeter Met Office",
+        "Woodbury",
+        "Killerton Beare",
+        "Ashcombe",
+        "Dawlish Warren Shutterton"
+      ]
+    },
+    "derby": {
+      "city": "Derby",
+      "coordinates": {
+        "lat": 52.9225,
+        "long": -1.4746,
+        "counties": [
+          "Derbyshire",
+          "East Midlands"
+        ]
+      },
+      "stationCount": 33,
+      "sampleStations": [
+        "Meynell Langley",
+        "Draycott",
+        "Denby Pottery",
+        "Clay Mills",
+        "Nottingham Watnall"
+      ]
+    },
+    "wolverhampton": {
+      "city": "Wolverhampton",
+      "coordinates": {
+        "lat": 52.5869,
+        "long": -2.1285,
+        "counties": [
+          "West Midlands",
+          "Staffordshire"
+        ]
+      },
+      "stationCount": 27,
+      "sampleStations": [
+        "Barnhurst",
+        "Bratch",
+        "Rodbaston",
+        "Walsall Wood",
+        "Cosford Ww"
+      ]
+    },
+    "walsall": {
+      "city": "Walsall",
+      "coordinates": {
+        "lat": 52.586,
+        "long": -1.9839,
+        "counties": [
+          "West Midlands",
+          "Staffordshire"
+        ]
+      },
+      "stationCount": 28,
+      "sampleStations": [
+        "Walsall Wood",
+        "Sutton Coldfield",
+        "Barnhurst",
+        "Saltley",
+        "Bratch"
+      ]
+    },
+    "southend-on-sea": {
+      "city": "Southend-on-Sea",
+      "coordinates": {
+        "lat": 51.5459,
+        "long": 0.7077,
+        "counties": [
+          "Essex",
+          "East of England"
+        ]
+      },
+      "stationCount": 46,
+      "sampleStations": [
+        "Southchurch Park",
+        "Rayleigh",
+        "Croppenburg",
+        "Metoff Shoeburyness",
+        "Scarhouse Gsm"
+      ]
+    },
+    "swindon": {
+      "city": "Swindon",
+      "coordinates": {
+        "lat": 51.5558,
+        "long": -1.7797,
+        "counties": [
+          "Wiltshire",
+          "South West"
+        ]
+      },
+      "stationCount": 30,
+      "sampleStations": [
+        "Rodbourne",
+        "Royal Wootton Bassett",
+        "Poulton Farm",
+        "Maddle Farm",
+        "St. Johns"
+      ]
+    },
+    "maidstone": {
+      "city": "Maidstone",
+      "coordinates": {
+        "lat": 51.2704,
+        "long": 0.5227,
+        "counties": [
+          "Kent",
+          "South East"
+        ]
+      },
+      "stationCount": 55,
+      "sampleStations": [
+        "Ham Hill",
+        "Sutton Valence",
+        "Motney Hill",
+        "Lenham",
+        "Horsmonden"
+      ]
+    },
+    "blackburn": {
+      "city": "Blackburn",
+      "coordinates": {
+        "lat": 53.7489,
+        "long": -2.4878,
+        "counties": [
+          "Lancashire",
+          "North West"
+        ]
+      },
+      "stationCount": 50,
+      "sampleStations": [
+        "Sunnyhurst",
+        "Kebb Farm / Great Harwood",
+        "Holden Wood",
+        "Mitchells House Res",
+        "Haighton Reservoir"
+      ]
+    },
+    "colchester": {
+      "city": "Colchester",
+      "coordinates": {
+        "lat": 51.8959,
+        "long": 0.9034,
+        "counties": [
+          "Essex",
+          "East of England"
+        ]
+      },
+      "stationCount": 38,
+      "sampleStations": [
+        "West Bergholt",
+        "Brightlingsea",
+        "Mersea Island",
+        "Horsley Cross Rain",
+        "Tiptree"
+      ]
+    },
+    "oldham": {
+      "city": "Oldham",
+      "coordinates": {
+        "lat": 53.5409,
+        "long": -2.1114,
+        "counties": [
+          "Greater Manchester",
+          "Lancashire"
+        ]
+      },
+      "stationCount": 49,
+      "sampleStations": [
+        "Oldham",
+        "Greenfield",
+        "Denton",
+        "Heaton Park",
+        "Great Wolden Edge"
+      ]
+    },
+    "stoke-on-trent": {
+      "city": "Stoke-on-Trent",
+      "coordinates": {
+        "lat": 53.0027,
+        "long": -2.1794,
+        "counties": [
+          "Staffordshire",
+          "West Midlands"
+        ]
+      },
+      "stationCount": 27,
+      "sampleStations": [
+        "Cresswell",
+        "Rock End",
+        "Mow Cop",
+        "Stone",
+        "Kingsley"
+      ]
+    },
+    "rotherham": {
+      "city": "Rotherham",
+      "coordinates": {
+        "lat": 53.4302,
+        "long": -1.3568,
+        "counties": [
+          "South Yorkshire",
+          "Yorkshire"
+        ]
+      },
+      "stationCount": 30,
+      "sampleStations": [
+        "Woodhouse Mill",
+        "Harley",
+        "Wombwell",
+        "Maltby Wrw",
+        "Ringing Low"
+      ]
+    },
+    "watford": {
+      "city": "Watford",
+      "coordinates": {
+        "lat": 51.6561,
+        "long": -0.3963,
+        "counties": [
+          "Hertfordshire",
+          "East of England"
+        ]
+      },
+      "stationCount": 50,
+      "sampleStations": [
+        "Pinner Cemetery Auto",
+        "Radlet",
+        "Stanmore Golf Club Auto",
+        "Chenies",
+        "Northolt"
+      ]
+    },
+    "slough": {
+      "city": "Slough",
+      "coordinates": {
+        "lat": 51.5105,
+        "long": -0.595,
+        "counties": [
+          "Berkshire",
+          "Thames Valley"
+        ]
+      },
+      "stationCount": 38,
+      "sampleStations": [
+        "Ham Island",
+        "Heathrow Airport",
+        "Thorpe Lakes",
+        "Northolt",
+        "Bracknell"
+      ]
+    }
+  },
+  "suggestions": {
+    "popularCities": [
+      "London",
+      "Manchester",
+      "Birmingham",
+      "Leeds",
+      "Liverpool",
+      "Bristol",
+      "Newcastle",
+      "York",
+      "Cambridge",
+      "Oxford"
+    ],
+    "regions": [
+      "North West",
+      "North East",
+      "Yorkshire",
+      "East Midlands",
+      "West Midlands",
+      "East of England",
+      "London",
+      "South East",
+      "South West",
+      "Wales",
+      "Scotland"
+    ],
+    "sampleSearches": [
+      "Manchester rainfall",
+      "Yorkshire stations",
+      "London area",
+      "Birmingham weather",
+      "Cambridge rain"
+    ]
+  },
+  "searchConfig": {
+    "defaultRadius": 25,
+    "maxResults": 20,
+    "supportedCities": [
+      "London",
+      "Manchester",
+      "Birmingham",
+      "Leeds",
+      "Glasgow",
+      "Sheffield",
+      "Bradford",
+      "Liverpool",
+      "Bristol",
+      "Newcastle",
+      "Nottingham",
+      "Leicester",
+      "Coventry",
+      "Belfast",
+      "Cardiff",
+      "Edinburgh",
+      "York",
+      "Plymouth",
+      "Southampton",
+      "Norwich",
+      "Bournemouth",
+      "Brighton",
+      "Hull",
+      "Reading",
+      "Preston",
+      "Swansea",
+      "Southend",
+      "Middlesbrough",
+      "Huddersfield",
+      "Oxford",
+      "Cambridge",
+      "Ipswich",
+      "Blackpool",
+      "Northampton",
+      "Peterborough",
+      "Luton",
+      "Exeter",
+      "Derby",
+      "Wolverhampton",
+      "Walsall",
+      "Southend-on-Sea",
+      "Swindon",
+      "Maidstone",
+      "Blackburn",
+      "Colchester",
+      "Oldham",
+      "Stoke-on-Trent",
+      "Rotherham",
+      "Watford",
+      "Slough"
+    ]
+  }
+}

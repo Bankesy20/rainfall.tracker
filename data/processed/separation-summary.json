@@ -1,0 +1,15 @@
+{
+  "timestamp": "2025-09-21T18:59:57.357Z",
+  "originalFile": "data/processed/ea-england-stations.json",
+  "report": {
+    "total": 938,
+    "welsh": 2,
+    "english": 839,
+    "unknown": 97
+  },
+  "filePaths": {
+    "welshPath": "./data/processed/ea-wales-stations.json",
+    "englishPath": "./data/processed/ea-england-stations-only.json",
+    "unknownPath": "./data/processed/ea-unknown-stations.json"
+  }
+}

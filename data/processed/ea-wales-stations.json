@@ -1,0 +1,52 @@
+{
+  "lastVerified": "2025-09-21T18:59:57.349Z",
+  "count": 2,
+  "region": "Wales",
+  "description": "Welsh rainfall stations that redirect to Natural Resources Wales",
+  "items": [
+    {
+      "key": "4163",
+      "label": "Day Brook",
+      "provider": "EA",
+      "stationReference": "4163",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/4163.json",
+      "lat": 52.986245,
+      "long": -1.163701,
+      "gridReference": "SK5624043540",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/4163-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/4163-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/4163-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-1.363701,52.786245,-0.963701,53.186245",
+      "humanPage": "https://check-for-flooding.service.gov.uk/station/4163?parameter=rainfall"
+    },
+    {
+      "key": "4103",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "4103",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/4103.json",
+      "lat": 53.114911,
+      "long": -2.223306,
+      "gridReference": "SJ851575",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/4103-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/4103-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/4103-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-2.423306,52.914911,-2.023306,53.314911",
+      "humanPage": "https://check-for-flooding.service.gov.uk/station/4103?parameter=rainfall"
+    }
+  ]
+}

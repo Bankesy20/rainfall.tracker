@@ -1,0 +1,255 @@
+{
+  "lastVerified": "2025-09-21T18:59:57.349Z",
+  "count": 839,
+  "region": "England",
+  "description": "English rainfall stations served by Environment Agency",
+  "items": [
+    {
+      "key": "E7050",
+      "label": "Preston Capes",
+      "provider": "EA",
+      "stationReference": "E7050",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/E7050.json",
+      "lat": 52.186277,
+      "long": -1.171327,
+      "gridReference": "SP567545",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/E7050-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/E7050-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/E7050-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-1.371327,51.986277,-0.971327,52.386277",
+      "humanPage": "https://check-for-flooding.service.gov.uk/rainfall-station/E7050",
+      "gaugeName": "Preston Capes",
+      "error": null
+    },
+    {
+      "key": "3680",
+      "label": "Brooksby",
+      "provider": "EA",
+      "stationReference": "3680",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/3680.json",
+      "lat": 52.73152,
+      "long": -0.995167,
+      "gridReference": "SK679153",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/3680-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/3680-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/3680-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-1.195167,52.531520,-0.795167,52.931520",
+      "humanPage": "https://check-for-flooding.service.gov.uk/rainfall-station/3680",
+      "gaugeName": "Brooksby",
+      "error": null
+    },
+    {
+      "key": "3167",
+      "label": "Frankley",
+      "provider": "EA",
+      "stationReference": "3167",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/3167.json",
+      "lat": 52.419334,
+      "long": -1.990391,
+      "gridReference": "SP007801",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/3167-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/3167-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/3167-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-2.190391,52.219334,-1.790391,52.619334",
+      "humanPage": "https://check-for-flooding.service.gov.uk/rainfall-station/3167",
+      "gaugeName": "Frankley",
+      "error": null
+    },
+    {
+      "key": "3275",
+      "label": "Walsall Wood",
+      "provider": "EA",
+      "stationReference": "3275",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/3275.json",
+      "lat": 52.635078,
+      "long": -1.944539,
+      "gridReference": "SK038041",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/3275-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/3275-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/3275-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-2.144539,52.435078,-1.744539,52.835078",
+      "humanPage": "https://check-for-flooding.service.gov.uk/rainfall-station/3275",
+      "gaugeName": "Walsall Wood",
+      "error": null
+    },
+    {
+      "key": "3307",
+      "label": "Hollinsclough",
+      "provider": "EA",
+      "stationReference": "3307",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/3307.json",
+      "lat": 53.196879,
+      "long": -1.901908,
+      "gridReference": "SK066666",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/3307-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/3307-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/3307-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-2.101908,52.996879,-1.701908,53.396879",
+      "humanPage": "https://check-for-flooding.service.gov.uk/rainfall-station/3307",
+      "gaugeName": "Hollinsclough",
+      "error": null
+    },
+    {
+      "key": "3404",
+      "label": "Barbrook",
+      "provider": "EA",
+      "stationReference": "3404",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/3404.json",
+      "lat": 53.287863,
+      "long": -1.579192,
+      "gridReference": "SK281768",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/3404-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/3404-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/3404-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-1.779192,53.087863,-1.379192,53.487863",
+      "humanPage": "https://check-for-flooding.service.gov.uk/rainfall-station/3404",
+      "gaugeName": "Barbrook",
+      "error": null
+    },
+    {
+      "key": "3901",
+      "label": "Worksop",
+      "provider": "EA",
+      "stationReference": "3901",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/3901.json",
+      "lat": 53.305797,
+      "long": -1.088289,
+      "gridReference": "SK608791",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/3901-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/3901-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/3901-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-1.288289,53.105797,-0.888289,53.505797",
+      "humanPage": "https://check-for-flooding.service.gov.uk/rainfall-station/3901",
+      "gaugeName": "Worksop",
+      "error": null
+    },
+    {
+      "key": "E6380",
+      "label": "Wincanton Bratton Seymour",
+      "provider": "EA",
+      "stationReference": "E6380",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/E6380.json",
+      "lat": 50.989632,
+      "long": 0.75505,
+      "gridReference": "TQ934247",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/E6380-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/E6380-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/E6380-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=0.555050,50.789632,0.955050,51.189632",
+      "humanPage": "https://check-for-flooding.service.gov.uk/rainfall-station/E6380",
+      "gaugeName": "Wincanton Bratton Seymour",
+      "error": null
+    },
+    {
+      "key": "3999",
+      "label": "Littlethorpe",
+      "provider": "EA",
+      "stationReference": "3999",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/3999.json",
+      "lat": 52.564065,
+      "long": -1.199634,
+      "gridReference": "SP543965",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/3999-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/3999-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/3999-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-1.399634,52.364065,-0.999634,52.764065",
+      "humanPage": "https://check-for-flooding.service.gov.uk/rainfall-station/3999",
+      "gaugeName": "Littlethorpe",
+      "error": null
+    },
+    {
+      "key": "3014",
+      "label": "Stone",
+      "provider": "EA",
+      "stationReference": "3014",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/3014.json",
+      "lat": 52.886657,
+      "long": -2.182004,
+      "gridReference": "SJ878321",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/3014-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/3014-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/3014-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-2.382004,52.686657,-1.982004,53.086657",
+      "humanPage": "https://check-for-flooding.service.gov.uk/rainfall-station/3014",
+      "gaugeName": "Stone",
+      "error": null
+    }
+  ],
+  "lastUpdated": "2025-09-21T19:48:43.053Z",
+  "nameExtraction": {
+    "totalProcessed": 10,
+    "successful": 10,
+    "failed": 0,
+    "successRate": "100.0%"
+  }
+}

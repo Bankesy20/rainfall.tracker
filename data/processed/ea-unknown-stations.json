@@ -1,0 +1,2034 @@
+{
+  "lastVerified": "2025-09-21T18:59:57.349Z",
+  "count": 97,
+  "region": "Unknown",
+  "description": "Stations without humanPage URLs or with unknown patterns",
+  "items": [
+    {
+      "key": "0890TH",
+      "label": "Lechlade",
+      "provider": "EA",
+      "stationReference": "0890TH",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/0890TH.json",
+      "lat": 51.692891,
+      "long": -1.672984,
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/0890TH-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/0890TH-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/0890TH-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-1.872984,51.492891,-1.472984,51.892891"
+    },
+    {
+      "key": "E1310",
+      "label": "Weldon Flood Storage Reservoir",
+      "provider": "EA",
+      "stationReference": "E1310",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/E1310.json",
+      "lat": 52.493886,
+      "long": -0.649292,
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/E1310-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/E1310-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/E1310-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-0.849292,52.293886,-0.449292,52.693886"
+    },
+    {
+      "key": "E10510",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "E10510",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/E10510.json",
+      "lat": 51.053802,
+      "long": -0.642384,
+      "gridReference": "SU952291",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/E10510-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/E10510-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/E10510-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-0.842384,50.853802,-0.442384,51.253802"
+    },
+    {
+      "key": "086575",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "086575",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/086575.json",
+      "lat": 53.591095,
+      "long": -1.271011,
+      "gridReference": "SE483107",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/086575-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/086575-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/086575-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-1.471011,53.391095,-1.071011,53.791095"
+    },
+    {
+      "key": "E22255",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "E22255",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/E22255.json",
+      "lat": 52.170162,
+      "long": 0.400362,
+      "gridReference": "TL642551",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/E22255-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/E22255-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/E22255-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=0.200362,51.970162,0.600362,52.370162"
+    },
+    {
+      "key": "270400TP",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "270400TP",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/270400TP.json",
+      "lat": 51.44172,
+      "long": -0.937391,
+      "gridReference": "SU739719",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/270400TP-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/270400TP-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/270400TP-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-1.137391,51.241720,-0.737391,51.641720"
+    },
+    {
+      "key": "E24289",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "E24289",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/E24289.json",
+      "lat": 52.172202,
+      "long": 0.251294,
+      "gridReference": "TL540550",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/E24289-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/E24289-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/E24289-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=0.051294,51.972202,0.451294,52.372202"
+    },
+    {
+      "key": "082672",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "082672",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/082672.json",
+      "lat": 53.324572,
+      "long": -1.539797,
+      "gridReference": "SK307809",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/082672-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/082672-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/082672-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-1.739797,53.124572,-1.339797,53.524572"
+    },
+    {
+      "key": "282781TP",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "282781TP",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/282781TP.json",
+      "lat": 51.256125,
+      "long": -0.566214,
+      "gridReference": "TQ001517",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/282781TP-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/282781TP-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/282781TP-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-0.766214,51.056125,-0.366214,51.456125"
+    },
+    {
+      "key": "055223",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "055223",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/055223.json",
+      "lat": 54.364209,
+      "long": -1.297407,
+      "gridReference": "SE457967",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/055223-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/055223-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/055223-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-1.497407,54.164209,-1.097407,54.564209"
+    },
+    {
+      "key": "E1965",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "E1965",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/E1965.json",
+      "lat": 52.5771,
+      "long": -0.125035,
+      "gridReference": "TL271993",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/E1965-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/E1965-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/E1965-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-0.325035,52.377100,0.074965,52.777100"
+    },
+    {
+      "key": "287283TP",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "287283TP",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/287283TP.json",
+      "lat": 51.449283,
+      "long": -0.224851,
+      "gridReference": "TQ234737",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/287283TP-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/287283TP-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/287283TP-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-0.424851,51.249283,-0.024851,51.649283"
+    },
+    {
+      "key": "E24894",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "E24894",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/E24894.json",
+      "lat": 51.890899,
+      "long": 1.212487,
+      "gridReference": "TM211262",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/E24894-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/E24894-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/E24894-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=1.012487,51.690899,1.412487,52.090899"
+    },
+    {
+      "key": "47113",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "47113",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/47113.json",
+      "lat": 50.418385,
+      "long": -3.960029,
+      "gridReference": "SX608594",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/47113-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/47113-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/47113-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-4.160029,50.218385,-3.760029,50.618385"
+    },
+    {
+      "key": "46100",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "46100",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/46100.json",
+      "lat": 50.390977,
+      "long": -3.70144,
+      "gridReference": "SX791559",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/46100-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/46100-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/46100-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-3.901440,50.190977,-3.501440,50.590977"
+    },
+    {
+      "key": "3580",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "3580",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/3580.json",
+      "lat": 53.047163,
+      "long": -1.641206,
+      "gridReference": "SK241500",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/3580-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/3580-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/3580-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-1.841206,52.847163,-1.441206,53.247163"
+    },
+    {
+      "key": "000032",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "000032",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/000032.json",
+      "lat": 54.505434,
+      "long": -0.84558,
+      "gridReference": "NZ748128",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/000032-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/000032-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/000032-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-1.045580,54.305434,-0.645580,54.705434"
+    },
+    {
+      "key": "559100R",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "559100R",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/559100R.json",
+      "lat": 53.45937,
+      "long": -1.93444,
+      "gridReference": "SK044958",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/559100R-rainfall-tipping_bucket_raingauge-t-15_min----",
+        "period": 900,
+        "unitName": "---",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/559100R-rainfall-tipping_bucket_raingauge-t-15_min----/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/559100R-rainfall-tipping_bucket_raingauge-t-15_min----/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-2.134440,53.259370,-1.734440,53.659370"
+    },
+    {
+      "key": "E23535",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "E23535",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/E23535.json",
+      "lat": 51.747187,
+      "long": 0.62561,
+      "gridReference": "TL813086",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/E23535-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/E23535-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/E23535-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=0.425610,51.547187,0.825610,51.947187"
+    },
+    {
+      "key": "019356",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "019356",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/019356.json",
+      "lat": 54.999168,
+      "long": -1.605255,
+      "gridReference": "NZ253672",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/019356-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/019356-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/019356-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-1.805255,54.799168,-1.405255,55.199168"
+    },
+    {
+      "key": "036225",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "036225",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/036225.json",
+      "lat": 54.344552,
+      "long": -0.754715,
+      "gridReference": "SE810950",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/036225-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/036225-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/036225-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-0.954715,54.144552,-0.554715,54.544552"
+    },
+    {
+      "key": "E43041",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "E43041",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/E43041.json",
+      "lat": 51.59932,
+      "long": 0.300821,
+      "gridReference": "TQ594914",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/E43041-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/E43041-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/E43041-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=0.100821,51.399320,0.500821,51.799320"
+    },
+    {
+      "key": "033108NE",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "033108NE",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/033108NE.json",
+      "lat": 54.543358,
+      "long": -1.201588,
+      "gridReference": "NZ517167",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/033108NE-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/033108NE-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/033108NE-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-1.401588,54.343358,-1.001588,54.743358"
+    },
+    {
+      "key": "266474TP",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "266474TP",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/266474TP.json",
+      "lat": 51.412945,
+      "long": -1.726028,
+      "gridReference": "SU191682",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/266474TP-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/266474TP-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/266474TP-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-1.926028,51.212945,-1.526028,51.612945"
+    },
+    {
+      "key": "577805",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "577805",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/577805.json",
+      "lat": 53.979672,
+      "long": -2.679249,
+      "gridReference": "SD555539",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/577805-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/577805-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/577805-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-2.879249,53.779672,-2.479249,54.179672"
+    },
+    {
+      "key": "46108",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "46108",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/46108.json",
+      "lat": 50.641897,
+      "long": -3.877381,
+      "gridReference": "SX673841",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/46108-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/46108-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/46108-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-4.077381,50.441897,-3.677381,50.841897"
+    },
+    {
+      "key": "E22876",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "E22876",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/E22876.json",
+      "lat": 51.736858,
+      "long": 0.480165,
+      "gridReference": "TL713071",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/E22876-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/E22876-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/E22876-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=0.280165,51.536858,0.680165,51.936858"
+    },
+    {
+      "key": "000102TP",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "000102TP",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/000102TP.json",
+      "lat": 51.914149,
+      "long": 0.249994,
+      "gridReference": "TL548263",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/000102TP-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/000102TP-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/000102TP-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=0.049994,51.714149,0.449994,52.114149"
+    },
+    {
+      "key": "026958",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "026958",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/026958.json",
+      "lat": 54.683225,
+      "long": -2.252002,
+      "gridReference": "NY838320",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/026958-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/026958-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/026958-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-2.452002,54.483225,-2.052002,54.883225"
+    },
+    {
+      "key": "49106",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "49106",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/49106.json",
+      "lat": 50.639798,
+      "long": -4.675005,
+      "gridReference": "SX109856",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/49106-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/49106-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/49106-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-4.875005,50.439798,-4.475005,50.839798"
+    },
+    {
+      "key": "023164",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "023164",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/023164.json",
+      "lat": 54.610418,
+      "long": -1.740626,
+      "gridReference": "NZ168239",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/023164-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/023164-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/023164-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-1.940626,54.410418,-1.540626,54.810418"
+    },
+    {
+      "key": "592848",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "592848",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/592848.json",
+      "lat": 54.532336,
+      "long": -3.062374,
+      "gridReference": "NY313157",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/592848-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/592848-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/592848-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-3.262374,54.332336,-2.862374,54.732336"
+    },
+    {
+      "key": "282947TP",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "282947TP",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/282947TP.json",
+      "lat": 51.280335,
+      "long": -0.635718,
+      "gridReference": "SU952543",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/282947TP-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/282947TP-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/282947TP-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-0.835718,51.080335,-0.435718,51.480335"
+    },
+    {
+      "key": "E23657",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "E23657",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/E23657.json",
+      "lat": 52.015604,
+      "long": -0.963195,
+      "gridReference": "SP712357",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/E23657-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/E23657-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/E23657-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-1.163195,51.815604,-0.763195,52.215604"
+    },
+    {
+      "key": "E23205",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "E23205",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/E23205.json",
+      "lat": 52.470804,
+      "long": 1.73914,
+      "gridReference": "TM540924",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/E23205-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/E23205-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/E23205-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=1.539140,52.270804,1.939140,52.670804"
+    },
+    {
+      "key": "059793",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "059793",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/059793.json",
+      "lat": 53.966652,
+      "long": -1.115089,
+      "gridReference": "SE581526",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/059793-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/059793-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/059793-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-1.315089,53.766652,-0.915089,54.166652"
+    },
+    {
+      "key": "013553",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "013553",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/013553.json",
+      "lat": 54.820161,
+      "long": -2.445834,
+      "gridReference": "NY714473",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/013553-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/013553-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/013553-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-2.645834,54.620161,-2.245834,55.020161"
+    },
+    {
+      "key": "50108",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "50108",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/50108.json",
+      "lat": 50.925011,
+      "long": -3.713738,
+      "gridReference": "SS796153",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/50108-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/50108-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/50108-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-3.913738,50.725011,-3.513738,51.125011"
+    },
+    {
+      "key": "E7120",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "E7120",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/E7120.json",
+      "lat": 53.38716,
+      "long": -0.184362,
+      "gridReference": "TF208893",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/E7120-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/E7120-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/E7120-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-0.384362,53.187160,0.015638,53.587160"
+    },
+    {
+      "key": "598147",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "598147",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/598147.json",
+      "lat": 54.504409,
+      "long": -2.241634,
+      "gridReference": "NY844121",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/598147-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/598147-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/598147-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-2.441634,54.304409,-2.041634,54.704409"
+    },
+    {
+      "key": "E22735",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "E22735",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/E22735.json",
+      "lat": 51.998223,
+      "long": 0.579089,
+      "gridReference": "TL771364",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/E22735-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/E22735-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/E22735-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=0.379089,51.798223,0.779089,52.198223"
+    },
+    {
+      "key": "243679TP",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "243679TP",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/243679TP.json",
+      "lat": 51.805204,
+      "long": 0.20975,
+      "gridReference": "TL524141",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/243679TP-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/243679TP-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/243679TP-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=0.009750,51.605204,0.409750,52.005204"
+    },
+    {
+      "key": "238097TP",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "238097TP",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/238097TP.json",
+      "lat": 51.556104,
+      "long": 0.161588,
+      "gridReference": "TQ499863",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/238097TP-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/238097TP-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/238097TP-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-0.038412,51.356104,0.361588,51.756104"
+    },
+    {
+      "key": "593321",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "593321",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/593321.json",
+      "lat": 54.605133,
+      "long": -3.160254,
+      "gridReference": "NY251239",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/593321-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/593321-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/593321-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-3.360254,54.405133,-2.960254,54.805133"
+    },
+    {
+      "key": "034459",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "034459",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/034459.json",
+      "lat": 54.518191,
+      "long": -0.964175,
+      "gridReference": "NZ671141",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/034459-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/034459-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/034459-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-1.164175,54.318191,-0.764175,54.718191"
+    },
+    {
+      "key": "E2450",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "E2450",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/E2450.json",
+      "lat": 52.549176,
+      "long": -0.121801,
+      "gridReference": "TL274962",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/E2450-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/E2450-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/E2450-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-0.321801,52.349176,0.078199,52.749176"
+    },
+    {
+      "key": "45166",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "45166",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/45166.json",
+      "lat": 50.859966,
+      "long": -3.239613,
+      "gridReference": "ST128074",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/45166-rainfall-tipping_bucket_raingauge-t-1_h-mm",
+        "period": 3600,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/45166-rainfall-tipping_bucket_raingauge-t-1_h-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/45166-rainfall-tipping_bucket_raingauge-t-1_h-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-3.439613,50.659966,-3.039613,51.059966"
+    },
+    {
+      "key": "45113",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "45113",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/45113.json",
+      "lat": 50.799653,
+      "long": -3.737529,
+      "gridReference": "SS776014",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/45113-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/45113-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/45113-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-3.937529,50.599653,-3.537529,50.999653"
+    },
+    {
+      "key": "289102TP",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "289102TP",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/289102TP.json",
+      "lat": 51.476541,
+      "long": -0.017866,
+      "gridReference": "TQ377771",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/289102TP-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/289102TP-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/289102TP-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-0.217866,51.276541,0.182134,51.676541"
+    },
+    {
+      "key": "584098",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "584098",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/584098.json",
+      "lat": 54.128677,
+      "long": -2.71229,
+      "gridReference": "SD535705",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/584098-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/584098-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/584098-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-2.912290,53.928677,-2.512290,54.328677"
+    },
+    {
+      "key": "46101",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "46101",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/46101.json",
+      "lat": 50.393238,
+      "long": -3.731066,
+      "gridReference": "SX770562",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/46101-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/46101-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/46101-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-3.931066,50.193238,-3.531066,50.593238"
+    },
+    {
+      "key": "E2859",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "E2859",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/E2859.json",
+      "lat": 52.890503,
+      "long": -0.622875,
+      "gridReference": "SK927334",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/E2859-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/E2859-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/E2859-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-0.822875,52.690503,-0.422875,53.090503"
+    },
+    {
+      "key": "246847TP",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "246847TP",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/246847TP.json",
+      "lat": 51.569374,
+      "long": -0.257694,
+      "gridReference": "TQ208870",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/246847TP-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/246847TP-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/246847TP-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-0.457694,51.369374,-0.057694,51.769374"
+    },
+    {
+      "key": "E24775",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "E24775",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/E24775.json",
+      "lat": 52.40222,
+      "long": 1.542157,
+      "gridReference": "TM410841",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/E24775-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/E24775-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/E24775-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=1.342157,52.202220,1.742157,52.602220"
+    },
+    {
+      "key": "276036TP",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "276036TP",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/276036TP.json",
+      "lat": 51.54306,
+      "long": -0.500973,
+      "gridReference": "TQ040837",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/276036TP-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/276036TP-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/276036TP-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-0.700973,51.343060,-0.300973,51.743060"
+    },
+    {
+      "key": "E24187",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "E24187",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/E24187.json",
+      "lat": 52.218546,
+      "long": 1.268312,
+      "gridReference": "TM233628",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/E24187-rainfall-2-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "2"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/E24187-rainfall-2-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/E24187-rainfall-2-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=1.068312,52.018546,1.468312,52.418546"
+    },
+    {
+      "key": "291241TP",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "291241TP",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/291241TP.json",
+      "lat": 51.367559,
+      "long": 0.09523,
+      "gridReference": "TQ459652",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/291241TP-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/291241TP-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/291241TP-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-0.104770,51.167559,0.295230,51.567559"
+    },
+    {
+      "key": "568363",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "568363",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/568363.json",
+      "lat": 53.571911,
+      "long": -3.017001,
+      "gridReference": "SD327088",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/568363-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/568363-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/568363-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-3.217001,53.371911,-2.817001,53.771911"
+    },
+    {
+      "key": "E1928",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "E1928",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/E1928.json",
+      "lat": 53.135319,
+      "long": -0.008131,
+      "gridReference": "TF333616",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/E1928-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/E1928-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/E1928-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-0.208131,52.935319,0.191869,53.335319"
+    },
+    {
+      "key": "585022",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "585022",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/585022.json",
+      "lat": 54.440718,
+      "long": -2.825629,
+      "gridReference": "NY465053",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/585022-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/585022-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/585022-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-3.025629,54.240718,-2.625629,54.640718"
+    },
+    {
+      "key": "053532",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "053532",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/053532.json",
+      "lat": 54.318976,
+      "long": -1.637925,
+      "gridReference": "SE236915",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/053532-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/053532-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/053532-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-1.837925,54.118976,-1.437925,54.518976"
+    },
+    {
+      "key": "E24585",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "E24585",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/E24585.json",
+      "lat": 52.164986,
+      "long": -0.703865,
+      "gridReference": "SP887526",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/E24585-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/E24585-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/E24585-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-0.903865,51.964986,-0.503865,52.364986"
+    },
+    {
+      "key": "569709",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "569709",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/569709.json",
+      "lat": 53.604601,
+      "long": -2.556847,
+      "gridReference": "SD632121",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/569709-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/569709-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/569709-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-2.756847,53.404601,-2.356847,53.804601"
+    },
+    {
+      "key": "034091",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "034091",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/034091.json",
+      "lat": 54.596104,
+      "long": -1.039588,
+      "gridReference": "NZ621227",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/034091-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/034091-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/034091-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-1.239588,54.396104,-0.839588,54.796104"
+    },
+    {
+      "key": "605382",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "605382",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/605382.json",
+      "lat": 54.680261,
+      "long": -2.999541,
+      "gridReference": "NY356321",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/605382-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/605382-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/605382-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-3.199541,54.480261,-2.799541,54.880261"
+    },
+    {
+      "key": "45208",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "45208",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/45208.json",
+      "lat": 50.850579,
+      "long": -2.888483,
+      "gridReference": "ST375060",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/45208-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/45208-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/45208-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-3.088483,50.650579,-2.688483,51.050579"
+    },
+    {
+      "key": "563599",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "563599",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/563599.json",
+      "lat": 53.462415,
+      "long": -2.368215,
+      "gridReference": "SJ756962",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/563599-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/563599-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/563599-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-2.568215,53.262415,-2.168215,53.662415"
+    },
+    {
+      "key": "55000A",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "55000A",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/55000A.json",
+      "lat": 53.425407,
+      "long": -2.622222,
+      "gridReference": "SJ587922",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/55000A-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/55000A-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/55000A-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-2.822222,53.225407,-2.422222,53.625407"
+    },
+    {
+      "key": "E22683",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "E22683",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/E22683.json",
+      "lat": 51.971772,
+      "long": 0.940138,
+      "gridReference": "TM020344",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/E22683-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/E22683-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/E22683-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=0.740138,51.771772,1.140138,52.171772"
+    },
+    {
+      "key": "E24141",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "E24141",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/E24141.json",
+      "lat": 52.307124,
+      "long": 1.153055,
+      "gridReference": "TM150723",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/E24141-rainfall-2-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "2"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/E24141-rainfall-2-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/E24141-rainfall-2-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=0.953055,52.107124,1.353055,52.507124"
+    },
+    {
+      "key": "562811",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "562811",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/562811.json",
+      "lat": 53.560873,
+      "long": -2.141109,
+      "gridReference": "SD907071",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/562811-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/562811-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/562811-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-2.341109,53.360873,-1.941109,53.760873"
+    },
+    {
+      "key": "E24499",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "E24499",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/E24499.json",
+      "lat": 52.702495,
+      "long": 0.692966,
+      "gridReference": "TF820150",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/E24499-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/E24499-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/E24499-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=0.492966,52.502495,0.892966,52.902495"
+    },
+    {
+      "key": "E5720",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "E5720",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/E5720.json",
+      "lat": 53.306737,
+      "long": -0.547985,
+      "gridReference": "SK968798",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/E5720-rainfall-tipping_bucket_raingauge-t-1_h-mm",
+        "period": 3600,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/E5720-rainfall-tipping_bucket_raingauge-t-1_h-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/E5720-rainfall-tipping_bucket_raingauge-t-1_h-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-0.747985,53.106737,-0.347985,53.506737"
+    },
+    {
+      "key": "279941TP",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "279941TP",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/279941TP.json",
+      "lat": 51.396984,
+      "long": -0.540252,
+      "gridReference": "TQ016674",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/279941TP-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/279941TP-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/279941TP-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-0.740252,51.196984,-0.340252,51.596984"
+    },
+    {
+      "key": "45108_",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "45108_",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/45108_.json",
+      "lat": 50.884946,
+      "long": -3.487642,
+      "gridReference": "SS954105",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/45108_-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/45108_-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/45108_-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-3.687642,50.684946,-3.287642,51.084946"
+    },
+    {
+      "key": "E1711",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "E1711",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/E1711.json",
+      "lat": 51.142735,
+      "long": 0.09504,
+      "gridReference": "TQ466402",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/E1711-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/E1711-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/E1711-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-0.104960,50.942735,0.295040,51.342735"
+    },
+    {
+      "key": "4527",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "4527",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/4527.json",
+      "lat": 52.762972,
+      "long": -1.234524,
+      "gridReference": "SK517186",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/4527-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/4527-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/4527-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-1.434524,52.562972,-1.034524,52.962972"
+    },
+    {
+      "key": "6666LO",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "6666LO",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/6666LO.json",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/6666LO-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/6666LO-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/6666LO-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": null
+    },
+    {
+      "key": "562992_",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "562992_",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/562992_.json",
+      "lat": 53.535499,
+      "long": -2.263235,
+      "gridReference": "SD826043",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/562992_-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/562992_-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/562992_-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-2.463235,53.335499,-2.063235,53.735499"
+    },
+    {
+      "key": "4549",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "4549",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/4549.json",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/4549-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/4549-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/4549-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": null
+    },
+    {
+      "key": "4548",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "4548",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/4548.json",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/4548-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/4548-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/4548-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": null
+    },
+    {
+      "key": "E5650",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "E5650",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/E5650.json",
+      "lat": 51.131926,
+      "long": 0.967934,
+      "gridReference": "TR077411",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/E5650-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/E5650-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/E5650-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=0.767934,50.931926,1.167934,51.331926"
+    },
+    {
+      "key": "Coldw1",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "Coldw1",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/Coldw1.json",
+      "lat": 53.823309,
+      "long": -2.154144,
+      "gridReference": "SD899363",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/Coldw1-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/Coldw1-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/Coldw1-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-2.354144,53.623309,-1.954144,54.023309"
+    },
+    {
+      "key": "Mitch1",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "Mitch1",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/Mitch1.json",
+      "lat": 53.742978,
+      "long": -2.323663,
+      "gridReference": "SD787274",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/Mitch1-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/Mitch1-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/Mitch1-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-2.523663,53.542978,-2.123663,53.942978"
+    },
+    {
+      "key": "Edgeh1",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "Edgeh1",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/Edgeh1.json",
+      "lat": 53.560463,
+      "long": -2.873303,
+      "gridReference": "SD422074",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/Edgeh1-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/Edgeh1-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/Edgeh1-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-3.073303,53.360463,-2.673303,53.760463"
+    },
+    {
+      "key": "Dubbs1",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "Dubbs1",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/Dubbs1.json",
+      "lat": 54.406987,
+      "long": -2.892739,
+      "gridReference": "NY421016",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/Dubbs1-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/Dubbs1-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/Dubbs1-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-3.092739,54.206987,-2.692739,54.606987"
+    },
+    {
+      "key": "585122_",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "585122_",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/585122_.json",
+      "lat": 54.406987,
+      "long": -2.892739,
+      "gridReference": "NY421016",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/585122_-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/585122_-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/585122_-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-3.092739,54.206987,-2.692739,54.606987"
+    },
+    {
+      "key": "2102SO",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "2102SO",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/2102SO.json",
+      "lat": 51.105481,
+      "long": 0.116212,
+      "gridReference": "TQ482361",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/2102SO-rainfall-water-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Water"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/2102SO-rainfall-water-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/2102SO-rainfall-water-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-0.083788,50.905481,0.316212,51.305481"
+    },
+    {
+      "key": "0323SO",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "0323SO",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/0323SO.json",
+      "lat": 51.246536,
+      "long": 0.022379,
+      "gridReference": "TQ412516",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/0323SO-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/0323SO-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/0323SO-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-0.177621,51.046536,0.222379,51.446536"
+    },
+    {
+      "key": "575092______________________________________",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "575092______________________________________",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/575092______________________________________.json",
+      "lat": 53.742978,
+      "long": -2.323663,
+      "gridReference": "SD787274",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/575092______________________________________-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/575092______________________________________-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/575092______________________________________-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-2.523663,53.542978,-2.123663,53.942978"
+    },
+    {
+      "key": "574786______________________________________",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "574786______________________________________",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/574786______________________________________.json",
+      "lat": 53.823309,
+      "long": -2.154144,
+      "gridReference": "SD899363",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/574786______________________________________-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/574786______________________________________-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/574786______________________________________-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-2.354144,53.623309,-1.954144,54.023309"
+    },
+    {
+      "key": "062916",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "062916",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/062916.json",
+      "lat": 53.911915,
+      "long": -1.662765,
+      "gridReference": "SE222462",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/062916-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/062916-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/062916-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-1.862765,53.711915,-1.462765,54.111915"
+    },
+    {
+      "key": "E60880",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "E60880",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/E60880.json",
+      "lat": 51.164146,
+      "long": -1.894828,
+      "gridReference": "SU074405",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/E60880-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/E60880-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/E60880-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-2.094828,50.964146,-1.694828,51.364146"
+    },
+    {
+      "key": "NE063",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "NE063",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/NE063.json",
+      "lat": 53.59597,
+      "long": -1.066946,
+      "gridReference": "SE618114",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/NE063-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/NE063-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/NE063-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-1.266946,53.395970,-0.866946,53.795970"
+    },
+    {
+      "key": "Greens1",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "Greens1",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/Greens1.json",
+      "lat": 54.548278,
+      "long": -2.983943,
+      "gridReference": "NY364174",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/Greens1-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/Greens1-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/Greens1-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-3.183943,54.348278,-2.783943,54.748278"
+    },
+    {
+      "key": "266474TP_TEMPNo",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "266474TP_TEMPNo",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/266474TP_TEMPNo.json",
+      "lat": 51.427328,
+      "long": -1.724504,
+      "gridReference": "SU192698",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/266474TP_TEMPNo-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/266474TP_TEMPNo-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/266474TP_TEMPNo-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-1.924504,51.227328,-1.524504,51.627328"
+    },
+    {
+      "key": "0422SO",
+      "label": "Rainfall station",
+      "provider": "EA",
+      "stationReference": "0422SO",
+      "apiUrl": "https://environment.data.gov.uk/flood-monitoring/id/stations/0422SO.json",
+      "lat": 51.100206,
+      "long": 0.007416,
+      "gridReference": "TQ406353",
+      "rainfallMeasure": {
+        "id": "http://environment.data.gov.uk/flood-monitoring/id/measures/0422SO-rainfall-tipping_bucket_raingauge-t-15_min-mm",
+        "period": 900,
+        "unitName": "mm",
+        "qualifier": "Tipping Bucket Raingauge"
+      },
+      "readings": {
+        "json": "http://environment.data.gov.uk/flood-monitoring/id/measures/0422SO-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings",
+        "csv": "http://environment.data.gov.uk/flood-monitoring/id/measures/0422SO-rainfall-tipping_bucket_raingauge-t-15_min-mm/readings.csv"
+      },
+      "mapUrl": "https://check-for-flooding.service.gov.uk/river-and-sea-levels?v=map-live&lyr=mv,rf&ext=-0.192584,50.900206,0.207416,51.300206"
+    }
+  ]
+}
