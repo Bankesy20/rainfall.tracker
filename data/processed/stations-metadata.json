@@ -1,8 +1,328 @@
 {
-  "lastUpdated": "2025-01-27T12:00:00.000Z",
+  "lastUpdated": "2025-09-23T11:31:09.337Z",
   "description": "Metadata for rainfall stations currently being processed with accurate coordinates",
-  "count": 11,
+  "count": 52,
   "stations": {
+    "1099": {
+      "key": "maenclochog1099",
+      "stationId": "1099",
+      "name": "Maenclochog",
+      "label": "Maenclochog (1099)",
+      "provider": "Natural Resources Wales",
+      "country": "Wales",
+      "region": "Pembrokeshire",
+      "coordinates": {
+        "lat": 51.9,
+        "lng": -4.8
+      },
+      "gridReference": "SN123456",
+      "hasData": true,
+      "dataFile": "maenclochog1099.json"
+    },
+    "1113": {
+      "key": "1113",
+      "stationId": "1113",
+      "name": "Ebworth",
+      "label": "Ebworth (1113)",
+      "provider": "Environment Agency",
+      "country": "England",
+      "region": "England",
+      "coordinates": {
+        "lat": 51.799795,
+        "lng": -2.148586
+      },
+      "gridReference": "SO898112",
+      "hasData": true,
+      "dataFile": "ebworth.json"
+    },
+    "1141": {
+      "key": "miserden1141",
+      "stationId": "1141",
+      "name": "Miserden",
+      "label": "Miserden (1141)",
+      "provider": "Environment Agency",
+      "country": "England",
+      "region": "South West England",
+      "coordinates": {
+        "lat": 51.777374,
+        "lng": -2.093434
+      },
+      "gridReference": "SO936087",
+      "hasData": true,
+      "dataFile": "miserden1141.json"
+    },
+    "3014": {
+      "key": "3014",
+      "stationId": "3014",
+      "name": "Stone",
+      "label": "Stone (3014)",
+      "provider": "Environment Agency",
+      "country": "England",
+      "region": "England",
+      "coordinates": {
+        "lat": 52.886657,
+        "lng": -2.182004
+      },
+      "gridReference": "SJ878321",
+      "hasData": true,
+      "dataFile": "stone.json"
+    },
+    "3167": {
+      "key": "3167",
+      "stationId": "3167",
+      "name": "Frankley",
+      "label": "Frankley (3167)",
+      "provider": "Environment Agency",
+      "country": "England",
+      "region": "England",
+      "coordinates": {
+        "lat": 52.419334,
+        "lng": -1.990391
+      },
+      "gridReference": "SP007801",
+      "hasData": true,
+      "dataFile": "frankley.json"
+    },
+    "3173": {
+      "key": "3173",
+      "stationId": "3173",
+      "name": "Kingsley",
+      "label": "Kingsley (3173)",
+      "provider": "Environment Agency",
+      "country": "England",
+      "region": "England",
+      "coordinates": {
+        "lat": 53.017139,
+        "lng": -1.981319
+      },
+      "gridReference": "SK013466",
+      "hasData": true,
+      "dataFile": "kingsley.json"
+    },
+    "3275": {
+      "key": "3275",
+      "stationId": "3275",
+      "name": "Walsall Wood",
+      "label": "Walsall Wood (3275)",
+      "provider": "Environment Agency",
+      "country": "England",
+      "region": "England",
+      "coordinates": {
+        "lat": 52.635078,
+        "lng": -1.944539
+      },
+      "gridReference": "SK038041",
+      "hasData": true,
+      "dataFile": "walsall-wood.json"
+    },
+    "3307": {
+      "key": "3307",
+      "stationId": "3307",
+      "name": "Hollinsclough",
+      "label": "Hollinsclough (3307)",
+      "provider": "Environment Agency",
+      "country": "England",
+      "region": "England",
+      "coordinates": {
+        "lat": 53.196879,
+        "lng": -1.901908
+      },
+      "gridReference": "SK066666",
+      "hasData": true,
+      "dataFile": "hollinsclough.json"
+    },
+    "3404": {
+      "key": "3404",
+      "stationId": "3404",
+      "name": "Barbrook",
+      "label": "Barbrook (3404)",
+      "provider": "Environment Agency",
+      "country": "England",
+      "region": "England",
+      "coordinates": {
+        "lat": 53.287863,
+        "lng": -1.579192
+      },
+      "gridReference": "SK281768",
+      "hasData": true,
+      "dataFile": "barbrook.json"
+    },
+    "3680": {
+      "key": "3680",
+      "stationId": "3680",
+      "name": "Brooksby",
+      "label": "Brooksby (3680)",
+      "provider": "Environment Agency",
+      "country": "England",
+      "region": "England",
+      "coordinates": {
+        "lat": 52.73152,
+        "lng": -0.995167
+      },
+      "gridReference": "SK679153",
+      "hasData": true,
+      "dataFile": "brooksby.json"
+    },
+    "3901": {
+      "key": "3901",
+      "stationId": "3901",
+      "name": "Worksop",
+      "label": "Worksop (3901)",
+      "provider": "Environment Agency",
+      "country": "England",
+      "region": "England",
+      "coordinates": {
+        "lat": 53.305797,
+        "lng": -1.088289
+      },
+      "gridReference": "SK608791",
+      "hasData": true,
+      "dataFile": "worksop.json"
+    },
+    "3999": {
+      "key": "3999",
+      "stationId": "3999",
+      "name": "Littlethorpe",
+      "label": "Littlethorpe (3999)",
+      "provider": "Environment Agency",
+      "country": "England",
+      "region": "England",
+      "coordinates": {
+        "lat": 52.564065,
+        "lng": -1.199634
+      },
+      "gridReference": "SP543965",
+      "hasData": true,
+      "dataFile": "littlethorpe.json"
+    },
+    "43202": {
+      "key": "43202",
+      "stationId": "43202",
+      "name": "Kingstag Ridge Farm",
+      "label": "Kingstag Ridge Farm (43202)",
+      "provider": "Environment Agency",
+      "country": "England",
+      "region": "England",
+      "coordinates": {
+        "lat": 50.896473,
+        "lng": -2.390258
+      },
+      "gridReference": "ST726108",
+      "hasData": true,
+      "dataFile": "kingstag-ridge-farm.json"
+    },
+    "45232": {
+      "key": "45232",
+      "stationId": "45232",
+      "name": "Stopgate Farm",
+      "label": "Stopgate Farm (45232)",
+      "provider": "Environment Agency",
+      "country": "England",
+      "region": "England",
+      "coordinates": {
+        "lat": 50.882121,
+        "lng": -3.092361
+      },
+      "gridReference": "ST232097",
+      "hasData": true,
+      "dataFile": "stopgate-farm.json"
+    },
+    "46104": {
+      "key": "46104",
+      "stationId": "46104",
+      "name": "Bickington",
+      "label": "Bickington (46104)",
+      "provider": "Environment Agency",
+      "country": "England",
+      "region": "England",
+      "coordinates": {
+        "lat": 50.53756,
+        "lng": -3.702476
+      },
+      "gridReference": "SX794722",
+      "hasData": true,
+      "dataFile": "bickington.json"
+    },
+    "47161": {
+      "key": "47161",
+      "stationId": "47161",
+      "name": "Gunnislake",
+      "label": "Gunnislake (47161)",
+      "provider": "Environment Agency",
+      "country": "England",
+      "region": "England",
+      "coordinates": {
+        "lat": 50.516447,
+        "lng": -4.209541
+      },
+      "gridReference": "SX434708",
+      "hasData": true,
+      "dataFile": "gunnislake.json"
+    },
+    "48148": {
+      "key": "48148",
+      "stationId": "48148",
+      "name": "St Erth",
+      "label": "St Erth (48148)",
+      "provider": "Environment Agency",
+      "country": "England",
+      "region": "England",
+      "coordinates": {
+        "lat": 50.171774,
+        "lng": -5.437334
+      },
+      "gridReference": "SW546358",
+      "hasData": true,
+      "dataFile": "st-erth.json"
+    },
+    "52210": {
+      "key": "52210",
+      "stationId": "52210",
+      "name": "Bruton Dam",
+      "label": "Bruton Dam (52210)",
+      "provider": "Environment Agency",
+      "country": "England",
+      "region": "England",
+      "coordinates": {
+        "lat": 51.116625,
+        "lng": -2.434971
+      },
+      "gridReference": "ST696353",
+      "hasData": true,
+      "dataFile": "bruton-dam.json"
+    },
+    "577271": {
+      "key": "577271",
+      "stationId": "577271",
+      "name": "Red Br",
+      "label": "Red Br (577271)",
+      "provider": "Environment Agency",
+      "country": "England",
+      "region": "North West",
+      "coordinates": {
+        "lat": 53.783353,
+        "lng": -2.991754
+      },
+      "gridReference": "SD347323",
+      "hasData": true,
+      "dataFile": "red-br.json"
+    },
+    "595273": {
+      "key": "595273",
+      "stationId": "595273",
+      "name": "Quarry Hill",
+      "label": "Quarry Hill (595273)",
+      "provider": "Environment Agency",
+      "country": "England",
+      "region": "England",
+      "coordinates": {
+        "lat": 54.760082,
+        "lng": -3.214413
+      },
+      "gridReference": "NY219412",
+      "hasData": true,
+      "dataFile": "quarry-hill.json"
+    },
     "E19017": {
       "key": "E19017",
       "stationId": "E19017",
@@ -42,7 +362,7 @@
       "label": "Hullbridge Raine (E24879)",
       "provider": "Environment Agency",
       "country": "England",
-      "region": "East of England",
+      "region": "South East",
       "coordinates": {
         "lat": 51.616598,
         "lng": 0.593505
@@ -74,7 +394,7 @@
       "label": "Lower Standen (E5170)",
       "provider": "Environment Agency",
       "country": "England",
-      "region": "South East England",
+      "region": "South West",
       "coordinates": {
         "lat": 51.117863,
         "lng": 1.194265
@@ -90,7 +410,7 @@
       "label": "Isfield Weir (E8290)",
       "provider": "Environment Agency",
       "country": "England",
-      "region": "South East England",
+      "region": "South East",
       "coordinates": {
         "lat": 51.434974,
         "lng": -0.353451
@@ -122,7 +442,7 @@
       "label": "Lyndhurst (E13600)",
       "provider": "Environment Agency",
       "country": "England",
-      "region": "South East England",
+      "region": "South East",
       "coordinates": {
         "lat": 50.880106,
         "lng": -1.558591
@@ -138,7 +458,7 @@
       "label": "Easby (031555)",
       "provider": "Environment Agency",
       "country": "England",
-      "region": "North East England",
+      "region": "West Midlands",
       "coordinates": {
         "lat": 54.469846,
         "lng": -1.099639
@@ -147,53 +467,373 @@
       "hasData": true,
       "dataFile": "easby.json"
     },
-    "577271": {
-      "key": "577271",
-      "stationId": "577271",
-      "name": "Red Br",
-      "label": "Red Br (577271)",
+    "000181TP": {
+      "key": "000181TP",
+      "stationId": "000181TP",
+      "name": "Nazing",
+      "label": "Nazing (000181TP)",
       "provider": "Environment Agency",
       "country": "England",
-      "region": "North West England",
+      "region": "England",
       "coordinates": {
-        "lat": 53.783353,
-        "lng": -2.991754
+        "lat": 51.730021,
+        "lng": 0.040992
       },
-      "gridReference": "SD347323",
+      "gridReference": "TL410054",
       "hasData": true,
-      "dataFile": "red-br.json"
+      "dataFile": "nazing.json"
     },
-    "1141": {
-      "key": "miserden1141",
-      "stationId": "1141",
-      "name": "Miserden",
-      "label": "Miserden (1141)",
+    "037292": {
+      "key": "037292",
+      "stationId": "037292",
+      "name": "Filey",
+      "label": "Filey (037292)",
       "provider": "Environment Agency",
       "country": "England",
-      "region": "South West England",
+      "region": "England",
       "coordinates": {
-        "lat": 51.777374,
-        "lng": -2.093434
+        "lat": 54.204227,
+        "lng": -0.30358
       },
-      "gridReference": "SO936087",
+      "gridReference": "TA107800",
       "hasData": true,
-      "dataFile": "miserden1141.json"
+      "dataFile": "filey.json"
     },
-    "1099": {
-      "key": "maenclochog1099",
-      "stationId": "1099",
-      "name": "Maenclochog",
-      "label": "Maenclochog (1099)",
-      "provider": "Natural Resources Wales",
-      "country": "Wales",
-      "region": "Pembrokeshire",
+    "038179": {
+      "key": "038179",
+      "stationId": "038179",
+      "name": "High Mowthorpe",
+      "label": "High Mowthorpe (038179)",
+      "provider": "Environment Agency",
+      "country": "England",
+      "region": "England",
       "coordinates": {
-        "lat": 51.9,
-        "lng": -4.8
+        "lat": 54.105159,
+        "lng": -0.642597
       },
-      "gridReference": "SN123456",
+      "gridReference": "SE888685",
       "hasData": true,
-      "dataFile": "maenclochog1099.json"
+      "dataFile": "high-mowthorpe.json"
+    },
+    "040752": {
+      "key": "040752",
+      "stationId": "040752",
+      "name": "Skipsea",
+      "label": "Skipsea (040752)",
+      "provider": "Environment Agency",
+      "country": "England",
+      "region": "England",
+      "coordinates": {
+        "lat": 53.983799,
+        "lng": -0.227143
+      },
+      "gridReference": "TA163556",
+      "hasData": true,
+      "dataFile": "skipsea.json"
+    },
+    "077066": {
+      "key": "077066",
+      "stationId": "077066",
+      "name": "Gorpley Reservoir",
+      "label": "Gorpley Reservoir (077066)",
+      "provider": "Environment Agency",
+      "country": "England",
+      "region": "England",
+      "coordinates": {
+        "lat": 53.70469,
+        "lng": -2.135531
+      },
+      "gridReference": "SD911231",
+      "hasData": true,
+      "dataFile": "gorpley-reservoir.json"
+    },
+    "082732": {
+      "key": "082732",
+      "stationId": "082732",
+      "name": "Ringing Low",
+      "label": "Ringing Low (082732)",
+      "provider": "Environment Agency",
+      "country": "England",
+      "region": "England",
+      "coordinates": {
+        "lat": 53.352459,
+        "lng": -1.545506
+      },
+      "gridReference": "SK303840",
+      "hasData": true,
+      "dataFile": "ringing-low.json"
+    },
+    "238605TP": {
+      "key": "238605TP",
+      "stationId": "238605TP",
+      "name": "Thornwood",
+      "label": "Thornwood (238605TP)",
+      "provider": "Environment Agency",
+      "country": "England",
+      "region": "England",
+      "coordinates": {
+        "lat": 51.722932,
+        "lng": 0.136235
+      },
+      "gridReference": "TL476048",
+      "hasData": true,
+      "dataFile": "thornwood.json"
+    },
+    "242534TP": {
+      "key": "242534TP",
+      "stationId": "242534TP",
+      "name": "Ware,broadmeads",
+      "label": "Ware,broadmeads (242534TP)",
+      "provider": "Environment Agency",
+      "country": "England",
+      "region": "England",
+      "coordinates": {
+        "lat": 51.807828,
+        "lng": -0.03963
+      },
+      "gridReference": "TL352139",
+      "hasData": true,
+      "dataFile": "ware-broadmeads.json"
+    },
+    "242819TP": {
+      "key": "242819TP",
+      "stationId": "242819TP",
+      "name": "Widford",
+      "label": "Widford (242819TP)",
+      "provider": "Environment Agency",
+      "country": "England",
+      "region": "England",
+      "coordinates": {
+        "lat": 51.827809,
+        "lng": 0.054118
+      },
+      "gridReference": "TL416163",
+      "hasData": true,
+      "dataFile": "widford.json"
+    },
+    "244569TP": {
+      "key": "244569TP",
+      "stationId": "244569TP",
+      "name": "Darnicle Hill",
+      "label": "Darnicle Hill (244569TP)",
+      "provider": "Environment Agency",
+      "country": "England",
+      "region": "England",
+      "coordinates": {
+        "lat": 51.727077,
+        "lng": -0.10539
+      },
+      "gridReference": "TL309048",
+      "hasData": true,
+      "dataFile": "darnicle-hill.json"
+    },
+    "276316TP": {
+      "key": "276316TP",
+      "stationId": "276316TP",
+      "name": "North Mymms",
+      "label": "North Mymms (276316TP)",
+      "provider": "Environment Agency",
+      "country": "England",
+      "region": "England",
+      "coordinates": {
+        "lat": 51.718037,
+        "lng": -0.217242
+      },
+      "gridReference": "TL232036",
+      "hasData": true,
+      "dataFile": "north-mymms.json"
+    },
+    "E10130": {
+      "key": "E10130",
+      "stationId": "E10130",
+      "name": "Holmbury St Mary",
+      "label": "Holmbury St Mary (E10130)",
+      "provider": "Environment Agency",
+      "country": "England",
+      "region": "England",
+      "coordinates": {
+        "lat": 51.185738,
+        "lng": -0.408138
+      },
+      "gridReference": "TQ113441",
+      "hasData": true,
+      "dataFile": "holmbury-st-mary.json"
+    },
+    "E1039": {
+      "key": "E1039",
+      "stationId": "E1039",
+      "name": "Burgh",
+      "label": "Burgh (E1039)",
+      "provider": "Environment Agency",
+      "country": "England",
+      "region": "England",
+      "coordinates": {
+        "lat": 53.102452,
+        "lng": 0.317508
+      },
+      "gridReference": "TF552586",
+      "hasData": true,
+      "dataFile": "burgh.json"
+    },
+    "E1179": {
+      "key": "E1179",
+      "stationId": "E1179",
+      "name": "Husbands Bosworth",
+      "label": "Husbands Bosworth (E1179)",
+      "provider": "Environment Agency",
+      "country": "England",
+      "region": "England",
+      "coordinates": {
+        "lat": 52.456899,
+        "lng": -1.052938
+      },
+      "gridReference": "SP644847",
+      "hasData": true,
+      "dataFile": "husbands-bosworth.json"
+    },
+    "E24195": {
+      "key": "E24195",
+      "stationId": "E24195",
+      "name": "Lavenham",
+      "label": "Lavenham (E24195)",
+      "provider": "Environment Agency",
+      "country": "England",
+      "region": "England",
+      "coordinates": {
+        "lat": 52.103622,
+        "lng": 0.807145
+      },
+      "gridReference": "TL923487",
+      "hasData": true,
+      "dataFile": "lavenham.json"
+    },
+    "E24238": {
+      "key": "E24238",
+      "stationId": "E24238",
+      "name": "Brampton",
+      "label": "Brampton (E24238)",
+      "provider": "Environment Agency",
+      "country": "England",
+      "region": "England",
+      "coordinates": {
+        "lat": 52.323011,
+        "lng": -0.206231
+      },
+      "gridReference": "TL223709",
+      "hasData": true,
+      "dataFile": "brampton.json"
+    },
+    "E24847": {
+      "key": "E24847",
+      "stationId": "E24847",
+      "name": "Bocking",
+      "label": "Bocking (E24847)",
+      "provider": "Environment Agency",
+      "country": "England",
+      "region": "England",
+      "coordinates": {
+        "lat": 51.889291,
+        "lng": 0.584473
+      },
+      "gridReference": "TL779243",
+      "hasData": true,
+      "dataFile": "bocking.json"
+    },
+    "E4500": {
+      "key": "E4500",
+      "stationId": "E4500",
+      "name": "Bybrook",
+      "label": "Bybrook (E4500)",
+      "provider": "Environment Agency",
+      "country": "England",
+      "region": "England",
+      "coordinates": {
+        "lat": 51.154584,
+        "lng": 0.889296
+      },
+      "gridReference": "TR021434",
+      "hasData": true,
+      "dataFile": "bybrook.json"
+    },
+    "E46612": {
+      "key": "E46612",
+      "stationId": "E46612",
+      "name": "Louth Kenwick",
+      "label": "Louth Kenwick (E46612)",
+      "provider": "Environment Agency",
+      "country": "England",
+      "region": "England",
+      "coordinates": {
+        "lat": 53.346199,
+        "lng": 0.015208
+      },
+      "gridReference": "TF342851",
+      "hasData": true,
+      "dataFile": "louth-kenwick.json"
+    },
+    "E4753": {
+      "key": "E4753",
+      "stationId": "E4753",
+      "name": "Parsonage Farm",
+      "label": "Parsonage Farm (E4753)",
+      "provider": "Environment Agency",
+      "country": "England",
+      "region": "England",
+      "coordinates": {
+        "lat": 51.160348,
+        "lng": 1.119955
+      },
+      "gridReference": "TR182447",
+      "hasData": true,
+      "dataFile": "parsonage-farm.json"
+    },
+    "E6380": {
+      "key": "E6380",
+      "stationId": "E6380",
+      "name": "Wincanton Bratton Seymour",
+      "label": "Wincanton Bratton Seymour (E6380)",
+      "provider": "Environment Agency",
+      "country": "England",
+      "region": "England",
+      "coordinates": {
+        "lat": 50.989632,
+        "lng": 0.75505
+      },
+      "gridReference": "TQ934247",
+      "hasData": true,
+      "dataFile": "wincanton-bratton-seymour.json"
+    },
+    "E8520": {
+      "key": "E8520",
+      "stationId": "E8520",
+      "name": "Ardingly",
+      "label": "Ardingly (E8520)",
+      "provider": "Environment Agency",
+      "country": "England",
+      "region": "England",
+      "coordinates": {
+        "lat": 51.039914,
+        "lng": -0.097897
+      },
+      "gridReference": "TQ334284",
+      "hasData": true,
+      "dataFile": "ardingly.json"
+    },
+    "E8770": {
+      "key": "E8770",
+      "stationId": "E8770",
+      "name": "Ringmer",
+      "label": "Ringmer (E8770)",
+      "provider": "Environment Agency",
+      "country": "England",
+      "region": "England",
+      "coordinates": {
+        "lat": 50.893868,
+        "lng": 0.081008
+      },
+      "gridReference": "TQ464125",
+      "hasData": true,
+      "dataFile": "ringmer.json"
     }
   }
 }
