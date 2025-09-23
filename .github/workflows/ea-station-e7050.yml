@@ -2,7 +2,7 @@ name: EA Multi-Stations (10 Stations)
 
 on:
   schedule:
-    - cron: '45 * * * *'  # Every hour at 45 minutes (offset from main workflow)
+    - cron: '45 */6 * * *'  # Every 6 hours at 45 minutes past
   workflow_dispatch:
 
 permissions:
