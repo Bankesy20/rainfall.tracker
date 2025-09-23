@@ -78,10 +78,20 @@ const useRainfallData = (stationKey = 'miserden1141', availableStations = null) 
         return;
       }
 
-      const url = new URL(endpoint);
-      url.searchParams.set('station', stationKey);
+      // Handle both absolute and relative URLs
+      let fetchUrl;
+      if (endpoint.startsWith('http')) {
+        // Absolute URL - use URL constructor
+        const url = new URL(endpoint);
+        url.searchParams.set('station', stationKey);
+        fetchUrl = url.toString();
+      } else {
+        // Relative URL - build manually
+        const separator = endpoint.includes('?') ? '&' : '?';
+        fetchUrl = `${endpoint}${separator}station=${encodeURIComponent(stationKey)}`;
+      }
       
-      const response = await fetch(url.toString(), {
+      const response = await fetch(fetchUrl, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
