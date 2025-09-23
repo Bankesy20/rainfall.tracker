@@ -12,29 +12,9 @@ const fetchStationsMetadata = async () => {
     return stationsMetadataCache;
   }
 
+  // Try local file first (works in production and dev)
   try {
-    // Try GitHub first (production)
-    const githubUrl = 'https://raw.githubusercontent.com/Bankesy20/rainfall.tracker/main/data/processed/stations-metadata.json';
-    const response = await fetch(githubUrl, {
-      headers: {
-        'Accept': 'application/json',
-        'Cache-Control': 'no-cache'
-      }
-    });
-
-    if (response.ok) {
-      const data = await response.json();
-      stationsMetadataCache = data;
-      lastFetchTime = now;
-      return data;
-    }
-  } catch (error) {
-    console.warn('Failed to fetch stations metadata from GitHub:', error);
-  }
-
-  // Fallback to local file (development)
-  try {
-    const localResponse = await fetch('/data/processed/stations-metadata.json');
+    const localResponse = await fetch('/data/processed/stations-metadata.json', { cache: 'no-store' });
     if (localResponse.ok) {
       const data = await localResponse.json();
       stationsMetadataCache = data;
@@ -45,16 +25,10 @@ const fetchStationsMetadata = async () => {
     console.warn('Failed to fetch local stations metadata:', error);
   }
 
-  // Try alternative CDN sources
+  // Then try CDN mirror (no preflight headers)
   try {
     const cdnUrl = 'https://cdn.jsdelivr.net/gh/Bankesy20/rainfall.tracker@main/data/processed/stations-metadata.json';
-    const cdnResponse = await fetch(cdnUrl, {
-      headers: {
-        'Accept': 'application/json',
-        'Cache-Control': 'no-cache'
-      }
-    });
-
+    const cdnResponse = await fetch(cdnUrl, { cache: 'no-store' });
     if (cdnResponse.ok) {
       const data = await cdnResponse.json();
       stationsMetadataCache = data;
@@ -63,6 +37,20 @@ const fetchStationsMetadata = async () => {
     }
   } catch (error) {
     console.warn('Failed to fetch stations metadata from CDN:', error);
+  }
+
+  // Finally try GitHub raw (avoid custom headers to prevent preflight)
+  try {
+    const githubUrl = 'https://raw.githubusercontent.com/Bankesy20/rainfall.tracker/main/data/processed/stations-metadata.json';
+    const response = await fetch(githubUrl, { cache: 'no-store' });
+    if (response.ok) {
+      const data = await response.json();
+      stationsMetadataCache = data;
+      lastFetchTime = now;
+      return data;
+    }
+  } catch (error) {
+    console.warn('Failed to fetch stations metadata from GitHub:', error);
   }
 
   // Final fallback to hardcoded coordinates
