@@ -31,36 +31,40 @@ exports.handler = async (event, context) => {
         token: process.env.NETLIFY_AUTH_TOKEN
       });
       
-      // List all blobs in the stations folder
-      const { blobs } = await store.list({ prefix: 'stations/' });
-      
-      for (const blob of blobs) {
-        try {
-          const content = await store.get(blob.key);
-          const data = typeof content === 'string' ? JSON.parse(content) : content;
-          
-          if (data && data.station) {
-            // Extract station key from blob path (stations/stationKey.json)
-            const stationKey = blob.key.replace('stations/', '').replace('.json', '');
+      // List all blobs in the stations folder (paginate through all pages)
+      let cursor = undefined;
+      do {
+        const page = await store.list({ prefix: 'stations/', cursor });
+        const pageBlobs = page && Array.isArray(page.blobs) ? page.blobs : [];
+        for (const blob of pageBlobs) {
+          try {
+            const content = await store.get(blob.key);
+            const data = typeof content === 'string' ? JSON.parse(content) : content;
             
-            stations.push({
-              key: stationKey,
-              id: data.station,
-              label: data.label || data.stationName || data.nameEN || `Station ${data.station}`,
-              name: data.stationName || data.nameEN || data.name,
-              provider: data.provider || (data.source === 'NRW' ? 'Natural Resources Wales' : 'Environment Agency'),
-              country: data.country || (data.source === 'NRW' ? 'Wales' : 'England'),
-              location: data.location,
-              lastUpdated: data.lastUpdated,
-              recordCount: data.recordCount || (data.data ? data.data.length : 0),
-              source: 'blob'
-            });
+            if (data && data.station) {
+              // Extract station key from blob path (stations/stationKey.json)
+              const stationKey = blob.key.replace('stations/', '').replace('.json', '');
+              
+              stations.push({
+                key: stationKey,
+                id: data.station,
+                label: data.label || data.stationName || data.nameEN || `Station ${data.station}`,
+                name: data.stationName || data.nameEN || data.name,
+                provider: data.provider || (data.source === 'NRW' ? 'Natural Resources Wales' : 'Environment Agency'),
+                country: data.country || (data.source === 'NRW' ? 'Wales' : 'England'),
+                location: data.location,
+                lastUpdated: data.lastUpdated,
+                recordCount: data.recordCount || (data.data ? data.data.length : 0),
+                source: 'blob'
+              });
+            }
+          } catch (error) {
+            // Skip invalid blobs
+            continue;
           }
-        } catch (error) {
-          // Skip invalid blobs
-          continue;
         }
-      }
+        cursor = page && page.cursor ? page.cursor : undefined;
+      } while (cursor);
       
     } catch (blobError) {
       console.log('Blob storage failed, falling back to file system');
