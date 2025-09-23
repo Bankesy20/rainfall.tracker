@@ -279,14 +279,11 @@ async function uploadNewData() {
         stationKey: stationKey
       };
       
-      // Use station ID directly as the blob key for consistency
-      const stationId = config.stationId || jsonData.station || stationKey;
-      const blobKey = `stations/${stationId}.json`;
+      const blobKey = `stations/${stationKey}.json`;
       await store.set(blobKey, JSON.stringify(blobData), {
         metadata: { 
           contentType: 'application/json',
-          station: stationId,
-          stationKey: stationKey,
+          station: stationKey,
           records: recordCount.toString(),
           source: 'github-actions'
         }
@@ -333,10 +330,10 @@ async function uploadNewData() {
     console.error('\n⚠️  Warning: Could not update metadata:', error.message);
   }
   
-  // Set GitHub Actions outputs
-  console.log(`\n::set-output name=uploaded::${successCount}`);
-  console.log(`::set-output name=failed::${errorCount}`);
-  console.log(`::set-output name=total::${Object.keys(STATIONS).length}`);
+  // Set GitHub Actions outputs (using modern format)
+  console.log(`\necho "uploaded=${successCount}" >> $GITHUB_OUTPUT`);
+  console.log(`echo "failed=${errorCount}" >> $GITHUB_OUTPUT`);
+  console.log(`echo "total=${Object.keys(STATIONS).length}" >> $GITHUB_OUTPUT`);
   
   console.log('\n📊 GitHub Actions Upload Summary:');
   console.log(`✅ Uploaded: ${successCount} stations`);
