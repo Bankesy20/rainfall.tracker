@@ -173,10 +173,29 @@ export const getStationCoordinates = async () => {
   const metadata = await fetchStationsMetadata();
   const coordinates = {};
 
+  // Build a mapping from stationId -> stationKey as used by API/dropdown
+  let idToKey = new Map();
+  try {
+    const res = await fetch('/.netlify/functions/list-stations', { cache: 'no-store' });
+    if (res.ok) {
+      const payload = await res.json();
+      if (payload && Array.isArray(payload.stations)) {
+        for (const s of payload.stations) {
+          if (s && s.id && s.key) {
+            idToKey.set(String(s.id), String(s.key));
+          }
+        }
+      }
+    }
+  } catch (e) {
+    // Non-fatal; fall back to metadata keys
+  }
+
   // Convert metadata to coordinates format expected by map
   Object.values(metadata.stations).forEach(station => {
     if (station.coordinates && station.coordinates.lat && station.coordinates.lng) {
-      coordinates[station.key] = {
+      const preferredKey = idToKey.get(String(station.stationId)) || station.key || station.stationId;
+      coordinates[preferredKey] = {
         lat: station.coordinates.lat,
         lng: station.coordinates.lng,
         name: station.label,
