@@ -76,9 +76,8 @@ const BASE_STATIONS_CONFIG = [
   },
 ];
 
-// Build full stations list by appending 40 more from processed EA stations JSON
+// Build full stations list by appending ALL remaining EA stations from processed JSON
 function buildStationsConfig() {
-  const additionalLimit = 40;
   const stationsJsonPath = path.join(__dirname, '..', 'data', 'processed', 'ea-england-stations-with-names.json');
 
   let additional = [];
@@ -88,13 +87,15 @@ function buildStationsConfig() {
     const items = Array.isArray(parsed.items) ? parsed.items : [];
 
     const existingIds = new Set(BASE_STATIONS_CONFIG.map(s => String(s.stationId)));
+    // Exclude stations handled in other workflows
+    const excludedIds = new Set(['1141', '1099']); // Miserden (EA), Maenclochog (NRW - precaution)
 
     for (const item of items) {
       const stationId = String(item.stationReference || item.key || '').trim();
       const label = (item.label || item.gaugeName || '').trim();
       const humanPage = item.humanPage || '';
 
-      if (!stationId || !label || existingIds.has(stationId)) {
+      if (!stationId || !label || existingIds.has(stationId) || excludedIds.has(stationId)) {
         continue;
       }
 
@@ -105,8 +106,6 @@ function buildStationsConfig() {
         humanPage: humanPage || `https://check-for-flooding.service.gov.uk/rainfall-station/${stationId}`,
         region: 'England'
       });
-
-      if (additional.length >= additionalLimit) break;
     }
   } catch (err) {
     console.warn('⚠️ Could not load additional EA stations from JSON:', err.message);
