@@ -4,6 +4,13 @@ const path = require('path');
 const https = require('https');
 const zlib = require('zlib');
 
+// Politeness delay between requests (ms), configurable via env EA_DELAY_MS
+const BASE_DELAY_MS = parseInt(process.env.EA_DELAY_MS || '2500', 10);
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 /**
  * Download rainfall CSV from multiple EA stations
  * Based on the single station script but adapted for multiple stations
@@ -385,8 +392,10 @@ async function main() {
         errorCount++;
       }
       
-      // Small delay between stations to be respectful to the server
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      // Polite delay with small jitter between stations
+      const jitter = Math.floor(Math.random() * 500); // 0-500ms
+      const delay = BASE_DELAY_MS + jitter;
+      await sleep(delay);
     }
     
     // Summary
