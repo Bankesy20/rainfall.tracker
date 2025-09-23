@@ -90,7 +90,7 @@ async function downloadBatch() {
         // Process CSV
         const data = await mainDownloader.processDownloadedCSV(csvPath, station);
         
-        // Save processed data
+        // Save processed data (now with incremental updates)
         const outputFile = await mainDownloader.saveProcessedData(data, station);
         
         console.log(`✅ Station ${station.stationName} complete!`);

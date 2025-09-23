@@ -320,16 +320,61 @@ async function saveProcessedData(data, station) {
   // Ensure output directory exists
   await fsPromises.mkdir(outputDir, { recursive: true });
   
+  // Load existing data if it exists (for incremental updates)
+  let existingData = null;
+  try {
+    const existingContent = await fsPromises.readFile(outputFile, 'utf-8');
+    existingData = JSON.parse(existingContent);
+    console.log(`📂 Found existing data with ${existingData.data ? existingData.data.length : 0} records`);
+  } catch (error) {
+    console.log(`📂 No existing data found, creating new file`);
+  }
+  
+  // Merge new data with existing data (avoiding duplicates)
+  let mergedData;
+  if (existingData && existingData.data && Array.isArray(existingData.data)) {
+    // Create a set of existing date/time combinations to avoid duplicates
+    const existingKeys = new Set(existingData.data.map(item => `${item.date}_${item.time}`));
+    
+    // Filter out duplicates from new data
+    const newRecords = data.data.filter(item => {
+      const key = `${item.date}_${item.time}`;
+      return !existingKeys.has(key);
+    });
+    
+    console.log(`📊 New data: ${data.data.length} records, ${newRecords.length} new (${data.data.length - newRecords.length} duplicates skipped)`);
+    
+    // Merge the data
+    mergedData = {
+      ...data,
+      data: [...existingData.data, ...newRecords].sort((a, b) => {
+        const dateA = new Date(a.dateTime);
+        const dateB = new Date(b.dateTime);
+        return dateA - dateB;
+      }),
+      recordCount: existingData.data.length + newRecords.length,
+      lastUpdated: new Date().toISOString(),
+      previousUpdate: existingData.lastUpdated,
+      incrementalUpdate: true
+    };
+  } else {
+    // No existing data, use the new data as-is
+    mergedData = {
+      ...data,
+      incrementalUpdate: false
+    };
+  }
+  
   // Save to processed directory
-  await fsPromises.writeFile(outputFile, JSON.stringify(data, null, 2));
-  console.log(`💾 Saved processed data to: ${outputFile}`);
+  await fsPromises.writeFile(outputFile, JSON.stringify(mergedData, null, 2));
+  console.log(`💾 Saved processed data to: ${outputFile} (${mergedData.recordCount} total records)`);
   
   // Also save to public directory for the web app
   const publicDir = path.join(__dirname, '..', 'public', 'data', 'processed');
   const publicFile = path.join(publicDir, `ea-${station.stationId}.json`);
   
   await fsPromises.mkdir(publicDir, { recursive: true });
-  await fsPromises.writeFile(publicFile, JSON.stringify(data, null, 2));
+  await fsPromises.writeFile(publicFile, JSON.stringify(mergedData, null, 2));
   console.log(`🌐 Saved public data to: ${publicFile}`);
   
   return outputFile;

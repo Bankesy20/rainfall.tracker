@@ -239,17 +239,19 @@ async function uploadNewData() {
       console.log(`🌧️ Using EA Multi-Stations (${Object.keys(STATIONS).length} stations)`);
     }
     } else if (isBatchWorkflow && batchNum) {
-    // Handle batch workflows - only upload files created in the last hour (by current batch)
+    // Handle batch workflows - use batch range to filter stations
     console.log(`🌧️ Batch Mode: Processing EA Batch ${batchNum}`);
+    const batchStart = process.env.EA_BATCH_START;
+    const batchEnd = process.env.EA_BATCH_END;
+    console.log(`📍 Batch range: ${batchStart} → ${batchEnd}`);
+    
     const dynamic = {};
-    const oneHourAgo = Date.now() - (60 * 60 * 1000); // 1 hour ago
     
     try {
       const files = await fs.readdir(dataDir);
       // Only include actual station data files (ea-{STATION_ID}.json), not metadata files
       const eaFiles = files.filter(f => {
         // Match pattern: ea-{STATION_ID}.json where STATION_ID is alphanumeric
-        // Examples: ea-E7050.json, ea-577271.json, ea-3014.json
         return /^ea-[A-Za-z0-9]+\.json$/.test(f) && 
                !f.includes('england-stations') && 
                !f.includes('rainfall-stations') && 
@@ -261,33 +263,36 @@ async function uploadNewData() {
       });
       console.log(`📦 Found ${eaFiles.length} station data files (filtered out metadata files)`);
       
-      let recentFiles = 0;
+      let batchFiles = 0;
       for (const f of eaFiles) {
         try {
-          const filePath = path.join(dataDir, f);
-          const stats = await fs.stat(filePath);
+          const raw = await fs.readFile(path.join(dataDir, f), 'utf8');
+          const json = JSON.parse(raw);
+          const stationName = json.stationName || json.label || '';
           
-          // Only process files modified in the last hour (created by current batch)
-          if (stats.mtime.getTime() > oneHourAgo) {
-            const raw = await fs.readFile(filePath, 'utf8');
-            const json = JSON.parse(raw);
-            const stationId = json.station || f.replace(/^ea-|\.json$/g, '');
-            const name = json.stationName || json.label || `Station ${stationId}`;
-            let key = slugify(name, stationId);
-            if (dynamic[key]) key = slugify(`${name}-${stationId}`, stationId);
-            dynamic[key] = {
-              file: f,
-              description: name,
-              stationId: String(stationId)
-            };
-            recentFiles++;
+          // Only include files that match the current batch range
+          if (batchStart && batchEnd && stationName) {
+            const nameToCheck = stationName.split('(')[0].trim(); // Remove (ID) part
+            if (nameToCheck >= batchStart && nameToCheck <= batchEnd) {
+              const stationId = json.station || f.replace(/^ea-|\.json$/g, '');
+              let key = slugify(stationName, stationId);
+              if (dynamic[key]) key = slugify(`${stationName}-${stationId}`, stationId);
+              dynamic[key] = {
+                file: f,
+                description: stationName,
+                stationId: String(stationId)
+              };
+              batchFiles++;
+            }
           }
-        } catch {}
+        } catch (e) {
+          // Skip files that can't be parsed
+        }
       }
       
       STATIONS = dynamic;
-      console.log(`🌧️ Using batch-generated files: ${recentFiles} recent files (out of ${eaFiles.length} total)`);
-      console.log(`⏰ Only uploading files modified in the last hour`);
+      console.log(`🌧️ Using batch-filtered files: ${batchFiles} files in range (out of ${eaFiles.length} total)`);
+      console.log(`📍 Range filter: ${batchStart} → ${batchEnd}`);
     } catch (error) {
       console.error('❌ Error loading batch files:', error.message);
       STATIONS = {};
