@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import Map, { Marker, Popup } from 'react-map-gl/maplibre';
 import { getStationCoordinates, getMapCenter, getMapBounds } from '../utils/stationCoordinates';
 
@@ -11,9 +11,42 @@ const StationMap = ({
   title = "Select Station"
 }) => {
   const [selectedStation, setSelectedStation] = useState(null);
-  const stationCoords = getStationCoordinates();
-  const mapCenter = getMapCenter();
-  const mapBounds = getMapBounds();
+  const [stationCoords, setStationCoords] = useState({});
+  const [mapCenter, setMapCenter] = useState({ lat: 52.5, lng: -1.5 });
+  const [mapBounds, setMapBounds] = useState({
+    north: 55, south: 50, east: 2, west: -6
+  });
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  // Load coordinates when component mounts or when isOpen changes
+  useEffect(() => {
+    if (isOpen) {
+      loadCoordinates();
+    }
+  }, [isOpen]);
+
+  const loadCoordinates = async () => {
+    try {
+      setLoading(true);
+      setError(null);
+      
+      const [coords, center, bounds] = await Promise.all([
+        getStationCoordinates(),
+        getMapCenter(),
+        getMapBounds()
+      ]);
+      
+      setStationCoords(coords);
+      setMapCenter(center);
+      setMapBounds(bounds);
+    } catch (err) {
+      console.error('Failed to load station coordinates:', err);
+      setError('Failed to load station locations');
+    } finally {
+      setLoading(false);
+    }
+  };
 
 
   const handleMarkerClick = useCallback((stationKey) => {
@@ -58,91 +91,113 @@ const StationMap = ({
 
         {/* Map */}
         <div className="flex-1 relative">
-          <Map
-            initialViewState={{
-              longitude: mapCenter.lng,
-              latitude: mapCenter.lat,
-              zoom: 6
-            }}
-            style={{ width: '100%', height: '100%' }}
-            mapStyle={{
-              version: 8,
-              sources: {
-                'osm': {
-                  type: 'raster',
-                  tiles: ['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],
-                  tileSize: 256,
-                  attribution: '© OpenStreetMap contributors'
-                }
-              },
-              layers: [
-                {
-                  id: 'osm',
-                  type: 'raster',
-                  source: 'osm'
-                }
-              ]
-            }}
-          >
-            {Object.entries(stationCoords).map(([stationKey, coord]) => (
-                <Marker
-                  key={stationKey}
-                  longitude={coord.lng}
-                  latitude={coord.lat}
-                  onClick={() => handleMarkerClick(stationKey)}
+          {loading ? (
+            <div className="flex items-center justify-center h-full">
+              <div className="text-center">
+                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto mb-2"></div>
+                <p className="text-gray-600 dark:text-gray-400">Loading station locations...</p>
+              </div>
+            </div>
+          ) : error ? (
+            <div className="flex items-center justify-center h-full">
+              <div className="text-center">
+                <div className="text-red-500 mb-2">⚠️</div>
+                <p className="text-red-600 dark:text-red-400 mb-2">{error}</p>
+                <button
+                  onClick={loadCoordinates}
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded text-sm"
                 >
-                  <div
-                    className="cursor-pointer transform transition-transform hover:scale-110"
-                    style={{
-                      width: getMarkerSize(stationKey),
-                      height: getMarkerSize(stationKey),
-                      backgroundColor: getMarkerColor(stationKey),
-                      borderRadius: '50%',
-                      border: '2px solid white',
-                      boxShadow: '0 2px 4px rgba(0,0,0,0.3)',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      fontSize: '10px',
-                      color: 'white',
-                      fontWeight: 'bold'
-                    }}
-                    title={coord.name}
+                  Retry
+                </button>
+              </div>
+            </div>
+          ) : (
+            <Map
+              initialViewState={{
+                longitude: mapCenter.lng,
+                latitude: mapCenter.lat,
+                zoom: 6
+              }}
+              style={{ width: '100%', height: '100%' }}
+              mapStyle={{
+                version: 8,
+                sources: {
+                  'osm': {
+                    type: 'raster',
+                    tiles: ['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],
+                    tileSize: 256,
+                    attribution: '© OpenStreetMap contributors'
+                  }
+                },
+                layers: [
+                  {
+                    id: 'osm',
+                    type: 'raster',
+                    source: 'osm'
+                  }
+                ]
+              }}
+            >
+              {Object.entries(stationCoords).map(([stationKey, coord]) => (
+                  <Marker
+                    key={stationKey}
+                    longitude={coord.lng}
+                    latitude={coord.lat}
+                    onClick={() => handleMarkerClick(stationKey)}
                   >
-                    {stationKey === currentStation ? 'A' : stationKey === compareStation ? 'B' : '•'}
-                  </div>
-                </Marker>
-            ))}
+                    <div
+                      className="cursor-pointer transform transition-transform hover:scale-110"
+                      style={{
+                        width: getMarkerSize(stationKey),
+                        height: getMarkerSize(stationKey),
+                        backgroundColor: getMarkerColor(stationKey),
+                        borderRadius: '50%',
+                        border: '2px solid white',
+                        boxShadow: '0 2px 4px rgba(0,0,0,0.3)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        fontSize: '10px',
+                        color: 'white',
+                        fontWeight: 'bold'
+                      }}
+                      title={coord.name}
+                    >
+                      {stationKey === currentStation ? 'A' : stationKey === compareStation ? 'B' : '•'}
+                    </div>
+                  </Marker>
+              ))}
 
-            {/* Popup for selected station */}
-            {selectedStation && stationCoords[selectedStation] && (
-              <Popup
-                longitude={stationCoords[selectedStation].lng}
-                latitude={stationCoords[selectedStation].lat}
-                onClose={() => setSelectedStation(null)}
-                closeButton={false}
-                closeOnClick={false}
-              >
-                <div className="p-2">
-                  <h4 className="font-semibold text-gray-900 dark:text-white text-sm">
-                    {stationCoords[selectedStation].name}
-                  </h4>
-                  <p className="text-xs text-gray-600 dark:text-gray-400">
-                    {stationCoords[selectedStation].provider}
-                  </p>
-                  <p className="text-xs text-gray-500 dark:text-gray-500">
-                    Station ID: {stationCoords[selectedStation].stationId}
-                  </p>
-                  <button
-                    onClick={() => handleStationSelect(selectedStation)}
-                    className="mt-2 w-full bg-blue-600 hover:bg-blue-700 text-white text-xs px-3 py-1 rounded transition-colors"
-                  >
-                    Select This Station
-                  </button>
-                </div>
-              </Popup>
-            )}
-          </Map>
+              {/* Popup for selected station */}
+              {selectedStation && stationCoords[selectedStation] && (
+                <Popup
+                  longitude={stationCoords[selectedStation].lng}
+                  latitude={stationCoords[selectedStation].lat}
+                  onClose={() => setSelectedStation(null)}
+                  closeButton={false}
+                  closeOnClick={false}
+                >
+                  <div className="p-2">
+                    <h4 className="font-semibold text-gray-900 dark:text-white text-sm">
+                      {stationCoords[selectedStation].name}
+                    </h4>
+                    <p className="text-xs text-gray-600 dark:text-gray-400">
+                      {stationCoords[selectedStation].provider}
+                    </p>
+                    <p className="text-xs text-gray-500 dark:text-gray-500">
+                      Station ID: {stationCoords[selectedStation].stationId}
+                    </p>
+                    <button
+                      onClick={() => handleStationSelect(selectedStation)}
+                      className="mt-2 w-full bg-blue-600 hover:bg-blue-700 text-white text-xs px-3 py-1 rounded transition-colors"
+                    >
+                      Select This Station
+                    </button>
+                  </div>
+                </Popup>
+              )}
+            </Map>
+          )}
         </div>
 
         {/* Legend */}
