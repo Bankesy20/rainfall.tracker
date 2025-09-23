@@ -18,7 +18,7 @@ const fallbackStations = {
     provider: 'Natural Resources Wales',
     country: 'Wales',
     staticPath: '/data/processed/wales-1099.json',
-    apiPath: '/.netlify/functions/rainfall-data?station=maenclochog1099'
+    apiPath: '/.netlify/functions/rainfall-data'
   },
   E7050: {
     key: 'E7050',
@@ -27,7 +27,7 @@ const fallbackStations = {
     provider: 'Environment Agency',
     country: 'England',
     staticPath: '/data/processed/ea-E7050.json',
-    apiPath: '/.netlify/functions/rainfall-data?station=E7050'
+    apiPath: '/.netlify/functions/rainfall-data'
   },
   E13600: {
     key: 'E13600',
@@ -36,7 +36,7 @@ const fallbackStations = {
     provider: 'Environment Agency',
     country: 'England',
     staticPath: '/data/processed/ea-E13600.json',
-    apiPath: '/.netlify/functions/rainfall-data?station=E13600'
+    apiPath: '/.netlify/functions/rainfall-data'
   },
   E19017: {
     key: 'E19017',
@@ -45,7 +45,7 @@ const fallbackStations = {
     provider: 'Environment Agency',
     country: 'England',
     staticPath: '/data/processed/ea-E19017.json',
-    apiPath: '/.netlify/functions/rainfall-data?station=E19017'
+    apiPath: '/.netlify/functions/rainfall-data'
   },
   E23518: {
     key: 'E23518',
@@ -54,7 +54,7 @@ const fallbackStations = {
     provider: 'Environment Agency',
     country: 'England',
     staticPath: '/data/processed/ea-E23518.json',
-    apiPath: '/.netlify/functions/rainfall-data?station=E23518'
+    apiPath: '/.netlify/functions/rainfall-data'
   },
   E24879: {
     key: 'E24879',
@@ -63,7 +63,7 @@ const fallbackStations = {
     provider: 'Environment Agency',
     country: 'England',
     staticPath: '/data/processed/ea-E24879.json',
-    apiPath: '/.netlify/functions/rainfall-data?station=E24879'
+    apiPath: '/.netlify/functions/rainfall-data'
   },
   E24913: {
     key: 'E24913',
@@ -72,7 +72,7 @@ const fallbackStations = {
     provider: 'Environment Agency',
     country: 'England',
     staticPath: '/data/processed/ea-E24913.json',
-    apiPath: '/.netlify/functions/rainfall-data?station=E24913'
+    apiPath: '/.netlify/functions/rainfall-data'
   },
   E5170: {
     key: 'E5170',
@@ -81,7 +81,7 @@ const fallbackStations = {
     provider: 'Environment Agency',
     country: 'England',
     staticPath: '/data/processed/ea-E5170.json',
-    apiPath: '/.netlify/functions/rainfall-data?station=E5170'
+    apiPath: '/.netlify/functions/rainfall-data'
   },
   E8290: {
     key: 'E8290',
@@ -90,7 +90,7 @@ const fallbackStations = {
     provider: 'Environment Agency',
     country: 'England',
     staticPath: '/data/processed/ea-E8290.json',
-    apiPath: '/.netlify/functions/rainfall-data?station=E8290'
+    apiPath: '/.netlify/functions/rainfall-data'
   },
   '031555': {
     key: '031555',
@@ -99,7 +99,7 @@ const fallbackStations = {
     provider: 'Environment Agency',
     country: 'England',
     staticPath: '/data/processed/ea-031555.json',
-    apiPath: '/.netlify/functions/rainfall-data?station=031555'
+    apiPath: '/.netlify/functions/rainfall-data'
   },
   '577271': {
     key: '577271',
@@ -108,7 +108,7 @@ const fallbackStations = {
     provider: 'Environment Agency',
     country: 'England',
     staticPath: '/data/processed/ea-577271.json',
-    apiPath: '/.netlify/functions/rainfall-data?station=577271'
+    apiPath: '/.netlify/functions/rainfall-data'
   }
 };
 
@@ -136,7 +136,7 @@ export const fetchAvailableStations = async () => {
         location: station.location,
         recordCount: station.recordCount,
         lastUpdated: station.lastUpdated,
-        apiPath: `/.netlify/functions/rainfall-data?station=${station.key}`
+        apiPath: `/.netlify/functions/rainfall-data`
       };
     }
     
