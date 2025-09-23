@@ -15,23 +15,23 @@ const fetchStationKeyMap = async () => {
   }
 
   try {
-    const res = await fetch('/.netlify/functions/list-stations');
-    if (res.ok) {
-      const payload = await res.json();
-      const map = new Map();
-      if (payload && Array.isArray(payload.stations)) {
-        for (const s of payload.stations) {
-          if (s && s.id && s.key) {
-            map.set(String(s.id), String(s.key));
-          }
+    // Use local metadata instead of API call
+    const metadata = await fetchStationsMetadata();
+    const map = new Map();
+    
+    if (metadata && metadata.stations) {
+      for (const station of Object.values(metadata.stations)) {
+        if (station && station.stationId && station.key) {
+          map.set(String(station.stationId), String(station.key));
         }
       }
-      idToKeyCache = map;
-      idToKeyLastFetchTime = now;
-      return map;
     }
+    
+    idToKeyCache = map;
+    idToKeyLastFetchTime = now;
+    return map;
   } catch (e) {
-    // Ignore and fall back to empty map
+    console.warn('Failed to build station key map from metadata:', e);
   }
 
   return new Map();
