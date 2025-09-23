@@ -45,6 +45,8 @@ async function uploadNewData() {
   const isProductionWorkflow = process.env.GITHUB_WORKFLOW && process.env.GITHUB_WORKFLOW.includes('Scrape Rainfall');
   const isEAStationWorkflow = process.env.GITHUB_WORKFLOW && process.env.GITHUB_WORKFLOW.includes('EA Station');
   const isEAMultiStationsWorkflow = process.env.GITHUB_WORKFLOW && process.env.GITHUB_WORKFLOW.includes('EA Multi-Stations');
+    const isBatchWorkflow = process.env.GITHUB_WORKFLOW && process.env.GITHUB_WORKFLOW.includes('EA Batch');
+  const batchNum = process.env.EA_BATCH_NUM;
   
   console.log(`🔍 Workflow: ${process.env.GITHUB_WORKFLOW}`);
   console.log(`📊 EA Test Mode: ${isEATestWorkflow}`);
@@ -231,6 +233,36 @@ async function uploadNewData() {
       if (!Object.keys(STATIONS).length) STATIONS = EA_MULTI_STATIONS;
       console.log(`🌧️ Using EA Multi-Stations (${Object.keys(STATIONS).length} stations)`);
     }
+    } else if (isBatchWorkflow && batchNum) {
+    // Handle batch workflows - scan for files created by the batch downloader
+    console.log(`🌧️ Batch Mode: Processing EA Batch ${batchNum}`);
+    const dynamic = {};
+    try {
+      const files = await fs.readdir(dataDir);
+      const eaFiles = files.filter(f => /^ea-.+\.json$/.test(f));
+      console.log(`📦 Found ${eaFiles.length} EA files in processed directory`);
+      
+      for (const f of eaFiles) {
+        try {
+          const raw = await fs.readFile(path.join(dataDir, f), 'utf8');
+          const json = JSON.parse(raw);
+          const stationId = json.station || f.replace(/^ea-|\.json$/g, '');
+          const name = json.stationName || json.label || `Station ${stationId}`;
+          let key = slugify(name, stationId);
+          if (dynamic[key]) key = slugify(`${name}-${stationId}`, stationId);
+          dynamic[key] = {
+            file: f,
+            description: name,
+            stationId: String(stationId)
+          };
+        } catch {}
+      }
+      STATIONS = dynamic;
+      console.log(`🌧️ Using batch-generated files (${Object.keys(STATIONS).length} stations)`);
+    } catch (error) {
+      console.error('❌ Error loading batch files:', error.message);
+      STATIONS = {};
+    }
   } else if (isEAStationWorkflow) {
     STATIONS = EA_STATION_E7050;
     console.log('🌧️ Using individual EA station (E7050) only');
@@ -243,7 +275,25 @@ async function uploadNewData() {
   let successCount = 0;
   let errorCount = 0;
   
-  for (const [stationKey, config] of Object.entries(STATIONS)) {
+  // Rate limiting: delay between uploads to prevent API throttling
+  const UPLOAD_DELAY_MS = 200; // 200ms delay between uploads
+  const BATCH_SIZE = 50; // Process in smaller batches
+  
+  console.log(`🔄 Processing ${Object.keys(STATIONS).length} stations with rate limiting...`);
+  console.log(`⏱️  Upload delay: ${UPLOAD_DELAY_MS}ms between uploads`);
+  console.log(`📦 Batch size: ${BATCH_SIZE} stations per batch\n`);
+  
+  const stationEntries = Object.entries(STATIONS);
+  
+  // Process in batches to avoid overwhelming the API
+  for (let batchStart = 0; batchStart < stationEntries.length; batchStart += BATCH_SIZE) {
+    const batch = stationEntries.slice(batchStart, batchStart + BATCH_SIZE);
+    const batchNum = Math.floor(batchStart / BATCH_SIZE) + 1;
+    const totalBatches = Math.ceil(stationEntries.length / BATCH_SIZE);
+    
+    console.log(`\n📦 Processing batch ${batchNum}/${totalBatches} (${batch.length} stations)`);
+    
+    for (const [stationKey, config] of batch) {
     console.log(`\n📊 Processing ${config.description}...`);
     
     try {
@@ -309,7 +359,19 @@ async function uploadNewData() {
       console.error(`  ❌ Error uploading ${stationKey}:`, error.message);
       errorCount++;
     }
+    
+    // Rate limiting delay between uploads
+    if (UPLOAD_DELAY_MS > 0) {
+      await new Promise(resolve => setTimeout(resolve, UPLOAD_DELAY_MS));
+    }
   }
+  
+  // Delay between batches (longer pause to let API recover)
+  if (batchStart + BATCH_SIZE < stationEntries.length) {
+    console.log(`  ⏸️  Pausing 2 seconds between batches...`);
+    await new Promise(resolve => setTimeout(resolve, 2000));
+  }
+}
   
   // Update metadata
   try {

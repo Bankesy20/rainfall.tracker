@@ -121,7 +121,8 @@ function buildStationsConfig() {
   return BASE_STATIONS_CONFIG.concat(additional);
 }
 
-const STATIONS_CONFIG = buildStationsConfig();
+// Use only the base stations for GitHub Actions (not all 837 stations!)
+const STATIONS_CONFIG = process.env.GITHUB_ACTIONS ? BASE_STATIONS_CONFIG : buildStationsConfig();
 
 async function downloadEACSV(station) {
   const outputPath = path.join(__dirname, '..', 'data', 'raw', `ea-${station.stationId}-${new Date().toISOString().split('T')[0]}.csv`);

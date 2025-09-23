@@ -1,0 +1,77 @@
+name: EA Batch 2 (B-C, 94 stations)
+
+on:
+  schedule:
+    - cron: '30 0,6,12,18 * * *'  # Every 6 hours, staggered by 30 minutes
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  ea-batch-2:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        fetch-depth: 0
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Run EA batch 2 scraping script
+      env:
+        EA_BATCH_NUM: 2
+        EA_BATCH_START: "Brixham"
+        EA_BATCH_END: "Cranleigh"
+      run: node scripts/download-ea-batch.js
+    
+    - name: Upload to Netlify Blobs
+      env:
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        EA_BATCH_NUM: 2
+      run: node scripts/github-actions-blob-upload.js
+    
+    - name: Configure Git
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+    
+    - name: Commit and push changes (backup)
+      run: |
+        git add data/
+        git diff --quiet && git diff --staged --quiet || (git commit -m "[skip ci] Update EA batch 2 data (B-C) - $(date -u +'%Y-%m-%d %H:%M:%S UTC')" && git push origin main)
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Summary
+      run: |
+        echo "## EA Batch 2 Data Update Complete" >> $GITHUB_STEP_SUMMARY
+        echo "- **Range**: Brixham → Cranleigh" >> $GITHUB_STEP_SUMMARY
+        echo "- **Letters**: B-C" >> $GITHUB_STEP_SUMMARY
+        echo "- **Stations**: 94 EA stations" >> $GITHUB_STEP_SUMMARY
+        echo "- Data scraped and processed" >> $GITHUB_STEP_SUMMARY
+        echo "- Uploaded to Netlify Blobs" >> $GITHUB_STEP_SUMMARY
+        echo "- Backup committed to repository" >> $GITHUB_STEP_SUMMARY
+        echo "- Timestamp: $(date -u +'%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY
+    
+    - name: Handle errors
+      if: failure()
+      run: |
+        echo "## EA Batch 2 Update Failed" >> $GITHUB_STEP_SUMMARY
+        echo "- **Range**: Brixham → Cranleigh" >> $GITHUB_STEP_SUMMARY
+        echo "- **Stations**: 94 EA stations" >> $GITHUB_STEP_SUMMARY
+        echo "- Timestamp: $(date -u +'%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY
+        echo "- Check logs for details" >> $GITHUB_STEP_SUMMARY
+        echo "- Fallback: Data should still be available from Git repository" >> $GITHUB_STEP_SUMMARY
