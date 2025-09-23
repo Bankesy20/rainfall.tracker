@@ -212,7 +212,12 @@ async function uploadNewData() {
       const dynamic = {};
       try {
         const files = await fs.readdir(dataDir);
-        const eaFiles = files.filter(f => /^ea-.+\.json$/.test(f));
+        // Only include actual station data files, not metadata files
+        const eaFiles = files.filter(f => /^ea-[A-Za-z0-9]+\.json$/.test(f) && 
+               !f.includes('england-stations') && 
+               !f.includes('rainfall-stations') && 
+               !f.includes('wales-stations') && 
+               !f.includes('unknown-stations'));
         for (const f of eaFiles) {
           try {
             const raw = await fs.readFile(path.join(dataDir, f), 'utf8');
@@ -241,8 +246,20 @@ async function uploadNewData() {
     
     try {
       const files = await fs.readdir(dataDir);
-      const eaFiles = files.filter(f => /^ea-.+\.json$/.test(f));
-      console.log(`📦 Found ${eaFiles.length} total EA files in processed directory`);
+      // Only include actual station data files (ea-{STATION_ID}.json), not metadata files
+      const eaFiles = files.filter(f => {
+        // Match pattern: ea-{STATION_ID}.json where STATION_ID is alphanumeric
+        // Examples: ea-E7050.json, ea-577271.json, ea-3014.json
+        return /^ea-[A-Za-z0-9]+\.json$/.test(f) && 
+               !f.includes('england-stations') && 
+               !f.includes('rainfall-stations') && 
+               !f.includes('wales-stations') && 
+               !f.includes('unknown-stations') &&
+               !f.includes('stations-only') &&
+               !f.includes('stations-with-names') &&
+               !f.includes('stations.checked');
+      });
+      console.log(`📦 Found ${eaFiles.length} station data files (filtered out metadata files)`);
       
       let recentFiles = 0;
       for (const f of eaFiles) {
