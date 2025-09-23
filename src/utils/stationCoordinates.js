@@ -45,10 +45,120 @@ const fetchStationsMetadata = async () => {
     console.warn('Failed to fetch local stations metadata:', error);
   }
 
+  // Try alternative CDN sources
+  try {
+    const cdnUrl = 'https://cdn.jsdelivr.net/gh/Bankesy20/rainfall.tracker@main/data/processed/stations-metadata.json';
+    const cdnResponse = await fetch(cdnUrl, {
+      headers: {
+        'Accept': 'application/json',
+        'Cache-Control': 'no-cache'
+      }
+    });
+
+    if (cdnResponse.ok) {
+      const data = await cdnResponse.json();
+      stationsMetadataCache = data;
+      lastFetchTime = now;
+      return data;
+    }
+  } catch (error) {
+    console.warn('Failed to fetch stations metadata from CDN:', error);
+  }
+
   // Final fallback to hardcoded coordinates
   console.warn('Using fallback hardcoded coordinates');
   return {
     stations: {
+      'E19017': {
+        key: 'E19017',
+        stationId: 'E19017',
+        name: 'Ashdon',
+        label: 'Ashdon (E19017)',
+        provider: 'Environment Agency',
+        country: 'England',
+        coordinates: { lat: 52.058925, lng: 0.296651 }
+      },
+      'E23518': {
+        key: 'E23518',
+        stationId: 'E23518',
+        name: 'Hethersett',
+        label: 'Hethersett (E23518)',
+        provider: 'Environment Agency',
+        country: 'England',
+        coordinates: { lat: 52.603459, lng: 1.16988 }
+      },
+      'E24879': {
+        key: 'E24879',
+        stationId: 'E24879',
+        name: 'Hullbridge Raine',
+        label: 'Hullbridge Raine (E24879)',
+        provider: 'Environment Agency',
+        country: 'England',
+        coordinates: { lat: 51.616598, lng: 0.593505 }
+      },
+      'E24913': {
+        key: 'E24913',
+        stationId: 'E24913',
+        name: 'Tiptree',
+        label: 'Tiptree (E24913)',
+        provider: 'Environment Agency',
+        country: 'England',
+        coordinates: { lat: 51.815014, lng: 0.765948 }
+      },
+      'E5170': {
+        key: 'E5170',
+        stationId: 'E5170',
+        name: 'Lower Standen',
+        label: 'Lower Standen (E5170)',
+        provider: 'Environment Agency',
+        country: 'England',
+        coordinates: { lat: 51.117863, lng: 1.194265 }
+      },
+      'E8290': {
+        key: 'E8290',
+        stationId: 'E8290',
+        name: 'Isfield Weir',
+        label: 'Isfield Weir (E8290)',
+        provider: 'Environment Agency',
+        country: 'England',
+        coordinates: { lat: 51.434974, lng: -0.353451 }
+      },
+      'E7050': {
+        key: 'E7050',
+        stationId: 'E7050',
+        name: 'Preston Capes',
+        label: 'Preston Capes (E7050)',
+        provider: 'Environment Agency',
+        country: 'England',
+        coordinates: { lat: 52.186277, lng: -1.171327 }
+      },
+      'E13600': {
+        key: 'E13600',
+        stationId: 'E13600',
+        name: 'Lyndhurst',
+        label: 'Lyndhurst (E13600)',
+        provider: 'Environment Agency',
+        country: 'England',
+        coordinates: { lat: 50.880106, lng: -1.558591 }
+      },
+      '031555': {
+        key: '031555',
+        stationId: '031555',
+        name: 'Easby',
+        label: 'Easby (031555)',
+        provider: 'Environment Agency',
+        country: 'England',
+        coordinates: { lat: 54.469846, lng: -1.099639 }
+      },
+      '577271': {
+        key: '577271',
+        stationId: '577271',
+        name: 'Red Br',
+        label: 'Red Br (577271)',
+        provider: 'Environment Agency',
+        country: 'England',
+        coordinates: { lat: 53.783353, lng: -2.991754 }
+      },
       'miserden1141': {
         key: 'miserden1141',
         stationId: '1141',

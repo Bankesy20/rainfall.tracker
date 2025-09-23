@@ -1,0 +1,199 @@
+{
+  "lastUpdated": "2025-01-27T12:00:00.000Z",
+  "description": "Metadata for rainfall stations currently being processed with accurate coordinates",
+  "count": 11,
+  "stations": {
+    "E19017": {
+      "key": "E19017",
+      "stationId": "E19017",
+      "name": "Ashdon",
+      "label": "Ashdon (E19017)",
+      "provider": "Environment Agency",
+      "country": "England",
+      "region": "East of England",
+      "coordinates": {
+        "lat": 52.058925,
+        "lng": 0.296651
+      },
+      "gridReference": "TL575425",
+      "hasData": true,
+      "dataFile": "ashdon.json"
+    },
+    "E23518": {
+      "key": "E23518",
+      "stationId": "E23518",
+      "name": "Hethersett",
+      "label": "Hethersett (E23518)",
+      "provider": "Environment Agency",
+      "country": "England",
+      "region": "East of England",
+      "coordinates": {
+        "lat": 52.603459,
+        "lng": 1.16988
+      },
+      "gridReference": "TG147053",
+      "hasData": true,
+      "dataFile": "hethersett.json"
+    },
+    "E24879": {
+      "key": "E24879",
+      "stationId": "E24879",
+      "name": "Hullbridge Raine",
+      "label": "Hullbridge Raine (E24879)",
+      "provider": "Environment Agency",
+      "country": "England",
+      "region": "East of England",
+      "coordinates": {
+        "lat": 51.616598,
+        "lng": 0.593505
+      },
+      "gridReference": "TQ796940",
+      "hasData": true,
+      "dataFile": "hullbridge-raine.json"
+    },
+    "E24913": {
+      "key": "E24913",
+      "stationId": "E24913",
+      "name": "Tiptree",
+      "label": "Tiptree (E24913)",
+      "provider": "Environment Agency",
+      "country": "England",
+      "region": "East of England",
+      "coordinates": {
+        "lat": 51.815014,
+        "lng": 0.765948
+      },
+      "gridReference": "TL907165",
+      "hasData": true,
+      "dataFile": "tiptree.json"
+    },
+    "E5170": {
+      "key": "E5170",
+      "stationId": "E5170",
+      "name": "Lower Standen",
+      "label": "Lower Standen (E5170)",
+      "provider": "Environment Agency",
+      "country": "England",
+      "region": "South East England",
+      "coordinates": {
+        "lat": 51.117863,
+        "lng": 1.194265
+      },
+      "gridReference": "TR236402",
+      "hasData": true,
+      "dataFile": "lower-standen.json"
+    },
+    "E8290": {
+      "key": "E8290",
+      "stationId": "E8290",
+      "name": "Isfield Weir",
+      "label": "Isfield Weir (E8290)",
+      "provider": "Environment Agency",
+      "country": "England",
+      "region": "South East England",
+      "coordinates": {
+        "lat": 51.434974,
+        "lng": -0.353451
+      },
+      "gridReference": "TQ145719",
+      "hasData": true,
+      "dataFile": "isfield-weir.json"
+    },
+    "E7050": {
+      "key": "E7050",
+      "stationId": "E7050",
+      "name": "Preston Capes",
+      "label": "Preston Capes (E7050)",
+      "provider": "Environment Agency",
+      "country": "England",
+      "region": "East Midlands",
+      "coordinates": {
+        "lat": 52.186277,
+        "lng": -1.171327
+      },
+      "gridReference": "SP567545",
+      "hasData": true,
+      "dataFile": "preston-capes.json"
+    },
+    "E13600": {
+      "key": "E13600",
+      "stationId": "E13600",
+      "name": "Lyndhurst",
+      "label": "Lyndhurst (E13600)",
+      "provider": "Environment Agency",
+      "country": "England",
+      "region": "South East England",
+      "coordinates": {
+        "lat": 50.880106,
+        "lng": -1.558591
+      },
+      "gridReference": "SU311090",
+      "hasData": true,
+      "dataFile": "lyndhurst.json"
+    },
+    "031555": {
+      "key": "031555",
+      "stationId": "031555",
+      "name": "Easby",
+      "label": "Easby (031555)",
+      "provider": "Environment Agency",
+      "country": "England",
+      "region": "North East England",
+      "coordinates": {
+        "lat": 54.469846,
+        "lng": -1.099639
+      },
+      "gridReference": "NZ584086",
+      "hasData": true,
+      "dataFile": "easby.json"
+    },
+    "577271": {
+      "key": "577271",
+      "stationId": "577271",
+      "name": "Red Br",
+      "label": "Red Br (577271)",
+      "provider": "Environment Agency",
+      "country": "England",
+      "region": "North West England",
+      "coordinates": {
+        "lat": 53.783353,
+        "lng": -2.991754
+      },
+      "gridReference": "SD347323",
+      "hasData": true,
+      "dataFile": "red-br.json"
+    },
+    "1141": {
+      "key": "miserden1141",
+      "stationId": "1141",
+      "name": "Miserden",
+      "label": "Miserden (1141)",
+      "provider": "Environment Agency",
+      "country": "England",
+      "region": "South West England",
+      "coordinates": {
+        "lat": 51.777374,
+        "lng": -2.093434
+      },
+      "gridReference": "SO936087",
+      "hasData": true,
+      "dataFile": "miserden1141.json"
+    },
+    "1099": {
+      "key": "maenclochog1099",
+      "stationId": "1099",
+      "name": "Maenclochog",
+      "label": "Maenclochog (1099)",
+      "provider": "Natural Resources Wales",
+      "country": "Wales",
+      "region": "Pembrokeshire",
+      "coordinates": {
+        "lat": 51.9,
+        "lng": -4.8
+      },
+      "gridReference": "SN123456",
+      "hasData": true,
+      "dataFile": "maenclochog1099.json"
+    }
+  }
+}
