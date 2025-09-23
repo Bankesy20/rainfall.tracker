@@ -112,10 +112,11 @@ const fallbackStations = {
   }
 };
 
-// Fetch available stations from API
+// Fetch available stations from stations-metadata.json
 export const fetchAvailableStations = async () => {
   try {
-    const response = await fetch('/.netlify/functions/list-stations');
+    // Try local file first (works in production and dev)
+    const response = await fetch('/data/processed/stations-metadata.json');
     if (!response.ok) {
       throw new Error(`HTTP ${response.status}`);
     }
@@ -124,10 +125,10 @@ export const fetchAvailableStations = async () => {
     
     // Convert to our expected format
     const stations = {};
-    for (const station of data.stations) {
-      stations[station.key] = {
+    for (const [key, station] of Object.entries(data.stations)) {
+      stations[key] = {
         key: station.key,
-        stationId: station.id,
+        stationId: station.stationId,
         label: station.label,
         name: station.name,
         provider: station.provider,
@@ -141,7 +142,7 @@ export const fetchAvailableStations = async () => {
     
     return stations;
   } catch (error) {
-    console.warn('Failed to fetch stations from API, using fallback:', error);
+    console.warn('Failed to fetch stations from metadata file, using fallback:', error);
     return fallbackStations;
   }
 };

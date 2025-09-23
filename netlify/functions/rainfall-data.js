@@ -75,22 +75,49 @@ exports.handler = async (event, context) => {
         siteID: process.env.NETLIFY_SITE_ID || 'f9735549-2ceb-4b4b-8263-fd2d52f641bb',
         token: process.env.NETLIFY_AUTH_TOKEN || 'nfp_DfAAJ5BgQ3FX7HtRJkaJWsYRwUozjtw73a99'
       });
-      const blobKey = `stations/${station}.json`;
       
-      diagnostics.attempts.push({ type: 'blob', key: blobKey, attempting: true });
+      // First try direct key lookup (for backward compatibility)
+      const directBlobKey = `stations/${station}.json`;
+      diagnostics.attempts.push({ type: 'blob', key: directBlobKey, attempting: true });
       
-      const blobContent = await store.get(blobKey);
-      
-      // Parse the JSON string stored in the blob
-      const blobData = typeof blobContent === 'string' ? JSON.parse(blobContent) : blobContent;
-      
-      if (blobData && blobData.data && Array.isArray(blobData.data)) {
-        diagnostics.attempts.push({ type: 'blob', key: blobKey, ok: true, size: blobContent.length, records: blobData.data.length });
-        return blobData;
-      } else {
-        diagnostics.attempts.push({ type: 'blob', key: blobKey, ok: false, note: 'invalid format or no data' });
-        return null;
+      try {
+        const blobContent = await store.get(directBlobKey);
+        const blobData = typeof blobContent === 'string' ? JSON.parse(blobContent) : blobContent;
+        
+        if (blobData && blobData.data && Array.isArray(blobData.data)) {
+          diagnostics.attempts.push({ type: 'blob', key: directBlobKey, ok: true, size: blobContent.length, records: blobData.data.length });
+          return blobData;
+        }
+      } catch (directError) {
+        // Direct lookup failed, continue to search
       }
+      
+      // If direct lookup failed, search through all station blobs to find matching station ID
+      diagnostics.attempts.push({ type: 'blob', key: 'search', attempting: true, note: 'searching for station by ID' });
+      
+      const { blobs } = await store.list({ prefix: 'stations/' });
+      const stationBlobs = blobs.filter(blob => blob.key.startsWith('stations/') && blob.key.endsWith('.json'));
+      
+      for (const blob of stationBlobs) {
+        try {
+          const blobContent = await store.get(blob.key);
+          const blobData = typeof blobContent === 'string' ? JSON.parse(blobContent) : blobContent;
+          
+          // Check if this blob contains data for the requested station
+          if (blobData && blobData.station === station && blobData.data && Array.isArray(blobData.data)) {
+            diagnostics.attempts.push({ type: 'blob', key: blob.key, ok: true, size: blobContent.length, records: blobData.data.length, foundBy: 'station-id-search' });
+            return blobData;
+          }
+        } catch (blobError) {
+          // Skip this blob and continue searching
+          continue;
+        }
+      }
+      
+      // No matching station found
+      diagnostics.attempts.push({ type: 'blob', key: 'search', ok: false, note: 'station not found in any blob' });
+      return null;
+      
     } catch (error) {
       diagnostics.attempts.push({ type: 'blob', ok: false, error: error.message });
       if (debugMode) {

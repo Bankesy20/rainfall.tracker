@@ -121,10 +121,6 @@ function App() {
                   <h1 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">
                     UK Rainfall Tracker
                   </h1>
-                  <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">
-                    {availableStations[primaryStation]?.label || 'Loading...'}
-                    {stationsLoading && <span className="ml-1">🔄</span>}
-                  </p>
                 </div>
             </div>
             
@@ -146,11 +142,11 @@ function App() {
                   </select>
                   <button
                     onClick={() => openMap('primary')}
-                    className="p-1 rounded bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
-                    title="Select station from map"
-                    disabled={stationsLoading}
-                  >
-                    🗺️
+                      className="px-3 py-1 text-xs bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded hover:bg-blue-200 dark:hover:bg-blue-800 transition-colors"
+                      title="Select station from map"
+                      disabled={stationsLoading}
+                    >
+                      Map
                   </button>
                 </div>
                 <span className="text-gray-400 text-xs">vs</span>
@@ -170,11 +166,11 @@ function App() {
                   </select>
                   <button
                     onClick={() => openMap('compare')}
-                    className="p-1 rounded bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
-                    title="Select station from map"
-                    disabled={stationsLoading}
-                  >
-                    🗺️
+                      className="px-3 py-1 text-xs bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded hover:bg-blue-200 dark:hover:bg-blue-800 transition-colors"
+                      title="Select station from map"
+                      disabled={stationsLoading}
+                    >
+                      Map
                   </button>
                 </div>
               </div>
@@ -212,31 +208,34 @@ function App() {
             </div>
           </div>
       {/* Mobile station selectors */}
-      <div className="md:hidden mt-2 pb-2">
+      <div className="md:hidden mt-2 pb-2 space-y-2">
+        {/* Primary Station */}
+        <div className="flex items-center space-x-1">
+          <select
+            value={primaryStation}
+            onChange={(e) => setPrimaryStation(e.target.value)}
+            className="flex-1 px-2 py-1 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-xs"
+            disabled={stationsLoading}
+          >
+            {Object.values(availableStations).map(s => (
+              <option key={s.key} value={s.key}>
+                {s.label} {s.provider && `• ${s.provider}`}
+              </option>
+            ))}
+          </select>
+          <button
+            onClick={() => openMap('primary')}
+            className="px-3 py-1 text-xs bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded hover:bg-blue-200 dark:hover:bg-blue-800 transition-colors"
+            title="Select station from map"
+            disabled={stationsLoading}
+          >
+            Map
+          </button>
+        </div>
+        
+        {/* VS separator and Compare Station */}
         <div className="flex items-center space-x-2">
-          <div className="flex items-center space-x-1 flex-1">
-            <select
-              value={primaryStation}
-              onChange={(e) => setPrimaryStation(e.target.value)}
-              className="flex-1 px-2 py-1 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-xs"
-              disabled={stationsLoading}
-            >
-              {Object.values(availableStations).map(s => (
-                <option key={s.key} value={s.key}>
-                  {s.label} {s.provider && `• ${s.provider}`}
-                </option>
-              ))}
-            </select>
-            <button
-              onClick={() => openMap('primary')}
-              className="p-1 rounded bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
-              title="Select station from map"
-              disabled={stationsLoading}
-            >
-              🗺️
-            </button>
-          </div>
-          <span className="text-gray-400 text-xs">vs</span>
+          <span className="text-gray-400 text-xs font-medium">vs</span>
           <div className="flex items-center space-x-1 flex-1">
             <select
               value={compareStation}
@@ -253,11 +252,11 @@ function App() {
             </select>
             <button
               onClick={() => openMap('compare')}
-              className="p-1 rounded bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+              className="px-3 py-1 text-xs bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded hover:bg-blue-200 dark:hover:bg-blue-800 transition-colors"
               title="Select station from map"
               disabled={stationsLoading}
             >
-              🗺️
+              Map
             </button>
           </div>
         </div>

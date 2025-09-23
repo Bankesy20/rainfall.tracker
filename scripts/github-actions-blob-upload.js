@@ -279,11 +279,14 @@ async function uploadNewData() {
         stationKey: stationKey
       };
       
-      const blobKey = `stations/${stationKey}.json`;
+      // Use station ID directly as the blob key for consistency
+      const stationId = config.stationId || jsonData.station || stationKey;
+      const blobKey = `stations/${stationId}.json`;
       await store.set(blobKey, JSON.stringify(blobData), {
         metadata: { 
           contentType: 'application/json',
-          station: stationKey,
+          station: stationId,
+          stationKey: stationKey,
           records: recordCount.toString(),
           source: 'github-actions'
         }

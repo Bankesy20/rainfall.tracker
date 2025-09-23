@@ -20,9 +20,8 @@ const useRainfallData = (stationKey = 'miserden1141', availableStations = null) 
     const station = stationsToUse[stationKey];
     if (!station) return null;
     if (isDevelopment) {
-      // In development, use static file fallback to avoid WebSocket issues
-      // The API will be available in production
-      return null; // This will trigger the static fallback
+      // In development, use the deployed Netlify function to test blob access
+      return 'https://rainfalltracker.netlify.app/.netlify/functions/rainfall-data';
     }
     // In production, use the deployed function
     return station.apiPath || '/.netlify/functions/rainfall-data';
@@ -79,7 +78,10 @@ const useRainfallData = (stationKey = 'miserden1141', availableStations = null) 
         return;
       }
 
-      const response = await fetch(endpoint, {
+      const url = new URL(endpoint);
+      url.searchParams.set('station', stationKey);
+      
+      const response = await fetch(url.toString(), {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
