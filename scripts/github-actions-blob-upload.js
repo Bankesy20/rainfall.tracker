@@ -234,31 +234,43 @@ async function uploadNewData() {
       console.log(`🌧️ Using EA Multi-Stations (${Object.keys(STATIONS).length} stations)`);
     }
     } else if (isBatchWorkflow && batchNum) {
-    // Handle batch workflows - scan for files created by the batch downloader
+    // Handle batch workflows - only upload files created in the last hour (by current batch)
     console.log(`🌧️ Batch Mode: Processing EA Batch ${batchNum}`);
     const dynamic = {};
+    const oneHourAgo = Date.now() - (60 * 60 * 1000); // 1 hour ago
+    
     try {
       const files = await fs.readdir(dataDir);
       const eaFiles = files.filter(f => /^ea-.+\.json$/.test(f));
-      console.log(`📦 Found ${eaFiles.length} EA files in processed directory`);
+      console.log(`📦 Found ${eaFiles.length} total EA files in processed directory`);
       
+      let recentFiles = 0;
       for (const f of eaFiles) {
         try {
-          const raw = await fs.readFile(path.join(dataDir, f), 'utf8');
-          const json = JSON.parse(raw);
-          const stationId = json.station || f.replace(/^ea-|\.json$/g, '');
-          const name = json.stationName || json.label || `Station ${stationId}`;
-          let key = slugify(name, stationId);
-          if (dynamic[key]) key = slugify(`${name}-${stationId}`, stationId);
-          dynamic[key] = {
-            file: f,
-            description: name,
-            stationId: String(stationId)
-          };
+          const filePath = path.join(dataDir, f);
+          const stats = await fs.stat(filePath);
+          
+          // Only process files modified in the last hour (created by current batch)
+          if (stats.mtime.getTime() > oneHourAgo) {
+            const raw = await fs.readFile(filePath, 'utf8');
+            const json = JSON.parse(raw);
+            const stationId = json.station || f.replace(/^ea-|\.json$/g, '');
+            const name = json.stationName || json.label || `Station ${stationId}`;
+            let key = slugify(name, stationId);
+            if (dynamic[key]) key = slugify(`${name}-${stationId}`, stationId);
+            dynamic[key] = {
+              file: f,
+              description: name,
+              stationId: String(stationId)
+            };
+            recentFiles++;
+          }
         } catch {}
       }
+      
       STATIONS = dynamic;
-      console.log(`🌧️ Using batch-generated files (${Object.keys(STATIONS).length} stations)`);
+      console.log(`🌧️ Using batch-generated files: ${recentFiles} recent files (out of ${eaFiles.length} total)`);
+      console.log(`⏰ Only uploading files modified in the last hour`);
     } catch (error) {
       console.error('❌ Error loading batch files:', error.message);
       STATIONS = {};
