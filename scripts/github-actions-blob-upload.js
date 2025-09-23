@@ -8,6 +8,14 @@
 const fs = require('fs').promises;
 const path = require('path');
 
+function slugify(input, fallback) {
+  const base = (input || '').toString().trim().toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+  const slug = base || (fallback ? String(fallback).toLowerCase() : 'station');
+  return slug;
+}
+
 async function uploadNewData() {
   console.log('🚀 GitHub Actions: Uploading rainfall data to blobs...');
   
@@ -65,7 +73,7 @@ async function uploadNewData() {
     }
   };
 
-  // Multi-station EA workflow (for EA Multi-Stations workflow)
+  // Multi-station EA workflow (for EA Multi-Stations workflow) - default seed list
   const EA_MULTI_STATIONS = {
     'preston-capes': {
       file: 'ea-E7050.json',
@@ -177,8 +185,52 @@ async function uploadNewData() {
     STATIONS = PRODUCTION_STATIONS;
     console.log('🏭 Using PRODUCTION stations only');
   } else if (isEAMultiStationsWorkflow) {
-    STATIONS = EA_MULTI_STATIONS;
-    console.log('🌧️ Using EA Multi-Stations (10 stations) only');
+    // Try to build dynamic list from the multi-station downloader config
+    try {
+      const multi = require('./download-ea-multi-stations');
+      const cfg = Array.isArray(multi.STATIONS_CONFIG) ? multi.STATIONS_CONFIG : [];
+      const dynamic = {};
+      const usedSlugs = new Set();
+      for (const s of cfg) {
+        const name = s.stationName || s.label || `Station ${s.stationId}`;
+        let key = slugify(name, s.stationId);
+        if (usedSlugs.has(key)) key = slugify(`${name}-${s.stationId}`, s.stationId);
+        usedSlugs.add(key);
+        dynamic[key] = {
+          file: `ea-${s.stationId}.json`,
+          description: name,
+          stationId: String(s.stationId)
+        };
+      }
+      STATIONS = Object.keys(dynamic).length > 0 ? dynamic : EA_MULTI_STATIONS;
+      console.log(`🌧️ Using EA Multi-Stations (${Object.keys(STATIONS).length} stations)`);
+    } catch (e) {
+      // Fallback: scan processed directory for all ea-*.json files
+      console.log('⚠️ Could not import multi-stations config, falling back to processed files:', e.message);
+      const dynamic = {};
+      try {
+        const files = await fs.readdir(dataDir);
+        const eaFiles = files.filter(f => /^ea-.+\.json$/.test(f));
+        for (const f of eaFiles) {
+          try {
+            const raw = await fs.readFile(path.join(dataDir, f), 'utf8');
+            const json = JSON.parse(raw);
+            const stationId = json.station || f.replace(/^ea-|\.json$/g, '');
+            const name = json.stationName || json.label || `Station ${stationId}`;
+            let key = slugify(name, stationId);
+            if (dynamic[key]) key = slugify(`${name}-${stationId}`, stationId);
+            dynamic[key] = {
+              file: f,
+              description: name,
+              stationId: String(stationId)
+            };
+          } catch {}
+        }
+      } catch {}
+      STATIONS = Object.keys(STATIONS || {}).length ? STATIONS : dynamic;
+      if (!Object.keys(STATIONS).length) STATIONS = EA_MULTI_STATIONS;
+      console.log(`🌧️ Using EA Multi-Stations (${Object.keys(STATIONS).length} stations)`);
+    }
   } else if (isEAStationWorkflow) {
     STATIONS = EA_STATION_E7050;
     console.log('🌧️ Using individual EA station (E7050) only');
