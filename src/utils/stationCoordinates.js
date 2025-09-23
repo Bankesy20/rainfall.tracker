@@ -3,6 +3,40 @@ let stationsMetadataCache = null;
 let lastFetchTime = 0;
 const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes
 
+// Cache for mapping stationId -> stationKey used by API/dropdown
+let idToKeyCache = null;
+let idToKeyLastFetchTime = 0;
+
+// Fetch and cache station key map (id -> key) for CACHE_DURATION
+const fetchStationKeyMap = async () => {
+  const now = Date.now();
+  if (idToKeyCache && (now - idToKeyLastFetchTime) < CACHE_DURATION) {
+    return idToKeyCache;
+  }
+
+  try {
+    const res = await fetch('/.netlify/functions/list-stations');
+    if (res.ok) {
+      const payload = await res.json();
+      const map = new Map();
+      if (payload && Array.isArray(payload.stations)) {
+        for (const s of payload.stations) {
+          if (s && s.id && s.key) {
+            map.set(String(s.id), String(s.key));
+          }
+        }
+      }
+      idToKeyCache = map;
+      idToKeyLastFetchTime = now;
+      return map;
+    }
+  } catch (e) {
+    // Ignore and fall back to empty map
+  }
+
+  return new Map();
+};
+
 // Fetch stations metadata from GitHub
 const fetchStationsMetadata = async () => {
   const now = Date.now();
@@ -14,7 +48,7 @@ const fetchStationsMetadata = async () => {
 
   // Try local file first (works in production and dev)
   try {
-    const localResponse = await fetch('/data/processed/stations-metadata.json', { cache: 'no-store' });
+    const localResponse = await fetch('/data/processed/stations-metadata.json');
     if (localResponse.ok) {
       const data = await localResponse.json();
       stationsMetadataCache = data;
@@ -173,23 +207,8 @@ export const getStationCoordinates = async () => {
   const metadata = await fetchStationsMetadata();
   const coordinates = {};
 
-  // Build a mapping from stationId -> stationKey as used by API/dropdown
-  let idToKey = new Map();
-  try {
-    const res = await fetch('/.netlify/functions/list-stations', { cache: 'no-store' });
-    if (res.ok) {
-      const payload = await res.json();
-      if (payload && Array.isArray(payload.stations)) {
-        for (const s of payload.stations) {
-          if (s && s.id && s.key) {
-            idToKey.set(String(s.id), String(s.key));
-          }
-        }
-      }
-    }
-  } catch (e) {
-    // Non-fatal; fall back to metadata keys
-  }
+  // Build a mapping from stationId -> stationKey as used by API/dropdown (cached)
+  const idToKey = await fetchStationKeyMap();
 
   // Convert metadata to coordinates format expected by map
   Object.values(metadata.stations).forEach(station => {
