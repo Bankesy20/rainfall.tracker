@@ -3,6 +3,7 @@ import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import RainfallChart from './components/RainfallChart';
 import DataSummary from './components/DataSummary';
+import StationMap from './components/StationMap';
 import useRainfallData from './hooks/useRainfallData';
 import stations, { fetchAvailableStations } from './utils/stations';
 
@@ -16,6 +17,8 @@ function App() {
   const [statsExpanded, setStatsExpanded] = useState(true);
   const [availableStations, setAvailableStations] = useState(stations);
   const [stationsLoading, setStationsLoading] = useState(true);
+  const [mapOpen, setMapOpen] = useState(false);
+  const [mapType, setMapType] = useState('primary'); // 'primary' or 'compare'
   
   const { data: rainfallData, loading, error, lastUpdated, refetch, refetchCount, isDevelopment } = useRainfallData(primaryStation, availableStations);
   const { data: compareDataResult } = useRainfallData(compareStation || 'invalid_key', availableStations);
@@ -23,6 +26,21 @@ function App() {
   // Handle theme toggle
   const toggleTheme = () => {
     setDarkMode(!darkMode);
+  };
+
+  // Handle map opening
+  const openMap = (type) => {
+    setMapType(type);
+    setMapOpen(true);
+  };
+
+  // Handle station selection from map
+  const handleMapStationSelect = (stationKey) => {
+    if (mapType === 'primary') {
+      setPrimaryStation(stationKey);
+    } else {
+      setCompareStation(stationKey);
+    }
   };
 
   // Load available stations on mount
@@ -113,32 +131,52 @@ function App() {
             <div className="flex items-center space-x-2 sm:space-x-4">
               {/* Station Selectors */}
               <div className="hidden md:flex items-center space-x-2">
-                <select
-                  value={primaryStation}
-                  onChange={(e) => setPrimaryStation(e.target.value)}
-                  className="px-2 py-1 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-xs"
-                  disabled={stationsLoading}
-                >
-                  {Object.values(availableStations).map(s => (
-                    <option key={s.key} value={s.key}>
-                      {s.label} {s.provider && `• ${s.provider}`}
-                    </option>
-                  ))}
-                </select>
+                <div className="flex items-center space-x-1">
+                  <select
+                    value={primaryStation}
+                    onChange={(e) => setPrimaryStation(e.target.value)}
+                    className="px-2 py-1 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-xs"
+                    disabled={stationsLoading}
+                  >
+                    {Object.values(availableStations).map(s => (
+                      <option key={s.key} value={s.key}>
+                        {s.label} {s.provider && `• ${s.provider}`}
+                      </option>
+                    ))}
+                  </select>
+                  <button
+                    onClick={() => openMap('primary')}
+                    className="p-1 rounded bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+                    title="Select station from map"
+                    disabled={stationsLoading}
+                  >
+                    🗺️
+                  </button>
+                </div>
                 <span className="text-gray-400 text-xs">vs</span>
-                <select
-                  value={compareStation}
-                  onChange={(e) => setCompareStation(e.target.value)}
-                  className="px-2 py-1 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-xs"
-                  disabled={stationsLoading}
-                >
-                  <option value="">None</option>
-                  {Object.values(availableStations).map(s => (
-                    <option key={s.key} value={s.key}>
-                      {s.label} {s.provider && `• ${s.provider}`}
-                    </option>
-                  ))}
-                </select>
+                <div className="flex items-center space-x-1">
+                  <select
+                    value={compareStation}
+                    onChange={(e) => setCompareStation(e.target.value)}
+                    className="px-2 py-1 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-xs"
+                    disabled={stationsLoading}
+                  >
+                    <option value="">None</option>
+                    {Object.values(availableStations).map(s => (
+                      <option key={s.key} value={s.key}>
+                        {s.label} {s.provider && `• ${s.provider}`}
+                      </option>
+                    ))}
+                  </select>
+                  <button
+                    onClick={() => openMap('compare')}
+                    className="p-1 rounded bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+                    title="Select station from map"
+                    disabled={stationsLoading}
+                  >
+                    🗺️
+                  </button>
+                </div>
               </div>
               {/* Refresh Button */}
               <button
@@ -176,32 +214,52 @@ function App() {
       {/* Mobile station selectors */}
       <div className="md:hidden mt-2 pb-2">
         <div className="flex items-center space-x-2">
-          <select
-            value={primaryStation}
-            onChange={(e) => setPrimaryStation(e.target.value)}
-            className="flex-1 px-2 py-1 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-xs"
-            disabled={stationsLoading}
-          >
-            {Object.values(availableStations).map(s => (
-              <option key={s.key} value={s.key}>
-                {s.label} {s.provider && `• ${s.provider}`}
-              </option>
-            ))}
-          </select>
+          <div className="flex items-center space-x-1 flex-1">
+            <select
+              value={primaryStation}
+              onChange={(e) => setPrimaryStation(e.target.value)}
+              className="flex-1 px-2 py-1 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-xs"
+              disabled={stationsLoading}
+            >
+              {Object.values(availableStations).map(s => (
+                <option key={s.key} value={s.key}>
+                  {s.label} {s.provider && `• ${s.provider}`}
+                </option>
+              ))}
+            </select>
+            <button
+              onClick={() => openMap('primary')}
+              className="p-1 rounded bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+              title="Select station from map"
+              disabled={stationsLoading}
+            >
+              🗺️
+            </button>
+          </div>
           <span className="text-gray-400 text-xs">vs</span>
-          <select
-            value={compareStation}
-            onChange={(e) => setCompareStation(e.target.value)}
-            className="flex-1 px-2 py-1 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-xs"
-            disabled={stationsLoading}
-          >
-            <option value="">None</option>
-            {Object.values(availableStations).map(s => (
-              <option key={s.key} value={s.key}>
-                {s.label} {s.provider && `• ${s.provider}`}
-              </option>
-            ))}
-          </select>
+          <div className="flex items-center space-x-1 flex-1">
+            <select
+              value={compareStation}
+              onChange={(e) => setCompareStation(e.target.value)}
+              className="flex-1 px-2 py-1 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-xs"
+              disabled={stationsLoading}
+            >
+              <option value="">None</option>
+              {Object.values(availableStations).map(s => (
+                <option key={s.key} value={s.key}>
+                  {s.label} {s.provider && `• ${s.provider}`}
+                </option>
+              ))}
+            </select>
+            <button
+              onClick={() => openMap('compare')}
+              className="p-1 rounded bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+              title="Select station from map"
+              disabled={stationsLoading}
+            >
+              🗺️
+            </button>
+          </div>
         </div>
       </div>
         </div>
@@ -310,6 +368,16 @@ function App() {
           </div>
         </div>
       </footer>
+
+      {/* Station Map Modal */}
+      <StationMap
+        isOpen={mapOpen}
+        onClose={() => setMapOpen(false)}
+        onStationSelect={handleMapStationSelect}
+        currentStation={primaryStation}
+        compareStation={compareStation}
+        title={mapType === 'primary' ? 'Select Primary Station' : 'Select Comparison Station'}
+      />
     </div>
   );
 }
