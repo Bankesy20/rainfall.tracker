@@ -9,8 +9,8 @@ const zlib = require('zlib');
  * Based on the single station script but adapted for multiple stations
  */
 
-// Configuration - 10 diverse EA stations across different regions
-const STATIONS_CONFIG = [
+// Base configuration - existing EA stations across different regions
+const BASE_STATIONS_CONFIG = [
   {
     stationId: 'E7050',
     stationName: 'Preston Capes (E7050)',
@@ -74,8 +74,48 @@ const STATIONS_CONFIG = [
     humanPage: 'https://check-for-flooding.service.gov.uk/station/577271?parameter=rainfall',
     region: 'North West'
   },
-  
 ];
+
+// Build full stations list by appending 40 more from processed EA stations JSON
+function buildStationsConfig() {
+  const additionalLimit = 40;
+  const stationsJsonPath = path.join(__dirname, '..', 'data', 'processed', 'ea-england-stations-with-names.json');
+
+  let additional = [];
+  try {
+    const raw = fs.readFileSync(stationsJsonPath, 'utf8');
+    const parsed = JSON.parse(raw);
+    const items = Array.isArray(parsed.items) ? parsed.items : [];
+
+    const existingIds = new Set(BASE_STATIONS_CONFIG.map(s => String(s.stationId)));
+
+    for (const item of items) {
+      const stationId = String(item.stationReference || item.key || '').trim();
+      const label = (item.label || item.gaugeName || '').trim();
+      const humanPage = item.humanPage || '';
+
+      if (!stationId || !label || existingIds.has(stationId)) {
+        continue;
+      }
+
+      additional.push({
+        stationId: stationId,
+        stationName: `${label} (${stationId})`,
+        csvUrl: `https://check-for-flooding.service.gov.uk/rainfall-station-csv/${stationId}`,
+        humanPage: humanPage || `https://check-for-flooding.service.gov.uk/rainfall-station/${stationId}`,
+        region: 'England'
+      });
+
+      if (additional.length >= additionalLimit) break;
+    }
+  } catch (err) {
+    console.warn('⚠️ Could not load additional EA stations from JSON:', err.message);
+  }
+
+  return BASE_STATIONS_CONFIG.concat(additional);
+}
+
+const STATIONS_CONFIG = buildStationsConfig();
 
 async function downloadEACSV(station) {
   const outputPath = path.join(__dirname, '..', 'data', 'raw', `ea-${station.stationId}-${new Date().toISOString().split('T')[0]}.csv`);
