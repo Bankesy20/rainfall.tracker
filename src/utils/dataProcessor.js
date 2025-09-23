@@ -95,10 +95,11 @@ export const aggregateWeeklyData = (data) => {
     }
 
     const weekly = weeklyMap.get(weekKey);
-    weekly.total_rainfall += item.total_rainfall || item.rainfall_mm;
+    const rainfallValue = item.total_rainfall || item.rainfall_mm || 0;
+    weekly.total_rainfall += rainfallValue;
     weekly.days_count += 1;
-    weekly.max_daily = Math.max(weekly.max_daily, item.total_rainfall || item.rainfall_mm);
-    weekly.min_daily = Math.min(weekly.min_daily, item.total_rainfall || item.rainfall_mm);
+    weekly.max_daily = Math.max(weekly.max_daily, rainfallValue);
+    weekly.min_daily = Math.min(weekly.min_daily, rainfallValue);
   });
 
   return Array.from(weeklyMap.values())
