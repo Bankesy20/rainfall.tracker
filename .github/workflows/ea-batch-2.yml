@@ -2,7 +2,7 @@ name: EA Batch 2 (B-C, 94 stations)
 
 on:
   schedule:
-    - cron: '30 0,6,12,18 * * *'  # Every 6 hours, staggered by 30 minutes
+    - cron: '10 0,6,12,18 * * *'  # Every 6 hours at 00:10, 06:10, 12:10, 18:10
   workflow_dispatch:
 
 permissions:
