@@ -3,6 +3,7 @@ const fsPromises = require('fs').promises;
 const path = require('path');
 const https = require('https');
 const zlib = require('zlib');
+const RainfallOutlierDetector = require('./outlier-detection');
 
 // Politeness delay between requests (ms), configurable via env EA_DELAY_MS
 const BASE_DELAY_MS = parseInt(process.env.EA_DELAY_MS || '2500', 10);
@@ -290,6 +291,26 @@ async function processDownloadedCSV(csvPath, station) {
       return dateA - dateB;
     });
     
+    // Check for outliers and correct them
+    console.log('🔍 Checking for rainfall outliers...');
+    const detector = new RainfallOutlierDetector(25);
+    const stationData = {
+      station: station.stationId,
+      stationName: station.stationName,
+      data: data
+    };
+    
+    const outlierResult = detector.processStationData(stationData);
+    let finalData = outlierResult.correctedData.data;
+    
+    if (outlierResult.hadOutliers) {
+      console.log(`🔧 Corrected ${outlierResult.corrections.length} outliers in EA station ${station.stationId}`);
+      // Log corrections for transparency
+      outlierResult.corrections.forEach(correction => {
+        console.log(`  Fixed: ${correction.timestamp} ${correction.original}mm → ${correction.corrected}mm`);
+      });
+    }
+    
     // Create the final data structure
     const result = {
       lastUpdated: new Date().toISOString(),
@@ -301,8 +322,11 @@ async function processDownloadedCSV(csvPath, station) {
         long: null
       },
       dataSource: 'EA API',
-      recordCount: data.length,
-      data: data
+      recordCount: finalData.length,
+      data: finalData,
+      ...(outlierResult.hadOutliers && {
+        outlierDetection: outlierResult.correctedData.outlierDetection
+      })
     };
     
     return result;

@@ -3,6 +3,7 @@ const chromium = require('@sparticuz/chromium');
 const fs = require('fs').promises;
 const path = require('path');
 const dayjs = require('dayjs');
+const RainfallOutlierDetector = require('./outlier-detection');
 
 // Configuration
 const STATION_URL = 'https://check-for-flooding.service.gov.uk/rainfall-station/1141';
@@ -292,6 +293,29 @@ class RainfallScraper {
         const dateB = new Date(`${b.date} ${b.time}`);
         return dateA - dateB;
       });
+
+      // Check for outliers and correct them
+      console.log('🔍 Checking for rainfall outliers...');
+      const detector = new RainfallOutlierDetector(25);
+      const stationData = {
+        station: history.station || "1141",
+        stationName: history.stationName || "Miserden (1141)",
+        data: history.data
+      };
+      
+      const outlierResult = detector.processStationData(stationData);
+      history.data = outlierResult.correctedData.data;
+      
+      if (outlierResult.hadOutliers) {
+        console.log(`🔧 Corrected ${outlierResult.corrections.length} outliers in Miserden station`);
+        // Log corrections for transparency
+        outlierResult.corrections.forEach(correction => {
+          console.log(`  Fixed: ${correction.timestamp} ${correction.original}mm → ${correction.corrected}mm`);
+        });
+        
+        // Add outlier detection metadata
+        history.outlierDetection = outlierResult.correctedData.outlierDetection;
+      }
 
       // Update last updated timestamp
       history.lastUpdated = new Date().toISOString();

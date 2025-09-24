@@ -1,6 +1,7 @@
 const fs = require('fs').promises;
 const path = require('path');
 const dayjs = require('dayjs');
+const RainfallOutlierDetector = require('./outlier-detection');
 
 /**
  * Process a downloaded CSV file into the dashboard format
@@ -112,11 +113,33 @@ async function processCSVFile(csvPath) {
       return dateA - dateB;
     });
 
+    // Check for outliers and correct them
+    console.log('🔍 Checking for rainfall outliers...');
+    const detector = new RainfallOutlierDetector(25);
+    const stationData = {
+      station: "1141",
+      data: mergedData
+    };
+    
+    const outlierResult = detector.processStationData(stationData);
+    let finalData = outlierResult.correctedData.data;
+    
+    if (outlierResult.hadOutliers) {
+      console.log(`🔧 Corrected ${outlierResult.corrections.length} outliers in the data`);
+      // Log corrections for transparency
+      outlierResult.corrections.forEach(correction => {
+        console.log(`  Fixed: ${correction.timestamp} ${correction.original}mm → ${correction.corrected}mm`);
+      });
+    }
+
     // Create the history object
     const history = {
       lastUpdated: new Date().toISOString(),
       station: "1141",
-      data: mergedData
+      data: finalData,
+      ...(outlierResult.hadOutliers && {
+        outlierDetection: outlierResult.correctedData.outlierDetection
+      })
     };
 
     // Save to the processed directory

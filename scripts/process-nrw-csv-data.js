@@ -1,6 +1,7 @@
 const fs = require('fs').promises;
 const path = require('path');
 const dayjs = require('dayjs');
+const RainfallOutlierDetector = require('./outlier-detection');
 
 // Process the NRW CSV data and convert to our JSON format
 async function processNRWCSV() {
@@ -60,6 +61,26 @@ async function processNRWCSV() {
     console.log(`Processed ${data.length} data points`);
     console.log(`Total rainfall: ${totalRainfall.toFixed(2)} mm`);
     
+    // Check for outliers and correct them
+    console.log('🔍 Checking for rainfall outliers...');
+    const detector = new RainfallOutlierDetector(25);
+    const stationData = {
+      station: "1099",
+      stationName: "Maenclochog (1099)",
+      data: data
+    };
+    
+    const outlierResult = detector.processStationData(stationData);
+    let finalData = outlierResult.correctedData.data;
+    
+    if (outlierResult.hadOutliers) {
+      console.log(`🔧 Corrected ${outlierResult.corrections.length} outliers in NRW CSV data`);
+      // Log corrections for transparency
+      outlierResult.corrections.forEach(correction => {
+        console.log(`  Fixed: ${correction.timestamp} ${correction.original}mm → ${correction.corrected}mm`);
+      });
+    }
+    
     // Create the JSON structure
     const jsonData = {
       lastUpdated: new Date().toISOString(),
@@ -71,7 +92,10 @@ async function processNRWCSV() {
       nameEN: "Maenclochog",
       nameCY: "Maenclochog",
       source: "NRW",
-      data: data
+      data: finalData,
+      ...(outlierResult.hadOutliers && {
+        outlierDetection: outlierResult.correctedData.outlierDetection
+      })
     };
     
     // Ensure directories exist

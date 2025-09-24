@@ -3,6 +3,7 @@ const chromium = require('@sparticuz/chromium');
 const fs = require('fs').promises;
 const path = require('path');
 const dayjs = require('dayjs');
+const RainfallOutlierDetector = require('./outlier-detection');
 
 // Configuration for NRW Station 1099
 const STATION_URL = 'https://rivers-and-seas.naturalresources.wales/station/1099';
@@ -428,6 +429,29 @@ class NRWRainfallScraper {
           const dateB = new Date(`${b.date} ${b.time}`);
           return dateA - dateB;
         });
+        
+        // Check for outliers and correct them
+        console.log('🔍 Checking for rainfall outliers...');
+        const detector = new RainfallOutlierDetector(25);
+        const stationData = {
+          station: history.station || "1099",
+          stationName: history.nameEN || "Maenclochog",
+          data: history.data
+        };
+        
+        const outlierResult = detector.processStationData(stationData);
+        history.data = outlierResult.correctedData.data;
+        
+        if (outlierResult.hadOutliers) {
+          console.log(`🔧 Corrected ${outlierResult.corrections.length} outliers in Maenclochog NRW station`);
+          // Log corrections for transparency
+          outlierResult.corrections.forEach(correction => {
+            console.log(`  Fixed: ${correction.timestamp} ${correction.original}mm → ${correction.corrected}mm`);
+          });
+          
+          // Add outlier detection metadata
+          history.outlierDetection = outlierResult.correctedData.outlierDetection;
+        }
         
         console.log(`=== FINAL HISTORY DATA (last 3 records) ===`);
         console.log(`Total records in history: ${history.data.length}`);

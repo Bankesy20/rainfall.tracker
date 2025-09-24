@@ -4,6 +4,7 @@ const path = require('path');
 const https = require('https');
 const http = require('http');
 const zlib = require('zlib');
+const RainfallOutlierDetector = require('./outlier-detection');
 
 /**
  * Download rainfall CSV from EA station
@@ -164,7 +165,8 @@ async function processDownloadedCSV(csvPath) {
         date: date,
         time: time,
         dateTime: timestamp,
-        value: value,
+        rainfall_mm: value,
+        total_mm: 0, // EA stations don't provide cumulative totals
         station: STATION_CONFIG.stationId,
         stationName: STATION_CONFIG.stationName
       });
@@ -185,6 +187,26 @@ async function processDownloadedCSV(csvPath) {
       return dateA - dateB;
     });
     
+    // Check for outliers and correct them
+    console.log('🔍 Checking for rainfall outliers...');
+    const detector = new RainfallOutlierDetector(25);
+    const stationData = {
+      station: STATION_CONFIG.stationId,
+      stationName: STATION_CONFIG.stationName,
+      data: data
+    };
+    
+    const outlierResult = detector.processStationData(stationData);
+    let finalData = outlierResult.correctedData.data;
+    
+    if (outlierResult.hadOutliers) {
+      console.log(`🔧 Corrected ${outlierResult.corrections.length} outliers in EA station ${STATION_CONFIG.stationId}`);
+      // Log corrections for transparency
+      outlierResult.corrections.forEach(correction => {
+        console.log(`  Fixed: ${correction.timestamp} ${correction.original}mm → ${correction.corrected}mm`);
+      });
+    }
+    
     // Create the final data structure
     const result = {
       lastUpdated: new Date().toISOString(),
@@ -195,8 +217,11 @@ async function processDownloadedCSV(csvPath) {
         long: null
       },
       dataSource: 'EA API',
-      recordCount: data.length,
-      data: data
+      recordCount: finalData.length,
+      data: finalData,
+      ...(outlierResult.hadOutliers && {
+        outlierDetection: outlierResult.correctedData.outlierDetection
+      })
     };
     
     return result;

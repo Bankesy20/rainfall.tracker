@@ -1,0 +1,7728 @@
+{
+  "generatedAt": "2025-09-24T08:51:54.294Z",
+  "threshold": 25,
+  "summary": {
+    "totalStationsProcessed": 843,
+    "successfullyProcessed": 843,
+    "errors": 0,
+    "stationsWithOutliers": 5,
+    "totalOutliersFound": 8,
+    "totalCorrectionsMade": 8
+  },
+  "stationResults": [
+    {
+      "station": "abbeystead-gardens-577794",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "abbeytown-596026",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "abingdon-261021tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "acle-e21234",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "afton-e14900",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "aisgill-moor-597519",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "alderney-43205",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "allenheads-allen-lodge-015347",
+      "success": true,
+      "hadOutliers": true,
+      "outliersFound": 4,
+      "correctionsMade": 4,
+      "error": null,
+      "corrections": [
+        {
+          "index": 409,
+          "station": "015347",
+          "timestamp": "2025-09-22T18:35:00Z",
+          "original": 389.4,
+          "corrected": 0,
+          "method": "Local median of 9 nearby values"
+        },
+        {
+          "index": 410,
+          "station": "015347",
+          "timestamp": "2025-09-22T18:40:00Z",
+          "original": 389.4,
+          "corrected": 0,
+          "method": "Local median of 9 nearby values"
+        },
+        {
+          "index": 411,
+          "station": "015347",
+          "timestamp": "2025-09-22T18:45:00Z",
+          "original": 389.4,
+          "corrected": 0,
+          "method": "Local median of 9 nearby values"
+        },
+        {
+          "index": 412,
+          "station": "015347",
+          "timestamp": "2025-09-22T18:50:00Z",
+          "original": 389.4,
+          "corrected": 0,
+          "method": "Local median of 9 nearby values"
+        }
+      ]
+    },
+    {
+      "station": "allet-nanteague-farm-48105",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "allisland-50103",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "alvechurch-1201",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "andover-e13980",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "angmering-e9720",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "ardingly-e8520",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "arkle-town-051729",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "ashbourne-3323",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "ashbrook-e26212",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "ashcombe-45115",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "ashdon-e19017",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "ashford-hall-3616",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "ashington-e9360",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "atherstone-3201",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "attleborough-e24732",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "audlem-mere-farm-552376",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "austins-bridge-46103",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "aylesbury-261923tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "bacup-560631",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "badminton-531175",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "bagley-1713",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "balcombe-forest-e8500",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "barbrook-3404",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "barcombe-e8530",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "barnacre-reservoir-578009",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "barnhurst-3096",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "barras-598145",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "barrow-gurney-52203",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "basildon-e21018",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "basingstoke-270669tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "bassingbourn-e24746",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "bastreet-47106",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "bath-claverton-53108",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "beaminster-coombe-farm-44101",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "beckermonds-060947",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "beddington-287864tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "bedford-564154",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "bedford-e23717",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "beelsby-e45811",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "beer-quarry-lane-45268",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "bellever-46107",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "benfleet-barrier-e27621",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "benhall-e23470",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "benson-264254tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "bethersden-e2420",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "bexley-e15500",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "bicester-259110tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "bickington-46104",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "bildeston-e24957",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "billinge-hill-570099",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "birchmoor-e22231",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "birmingham-airport-falcon-way-3340",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "bishops-sutton-e12821",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "bishops-waltham-e12160",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "black-lane-43204",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "blackstone-edge-561299",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "blithfield-3099",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "bocking-e24847",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "bodmin-callywith-49101",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "bognor-e11120",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "bordon-281186tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "boscastle-49149",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "bough-beech-res-294323",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "bourn-raine-e22244",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "bourton-253340tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "bowerhill-53109",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "brackenber-598691",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "brackley-raine-e24703",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "bracknell-274918tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "bradford-chellow-heights-075497",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "bradford-on-avon-53110",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "bradworthy-common-50187",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "brampton-e24238",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "brant-broughton-e7170",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "bratch-1552",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "brathay-hall-586898",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "braunston-1770",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "braunston-e7160",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "brede-e6280",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "bredy-farm-44103",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "bridgwater-rivers-house-52105",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "bridlington-039163",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "brightlingsea-e24930",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "brigstock-e1971",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "bristol-bourchier-gardens-e7970",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "briston-e37081",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "brixham-46161",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "broadfield-cowes-e14893",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "broadstairs-e4850",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "broadwater-2321so",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "brockenhurst-e14420",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "brompton-low-moor-farm-054507",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "brookfield-farm-45236",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "brooksby-3680",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "broomfleet-weighton-lock-046222",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "brotherswater-600140",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "broughton-e13580",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "brownhill-reservoir-078772",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "bruton-dam-52210",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "burgh-e1039",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "burnbanks-601304",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "burnham-e42961",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "burnham-on-crouch-e24854",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "burnhope-reservoir-021228",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "burstow-284703tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "burton-on-the-wolds-3629",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "burwell-e24718",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "buxted-e8030",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "bybrook-e4500",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "byfield-256345tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "byrkley-3015",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "cadney-e7130",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "calbourne-14880",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "calbourne-e14880",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "calder-hall-591419",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "calebreck-hall-605543",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "calverton-3773",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "camberley-271491tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "cannings-43105",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "cannock-vc-3782",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "cannon-hall-085322",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "canterbury-1023se",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "canterbury-e4090",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "canwick-e45881",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "carisbrooke-e14920",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "castle-acre-raine-e25173",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "castle-carrock-604142",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "cat-and-fiddle-558016",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "cauldon-low-3570",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "chale-e14930",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "chantry-e40764",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "chapel-reservoir-3572",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "chard-snowden-hill-52129",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "charing-e4540",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "chartham-e4080",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "chatteris-e24751",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "cheam-287141tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "chelmsford-brookend-e37051",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "chenies-278744tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "cherry-gardens-305111",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "chesterton-e46341",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "chew-magna-reservoir-53159",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "chiddingfold-e10120",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "chieveley-268851tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "chilgrove-house-e11191",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "chipping-241961tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "chipping-campden-1761",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "chipping-norton-254829tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "chobham-283596tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "cholmondeley-551706",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "church-houses-068762",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "clavering-243045tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "clay-mills-3100",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "cleeve-264845tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "clevedon-rgw-52228",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "clewer-52225",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "clifton-marsh-576925",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "clifton-oakfield-road-531179",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "coggeshall-e24863",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "colaton-raleigh-dotton-water-works-e82040",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "coldwell-res-574786",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "colliford-49104",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "colne-swinden-574718",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "colwick-3771",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "common-bank-570788",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "compton-abbas-airfield-43228",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "coniston-coppermines-588006",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "copley-022994",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "corby-e7075",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "corby-glen-e2316",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "corley-1814",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "cornhow-594202",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "cosford-ww-1712",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "covenham-e25033",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "cow-green-reservoir-026644",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "cowbeech-e8020",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "cowfold-e9340",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "cowm-res-561613",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "cranbrook-e2400",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "cranleigh-282290tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "crediton-knowle-e84360",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "cresswell-3346",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "cromhall-53101",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "croppenburg-e41311",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "crossens-569323",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "crossness-290007tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "crowford-bridge-47102",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "crowland-rain-e-wits-e2463",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "crowle-1769",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "crownhill-47155",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "dale-head-hall-592850",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "dancers-end-261602tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "dane-end-241790tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "danson-park-291477tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "darlington-lingfield-way-030377",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "darnicle-hill-244569tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "dartmoor-46106",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "dartmoor-fernworthy-white-ridge-e82840",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "darwell-e6770",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "daventry-reservoir-e2476",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "davey-park-farm-46151",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "dawlish-warren-shutterton-e82920",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "de-lank-49105",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "deal-0925se",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "denby-pottery-3767",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "denge-e5670",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "denton-559969",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "denton-e7420",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "denver-e21096",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "derwent-reservoir-3380",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "dingley-e2331",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "dirtness-ps-3774",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "ditchling-road-e8743",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "dodford-e1980",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "dog-in-a-doublet-sluice-rain-e-wits-e1966",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "dore-082673",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "doulting-52224",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "dousland-47164",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "dover-ww-1403se",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "dowdeswell-1140",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "downhead-53115",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "draycott-3574",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "drayton-parslow-e24763",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "driffield-043533",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "dubbs-reservoir-585122",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "duncton-e10450",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "dunkeswell-aerodrome-met-office-e99682",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "earls-colne-e44121",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "easby-031555",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "east-church-e3240",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "east-cowton-054371",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "east-dereham-rain-e21870",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "east-ness-068416",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "east-okement-50105",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "east-worldham-300001tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "easterton-53113",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "easthaven-barrier-e27601",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "eastington-1813",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "eastney-e13261",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "eastry-0924se",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "ebworth-1113",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "eccup-reservoir-063518",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "edenbridge-e1320",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "edenvale-e1300",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "edgehill-edgeh1",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "efford-e14440",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "egerton-dimple-road-egerton1",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "eggardon-hill-44215",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "egremont-ivy-hill-592158",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "elmdon-e22268",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "ely-e22283",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "embsay-reservoir-074329",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "ennerdale-591642",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "epping-forest-239258tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "ercall-1747",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "esh-winning-024121",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "etton-e2365",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "everleigh-e71440",
+      "success": true,
+      "hadOutliers": true,
+      "outliersFound": 1,
+      "correctionsMade": 1,
+      "error": null,
+      "corrections": [
+        {
+          "index": 477,
+          "station": "E71440",
+          "timestamp": "2025-09-23T12:15:00Z",
+          "original": 99839.7,
+          "corrected": 0,
+          "method": "Local median of 8 nearby values"
+        }
+      ]
+    },
+    {
+      "station": "evershot-44200",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "evington-3688",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "exeter-met-office-45184",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "exmouth-45164",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "eye-raine-e48676",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "eynsford-290578tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "eynsham-254336tp",
+      "success": true,
+      "hadOutliers": true,
+      "outliersFound": 1,
+      "correctionsMade": 1,
+      "error": null,
+      "corrections": [
+        {
+          "index": 388,
+          "station": "254336TP",
+          "timestamp": "2025-09-22T13:45:00Z",
+          "original": 133.1,
+          "corrected": 0,
+          "method": "Local median of 12 nearby values"
+        }
+      ]
+    },
+    {
+      "station": "fakenham-e23392",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "far-gearstone-571479",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "farnham-280826tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "farnley-hall-076204",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "faversham-e3281",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "fawkham-e15520",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "fazakerley-567866",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "ferry-2705so",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "filey-037292",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "finham-1045",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "fishbourne-e11080",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "fisher-tarn-584772",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "flamborough-038476",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "fleckney-3686",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "fleetwood-577417",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "flitwick-e24712",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "folkington-1822so",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "folly-gates-551440",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "footholme-573674",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "force-crag-mine-605324",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "fordingbridge-martin-down-340767",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "forncett-end-e24756",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "fraisthorpe-039268",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "frampton-cotterell-53104",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "frampton-e46361",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "frankley-3167",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "friar-waddon-44104",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "frome-531108",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "fulwell-021028",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "fulwood-52101",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "garrigill-noonstones-hill-013045",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "gascoigne-road-239579tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "geltsdale-604040",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "gillingham-common-mead-lane-43203",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "gleadthorpe-3604",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "glenridding-greenside-mines-600295",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "godstone-e1290",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "gold-corner-52227",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "goonhilly-48171",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "goren-45204",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "gorple-reservoir-077336",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "gorpley-reservoir-077066",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "goxhill-e1645",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "great-cornard-e37291",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "great-culvert-041917",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "great-dunmow-e44111",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "great-finborough-e42971",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "great-gidding-raine-e21326",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "great-oxendon-e1716",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "great-sampford-e22486",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "great-somerford-53102",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "great-wolden-edge-077800",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "green-close-farm-600735",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "greenfield-559586",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "griggs-bridge-490001tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "grimsbury-257039tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "grimston-raine-e24727",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "grimwith-reservoir-062046",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "grove-farm-531172",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "guildford-cathedral-282751",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "gunnislake-47161",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "guthram-e25041",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "gwennap-48159",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "haighton-reservoir-576578",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "halifax-ogden-reservoir-077952",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "hallaton-e7200",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "haltwhistle-014555",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "halwill-47158",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "ham-hill-e270",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "ham-island-417417tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "hanningfield-reservoir-raine-e24925",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "hannington-reservoir-e2382",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "harbertonford-slipperstone-e82080",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "hardenhuish-53106",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "hardham-e10000",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "haresceugh-castle-602253",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "harestock-e12580",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "harleston-e24790",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "harley-000008",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "harpington-hill-032822",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "hartlebury-rain-1413",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "hartlepool-026297",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "hartside-013336",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "hastings-baldslow-e7270",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "hastings-newgate-e7260",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "hatt-47157",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "havant-e11470",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "havering-at-bower-000180tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "hawnby-037973",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "hayfield-new-mills-558491",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "haywards-heath-e9350",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "hazelrigg-579623",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "heacham-e24506",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "headingley-076413",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "heathrow-airport-247540tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "heaton-park-562992",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "heckmondwike-bottoms-079621",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "heligan-48157",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "hemingby-bridge-gs-wits-e43545",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "hemyock-45167",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "henley-in-arden-ps-1040",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "herne-bay-300874",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "hethersett-e23518",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "hexham-firtrees-016140",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "high-marnham-3601",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "high-mowthorpe-038179",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "high-newton-586493",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "high-row-600683",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "hinckley-3198",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "hindlip-1773",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "hockworthy-45168",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "hogsmill-valley-286392tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "holbeach-rain-e2493",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "holden-wood-560943",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "holdenhurst-rg-old-43206",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "holland-park-246424tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "hollies-3026",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "hollinsclough-3307",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "holmbury-st-mary-e10130",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "holne-priddons-farm-46169",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "holsworthy-47101",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "honister-592464",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "honley-ludhill-farm-078922",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "hornsey-245176tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "horsley-cross-rain-e24874",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "horsmonden-e2040",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "hoscar-570231",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "how-green-reservoir-287451tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "hug-bridge-554472",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "hullbridge-raine-e24879",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "hullbridge-raine",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "husbands-bosworth-e1179",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "hutton-e21179",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "ingleton-high-leys-582191",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "iping-mill-e10370",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "isfield-weir-e8290",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "isfield-weir",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "itchingfield-e9290",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "ivelet-grainholme-farm-051250",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "ivybridge-hanger-down-e83400",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "jarvis-brook-e1700",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "keadby-3779",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "kebb-farm-great-harwood-575384",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "keelby-e7135",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "kent-hatch-e911",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "kentmere-hallowbank-585160",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "keswick-sewage-treatment-works-593362",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "keynsham-53107",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "kibworth-rain-e-wits-e2510",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "kilkhampton-47160",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "killerton-beare-45169",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "kilnwood-e871",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "kings-cliffe-e7065",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "kings-newnham-1740",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "kingsclere-269627tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "kingsley-3173",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "kingsmill-down-e4530",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "kingstag-ridge-farm-43202",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "kingswood-531101",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "kirdford-e10140",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "kirtling-green-fgs-and-rg-wits-e22400",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "knarsdale-013878",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "knightcote-1082",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "knighton-e14940",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "knitsley-023839",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "knockholt-e15510",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "knowstone-moor-50109",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "laceby-beck-e46061",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "lamberhurst-e2050",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "lambley-3178",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "langar-3996",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "langley-bottom-564595",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "langsett-reservoir-000028",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "langstone-moor-47176",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "lanreath-49102",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "lapford-bowerthy-50199",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "lartington-filters-028185",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "latchingdon-e24884",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "lavenham-e24195",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "lea-marston-3288",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "leatherhead-285630tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "ledbury-wrw-1119",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "lee-moor-47112",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "leigh-barrier-gate-e802",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "lenham-e4520",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "letchworth-e23633",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "levens-bridge-end-586056",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "lichfield-3778",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "lilley-manor-240662tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "linacre-reservoir-083534",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "linstead-parva-e24889",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "litchborough-e2527",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "little-stanford-1817",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "littlethorpe-3999",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "littondale-061431",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "lodgehouse-farm-44100",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "loggerheads-3347",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "long-mynd-1793",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "longcliffe-3576",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "lothersdale-proctor-heights-074108",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "loughborough-university-3642",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "louth-kenwick-e46612",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "lower-dunsforth-056505",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "lower-laithe-reservoir-074924",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "lower-standen-e5170",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "lower-standen",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "lumley-moor-reservoir-049902",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "luxborough-lane-540001rg",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "luxulyan-48106",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "lyndhurst-e13600",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "maddle-farm-268103tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "maenclochog1099",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "maldon-wwtw-raine-e24865",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "malham-tarn-073422",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "maltby-wrw-3860",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "manthorpe-rain-e27594",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "march-e23646",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "mardon-down-46168",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "markyate-276956tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "marsden-butterley-reservoir-078530",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "mary-tavy-47108",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "mayfield-e6760",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "mearley-hall-575335",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "mersea-island-e24901",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "metoff-andrewsfield-e5733",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "metoff-bedford-e5731",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "metoff-coningsby-e5723",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "metoff-cranwell-e5722",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "metoff-holbeach-e5727",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "metoff-marham-e5728",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "metoff-shoeburyness-e5734",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "metoff-waddington-e5721",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "metoff-wainfleet-e5724",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "metoff-wattisham-e5732",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "metoff-weybourne-e5729",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "metoff-wittering-e5726",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "meynell-langley-3588",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "mickledon-586820",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "mildenhall-e24591",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "mill-green-240470tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "minchinhampton-1112",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "miserden1141",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "mitcham-287946tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "mitchells-house-res-575092",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "monkmoor-1121",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "moor-park-fulwood-576635",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "moreton-238777tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "morley-e42981",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "motney-hill-e160",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "mount-st-bernards-3641",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "mow-cop-555207",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "mundford-road-thetford-raine-e22309",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "nag-39-s-head-lane-237740tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "nazing-000181tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "needham-market-rain-e23487",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "nelson-golf-club-nelsongc",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "new-addington-288504tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "newquay-49147",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "newstead-abbey-3775",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "newton-rigg-604742",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "north-dalton-025878",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "north-mymms-276316tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "north-walsham-e23440",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "northolt-247344tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "norwood-reservoir-288092tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "nottingham-watnall-3766",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "nutwell-wtw-3861",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "ogston-3441",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "old-spital-farm-028502",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "oldham-563170",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "osbournby-e1606",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "osney-256230tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "otterbourne-e12570",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "otterham-47144",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "ottery-45230",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "oundle-rain-e-wits-e2544",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "over-farm-1794",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "overseal-3057",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "overton-e14080",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "owston-ferry-3611",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "padfield-reservoir-558975",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "palace-nook-588886",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "parkham-50101",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "parsonage-farm-e4753",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "paulton-rgw-53111",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "pease-pottage-000075tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "peel-common-e11820",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "penridge-43201",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "penryn-48103",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "peterlee-026090",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "petersfield-e10500",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "pett-e6780",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "pevensey-e7295",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "pickering-keld-head-070365",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "pilling-sewage-works-579167",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "pinner-cemetery-auto-247281tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "pitsford-e2561",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "plumpton-e8510",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "plympton-47167",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "poaka-beck-588705",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "popeswood-e8480",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "poringland-e42991",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "port-isaac-49172",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "portswood-e11480",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "potton-e22205",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "poulton-farm-266523",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "poverty-bottom-e7780",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "powdermill-e7180",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "prees-1771",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "prestbury-564769",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "preston-capes-e7050",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "preston-capes",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "prestwood-reservoir-000076tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "prewley-47156",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "priddy-52201",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "princes-marsh-e10360",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "princetown-47166",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "purley-oaks-287722tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "quarry-hill-595273",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "quinton-e7045",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "radlet-277407tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "raithby-e7105",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "randy-mere-reservoir-036487",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "rapsgate-248965tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "ravensthorpe-e7055",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "rayleigh-e24908",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "raymonds-hill-45231",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "reading-university-270397",
+      "success": true,
+      "hadOutliers": true,
+      "outliersFound": 1,
+      "correctionsMade": 1,
+      "error": null,
+      "corrections": [
+        {
+          "index": 467,
+          "station": "270397",
+          "timestamp": "2025-09-23T09:30:00Z",
+          "original": 168.7,
+          "corrected": 0,
+          "method": "Local median of 12 nearby values"
+        }
+      ]
+    },
+    {
+      "station": "red-br-577271",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "red-br",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "redgate-mill-e1681",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "redmires-reservoir-082509",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "richard-fairclough-house-564160",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "richmond-green-howard-road-052287",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "ringing-low-082732",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "ringley-562656",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "ringmer-e8770",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "ringstone-reservoir-077836",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "rivington-569723",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "roadford-47105",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "robin-hoods-bay-036704",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "rock-end-3571",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "rodbaston-3025",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "rodbourne-249744tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "romanby-054604",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "romsey-e13560",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "ropsley-e2578",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "rosewarne-48102",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "royal-wootton-bassett-53103",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "ruckinge-e5660",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "runley-wood-240201tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "runswick-bay-035302",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "rushbrooke-raine-e22322",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "rushmoor-wrw-1339",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "ruskington-e1815",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "ryde-e14910",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "rye-meads-effluent-at-rye-meads-244027tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "saints-hill-e901",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "sale-depot-560557",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "salle-e23420",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "saltley-3781",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "sandhurst-e6270",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "sandsend-035305",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "scalebeck-598928",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "scaling-reservoir-035024ne",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "scarborough-037239",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "scargill-reservoir-058461",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "scarhouse-gsm-e46161",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "schola-green-583948",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "seathwaite-farm-592448",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "sedbergh-581159",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "sedbusk-047439",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "sellindge-e4510",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "sevenoaks-290320",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "sevenoaks-e15720",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "shalbourne-267661tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "sherborne-52149",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "sheriffs-lench-1760",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "shipston-1087",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "shipton-moyne-531178",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "shorncote-248332tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "short-ferry-e42135",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "sible-hedingham-e44091",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "sittingbourne-e3220",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "skelton-605936",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "skipsea-040752",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "snaizeholme-tow-hill-047281",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "snaygill-074385",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "somerton-52102",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "south-ferriby-e45871",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "south-perrott-52148",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "south-willesborough-301666",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "south-witham-e7165",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "southchurch-park-e24920",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "spalding-e2416",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "spellbrook-510001",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "st-albans-276651tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "st-blazey-48199",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "st-cleer-49151",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "st-clether-47159",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "st-columb-49162",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "st-dennis-48180",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "st-erth-48148",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "st-ives-48169",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "st-ives-e24632",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "st-johns-251530tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "st-teath-48155",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "stainforth-571894",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "staithes-035103",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "stamford-rain-e-wits-e7155",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "stanford-260221tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "stanford-reservoir-1155",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "stanford-rivers-238944tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "stanley-hustledown-018777",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "stanmore-golf-club-auto-246726tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "stansted-243131tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "stanton-rain-e24737",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "staythorpe-3603",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "steeple-bumpstead-e37271",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "stem-lane-e14430",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "stenigot-e7095",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "stevenage-000182tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "sticklepath-50106",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "stocks-res-573342",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "stoke-bottom-53114",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "stoke-by-clare-e42297",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "stoke-climsland-47170",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "stokenchurch-274178tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "stone-3014",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "stopgate-farm-45232",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "storrington-e9660",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "stourmouth-e3474",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "stowell-park-251556tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "stradbroke-e24767",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "stratford-milcote-1086",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "suckley-1819",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "summergrove-591878",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "sunderland-593893",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "sundridge-290200tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "sunnyhurst-575935",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "sutton-bingham-52103",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "sutton-bonnington-3652",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "sutton-coldfield-3339",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "sutton-in-ashfield-3816",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "sutton-poyntz-44132",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "sutton-valence-e2410",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "swanage-44201",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "sweetloves-562417",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "takeley-243543tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "taynton-1812",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "tealby-e1613",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "telegraph-hill-44214",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "testwood-e13590",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "tetbury-53100",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "tetford-e46331",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "the-avenue-north-380002tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "thirlmere-st-john-39-s-beck-592860",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "thornton-3610",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "thornton-moor-reservoir-075233",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "thornwood-238605tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "thorpe-lakes-247564",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "thorpe-satchville-3179",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "throwley-0744se",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "thursby-596791",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "tickton-041238",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "tidworth-43104",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "till-washland-saxilby-e1457",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "tillingham-e24935",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "tiptree-e24913",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "tisbury-rg-old-43102",
+      "success": true,
+      "hadOutliers": true,
+      "outliersFound": 1,
+      "correctionsMade": 1,
+      "error": null,
+      "corrections": [
+        {
+          "index": 444,
+          "station": "43102",
+          "timestamp": "2025-09-23T13:30:00Z",
+          "original": 9793.3,
+          "corrected": 0,
+          "method": "Local median of 12 nearby values"
+        }
+      ]
+    },
+    {
+      "station": "tittesworth-3110",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "tiverton-45108",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "toddington-e22335",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "toft-newton-reservoir-e7190-e7190",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "toft-newton-reservoir-e7190",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "tolgus-48192",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "tollerdown-44213",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "torbay-compton-gallows-gate-e82960",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "torpoint-47163",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "towcester-e21335",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "tower-wood-587552",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "trawden-574656",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "trebrownbridge-blackadon-49171",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "trefrida-49108",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "trengwainton-48100",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "trewoon-48181",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "trimpley-1548",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "truro-48182",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "tudor-grange-3185",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "tunstall-reservoir-022163",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "turnerford-582837",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "ulceby-cross-e25051",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "ulpha-589359",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "uttons-drove-e21637",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "uttoxeter-3349",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "vines-cross-e8040",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "wakefield-080282",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "walderton-e11040",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "walkmills-1332",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "walsall-wood-3275",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "walshaw-dean-lodge-077256",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "walters-farm-52222",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "waltham-on-the-wolds-3602",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "wanlip-3683",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "wanstead-239374tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "ware-broadmeads-242534tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "warehorne-e5640",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "warnford-e12560",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "warwick-racecourse-1775",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "waseley-hills-3165",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "washington-025394",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "watchgate-585512",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "weir-wood-e1691",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "wellesbourne-1165",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "wellingborough-rain-e-wits-e2433",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "wendron-48170",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "wennington-clintsfield-582970",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "werrington-47168",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "west-bergholt-e37151",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "west-ilsley-265038tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "west-sedgemoor-52147",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "westbury-dilton-court-531184",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "westerdale-035488",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "westergate-e11060",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "weston-241243tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "wet-sleddale-600986",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "wethersfield-e37241",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "wheathampstead-240350tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "wheatley-263541tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "whissendine-3687",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "white-notley-e24940",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "whitebarrow-46160",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "whitwell-240816tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "wick-st-lawrence-52223",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "wickenby-e1908",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "wickhambrook-e24947",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "widford-242819tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "willey-1331",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "willingale-e24952",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "willop-e5451",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "willowholme-606299",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "wincanton-43200",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "wincanton-bratton-seymour-e6380",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "winestead-040492",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "wing-e1976",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "wingerworth-083280",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "winsham-forde-grange-e83440",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "winterbourne-stoke-43103",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "wiseton-3998",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "witham-e44101",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "wixoe-e44081",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "wombwell-085960",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "woodbridge-e21589",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "woodbury-45186",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "woodhead-558844",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "woodhouse-mill-084532",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "worksop-3901",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "worlds-end-e11461",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "worleston-553564",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "worlingham-e21288",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "worsham-253861tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "worthington-569848",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "writtle-college-raine-e21602",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "wroxall-e14850",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "yardley-hastings-rain-e-wits-e7070",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "yarner-wood-46167",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "yattendon-265415tp",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "yelden-e22218",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "yeovilton-met-office-52150",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    },
+    {
+      "station": "york-acomb-landing-05973",
+      "success": true,
+      "hadOutliers": false,
+      "outliersFound": 0,
+      "correctionsMade": 0,
+      "error": null,
+      "corrections": []
+    }
+  ],
+  "detailedCorrections": [
+    {
+      "station": "allenheads-allen-lodge-015347",
+      "timestamp": "2025-09-22T18:35:00Z",
+      "originalValue": 389.4,
+      "correctedValue": 0,
+      "method": "Local median of 9 nearby values"
+    },
+    {
+      "station": "allenheads-allen-lodge-015347",
+      "timestamp": "2025-09-22T18:40:00Z",
+      "originalValue": 389.4,
+      "correctedValue": 0,
+      "method": "Local median of 9 nearby values"
+    },
+    {
+      "station": "allenheads-allen-lodge-015347",
+      "timestamp": "2025-09-22T18:45:00Z",
+      "originalValue": 389.4,
+      "correctedValue": 0,
+      "method": "Local median of 9 nearby values"
+    },
+    {
+      "station": "allenheads-allen-lodge-015347",
+      "timestamp": "2025-09-22T18:50:00Z",
+      "originalValue": 389.4,
+      "correctedValue": 0,
+      "method": "Local median of 9 nearby values"
+    },
+    {
+      "station": "everleigh-e71440",
+      "timestamp": "2025-09-23T12:15:00Z",
+      "originalValue": 99839.7,
+      "correctedValue": 0,
+      "method": "Local median of 8 nearby values"
+    },
+    {
+      "station": "eynsham-254336tp",
+      "timestamp": "2025-09-22T13:45:00Z",
+      "originalValue": 133.1,
+      "correctedValue": 0,
+      "method": "Local median of 12 nearby values"
+    },
+    {
+      "station": "reading-university-270397",
+      "timestamp": "2025-09-23T09:30:00Z",
+      "originalValue": 168.7,
+      "correctedValue": 0,
+      "method": "Local median of 12 nearby values"
+    },
+    {
+      "station": "tisbury-rg-old-43102",
+      "timestamp": "2025-09-23T13:30:00Z",
+      "originalValue": 9793.3,
+      "correctedValue": 0,
+      "method": "Local median of 12 nearby values"
+    }
+  ]
+}
