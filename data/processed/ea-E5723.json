@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-09-24T03:13:55.989Z",
+  "lastUpdated": "2025-09-24T13:26:52.263Z",
   "station": "E5723",
   "stationName": "Metoff Coningsby (E5723)",
   "region": "England",
@@ -8,7 +8,7 @@
     "long": null
   },
   "dataSource": "EA API",
-  "recordCount": 137,
+  "recordCount": 148,
   "data": [
     {
       "date": "2025-09-18",
@@ -1362,8 +1362,28 @@
     },
     {
       "date": "2025-09-24",
+      "time": "03:00:00.000",
+      "dateTime": "2025-09-24T03:00:00Z",
+      "rainfall_mm": 0.1,
+      "total_mm": 0,
+      "station": "E5723",
+      "stationName": "Metoff Coningsby (E5723)",
+      "region": "England"
+    },
+    {
+      "date": "2025-09-24",
       "time": "03:30:00.000",
       "dateTime": "2025-09-24T03:30:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5723",
+      "stationName": "Metoff Coningsby (E5723)",
+      "region": "England"
+    },
+    {
+      "date": "2025-09-24",
+      "time": "04:00:00.000",
+      "dateTime": "2025-09-24T04:00:00Z",
       "rainfall_mm": 0,
       "total_mm": 0,
       "station": "E5723",
@@ -1379,8 +1399,98 @@
       "station": "E5723",
       "stationName": "Metoff Coningsby (E5723)",
       "region": "England"
+    },
+    {
+      "date": "2025-09-24",
+      "time": "05:00:00.000",
+      "dateTime": "2025-09-24T05:00:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5723",
+      "stationName": "Metoff Coningsby (E5723)",
+      "region": "England"
+    },
+    {
+      "date": "2025-09-24",
+      "time": "06:00:00.000",
+      "dateTime": "2025-09-24T06:00:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5723",
+      "stationName": "Metoff Coningsby (E5723)",
+      "region": "England"
+    },
+    {
+      "date": "2025-09-24",
+      "time": "07:00:00.000",
+      "dateTime": "2025-09-24T07:00:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5723",
+      "stationName": "Metoff Coningsby (E5723)",
+      "region": "England"
+    },
+    {
+      "date": "2025-09-24",
+      "time": "08:00:00.000",
+      "dateTime": "2025-09-24T08:00:00Z",
+      "rainfall_mm": 0.2,
+      "total_mm": 0,
+      "station": "E5723",
+      "stationName": "Metoff Coningsby (E5723)",
+      "region": "England"
+    },
+    {
+      "date": "2025-09-24",
+      "time": "09:00:00.000",
+      "dateTime": "2025-09-24T09:00:00Z",
+      "rainfall_mm": 0.1,
+      "total_mm": 0,
+      "station": "E5723",
+      "stationName": "Metoff Coningsby (E5723)",
+      "region": "England"
+    },
+    {
+      "date": "2025-09-24",
+      "time": "10:00:00.000",
+      "dateTime": "2025-09-24T10:00:00Z",
+      "rainfall_mm": 0.1,
+      "total_mm": 0,
+      "station": "E5723",
+      "stationName": "Metoff Coningsby (E5723)",
+      "region": "England"
+    },
+    {
+      "date": "2025-09-24",
+      "time": "11:00:00.000",
+      "dateTime": "2025-09-24T11:00:00Z",
+      "rainfall_mm": 1,
+      "total_mm": 0,
+      "station": "E5723",
+      "stationName": "Metoff Coningsby (E5723)",
+      "region": "England"
+    },
+    {
+      "date": "2025-09-24",
+      "time": "12:00:00.000",
+      "dateTime": "2025-09-24T12:00:00Z",
+      "rainfall_mm": 0.1,
+      "total_mm": 0,
+      "station": "E5723",
+      "stationName": "Metoff Coningsby (E5723)",
+      "region": "England"
+    },
+    {
+      "date": "2025-09-24",
+      "time": "12:45:00.000",
+      "dateTime": "2025-09-24T12:45:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5723",
+      "stationName": "Metoff Coningsby (E5723)",
+      "region": "England"
     }
   ],
-  "previousUpdate": "2025-09-23T12:36:24.847Z",
+  "previousUpdate": "2025-09-24T03:13:55.989Z",
   "incrementalUpdate": true
 }
