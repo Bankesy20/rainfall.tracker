@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-09-25T10:11:19.816Z",
+  "lastUpdated": "2025-09-25T12:56:53.212Z",
   "station": "015347",
   "stationName": "Allenheads Allen Lodge (015347)",
   "region": "England",
@@ -8,7 +8,7 @@
     "long": null
   },
   "dataSource": "EA API",
-  "recordCount": 665,
+  "recordCount": 676,
   "data": [
     {
       "date": "2025-09-18",
@@ -6659,15 +6659,125 @@
       "station": "015347",
       "stationName": "Allenheads Allen Lodge (015347)",
       "region": "England"
+    },
+    {
+      "date": "2025-09-25",
+      "time": "10:00:00.000",
+      "dateTime": "2025-09-25T10:00:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "015347",
+      "stationName": "Allenheads Allen Lodge (015347)",
+      "region": "England"
+    },
+    {
+      "date": "2025-09-25",
+      "time": "10:15:00.000",
+      "dateTime": "2025-09-25T10:15:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "015347",
+      "stationName": "Allenheads Allen Lodge (015347)",
+      "region": "England"
+    },
+    {
+      "date": "2025-09-25",
+      "time": "10:30:00.000",
+      "dateTime": "2025-09-25T10:30:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "015347",
+      "stationName": "Allenheads Allen Lodge (015347)",
+      "region": "England"
+    },
+    {
+      "date": "2025-09-25",
+      "time": "10:45:00.000",
+      "dateTime": "2025-09-25T10:45:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "015347",
+      "stationName": "Allenheads Allen Lodge (015347)",
+      "region": "England"
+    },
+    {
+      "date": "2025-09-25",
+      "time": "11:00:00.000",
+      "dateTime": "2025-09-25T11:00:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "015347",
+      "stationName": "Allenheads Allen Lodge (015347)",
+      "region": "England"
+    },
+    {
+      "date": "2025-09-25",
+      "time": "11:15:00.000",
+      "dateTime": "2025-09-25T11:15:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "015347",
+      "stationName": "Allenheads Allen Lodge (015347)",
+      "region": "England"
+    },
+    {
+      "date": "2025-09-25",
+      "time": "11:30:00.000",
+      "dateTime": "2025-09-25T11:30:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "015347",
+      "stationName": "Allenheads Allen Lodge (015347)",
+      "region": "England"
+    },
+    {
+      "date": "2025-09-25",
+      "time": "11:45:00.000",
+      "dateTime": "2025-09-25T11:45:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "015347",
+      "stationName": "Allenheads Allen Lodge (015347)",
+      "region": "England"
+    },
+    {
+      "date": "2025-09-25",
+      "time": "12:00:00.000",
+      "dateTime": "2025-09-25T12:00:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "015347",
+      "stationName": "Allenheads Allen Lodge (015347)",
+      "region": "England"
+    },
+    {
+      "date": "2025-09-25",
+      "time": "12:15:00.000",
+      "dateTime": "2025-09-25T12:15:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "015347",
+      "stationName": "Allenheads Allen Lodge (015347)",
+      "region": "England"
+    },
+    {
+      "date": "2025-09-25",
+      "time": "12:30:00.000",
+      "dateTime": "2025-09-25T12:30:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "015347",
+      "stationName": "Allenheads Allen Lodge (015347)",
+      "region": "England"
     }
   ],
   "outlierDetection": {
-    "detectedAt": "2025-09-25T10:11:19.813Z",
+    "detectedAt": "2025-09-25T12:56:53.208Z",
     "threshold": 25,
     "outliersFound": 4,
     "correctionsMade": 4,
     "correctionMethod": "intelligent_interpolation"
   },
-  "previousUpdate": "2025-09-25T06:38:29.177Z",
+  "previousUpdate": "2025-09-25T10:11:19.816Z",
   "incrementalUpdate": true
 }
