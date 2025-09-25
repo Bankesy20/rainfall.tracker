@@ -2,7 +2,7 @@ name: Scrape Rainfall Data and Upload to Blobs
 
 on:
   schedule:
-    - cron: '50 */3 * * *'  # Every 3 hours at 50 minutes past
+    - cron: '0 */6 * * *'  # Every 6 hours at 00:00
   workflow_dispatch:
 
 permissions:
