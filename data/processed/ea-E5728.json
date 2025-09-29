@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-09-29T07:54:40.719Z",
+  "lastUpdated": "2025-09-29T13:56:01.466Z",
   "station": "E5728",
   "stationName": "Metoff Marham (E5728)",
   "region": "England",
@@ -8,7 +8,7 @@
     "long": null
   },
   "dataSource": "EA API",
-  "recordCount": 283,
+  "recordCount": 292,
   "data": [
     {
       "date": "2025-09-18",
@@ -2822,9 +2822,29 @@
     },
     {
       "date": "2025-09-29",
+      "time": "08:00:00.000",
+      "dateTime": "2025-09-29T08:00:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5728",
+      "stationName": "Metoff Marham (E5728)",
+      "region": "England"
+    },
+    {
+      "date": "2025-09-29",
       "time": "08:30:00.000",
       "dateTime": "2025-09-29T08:30:00Z",
       "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5728",
+      "stationName": "Metoff Marham (E5728)",
+      "region": "England"
+    },
+    {
+      "date": "2025-09-29",
+      "time": "09:00:00.000",
+      "dateTime": "2025-09-29T09:00:00Z",
+      "rainfall_mm": 0.1,
       "total_mm": 0,
       "station": "E5728",
       "stationName": "Metoff Marham (E5728)",
@@ -2839,8 +2859,78 @@
       "station": "E5728",
       "stationName": "Metoff Marham (E5728)",
       "region": "England"
+    },
+    {
+      "date": "2025-09-29",
+      "time": "10:00:00.000",
+      "dateTime": "2025-09-29T10:00:00Z",
+      "rainfall_mm": 0.1,
+      "total_mm": 0,
+      "station": "E5728",
+      "stationName": "Metoff Marham (E5728)",
+      "region": "England"
+    },
+    {
+      "date": "2025-09-29",
+      "time": "11:00:00.000",
+      "dateTime": "2025-09-29T11:00:00Z",
+      "rainfall_mm": 0.1,
+      "total_mm": 0,
+      "station": "E5728",
+      "stationName": "Metoff Marham (E5728)",
+      "region": "England"
+    },
+    {
+      "date": "2025-09-29",
+      "time": "12:00:00.000",
+      "dateTime": "2025-09-29T12:00:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5728",
+      "stationName": "Metoff Marham (E5728)",
+      "region": "England"
+    },
+    {
+      "date": "2025-09-29",
+      "time": "13:00:00.000",
+      "dateTime": "2025-09-29T13:00:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5728",
+      "stationName": "Metoff Marham (E5728)",
+      "region": "England"
+    },
+    {
+      "date": "2025-09-29",
+      "time": "13:45:00.000",
+      "dateTime": "2025-09-29T13:45:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5728",
+      "stationName": "Metoff Marham (E5728)",
+      "region": "England"
+    },
+    {
+      "date": "2025-09-29",
+      "time": "14:30:00.000",
+      "dateTime": "2025-09-29T14:30:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5728",
+      "stationName": "Metoff Marham (E5728)",
+      "region": "England"
+    },
+    {
+      "date": "2025-09-29",
+      "time": "15:15:00.000",
+      "dateTime": "2025-09-29T15:15:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5728",
+      "stationName": "Metoff Marham (E5728)",
+      "region": "England"
     }
   ],
-  "previousUpdate": "2025-09-29T02:59:16.181Z",
+  "previousUpdate": "2025-09-29T07:54:40.719Z",
   "incrementalUpdate": true
 }
