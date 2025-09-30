@@ -1,0 +1,1108 @@
+{
+  "metric": "max_15min",
+  "period": "7d",
+  "unit": "mm/15min",
+  "generated_at": "2025-09-30T10:08:43.947Z",
+  "rankings": [
+    {
+      "rank": 1,
+      "station": "E71440",
+      "stationName": "Everleigh (E71440)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 99839.7
+    },
+    {
+      "rank": 2,
+      "station": "48157",
+      "stationName": "Heligan (48157)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 9996.3
+    },
+    {
+      "rank": 3,
+      "station": "43102",
+      "stationName": "Tisbury Rg Old (43102)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 9793.3
+    },
+    {
+      "rank": 4,
+      "station": "E14930",
+      "stationName": "Chale (E14930)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 7.1
+    },
+    {
+      "rank": 5,
+      "station": "242534TP",
+      "stationName": "Ware,broadmeads (242534TP)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 6.4
+    },
+    {
+      "rank": 6,
+      "station": "E4080",
+      "stationName": "Chartham (E4080)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 5.8
+    },
+    {
+      "rank": 7,
+      "station": "E5722",
+      "stationName": "Metoff Cranwell (E5722)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 5.4
+    },
+    {
+      "rank": 8,
+      "station": "E5721",
+      "stationName": "Metoff Waddington (E5721)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 5
+    },
+    {
+      "rank": 9,
+      "station": "591419",
+      "stationName": "Calder Hall (591419)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 4.4
+    },
+    {
+      "rank": 10,
+      "station": "E4850",
+      "stationName": "Broadstairs (E4850)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 4
+    },
+    {
+      "rank": 11,
+      "station": "586056",
+      "stationName": "Levens Bridge End (586056)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 3.6
+    },
+    {
+      "rank": 12,
+      "station": "0925SE",
+      "stationName": "Deal (0925SE)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 2.9
+    },
+    {
+      "rank": 13,
+      "station": "1023SE",
+      "stationName": "Canterbury (1023SE)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 2.8
+    },
+    {
+      "rank": 14,
+      "station": "48157",
+      "stationName": "Heligan (48157)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 2.7
+    },
+    {
+      "rank": 15,
+      "station": "558491",
+      "stationName": "Hayfield New Mills (558491)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 2.5
+    },
+    {
+      "rank": 16,
+      "station": "588006",
+      "stationName": "Coniston Coppermines (588006)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 2.5
+    },
+    {
+      "rank": 17,
+      "station": "287946TP",
+      "stationName": "Mitcham (287946TP)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 2.4
+    },
+    {
+      "rank": 18,
+      "station": "3688",
+      "stationName": "Evington (3688)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 2.4
+    },
+    {
+      "rank": 19,
+      "station": "562992",
+      "stationName": "Heaton Park (562992)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 2.4
+    },
+    {
+      "rank": 20,
+      "station": "E5170",
+      "stationName": "Lower Standen (E5170)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 2.4
+    },
+    {
+      "rank": 21,
+      "station": "47170",
+      "stationName": "Stoke Climsland (47170)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 2.3
+    },
+    {
+      "rank": 22,
+      "station": "3602",
+      "stationName": "Waltham On The Wolds (3602)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 2.2
+    },
+    {
+      "rank": 23,
+      "station": "3629",
+      "stationName": "Burton On The Wolds (3629)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 2.2
+    },
+    {
+      "rank": 24,
+      "station": "563170",
+      "stationName": "Oldham (563170)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 2.2
+    },
+    {
+      "rank": 25,
+      "station": "573342",
+      "stationName": "Stocks Res (573342)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 2.2
+    },
+    {
+      "rank": 26,
+      "station": "573674",
+      "stationName": "Footholme (573674)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 2.2
+    },
+    {
+      "rank": 27,
+      "station": "600295",
+      "stationName": "Glenridding Greenside Mines (600295)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 2.2
+    },
+    {
+      "rank": 28,
+      "station": "E2040",
+      "stationName": "Horsmonden (E2040)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 2.2
+    },
+    {
+      "rank": 29,
+      "station": "E5731",
+      "stationName": "Metoff Bedford (E5731)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 2.2
+    },
+    {
+      "rank": 30,
+      "station": "E7165",
+      "stationName": "South Witham (E7165)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 2.2
+    },
+    {
+      "rank": 31,
+      "station": "575384",
+      "stationName": "Kebb Farm / Great Harwood (575384)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 2.1
+    },
+    {
+      "rank": 32,
+      "station": "592158",
+      "stationName": "Egremont Ivy Hill (592158)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 2.1
+    },
+    {
+      "rank": 33,
+      "station": "078772",
+      "stationName": "Brownhill Reservoir (078772)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 2
+    },
+    {
+      "rank": 34,
+      "station": "305111",
+      "stationName": "Cherry Gardens (305111)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 2
+    },
+    {
+      "rank": 35,
+      "station": "3686",
+      "stationName": "Fleckney (3686)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 2
+    },
+    {
+      "rank": 36,
+      "station": "47176",
+      "stationName": "Langstone Moor (47176)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 2
+    },
+    {
+      "rank": 37,
+      "station": "558844",
+      "stationName": "Woodhead (558844)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 2
+    },
+    {
+      "rank": 38,
+      "station": "575335",
+      "stationName": "Mearley Hall (575335)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 2
+    },
+    {
+      "rank": 39,
+      "station": "600140",
+      "stationName": "Brotherswater (600140)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 2
+    },
+    {
+      "rank": 40,
+      "station": "E5451",
+      "stationName": "Willop (E5451)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 2
+    },
+    {
+      "rank": 41,
+      "station": "E5734",
+      "stationName": "Metoff Shoeburyness (E5734)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 2
+    },
+    {
+      "rank": 42,
+      "station": "3323",
+      "stationName": "Ashbourne (3323)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 1.9
+    },
+    {
+      "rank": 43,
+      "station": "49171",
+      "stationName": "Trebrownbridge Blackadon (49171)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 1.9
+    },
+    {
+      "rank": 44,
+      "station": "558016",
+      "stationName": "Cat And Fiddle (558016)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 1.9
+    },
+    {
+      "rank": 45,
+      "station": "585160",
+      "stationName": "Kentmere Hallowbank (585160)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 1.9
+    },
+    {
+      "rank": 46,
+      "station": "586898",
+      "stationName": "Brathay Hall (586898)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 1.9
+    },
+    {
+      "rank": 47,
+      "station": "E4510",
+      "stationName": "Sellindge (E4510)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 1.9
+    },
+    {
+      "rank": 48,
+      "station": "074108",
+      "stationName": "Lothersdale Proctor Heights (074108)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 1.8
+    },
+    {
+      "rank": 49,
+      "station": "0744SE",
+      "stationName": "Throwley (0744SE)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 1.8
+    },
+    {
+      "rank": 50,
+      "station": "076204",
+      "stationName": "Farnley Hall (076204)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 1.8
+    },
+    {
+      "rank": 51,
+      "station": "3683",
+      "stationName": "Wanlip (3683)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 1.8
+    },
+    {
+      "rank": 52,
+      "station": "48169",
+      "stationName": "St Ives (48169)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 1.8
+    },
+    {
+      "rank": 53,
+      "station": "561299",
+      "stationName": "Blackstone Edge (561299)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 1.8
+    },
+    {
+      "rank": 54,
+      "station": "562656",
+      "stationName": "Ringley (562656)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 1.8
+    },
+    {
+      "rank": 55,
+      "station": "587552",
+      "stationName": "Tower Wood (587552)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 1.8
+    },
+    {
+      "rank": 56,
+      "station": "591878",
+      "stationName": "Summergrove (591878)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 1.8
+    },
+    {
+      "rank": 57,
+      "station": "E1908",
+      "stationName": "Wickenby (E1908)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 1.8
+    },
+    {
+      "rank": 58,
+      "station": "E1976",
+      "stationName": "Wing (E1976)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 1.8
+    },
+    {
+      "rank": 59,
+      "station": "E5732",
+      "stationName": "Metoff Wattisham (E5732)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 1.8
+    },
+    {
+      "rank": 60,
+      "station": "E7130",
+      "stationName": "Cadney (E7130)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 1.8
+    },
+    {
+      "rank": 61,
+      "station": "073422",
+      "stationName": "Malham Tarn (073422)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 1.7
+    },
+    {
+      "rank": 62,
+      "station": "079621",
+      "stationName": "Heckmondwike Bottoms (079621)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 1.7
+    },
+    {
+      "rank": 63,
+      "station": "558975",
+      "stationName": "Padfield Reservoir (558975)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 1.7
+    },
+    {
+      "rank": 64,
+      "station": "559969",
+      "stationName": "Denton (559969)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 1.7
+    },
+    {
+      "rank": 65,
+      "station": "571894",
+      "stationName": "Stainforth (571894)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 1.7
+    },
+    {
+      "rank": 66,
+      "station": "600986",
+      "stationName": "Wet Sleddale (600986)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 1.7
+    },
+    {
+      "rank": 67,
+      "station": "E1645",
+      "stationName": "Goxhill (E1645)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 1.7
+    },
+    {
+      "rank": 68,
+      "station": "E3281",
+      "stationName": "Faversham (E3281)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 1.7
+    },
+    {
+      "rank": 69,
+      "station": "032822",
+      "stationName": "Harpington Hill (032822)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 1.6
+    },
+    {
+      "rank": 70,
+      "station": "061431",
+      "stationName": "Littondale (061431)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 1.6
+    },
+    {
+      "rank": 71,
+      "station": "062046",
+      "stationName": "Grimwith Reservoir (062046)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 1.6
+    },
+    {
+      "rank": 72,
+      "station": "074924",
+      "stationName": "Lower Laithe Reservoir (074924)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 1.6
+    },
+    {
+      "rank": 73,
+      "station": "077066",
+      "stationName": "Gorpley Reservoir (077066)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 1.6
+    },
+    {
+      "rank": 74,
+      "station": "077800",
+      "stationName": "Great Wolden Edge (077800)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 1.6
+    },
+    {
+      "rank": 75,
+      "station": "3014",
+      "stationName": "Stone (3014)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 1.6
+    },
+    {
+      "rank": 76,
+      "station": "3173",
+      "stationName": "Kingsley (3173)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 1.6
+    },
+    {
+      "rank": 77,
+      "station": "3347",
+      "stationName": "Loggerheads (3347)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 1.6
+    },
+    {
+      "rank": 78,
+      "station": "3380",
+      "stationName": "Derwent Reservoir (3380)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 1.6
+    },
+    {
+      "rank": 79,
+      "station": "3576",
+      "stationName": "Longcliffe (3576)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 1.6
+    },
+    {
+      "rank": 80,
+      "station": "3610",
+      "stationName": "Thornton (3610)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 1.6
+    },
+    {
+      "rank": 81,
+      "station": "3687",
+      "stationName": "Whissendine (3687)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 1.6
+    },
+    {
+      "rank": 82,
+      "station": "47160",
+      "stationName": "Kilkhampton (47160)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 1.6
+    },
+    {
+      "rank": 83,
+      "station": "47164",
+      "stationName": "Dousland (47164)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 1.6
+    },
+    {
+      "rank": 84,
+      "station": "555207",
+      "stationName": "Mow Cop (555207)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 1.6
+    },
+    {
+      "rank": 85,
+      "station": "559586",
+      "stationName": "Greenfield (559586)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 1.6
+    },
+    {
+      "rank": 86,
+      "station": "562417",
+      "stationName": "Sweetloves (562417)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 1.6
+    },
+    {
+      "rank": 87,
+      "station": "564769",
+      "stationName": "Prestbury (564769)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 1.6
+    },
+    {
+      "rank": 88,
+      "station": "585122",
+      "stationName": "Dubbs Reservoir (585122)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 1.6
+    },
+    {
+      "rank": 89,
+      "station": "585512",
+      "stationName": "Watchgate (585512)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 1.6
+    },
+    {
+      "rank": 90,
+      "station": "592860",
+      "stationName": "Thirlmere St John&#39;s Beck (592860)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 1.6
+    },
+    {
+      "rank": 91,
+      "station": "E24763",
+      "stationName": "Drayton Parslow (E24763)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 1.6
+    },
+    {
+      "rank": 92,
+      "station": "E4540",
+      "stationName": "Charing (E4540)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 1.6
+    },
+    {
+      "rank": 93,
+      "station": "E4753",
+      "stationName": "Parsonage Farm (E4753)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 1.6
+    },
+    {
+      "rank": 94,
+      "station": "Egerton1",
+      "stationName": "Egerton Dimple Road (Egerton1)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 1.6
+    },
+    {
+      "rank": 95,
+      "station": "0924SE",
+      "stationName": "Eastry (0924SE)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 1.5
+    },
+    {
+      "rank": 96,
+      "station": "47112",
+      "stationName": "Lee Moor (47112)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 1.5
+    },
+    {
+      "rank": 97,
+      "station": "584772",
+      "stationName": "Fisher Tarn (584772)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 1.5
+    },
+    {
+      "rank": 98,
+      "station": "591642",
+      "stationName": "Ennerdale (591642)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 1.5
+    },
+    {
+      "rank": 99,
+      "station": "600683",
+      "stationName": "High Row (600683)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 1.5
+    },
+    {
+      "rank": 100,
+      "station": "E2510",
+      "stationName": "Kibworth Rain-e Wits (E2510)",
+      "region": "England",
+      "location": {
+        "lat": null,
+        "long": null
+      },
+      "value": 1.5
+    }
+  ]
+}
