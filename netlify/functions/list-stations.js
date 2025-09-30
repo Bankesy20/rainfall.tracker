@@ -22,8 +22,8 @@ exports.handler = async (event, context) => {
     let stations = [];
     
     try {
-      // Dynamic import for @netlify/blobs
-      const { getStore } = await import('@netlify/blobs');
+      // Import @netlify/blobs
+      const { getStore } = require('@netlify/blobs');
       
       const store = getStore({
         name: 'rainfall-data',

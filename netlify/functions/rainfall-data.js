@@ -66,8 +66,8 @@ exports.handler = async (event, context) => {
     if (!useBlobStorage) return null;
     
     try {
-      // Dynamic import for @netlify/blobs to avoid module compatibility issues
-      const { getStore } = await import('@netlify/blobs');
+      // Import @netlify/blobs
+      const { getStore } = require('@netlify/blobs');
       
       // Use explicit configuration with environment variables
       const store = getStore({
