@@ -356,21 +356,34 @@ export const getRainfallColor = (rainfall) => {
  * @returns {boolean} True if valid
  */
 export const validateRainfallData = (data) => {
+  console.log('🔍 Validating rainfall data:', {
+    isObject: data && typeof data === 'object',
+    hasLastUpdated: data?.lastUpdated,
+    hasStation: data?.station,
+    hasData: data?.data,
+    dataIsArray: Array.isArray(data?.data),
+    dataLength: data?.data?.length
+  });
+
   if (!data || typeof data !== 'object') {
+    console.log('❌ Validation failed: not an object');
     return false;
   }
 
   const requiredFields = ['lastUpdated', 'station', 'data'];
   for (const field of requiredFields) {
     if (!(field in data)) {
+      console.log('❌ Validation failed: missing field:', field);
       return false;
     }
   }
 
   if (!Array.isArray(data.data)) {
+    console.log('❌ Validation failed: data is not an array');
     return false;
   }
 
+  console.log('✅ Validation passed');
   return true;
 };
 

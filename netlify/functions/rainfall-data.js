@@ -26,6 +26,14 @@ exports.handler = async (event, context) => {
   const useBlobStorage = process.env.USE_BLOB_STORAGE === 'true';
   const blobFallbackEnabled = process.env.BLOB_FALLBACK_ENABLED !== 'false';
   
+  // Debug logging
+  console.log('🔧 Function config:', {
+    station,
+    useBlobStorage,
+    blobFallbackEnabled,
+    debugMode
+  });
+  
   if (debugMode) {
     diagnostics.config = { useBlobStorage, blobFallbackEnabled };
   }
@@ -61,13 +69,27 @@ exports.handler = async (event, context) => {
     }
   };
 
+  // Helper function to load stations metadata
+  const loadStationsMetadata = async () => {
+    try {
+      const metadataPath = path.join(__dirname, 'data', 'processed', 'stations-metadata.json');
+      if (fs.existsSync(metadataPath)) {
+        const metadataContent = fs.readFileSync(metadataPath, 'utf8');
+        return JSON.parse(metadataContent);
+      }
+    } catch (error) {
+      console.warn('Failed to load stations metadata:', error.message);
+    }
+    return null;
+  };
+
   // Helper function to try blob storage
   const tryBlobStorage = async (station) => {
     if (!useBlobStorage) return null;
     
     try {
-      // Import @netlify/blobs
-      const { getStore } = require('@netlify/blobs');
+      // Import @netlify/blobs using dynamic import to avoid ES Module issues
+      const { getStore } = await import('@netlify/blobs');
       
       // Use explicit configuration with environment variables
       const store = getStore({
@@ -76,23 +98,50 @@ exports.handler = async (event, context) => {
         token: process.env.NETLIFY_AUTH_TOKEN || 'nfp_DfAAJ5BgQ3FX7HtRJkaJWsYRwUozjtw73a99'
       });
       
-      // First try direct key lookup (for backward compatibility)
+      // Load stations metadata to get the correct blob key
+      const metadata = await loadStationsMetadata();
+      let blobKey = null;
+      
+      if (metadata && metadata.stations && metadata.stations[station]) {
+        blobKey = metadata.stations[station].blobKey;
+        diagnostics.attempts.push({ type: 'blob', key: 'metadata-lookup', ok: true, foundKey: blobKey, station });
+      }
+      
+      // Try the mapped blob key first
+      if (blobKey) {
+        const mappedBlobKey = `stations/${blobKey}.json`;
+        diagnostics.attempts.push({ type: 'blob', key: mappedBlobKey, attempting: true, note: 'using metadata mapping' });
+        
+        try {
+          const blobContent = await store.get(mappedBlobKey);
+          const blobData = typeof blobContent === 'string' ? JSON.parse(blobContent) : blobContent;
+          
+          if (blobData && blobData.data && Array.isArray(blobData.data)) {
+            diagnostics.attempts.push({ type: 'blob', key: mappedBlobKey, ok: true, size: blobContent.length, records: blobData.data.length, foundBy: 'metadata-mapping' });
+            return blobData;
+          }
+        } catch (mappedError) {
+          diagnostics.attempts.push({ type: 'blob', key: mappedBlobKey, ok: false, error: mappedError.message });
+        }
+      }
+      
+      // Fallback: try direct key lookup (for backward compatibility)
       const directBlobKey = `stations/${station}.json`;
-      diagnostics.attempts.push({ type: 'blob', key: directBlobKey, attempting: true });
+      diagnostics.attempts.push({ type: 'blob', key: directBlobKey, attempting: true, note: 'fallback direct lookup' });
       
       try {
         const blobContent = await store.get(directBlobKey);
         const blobData = typeof blobContent === 'string' ? JSON.parse(blobContent) : blobContent;
         
         if (blobData && blobData.data && Array.isArray(blobData.data)) {
-          diagnostics.attempts.push({ type: 'blob', key: directBlobKey, ok: true, size: blobContent.length, records: blobData.data.length });
+          diagnostics.attempts.push({ type: 'blob', key: directBlobKey, ok: true, size: blobContent.length, records: blobData.data.length, foundBy: 'direct-lookup' });
           return blobData;
         }
       } catch (directError) {
-        // Direct lookup failed, continue to search
+        diagnostics.attempts.push({ type: 'blob', key: directBlobKey, ok: false, error: directError.message });
       }
       
-      // If direct lookup failed, search through all station blobs to find matching station ID
+      // Final fallback: search through all station blobs to find matching station ID
       diagnostics.attempts.push({ type: 'blob', key: 'search', attempting: true, note: 'searching for station by ID' });
       
       const { blobs } = await store.list({ prefix: 'stations/' });
@@ -140,7 +189,15 @@ exports.handler = async (event, context) => {
     }
     
     // 2) Remote live sources (prefer live data, no rebuilds)
-    const dataFile = station === 'maenclochog1099' ? 'wales-1099.json' : 'rainfall-history.json';
+    // Determine the correct data file based on station metadata
+    let dataFile = 'rainfall-history.json'; // Default fallback
+    const metadata = await loadStationsMetadata();
+    if (metadata && metadata.stations && metadata.stations[station]) {
+      dataFile = metadata.stations[station].dataFile || 'rainfall-history.json';
+    } else if (station === 'maenclochog1099') {
+      dataFile = 'wales-1099.json'; // Special case for Welsh station
+    }
+    
     const remoteSources = [
       `https://raw.githubusercontent.com/Bankesy20/rainfall.tracker/main/data/processed/${dataFile}`,
       `https://cdn.jsdelivr.net/gh/Bankesy20/rainfall.tracker@main/data/processed/${dataFile}`

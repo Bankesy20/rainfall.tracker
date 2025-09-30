@@ -24,6 +24,16 @@ function App() {
   const { data: rainfallData, loading, error, lastUpdated, refetch, refetchCount, isDevelopment } = useRainfallData(primaryStation, availableStations);
   const { data: compareDataResult } = useRainfallData(compareStation || 'invalid_key', availableStations);
 
+  // Debug logging for data changes
+  React.useEffect(() => {
+    console.log('🏠 App - primaryStation:', primaryStation);
+    console.log('🏠 App - rainfallData:', rainfallData ? {
+      station: rainfallData.station,
+      dataLength: rainfallData.data?.length,
+      lastUpdated: rainfallData.lastUpdated
+    } : 'null');
+  }, [primaryStation, rainfallData]);
+
   // Handle theme toggle
   const toggleTheme = () => {
     setDarkMode(!darkMode);
