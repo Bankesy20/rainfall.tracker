@@ -10,6 +10,7 @@
 const fs = require('fs');
 const path = require('path');
 const dayjs = require('dayjs');
+const { getCountyFromStation } = require('./county-lookup');
 
 // Configuration
 const DATA_DIR = path.join(__dirname, '..', 'data', 'processed');
@@ -84,10 +85,43 @@ const METRICS = {
 };
 
 /**
+ * Load station coordinates from the stations file
+ */
+function loadStationCoordinates() {
+  try {
+    const stationsFile = path.join(DATA_DIR, 'ea-england-stations-with-names.json');
+    const content = fs.readFileSync(stationsFile, 'utf8');
+    const data = JSON.parse(content);
+    
+    const coordinates = {};
+    if (data.items && Array.isArray(data.items)) {
+      data.items.forEach(station => {
+        if (station.stationReference && station.lat && station.long) {
+          coordinates[station.stationReference] = {
+            lat: station.lat,
+            lng: station.long,
+            label: station.label
+          };
+        }
+      });
+    }
+    
+    console.log(`📍 Loaded coordinates for ${Object.keys(coordinates).length} stations`);
+    return coordinates;
+  } catch (error) {
+    console.warn('⚠️  Could not load station coordinates:', error.message);
+    return {};
+  }
+}
+
+/**
  * Load all station data files
  */
 function loadStationData() {
   console.log('📁 Loading station data files...');
+  
+  // Load station coordinates first
+  const stationCoordinates = loadStationCoordinates();
   
   const stationFiles = fs.readdirSync(DATA_DIR)
     .filter(file => file.startsWith('ea-') && file.endsWith('.json'))
@@ -105,11 +139,24 @@ function loadStationData() {
       const data = JSON.parse(content);
       
       if (data.station && data.data && Array.isArray(data.data) && data.data.length > 0) {
+        // Get coordinates from the stations file
+        const coords = stationCoordinates[data.station];
+        const stationData = {
+          ...data,
+          lat: coords?.lat,
+          lng: coords?.lng,
+          location: coords ? { lat: coords.lat, long: coords.lng } : data.location
+        };
+        
+        // Get county information using coordinates
+        const county = getCountyFromStation(stationData);
+        
         stations.push({
           station: data.station,
-          stationName: data.stationName || data.station,
+          stationName: data.stationName || coords?.label || data.station,
           region: data.region || 'Unknown',
-          location: data.location || { lat: null, long: null },
+          county: county,
+          location: stationData.location || { lat: null, long: null },
           data: data.data
         });
       }
@@ -163,6 +210,7 @@ function generateLeaderboard(stations, metricKey, period) {
     station: station.station,
     stationName: station.stationName,
     region: station.region,
+    county: station.county,
     location: station.location,
     value: calculateMetric(station, metricKey, period)
   }));
@@ -179,6 +227,7 @@ function generateLeaderboard(stations, metricKey, period) {
     station: item.station,
     stationName: item.stationName,
     region: item.region,
+    county: item.county,
     location: item.location,
     value: Math.round(item.value * 100) / 100 // Round to 2 decimal places
   }));

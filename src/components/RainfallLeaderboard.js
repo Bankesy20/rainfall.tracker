@@ -10,10 +10,10 @@ const RainfallLeaderboard = () => {
   const [expanded, setExpanded] = useState(true);
 
   const metrics = {
-    'total_rainfall': { name: 'Total Rainfall', unit: 'mm', icon: '🌧️' },
-    'max_hourly': { name: 'Max Hourly', unit: 'mm/h', icon: '⚡' },
-    'max_15min': { name: 'Max 15min', unit: 'mm/15min', icon: '💨' },
-    'rainy_days': { name: 'Rainy Days', unit: 'days', icon: '📅' }
+    'total_rainfall': { name: 'Total Rainfall', unit: 'mm' },
+    'max_hourly': { name: 'Max Hourly', unit: 'mm/h' },
+    'max_15min': { name: 'Max 15min', unit: 'mm/15min' },
+    'rainy_days': { name: 'Rainy Days', unit: 'days' }
   };
 
   const periods = {
@@ -61,9 +61,6 @@ const RainfallLeaderboard = () => {
   const currentLeaderboard = leaderboards[`${selectedMetric}-${selectedPeriod}`];
 
   const getRankIcon = (rank) => {
-    if (rank === 1) return '🥇';
-    if (rank === 2) return '🥈';
-    if (rank === 3) return '🥉';
     return `#${rank}`;
   };
 
@@ -97,7 +94,6 @@ const RainfallLeaderboard = () => {
       <section className="bg-white dark:bg-gray-800 rounded-lg shadow-lg">
         <div className="p-6">
           <div className="text-center py-8">
-            <div className="text-4xl mb-4">📊</div>
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
               Leaderboards Unavailable
             </h3>
@@ -121,7 +117,6 @@ const RainfallLeaderboard = () => {
         className="w-full px-4 sm:px-6 py-4 flex items-center justify-between text-left hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors rounded-lg"
       >
         <div className="flex items-center space-x-3">
-          <span className="text-2xl">🏆</span>
           <h2 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">
             Rainfall Leaderboards
           </h2>
@@ -142,7 +137,6 @@ const RainfallLeaderboard = () => {
           <div className="mb-6 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-lg border border-blue-200 dark:border-blue-700">
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-3">
-                <span className="text-3xl">{metrics[selectedMetric].icon}</span>
                 <div>
                   <h3 className="text-lg font-bold text-gray-900 dark:text-white">
                     {metrics[selectedMetric].name} Leaderboard
@@ -154,10 +148,10 @@ const RainfallLeaderboard = () => {
               </div>
               <div className="text-right">
                 <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">
-                  {currentLeaderboard.rankings.length}
+                  {Math.round((currentLeaderboard.rankings.length / 846) * 100)}%
                 </div>
                 <div className="text-xs text-gray-500 dark:text-gray-400">
-                  Stations
+                  of stations had rainfall
                 </div>
               </div>
             </div>
@@ -177,7 +171,7 @@ const RainfallLeaderboard = () => {
               >
                 {Object.entries(metrics).map(([key, config]) => (
                   <option key={key} value={key}>
-                    {config.icon} {config.name}
+                    {config.name}
                   </option>
                 ))}
               </select>
@@ -215,7 +209,7 @@ const RainfallLeaderboard = () => {
                       Station
                     </th>
                     <th className="px-4 py-4 text-left text-xs font-semibold text-white uppercase tracking-wider">
-                      Region
+                      County
                     </th>
                     <th className="px-4 py-4 text-right text-xs font-semibold text-white uppercase tracking-wider">
                       {metrics[selectedMetric].name}
@@ -242,7 +236,7 @@ const RainfallLeaderboard = () => {
                       </td>
                       <td className="px-4 py-4 whitespace-nowrap">
                         <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">
-                          {entry.region}
+                          {entry.county || entry.region}
                         </span>
                       </td>
                       <td className="px-4 py-4 whitespace-nowrap text-right">
@@ -263,7 +257,7 @@ const RainfallLeaderboard = () => {
           {/* Footer Info */}
           <div className="mt-4 flex flex-col sm:flex-row justify-between items-start sm:items-center text-xs text-gray-500 dark:text-gray-400">
             <div>
-              Showing top 10 of {currentLeaderboard.rankings.length} stations
+              Showing top 10 of {currentLeaderboard.rankings.length} stations with rainfall ({Math.round((currentLeaderboard.rankings.length / 846) * 100)}% of all stations)
             </div>
             <div>
               Updated: {dayjs(currentLeaderboard.generated_at).format('MMM DD, HH:mm')}
