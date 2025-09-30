@@ -33,6 +33,9 @@ jobs:
     - name: Generate leaderboards
       run: node scripts/generate-leaderboards.js
     
+    - name: Copy leaderboards to public directory
+      run: cp -r data/processed/leaderboards public/data/processed/
+    
     - name: Configure Git
       run: |
         git config --local user.email "action@github.com"
@@ -40,7 +43,7 @@ jobs:
     
     - name: Commit and push leaderboard changes
       run: |
-        git add data/processed/leaderboards/
+        git add data/processed/leaderboards/ public/data/processed/leaderboards/
         git diff --quiet && git diff --staged --quiet || {
           for i in {1..3}; do
             echo "Attempt $i of 3 to commit and push leaderboards..."

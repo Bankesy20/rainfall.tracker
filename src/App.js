@@ -4,6 +4,7 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 import RainfallChart from './components/RainfallChart';
 import DataSummary from './components/DataSummary';
 import StationMap from './components/StationMap';
+import RainfallLeaderboard from './components/RainfallLeaderboard';
 import useRainfallData from './hooks/useRainfallData';
 import stations, { fetchAvailableStations } from './utils/stations';
 
@@ -271,6 +272,9 @@ function App() {
       <main className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-3 sm:py-8">
         {rainfallData ? (
           <div className="space-y-4 sm:space-y-8">
+            {/* Rainfall Leaderboards */}
+            <RainfallLeaderboard />
+
             {/* Collapsible Statistics */}
             <section className="bg-white dark:bg-gray-800 rounded-lg shadow-lg">
               <button

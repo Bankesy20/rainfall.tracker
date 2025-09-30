@@ -32,6 +32,30 @@
   .loading-spinner {
     @apply animate-spin rounded-full border-b-2 border-blue-600;
   }
+  
+  .leaderboard-table {
+    @apply min-w-full divide-y divide-gray-200 dark:divide-gray-600;
+  }
+  
+  .leaderboard-row {
+    @apply hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors duration-200;
+  }
+  
+  .rank-badge {
+    @apply inline-flex items-center justify-center w-8 h-8 rounded-full text-sm font-bold;
+  }
+  
+  .rank-gold {
+    @apply bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200;
+  }
+  
+  .rank-silver {
+    @apply bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200;
+  }
+  
+  .rank-bronze {
+    @apply bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200;
+  }
 }
 
 @layer utilities {

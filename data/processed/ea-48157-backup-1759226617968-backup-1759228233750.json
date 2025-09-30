@@ -4914,15 +4914,11 @@
       "date": "2025-09-23",
       "time": "15:15:00.000",
       "dateTime": "2025-09-23T15:15:00Z",
-      "rainfall_mm": 0,
+      "rainfall_mm": 9996.3,
       "total_mm": 0,
       "station": "48157",
       "stationName": "Heligan (48157)",
-      "region": "England",
-      "original_rainfall_mm": 9996.3,
-      "corrected": true,
-      "correction_reason": "Outlier detected and corrected via interpolation",
-      "correction_timestamp": "2025-09-30T10:30:33.743Z"
+      "region": "England"
     },
     {
       "date": "2025-09-23",
@@ -11336,12 +11332,5 @@
     }
   ],
   "previousUpdate": "2025-09-30T02:30:35.061Z",
-  "incrementalUpdate": true,
-  "outlierDetection": {
-    "detectedAt": "2025-09-30T10:30:33.748Z",
-    "threshold": 25,
-    "outliersFound": 1,
-    "correctionsMade": 1,
-    "correctionMethod": "intelligent_interpolation"
-  }
+  "incrementalUpdate": true
 }

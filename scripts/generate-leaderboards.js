@@ -91,7 +91,8 @@ function loadStationData() {
   
   const stationFiles = fs.readdirSync(DATA_DIR)
     .filter(file => file.startsWith('ea-') && file.endsWith('.json'))
-    .filter(file => file !== 'ea-england-stations.json' && file !== 'ea-england-stations-with-names.json');
+    .filter(file => file !== 'ea-england-stations.json' && file !== 'ea-england-stations-with-names.json')
+    .filter(file => !file.includes('backup'));
   
   console.log(`📊 Found ${stationFiles.length} station files`);
   
