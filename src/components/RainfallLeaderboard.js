@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import dayjs from 'dayjs';
 
-const RainfallLeaderboard = () => {
+const RainfallLeaderboard = React.memo(({ onStationSelect, availableStations = {} }) => {
   const [leaderboards, setLeaderboards] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [selectedMetric, setSelectedMetric] = useState('total_rainfall');
   const [selectedPeriod, setSelectedPeriod] = useState('24h');
-  const [expanded, setExpanded] = useState(true);
+  const [expanded, setExpanded] = useState(false);
 
   const metrics = {
     'total_rainfall': { name: 'Total Rainfall', unit: 'mm' },
@@ -21,6 +21,17 @@ const RainfallLeaderboard = () => {
     '7d': { name: '7 Days', short: '7d' },
     '30d': { name: '30 Days', short: '30d' },
     'all-time': { name: 'All Time', short: '∞' }
+  };
+
+  // Function to map station ID to station key
+  const getStationKeyFromId = (stationId) => {
+    // Look through available stations to find the one with matching stationId
+    for (const [key, station] of Object.entries(availableStations)) {
+      if (station.stationId === stationId || station.originalKey === stationId) {
+        return key;
+      }
+    }
+    return null;
   };
 
   useEffect(() => {
@@ -158,7 +169,7 @@ const RainfallLeaderboard = () => {
           </div>
 
           {/* Controls */}
-          <div className="flex flex-col sm:flex-row gap-4 mb-6">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6">
             {/* Metric Selector */}
             <div className="flex-1">
               <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
@@ -167,7 +178,7 @@ const RainfallLeaderboard = () => {
               <select
                 value={selectedMetric}
                 onChange={(e) => setSelectedMetric(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
               >
                 {Object.entries(metrics).map(([key, config]) => (
                   <option key={key} value={key}>
@@ -185,7 +196,7 @@ const RainfallLeaderboard = () => {
               <select
                 value={selectedPeriod}
                 onChange={(e) => setSelectedPeriod(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
               >
                 {Object.entries(periods).map(([key, config]) => (
                   <option key={key} value={key}>
@@ -199,53 +210,81 @@ const RainfallLeaderboard = () => {
           {/* Leaderboard Table */}
           <div className="bg-gray-50 dark:bg-gray-700 rounded-lg overflow-hidden shadow-inner">
             <div className="overflow-x-auto">
-              <table className="leaderboard-table">
+              <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-600">
                 <thead className="bg-gradient-to-r from-blue-500 to-blue-600 dark:from-blue-600 dark:to-blue-700">
                   <tr>
-                    <th className="px-4 py-4 text-left text-xs font-semibold text-white uppercase tracking-wider">
+                    <th className="px-2 sm:px-4 py-3 sm:py-4 text-left text-xs font-semibold text-white uppercase tracking-wider">
                       Rank
                     </th>
-                    <th className="px-4 py-4 text-left text-xs font-semibold text-white uppercase tracking-wider">
+                    <th className="px-2 sm:px-4 py-3 sm:py-4 text-left text-xs font-semibold text-white uppercase tracking-wider">
                       Station
                     </th>
-                    <th className="px-4 py-4 text-left text-xs font-semibold text-white uppercase tracking-wider">
+                    <th className="px-2 sm:px-4 py-3 sm:py-4 text-left text-xs font-semibold text-white uppercase tracking-wider hidden sm:table-cell">
                       County
                     </th>
-                    <th className="px-4 py-4 text-right text-xs font-semibold text-white uppercase tracking-wider">
+                    <th className="px-2 sm:px-4 py-3 sm:py-4 text-right text-xs font-semibold text-white uppercase tracking-wider">
                       {metrics[selectedMetric].name}
+                    </th>
+                    <th className="px-2 sm:px-4 py-3 sm:py-4 text-center text-xs font-semibold text-white uppercase tracking-wider">
+                      Actions
                     </th>
                   </tr>
                 </thead>
                 <tbody className="bg-white dark:bg-gray-800">
                   {currentLeaderboard.rankings.slice(0, 10).map((entry) => (
                     <tr key={entry.rank} className={`leaderboard-row ${entry.rank <= 3 ? 'bg-gradient-to-r from-yellow-50 to-orange-50 dark:from-yellow-900/10 dark:to-orange-900/10' : ''}`}>
-                      <td className="px-4 py-4 whitespace-nowrap">
+                      <td className="px-2 sm:px-4 py-3 sm:py-4 whitespace-nowrap">
                         <div className="flex items-center">
                           <div className={getRankBadgeClass(entry.rank)}>
                             {entry.rank <= 3 ? getRankIcon(entry.rank) : entry.rank}
                           </div>
                         </div>
                       </td>
-                      <td className="px-4 py-4">
+                      <td className="px-2 sm:px-4 py-3 sm:py-4">
                         <div className="text-sm font-semibold text-gray-900 dark:text-white">
                           {entry.stationName}
                         </div>
                         <div className="text-xs text-gray-500 dark:text-gray-400">
                           Station {entry.station}
                         </div>
+                        {/* Show county on mobile in station cell */}
+                        <div className="sm:hidden mt-1">
+                          <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">
+                            {entry.county || entry.region}
+                          </span>
+                        </div>
                       </td>
-                      <td className="px-4 py-4 whitespace-nowrap">
+                      <td className="px-2 sm:px-4 py-3 sm:py-4 whitespace-nowrap hidden sm:table-cell">
                         <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">
                           {entry.county || entry.region}
                         </span>
                       </td>
-                      <td className="px-4 py-4 whitespace-nowrap text-right">
-                        <div className="text-lg font-bold text-gray-900 dark:text-white">
+                      <td className="px-2 sm:px-4 py-3 sm:py-4 whitespace-nowrap text-right">
+                        <div className="text-base sm:text-lg font-bold text-gray-900 dark:text-white">
                           {formatValue(entry.value, metrics[selectedMetric].unit)}
                         </div>
                         <div className="text-xs text-gray-500 dark:text-gray-400">
                           {metrics[selectedMetric].unit}
                         </div>
+                      </td>
+                      <td className="px-2 sm:px-4 py-3 sm:py-4 whitespace-nowrap text-center">
+                        {onStationSelect && (() => {
+                          const stationKey = getStationKeyFromId(entry.station);
+                          return stationKey ? (
+                            <button
+                              onClick={() => onStationSelect(stationKey)}
+                              className="px-2 sm:px-3 py-1 text-xs bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded hover:bg-blue-200 dark:hover:bg-blue-800 transition-colors"
+                              title="View station history"
+                            >
+                              <span className="hidden sm:inline">View History</span>
+                              <span className="sm:hidden">View</span>
+                            </button>
+                          ) : (
+                            <span className="text-xs text-gray-400 dark:text-gray-500">
+                              N/A
+                            </span>
+                          );
+                        })()}
                       </td>
                     </tr>
                   ))}
@@ -267,6 +306,6 @@ const RainfallLeaderboard = () => {
       )}
     </section>
   );
-};
+});
 
 export default RainfallLeaderboard;

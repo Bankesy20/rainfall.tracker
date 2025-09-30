@@ -26,14 +26,6 @@ exports.handler = async (event, context) => {
   const useBlobStorage = process.env.USE_BLOB_STORAGE === 'true';
   const blobFallbackEnabled = process.env.BLOB_FALLBACK_ENABLED !== 'false';
   
-  // Debug logging
-  console.log('🔧 Function config:', {
-    station,
-    useBlobStorage,
-    blobFallbackEnabled,
-    debugMode
-  });
-  
   if (debugMode) {
     diagnostics.config = { useBlobStorage, blobFallbackEnabled };
   }

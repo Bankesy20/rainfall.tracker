@@ -24,16 +24,6 @@ function App() {
   const { data: rainfallData, loading, error, lastUpdated, refetch, refetchCount, isDevelopment } = useRainfallData(primaryStation, availableStations);
   const { data: compareDataResult } = useRainfallData(compareStation || 'invalid_key', availableStations);
 
-  // Debug logging for data changes
-  React.useEffect(() => {
-    console.log('🏠 App - primaryStation:', primaryStation);
-    console.log('🏠 App - rainfallData:', rainfallData ? {
-      station: rainfallData.station,
-      dataLength: rainfallData.data?.length,
-      lastUpdated: rainfallData.lastUpdated
-    } : 'null');
-  }, [primaryStation, rainfallData]);
-
   // Handle theme toggle
   const toggleTheme = () => {
     setDarkMode(!darkMode);
@@ -126,13 +116,13 @@ function App() {
       {/* Header */}
       <header className="bg-white dark:bg-gray-800 shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 md:h-16">
+          <div className="flex items-center justify-between min-h-16 py-2">
             <div className="flex items-center space-x-2 sm:space-x-4">
-                              <div>
-                  <h1 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">
-                    UK Rainfall Tracker
-                  </h1>
-                </div>
+              <div>
+                <h1 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">
+                  UK Rainfall Tracker
+                </h1>
+              </div>
             </div>
             
             <div className="flex items-center space-x-2 sm:space-x-4">
@@ -145,11 +135,13 @@ function App() {
                     className="px-2 py-1 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-xs"
                     disabled={stationsLoading}
                   >
-                    {Object.values(availableStations).map(s => (
-                      <option key={s.key} value={s.key}>
-                        {s.label} {s.provider && `• ${s.provider}`}
-                      </option>
-                    ))}
+                    {Object.values(availableStations)
+                      .sort((a, b) => a.label.localeCompare(b.label))
+                      .map(s => (
+                        <option key={s.key} value={s.key}>
+                          {s.label} {s.provider && `• ${s.provider}`}
+                        </option>
+                      ))}
                   </select>
                   <button
                     onClick={() => openMap('primary')}
@@ -169,11 +161,13 @@ function App() {
                     disabled={stationsLoading}
                   >
                     <option value="">None</option>
-                    {Object.values(availableStations).map(s => (
-                      <option key={s.key} value={s.key}>
-                        {s.label} {s.provider && `• ${s.provider}`}
-                      </option>
-                    ))}
+                    {Object.values(availableStations)
+                      .sort((a, b) => a.label.localeCompare(b.label))
+                      .map(s => (
+                        <option key={s.key} value={s.key}>
+                          {s.label} {s.provider && `• ${s.provider}`}
+                        </option>
+                      ))}
                   </select>
                   <button
                     onClick={() => openMap('compare')}
@@ -185,36 +179,30 @@ function App() {
                   </button>
                 </div>
               </div>
-              {/* Refresh Button */}
-              <button
-                onClick={refetch}
-                disabled={loading}
-                className="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors disabled:opacity-50"
-                aria-label="Refresh data"
-                title="Refresh rainfall data"
-              >
-                {loading ? (
-                  <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-blue-600"></div>
-                ) : (
-                  '🔄'
-                )}
-              </button>
-              
-              {/* Status Indicator */}
-              {rainfallData && (
-                <div className="hidden sm:flex items-center space-x-1 text-xs text-gray-600 dark:text-gray-400">
-                  <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                  <span>Live</span>
-                </div>
-              )}
               
               {/* Theme Toggle */}
               <button
                 onClick={toggleTheme}
-                className="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+                className="relative inline-flex h-8 w-14 items-center rounded-full bg-gray-200 dark:bg-gray-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800"
                 aria-label="Toggle dark mode"
               >
-                {darkMode ? '☀️' : '🌙'}
+                <span
+                  className={`${
+                    darkMode ? 'translate-x-7' : 'translate-x-1'
+                  } inline-block h-6 w-6 transform rounded-full bg-white shadow-lg transition-transform duration-200 ease-in-out`}
+                >
+                  <div className="flex h-full w-full items-center justify-center">
+                    {darkMode ? (
+                      <svg className="h-4 w-4 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clipRule="evenodd" />
+                      </svg>
+                    ) : (
+                      <svg className="h-4 w-4 text-gray-600" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+                      </svg>
+                    )}
+                  </div>
+                </span>
               </button>
             </div>
           </div>
@@ -230,11 +218,13 @@ function App() {
               className="flex-1 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm min-w-0"
               disabled={stationsLoading}
             >
-              {Object.values(availableStations).map(s => (
-                <option key={s.key} value={s.key}>
-                  {s.label}
-                </option>
-              ))}
+              {Object.values(availableStations)
+                .sort((a, b) => a.label.localeCompare(b.label))
+                .map(s => (
+                  <option key={s.key} value={s.key}>
+                    {s.label}
+                  </option>
+                ))}
             </select>
             <button
               onClick={() => openMap('primary')}
@@ -258,11 +248,13 @@ function App() {
               disabled={stationsLoading}
             >
               <option value="">None</option>
-              {Object.values(availableStations).map(s => (
-                <option key={s.key} value={s.key}>
-                  {s.label}
-                </option>
-              ))}
+              {Object.values(availableStations)
+                .sort((a, b) => a.label.localeCompare(b.label))
+                .map(s => (
+                  <option key={s.key} value={s.key}>
+                    {s.label}
+                  </option>
+                ))}
             </select>
             <button
               onClick={() => openMap('compare')}
@@ -283,7 +275,10 @@ function App() {
         {rainfallData ? (
           <div className="space-y-4 sm:space-y-8">
             {/* Rainfall Leaderboards */}
-            <RainfallLeaderboard />
+            <RainfallLeaderboard 
+              onStationSelect={setPrimaryStation} 
+              availableStations={availableStations}
+            />
 
             {/* Collapsible Statistics */}
             <section className="bg-white dark:bg-gray-800 rounded-lg shadow-lg">

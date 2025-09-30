@@ -21,16 +21,6 @@ const RainfallChart = ({ data, compareData = null, compareLabel = null, primaryL
   const [aggregation, setAggregation] = useState('daily');
   const [timeRange, setTimeRange] = useState('30');
 
-  // Debug logging for chart data
-  React.useEffect(() => {
-    console.log('📊 RainfallChart - data received:', data ? {
-      length: data.length,
-      firstRecord: data[0],
-      lastRecord: data[data.length - 1]
-    } : 'null');
-    console.log('📊 RainfallChart - primaryLabel:', primaryLabel);
-  }, [data, primaryLabel]);
-
   const chartData = useMemo(() => {
     const rangeDays = timeRange === 'all' ? 365 * 10 : parseInt(timeRange);
     const primary = getChartData(data, rangeDays, aggregation);

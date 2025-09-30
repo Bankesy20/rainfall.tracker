@@ -103,13 +103,6 @@ const useRainfallData = (stationKey = 'miserden1141', availableStations = null) 
       }
 
       const result = await response.json();
-      console.log('📡 API response for station:', stationKey, {
-        hasData: !!result.data,
-        hasSuccess: !!result.success,
-        stationInData: result.data?.station,
-        dataLength: result.data?.data?.length,
-        source: result.source
-      });
       
       // Check if the API returned an error
       if (result.error) {
@@ -118,19 +111,11 @@ const useRainfallData = (stationKey = 'miserden1141', availableStations = null) 
 
       // Extract the actual rainfall data from the API response
       const rainfallData = result.data || result;
-      console.log('📊 Extracted data for station:', stationKey, {
-        station: rainfallData.station,
-        dataLength: rainfallData.data?.length,
-        firstRecord: rainfallData.data?.[0],
-        lastRecord: rainfallData.data?.[rainfallData.data?.length - 1]
-      });
       
       if (!validateRainfallData(rainfallData)) {
-        console.error('❌ Data validation failed for station:', stationKey);
         throw new Error('Invalid data format from API');
       }
 
-      console.log('✅ Setting data for station:', stationKey, 'with', rainfallData.data?.length, 'records');
       setData(rainfallData);
       setLastUpdated(new Date().toISOString());
       setRefetchCount(prev => prev + 1);
