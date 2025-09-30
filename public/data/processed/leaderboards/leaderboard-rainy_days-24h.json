@@ -2,7 +2,7 @@
   "metric": "rainy_days",
   "period": "24h",
   "unit": "days",
-  "generated_at": "2025-09-30T10:40:44.115Z",
+  "generated_at": "2025-09-30T11:19:46.537Z",
   "rankings": [
     {
       "rank": 1,
@@ -127,17 +127,6 @@
     },
     {
       "rank": 12,
-      "station": "058461",
-      "stationName": "Scargill Reservoir (058461)",
-      "region": "England",
-      "location": {
-        "lat": null,
-        "long": null
-      },
-      "value": 1
-    },
-    {
-      "rank": 13,
       "station": "1332",
       "stationName": "Walkmills (1332)",
       "region": "England",
@@ -148,7 +137,7 @@
       "value": 1
     },
     {
-      "rank": 14,
+      "rank": 13,
       "station": "242819TP",
       "stationName": "Widford (242819TP)",
       "region": "England",
@@ -159,7 +148,7 @@
       "value": 1
     },
     {
-      "rank": 15,
+      "rank": 14,
       "station": "274918TP",
       "stationName": "Bracknell (274918TP)",
       "region": "England",
@@ -170,7 +159,7 @@
       "value": 1
     },
     {
-      "rank": 16,
+      "rank": 15,
       "station": "280826TP",
       "stationName": "Farnham (280826TP)",
       "region": "England",
@@ -181,29 +170,7 @@
       "value": 1
     },
     {
-      "rank": 17,
-      "station": "300001TP",
-      "stationName": "East Worldham (300001TP)",
-      "region": "England",
-      "location": {
-        "lat": null,
-        "long": null
-      },
-      "value": 1
-    },
-    {
-      "rank": 18,
-      "station": "3339",
-      "stationName": "Sutton Coldfield (3339)",
-      "region": "England",
-      "location": {
-        "lat": null,
-        "long": null
-      },
-      "value": 1
-    },
-    {
-      "rank": 19,
+      "rank": 16,
       "station": "48100",
       "stationName": "Trengwainton (48100)",
       "region": "England",
@@ -214,7 +181,7 @@
       "value": 1
     },
     {
-      "rank": 20,
+      "rank": 17,
       "station": "49151",
       "stationName": "St Cleer (49151)",
       "region": "England",
@@ -225,7 +192,7 @@
       "value": 1
     },
     {
-      "rank": 21,
+      "rank": 18,
       "station": "52150",
       "stationName": "Yeovilton Met Office (52150)",
       "region": "England",
@@ -236,7 +203,7 @@
       "value": 1
     },
     {
-      "rank": 22,
+      "rank": 19,
       "station": "584772",
       "stationName": "Fisher Tarn (584772)",
       "region": "England",
@@ -247,7 +214,7 @@
       "value": 1
     },
     {
-      "rank": 23,
+      "rank": 20,
       "station": "585160",
       "stationName": "Kentmere Hallowbank (585160)",
       "region": "England",
@@ -258,7 +225,7 @@
       "value": 1
     },
     {
-      "rank": 24,
+      "rank": 21,
       "station": "586493",
       "stationName": "High Newton (586493)",
       "region": "England",
@@ -269,7 +236,7 @@
       "value": 1
     },
     {
-      "rank": 25,
+      "rank": 22,
       "station": "587552",
       "stationName": "Tower Wood (587552)",
       "region": "England",
@@ -280,7 +247,7 @@
       "value": 1
     },
     {
-      "rank": 26,
+      "rank": 23,
       "station": "588705",
       "stationName": "Poaka Beck (588705)",
       "region": "England",
@@ -291,7 +258,7 @@
       "value": 1
     },
     {
-      "rank": 27,
+      "rank": 24,
       "station": "588886",
       "stationName": "Palace Nook (588886)",
       "region": "England",
@@ -302,7 +269,7 @@
       "value": 1
     },
     {
-      "rank": 28,
+      "rank": 25,
       "station": "589359",
       "stationName": "Ulpha (589359)",
       "region": "England",
@@ -313,7 +280,7 @@
       "value": 1
     },
     {
-      "rank": 29,
+      "rank": 26,
       "station": "591419",
       "stationName": "Calder Hall (591419)",
       "region": "England",
@@ -324,7 +291,7 @@
       "value": 1
     },
     {
-      "rank": 30,
+      "rank": 27,
       "station": "591642",
       "stationName": "Ennerdale (591642)",
       "region": "England",
@@ -335,7 +302,7 @@
       "value": 1
     },
     {
-      "rank": 31,
+      "rank": 28,
       "station": "592158",
       "stationName": "Egremont Ivy Hill (592158)",
       "region": "England",
@@ -346,7 +313,7 @@
       "value": 1
     },
     {
-      "rank": 32,
+      "rank": 29,
       "station": "592850",
       "stationName": "Dale Head Hall (592850)",
       "region": "England",
@@ -357,7 +324,7 @@
       "value": 1
     },
     {
-      "rank": 33,
+      "rank": 30,
       "station": "592860",
       "stationName": "Thirlmere St John&#39;s Beck (592860)",
       "region": "England",
@@ -368,7 +335,7 @@
       "value": 1
     },
     {
-      "rank": 34,
+      "rank": 31,
       "station": "594202",
       "stationName": "Cornhow (594202)",
       "region": "England",
@@ -379,7 +346,7 @@
       "value": 1
     },
     {
-      "rank": 35,
+      "rank": 32,
       "station": "595273",
       "stationName": "Quarry Hill (595273)",
       "region": "England",
@@ -390,7 +357,7 @@
       "value": 1
     },
     {
-      "rank": 36,
+      "rank": 33,
       "station": "600140",
       "stationName": "Brotherswater (600140)",
       "region": "England",
@@ -401,7 +368,7 @@
       "value": 1
     },
     {
-      "rank": 37,
+      "rank": 34,
       "station": "600295",
       "stationName": "Glenridding Greenside Mines (600295)",
       "region": "England",
@@ -412,7 +379,7 @@
       "value": 1
     },
     {
-      "rank": 38,
+      "rank": 35,
       "station": "605324",
       "stationName": "Force Crag Mine (605324)",
       "region": "England",
@@ -423,7 +390,7 @@
       "value": 1
     },
     {
-      "rank": 39,
+      "rank": 36,
       "station": "606299",
       "stationName": "Willowholme (606299)",
       "region": "England",
@@ -434,7 +401,7 @@
       "value": 1
     },
     {
-      "rank": 40,
+      "rank": 37,
       "station": "E14893",
       "stationName": "Broadfield Cowes (E14893)",
       "region": "England",
@@ -445,7 +412,7 @@
       "value": 1
     },
     {
-      "rank": 41,
+      "rank": 38,
       "station": "E14910",
       "stationName": "Ryde (E14910)",
       "region": "England",
@@ -456,7 +423,7 @@
       "value": 1
     },
     {
-      "rank": 42,
+      "rank": 39,
       "station": "E14920",
       "stationName": "Carisbrooke (E14920)",
       "region": "England",
@@ -467,18 +434,7 @@
       "value": 1
     },
     {
-      "rank": 43,
-      "station": "E15510",
-      "stationName": "Knockholt (E15510)",
-      "region": "England",
-      "location": {
-        "lat": null,
-        "long": null
-      },
-      "value": 1
-    },
-    {
-      "rank": 44,
+      "rank": 40,
       "station": "E5723",
       "stationName": "Metoff Coningsby (E5723)",
       "region": "England",
@@ -489,7 +445,7 @@
       "value": 1
     },
     {
-      "rank": 45,
+      "rank": 41,
       "station": "E5724",
       "stationName": "Metoff Wainfleet (E5724)",
       "region": "England",
@@ -500,7 +456,7 @@
       "value": 1
     },
     {
-      "rank": 46,
+      "rank": 42,
       "station": "E5731",
       "stationName": "Metoff Bedford (E5731)",
       "region": "England",
@@ -511,7 +467,7 @@
       "value": 1
     },
     {
-      "rank": 47,
+      "rank": 43,
       "station": "E5733",
       "stationName": "Metoff Andrewsfield (E5733)",
       "region": "England",
@@ -522,18 +478,7 @@
       "value": 1
     },
     {
-      "rank": 48,
-      "station": "E82040",
-      "stationName": "Colaton Raleigh Dotton Water Works (E82040)",
-      "region": "England",
-      "location": {
-        "lat": null,
-        "long": null
-      },
-      "value": 1
-    },
-    {
-      "rank": 49,
+      "rank": 44,
       "station": "E9660",
       "stationName": "Storrington (E9660)",
       "region": "England",
