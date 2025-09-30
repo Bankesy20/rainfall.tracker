@@ -2,7 +2,7 @@
   "metric": "max_hourly",
   "period": "7d",
   "unit": "mm/h",
-  "generated_at": "2025-09-30T11:45:54.826Z",
+  "generated_at": "2025-09-30T12:00:41.028Z",
   "rankings": [
     {
       "rank": 1,
@@ -426,18 +426,6 @@
     },
     {
       "rank": 36,
-      "station": "0925SE",
-      "stationName": "Deal (0925SE)",
-      "region": "England",
-      "county": "Kent",
-      "location": {
-        "lat": 51.207877,
-        "long": 1.383789
-      },
-      "value": 4.8
-    },
-    {
-      "rank": 37,
       "station": "3688",
       "stationName": "Evington (3688)",
       "region": "England",
@@ -449,7 +437,7 @@
       "value": 4.8
     },
     {
-      "rank": 38,
+      "rank": 37,
       "station": "47170",
       "stationName": "Stoke Climsland (47170)",
       "region": "England",
@@ -461,7 +449,7 @@
       "value": 4.7
     },
     {
-      "rank": 39,
+      "rank": 38,
       "station": "062046",
       "stationName": "Grimwith Reservoir (062046)",
       "region": "England",
@@ -473,7 +461,7 @@
       "value": 4.6
     },
     {
-      "rank": 40,
+      "rank": 39,
       "station": "061431",
       "stationName": "Littondale (061431)",
       "region": "England",
@@ -485,7 +473,7 @@
       "value": 4.6
     },
     {
-      "rank": 41,
+      "rank": 40,
       "station": "075233",
       "stationName": "Thornton Moor Reservoir (075233)",
       "region": "England",
@@ -497,7 +485,7 @@
       "value": 4.6
     },
     {
-      "rank": 42,
+      "rank": 41,
       "station": "3610",
       "stationName": "Thornton (3610)",
       "region": "England",
@@ -509,7 +497,7 @@
       "value": 4.6
     },
     {
-      "rank": 43,
+      "rank": 42,
       "station": "592158",
       "stationName": "Egremont Ivy Hill (592158)",
       "region": "England",
@@ -521,7 +509,7 @@
       "value": 4.5
     },
     {
-      "rank": 44,
+      "rank": 43,
       "station": "586056",
       "stationName": "Levens Bridge End (586056)",
       "region": "England",
@@ -533,7 +521,7 @@
       "value": 4.4
     },
     {
-      "rank": 45,
+      "rank": 44,
       "station": "591419",
       "stationName": "Calder Hall (591419)",
       "region": "England",
@@ -545,7 +533,7 @@
       "value": 4.4
     },
     {
-      "rank": 46,
+      "rank": 45,
       "station": "562417",
       "stationName": "Sweetloves (562417)",
       "region": "England",
@@ -557,7 +545,7 @@
       "value": 4.4
     },
     {
-      "rank": 47,
+      "rank": 46,
       "station": "48169",
       "stationName": "St Ives (48169)",
       "region": "England",
@@ -569,7 +557,7 @@
       "value": 4.3
     },
     {
-      "rank": 48,
+      "rank": 47,
       "station": "587552",
       "stationName": "Tower Wood (587552)",
       "region": "England",
@@ -581,7 +569,7 @@
       "value": 4.3
     },
     {
-      "rank": 49,
+      "rank": 48,
       "station": "074108",
       "stationName": "Lothersdale Proctor Heights (074108)",
       "region": "England",
@@ -589,6 +577,18 @@
       "location": {
         "lat": 53.911448,
         "long": -2.098144
+      },
+      "value": 4.2
+    },
+    {
+      "rank": 49,
+      "station": "0925SE",
+      "stationName": "Deal (0925SE)",
+      "region": "England",
+      "county": "Kent",
+      "location": {
+        "lat": 51.207877,
+        "long": 1.383789
       },
       "value": 4.2
     },

@@ -2,7 +2,7 @@
   "metric": "total_rainfall",
   "period": "7d",
   "unit": "mm",
-  "generated_at": "2025-09-30T11:45:51.413Z",
+  "generated_at": "2025-09-30T12:00:37.599Z",
   "rankings": [
     {
       "rank": 1,
@@ -86,7 +86,7 @@
         "lat": 51.098221,
         "long": 1.155768
       },
-      "value": 18.8
+      "value": 18.6
     },
     {
       "rank": 8,
@@ -102,18 +102,6 @@
     },
     {
       "rank": 9,
-      "station": "0925SE",
-      "stationName": "Deal (0925SE)",
-      "region": "England",
-      "county": "Kent",
-      "location": {
-        "lat": 51.207877,
-        "long": 1.383789
-      },
-      "value": 17.7
-    },
-    {
-      "rank": 10,
       "station": "E5170",
       "stationName": "Lower Standen (E5170)",
       "region": "England",
@@ -125,7 +113,7 @@
       "value": 17.6
     },
     {
-      "rank": 11,
+      "rank": 10,
       "station": "E4753",
       "stationName": "Parsonage Farm (E4753)",
       "region": "England",
@@ -137,7 +125,7 @@
       "value": 17.4
     },
     {
-      "rank": 12,
+      "rank": 11,
       "station": "077800",
       "stationName": "Great Wolden Edge (077800)",
       "region": "England",
@@ -147,6 +135,18 @@
         "long": -2.005248
       },
       "value": 17.2
+    },
+    {
+      "rank": 12,
+      "station": "0925SE",
+      "stationName": "Deal (0925SE)",
+      "region": "England",
+      "county": "Kent",
+      "location": {
+        "lat": 51.207877,
+        "long": 1.383789
+      },
+      "value": 17.1
     },
     {
       "rank": 13,
@@ -294,18 +294,6 @@
     },
     {
       "rank": 25,
-      "station": "0924SE",
-      "stationName": "Eastry (0924SE)",
-      "region": "England",
-      "county": "Kent",
-      "location": {
-        "lat": 51.251014,
-        "long": 1.322456
-      },
-      "value": 15.4
-    },
-    {
-      "rank": 26,
       "station": "559969",
       "stationName": "Denton (559969)",
       "region": "England",
@@ -317,7 +305,7 @@
       "value": 15.4
     },
     {
-      "rank": 27,
+      "rank": 26,
       "station": "558016",
       "stationName": "Cat And Fiddle (558016)",
       "region": "England",
@@ -329,7 +317,7 @@
       "value": 15.2
     },
     {
-      "rank": 28,
+      "rank": 27,
       "station": "47170",
       "stationName": "Stoke Climsland (47170)",
       "region": "England",
@@ -341,7 +329,7 @@
       "value": 14.9
     },
     {
-      "rank": 29,
+      "rank": 28,
       "station": "562992",
       "stationName": "Heaton Park (562992)",
       "region": "England",
@@ -353,7 +341,7 @@
       "value": 14.9
     },
     {
-      "rank": 30,
+      "rank": 29,
       "station": "560631",
       "stationName": "Bacup (560631)",
       "region": "England",
@@ -365,7 +353,7 @@
       "value": 14.8
     },
     {
-      "rank": 31,
+      "rank": 30,
       "station": "E4510",
       "stationName": "Sellindge (E4510)",
       "region": "England",
@@ -377,7 +365,7 @@
       "value": 14.7
     },
     {
-      "rank": 32,
+      "rank": 31,
       "station": "564595",
       "stationName": "Langley Bottom (564595)",
       "region": "England",
@@ -389,7 +377,7 @@
       "value": 14.7
     },
     {
-      "rank": 33,
+      "rank": 32,
       "station": "E4850",
       "stationName": "Broadstairs (E4850)",
       "region": "England",
@@ -401,7 +389,7 @@
       "value": 14.6
     },
     {
-      "rank": 34,
+      "rank": 33,
       "station": "3323",
       "stationName": "Ashbourne (3323)",
       "region": "England",
@@ -410,10 +398,10 @@
         "lat": 53.025808,
         "long": -1.723384
       },
-      "value": 14.5
+      "value": 14.4
     },
     {
-      "rank": 35,
+      "rank": 34,
       "station": "49171",
       "stationName": "Trebrownbridge Blackadon (49171)",
       "region": "England",
@@ -425,7 +413,7 @@
       "value": 14.3
     },
     {
-      "rank": 36,
+      "rank": 35,
       "station": "287946TP",
       "stationName": "Mitcham (287946TP)",
       "region": "England",
@@ -435,6 +423,18 @@
         "long": -0.162865
       },
       "value": 14.3
+    },
+    {
+      "rank": 36,
+      "station": "0924SE",
+      "stationName": "Eastry (0924SE)",
+      "region": "England",
+      "county": "Kent",
+      "location": {
+        "lat": 51.251014,
+        "long": 1.322456
+      },
+      "value": 14.2
     },
     {
       "rank": 37,
@@ -678,18 +678,6 @@
     },
     {
       "rank": 57,
-      "station": "E3474",
-      "stationName": "Stourmouth (E3474)",
-      "region": "England",
-      "county": "Kent",
-      "location": {
-        "lat": 51.322006,
-        "long": 1.228535
-      },
-      "value": 12.8
-    },
-    {
-      "rank": 58,
       "station": "077836",
       "stationName": "Ringstone Reservoir (077836)",
       "region": "England",
@@ -701,7 +689,7 @@
       "value": 12.8
     },
     {
-      "rank": 59,
+      "rank": 58,
       "station": "48157",
       "stationName": "Heligan (48157)",
       "region": "England",
@@ -713,7 +701,7 @@
       "value": 12.6
     },
     {
-      "rank": 60,
+      "rank": 59,
       "station": "573674",
       "stationName": "Footholme (573674)",
       "region": "England",
@@ -721,6 +709,18 @@
       "location": {
         "lat": 53.971437,
         "long": -2.529714
+      },
+      "value": 12.6
+    },
+    {
+      "rank": 60,
+      "station": "E3474",
+      "stationName": "Stourmouth (E3474)",
+      "region": "England",
+      "county": "Kent",
+      "location": {
+        "lat": 51.322006,
+        "long": 1.228535
       },
       "value": 12.6
     },
