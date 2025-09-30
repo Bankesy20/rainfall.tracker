@@ -2,7 +2,7 @@
   "metric": "total_rainfall",
   "period": "30d",
   "unit": "mm",
-  "generated_at": "2025-09-30T12:00:37.987Z",
+  "generated_at": "2025-09-30T17:20:43.855Z",
   "rankings": [
     {
       "rank": 1,
@@ -14,7 +14,7 @@
         "lat": 54.511299,
         "long": -3.197753
       },
-      "value": 157
+      "value": 157.6
     },
     {
       "rank": 2,
@@ -38,7 +38,7 @@
         "lat": 54.500172,
         "long": -2.930285
       },
-      "value": 121.1
+      "value": 122.1
     },
     {
       "rank": 4,
@@ -110,7 +110,7 @@
         "lat": 54.43892,
         "long": -2.825593
       },
-      "value": 104.3
+      "value": 104.7
     },
     {
       "rank": 10,
@@ -134,7 +134,7 @@
         "lat": 54.378286,
         "long": -3.103039
       },
-      "value": 91.8
+      "value": 93
     },
     {
       "rank": 12,
@@ -254,7 +254,7 @@
         "lat": 54.592579,
         "long": -2.950962
       },
-      "value": 85
+      "value": 85.2
     },
     {
       "rank": 22,
@@ -350,7 +350,7 @@
         "lat": 54.536396,
         "long": -2.762648
       },
-      "value": 81.8
+      "value": 82
     },
     {
       "rank": 30,
@@ -402,6 +402,18 @@
     },
     {
       "rank": 34,
+      "station": "593362",
+      "stationName": "Keswick Sewage Treatment Works (593362)",
+      "region": "England",
+      "county": "Cumbria",
+      "location": {
+        "lat": 54.614148,
+        "long": -3.157414
+      },
+      "value": 79.4
+    },
+    {
+      "rank": 35,
       "station": "047281",
       "stationName": "Snaizeholme Tow Hill (047281)",
       "region": "England",
@@ -413,7 +425,7 @@
       "value": 79.2
     },
     {
-      "rank": 35,
+      "rank": 36,
       "station": "562656",
       "stationName": "Ringley (562656)",
       "region": "England",
@@ -421,18 +433,6 @@
       "location": {
         "lat": 53.539768,
         "long": -2.35078
-      },
-      "value": 78.9
-    },
-    {
-      "rank": 36,
-      "station": "593362",
-      "stationName": "Keswick Sewage Treatment Works (593362)",
-      "region": "England",
-      "county": "Cumbria",
-      "location": {
-        "lat": 54.614148,
-        "long": -3.157414
       },
       "value": 78.9
     },
@@ -522,6 +522,18 @@
     },
     {
       "rank": 44,
+      "station": "586820",
+      "stationName": "Mickledon (586820)",
+      "region": "England",
+      "county": "Cumbria",
+      "location": {
+        "lat": 54.444792,
+        "long": -3.103284
+      },
+      "value": 75
+    },
+    {
+      "rank": 45,
       "station": "031555",
       "stationName": "Easby (031555)",
       "region": "England",
@@ -533,7 +545,7 @@
       "value": 75
     },
     {
-      "rank": 45,
+      "rank": 46,
       "station": "598691",
       "stationName": "Brackenber (598691)",
       "region": "England",
@@ -545,7 +557,7 @@
       "value": 75
     },
     {
-      "rank": 46,
+      "rank": 47,
       "station": "074924",
       "stationName": "Lower Laithe Reservoir (074924)",
       "region": "England",
@@ -555,18 +567,6 @@
         "long": -1.976406
       },
       "value": 74.8
-    },
-    {
-      "rank": 47,
-      "station": "586820",
-      "stationName": "Mickledon (586820)",
-      "region": "England",
-      "county": "Cumbria",
-      "location": {
-        "lat": 54.444792,
-        "long": -3.103284
-      },
-      "value": 74.4
     },
     {
       "rank": 48,
@@ -882,6 +882,18 @@
     },
     {
       "rank": 74,
+      "station": "591878",
+      "stationName": "Summergrove (591878)",
+      "region": "England",
+      "county": "Unknown",
+      "location": {
+        "lat": 54.529816,
+        "long": -3.545999
+      },
+      "value": 68.6
+    },
+    {
+      "rank": 75,
       "station": "560943",
       "stationName": "Holden Wood (560943)",
       "region": "England",
@@ -893,7 +905,7 @@
       "value": 68.6
     },
     {
-      "rank": 75,
+      "rank": 76,
       "station": "582837",
       "stationName": "Turnerford (582837)",
       "region": "England",
@@ -903,18 +915,6 @@
         "long": -2.425739
       },
       "value": 68.4
-    },
-    {
-      "rank": 76,
-      "station": "591878",
-      "stationName": "Summergrove (591878)",
-      "region": "England",
-      "county": "Unknown",
-      "location": {
-        "lat": 54.529816,
-        "long": -3.545999
-      },
-      "value": 68.3
     },
     {
       "rank": 77,

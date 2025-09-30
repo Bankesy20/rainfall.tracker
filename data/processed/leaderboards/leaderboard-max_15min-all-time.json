@@ -2,7 +2,7 @@
   "metric": "max_15min",
   "period": "all-time",
   "unit": "mm/15min",
-  "generated_at": "2025-09-30T12:00:49.216Z",
+  "generated_at": "2025-09-30T17:20:55.341Z",
   "rankings": [
     {
       "rank": 1,
@@ -90,6 +90,18 @@
     },
     {
       "rank": 8,
+      "station": "E14930",
+      "stationName": "Chale (E14930)",
+      "region": "England",
+      "county": "Isle of Wight",
+      "location": {
+        "lat": 50.623497,
+        "long": -1.307947
+      },
+      "value": 9
+    },
+    {
+      "rank": 9,
       "station": "49147",
       "stationName": "Newquay (49147)",
       "region": "England",
@@ -101,7 +113,7 @@
       "value": 8.4
     },
     {
-      "rank": 9,
+      "rank": 10,
       "station": "558016",
       "stationName": "Cat And Fiddle (558016)",
       "region": "England",
@@ -113,7 +125,7 @@
       "value": 7.3
     },
     {
-      "rank": 10,
+      "rank": 11,
       "station": "3347",
       "stationName": "Loggerheads (3347)",
       "region": "England",
@@ -123,18 +135,6 @@
         "long": -2.37685
       },
       "value": 7.2
-    },
-    {
-      "rank": 11,
-      "station": "E14930",
-      "stationName": "Chale (E14930)",
-      "region": "England",
-      "county": "Isle of Wight",
-      "location": {
-        "lat": 50.623497,
-        "long": -1.307947
-      },
-      "value": 7.1
     },
     {
       "rank": 12,
