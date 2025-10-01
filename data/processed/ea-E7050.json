@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-10-01T09:31:28.433Z",
+  "lastUpdated": "2025-10-01T15:29:57.750Z",
   "station": "E7050",
   "stationName": "Preston Capes (E7050)",
   "region": "England",
@@ -8,7 +8,7 @@
     "long": null
   },
   "dataSource": "EA API",
-  "recordCount": 1255,
+  "recordCount": 1257,
   "data": [
     {
       "date": "2025-09-18",
@@ -12559,8 +12559,28 @@
       "station": "E7050",
       "stationName": "Preston Capes (E7050)",
       "region": "England"
+    },
+    {
+      "date": "2025-10-01",
+      "time": "16:15:00.000",
+      "dateTime": "2025-10-01T16:15:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E7050",
+      "stationName": "Preston Capes (E7050)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-01",
+      "time": "16:30:00.000",
+      "dateTime": "2025-10-01T16:30:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E7050",
+      "stationName": "Preston Capes (E7050)",
+      "region": "England"
     }
   ],
-  "previousUpdate": "2025-10-01T03:48:48.790Z",
+  "previousUpdate": "2025-10-01T09:31:28.433Z",
   "incrementalUpdate": true
 }
