@@ -2,7 +2,7 @@
   "metric": "max_hourly",
   "period": "7d",
   "unit": "mm/h",
-  "generated_at": "2025-09-30T23:20:29.568Z",
+  "generated_at": "2025-10-01T05:22:54.398Z",
   "rankings": [
     {
       "rank": 1,
@@ -438,6 +438,18 @@
     },
     {
       "rank": 37,
+      "station": "591419",
+      "stationName": "Calder Hall (591419)",
+      "region": "England",
+      "county": "Cumbria",
+      "location": {
+        "lat": 54.427181,
+        "long": -3.488178
+      },
+      "value": 4.6
+    },
+    {
+      "rank": 38,
       "station": "061431",
       "stationName": "Littondale (061431)",
       "region": "England",
@@ -449,7 +461,7 @@
       "value": 4.6
     },
     {
-      "rank": 38,
+      "rank": 39,
       "station": "075233",
       "stationName": "Thornton Moor Reservoir (075233)",
       "region": "England",
@@ -461,7 +473,7 @@
       "value": 4.6
     },
     {
-      "rank": 39,
+      "rank": 40,
       "station": "3610",
       "stationName": "Thornton (3610)",
       "region": "England",
@@ -473,7 +485,7 @@
       "value": 4.6
     },
     {
-      "rank": 40,
+      "rank": 41,
       "station": "592158",
       "stationName": "Egremont Ivy Hill (592158)",
       "region": "England",
@@ -485,7 +497,7 @@
       "value": 4.5
     },
     {
-      "rank": 41,
+      "rank": 42,
       "station": "586056",
       "stationName": "Levens Bridge End (586056)",
       "region": "England",
@@ -493,18 +505,6 @@
       "location": {
         "lat": 54.262864,
         "long": -2.811323
-      },
-      "value": 4.4
-    },
-    {
-      "rank": 42,
-      "station": "591419",
-      "stationName": "Calder Hall (591419)",
-      "region": "England",
-      "county": "Cumbria",
-      "location": {
-        "lat": 54.427181,
-        "long": -3.488178
       },
       "value": 4.4
     },
@@ -1146,6 +1146,18 @@
     },
     {
       "rank": 96,
+      "station": "582837",
+      "stationName": "Turnerford (582837)",
+      "region": "England",
+      "county": "Cumbria",
+      "location": {
+        "lat": 54.090487,
+        "long": -2.425739
+      },
+      "value": 3.3
+    },
+    {
+      "rank": 97,
       "station": "E2561",
       "stationName": "Pitsford (E2561)",
       "region": "England",
@@ -1157,7 +1169,7 @@
       "value": 3.3
     },
     {
-      "rank": 97,
+      "rank": 98,
       "station": "058461",
       "stationName": "Scargill Reservoir (058461)",
       "region": "England",
@@ -1169,7 +1181,7 @@
       "value": 3.2
     },
     {
-      "rank": 98,
+      "rank": 99,
       "station": "074329",
       "stationName": "Embsay Reservoir (074329)",
       "region": "England",
@@ -1181,7 +1193,7 @@
       "value": 3.2
     },
     {
-      "rank": 99,
+      "rank": 100,
       "station": "075497",
       "stationName": "Bradford Chellow Heights (075497)",
       "region": "England",
@@ -1189,18 +1201,6 @@
       "location": {
         "lat": 53.815189,
         "long": -1.823015
-      },
-      "value": 3.2
-    },
-    {
-      "rank": 100,
-      "station": "077336",
-      "stationName": "Gorple Reservoir (077336)",
-      "region": "England",
-      "county": "Lancashire",
-      "location": {
-        "lat": 53.77754,
-        "long": -2.084173
       },
       "value": 3.2
     }

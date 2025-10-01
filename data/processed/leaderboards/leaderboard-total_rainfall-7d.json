@@ -2,7 +2,7 @@
   "metric": "total_rainfall",
   "period": "7d",
   "unit": "mm",
-  "generated_at": "2025-09-30T23:20:26.060Z",
+  "generated_at": "2025-10-01T05:22:50.783Z",
   "rankings": [
     {
       "rank": 1,
@@ -18,6 +18,30 @@
     },
     {
       "rank": 2,
+      "station": "588006",
+      "stationName": "Coniston Coppermines (588006)",
+      "region": "England",
+      "county": "Cumbria",
+      "location": {
+        "lat": 54.378286,
+        "long": -3.103039
+      },
+      "value": 22
+    },
+    {
+      "rank": 3,
+      "station": "592158",
+      "stationName": "Egremont Ivy Hill (592158)",
+      "region": "England",
+      "county": "Unknown",
+      "location": {
+        "lat": 54.498215,
+        "long": -3.557159
+      },
+      "value": 21.2
+    },
+    {
+      "rank": 4,
       "station": "077066",
       "stationName": "Gorpley Reservoir (077066)",
       "region": "England",
@@ -26,10 +50,34 @@
         "lat": 53.70469,
         "long": -2.135531
       },
+      "value": 20.6
+    },
+    {
+      "rank": 5,
+      "station": "591878",
+      "stationName": "Summergrove (591878)",
+      "region": "England",
+      "county": "Unknown",
+      "location": {
+        "lat": 54.529816,
+        "long": -3.545999
+      },
       "value": 20.4
     },
     {
-      "rank": 3,
+      "rank": 6,
+      "station": "591642",
+      "stationName": "Ennerdale (591642)",
+      "region": "England",
+      "county": "Cumbria",
+      "location": {
+        "lat": 54.525099,
+        "long": -3.417569
+      },
+      "value": 19.9
+    },
+    {
+      "rank": 7,
       "station": "563170",
       "stationName": "Oldham (563170)",
       "region": "England",
@@ -41,7 +89,7 @@
       "value": 19.8
     },
     {
-      "rank": 4,
+      "rank": 8,
       "station": "559586",
       "stationName": "Greenfield (559586)",
       "region": "England",
@@ -53,19 +101,7 @@
       "value": 19.8
     },
     {
-      "rank": 5,
-      "station": "075233",
-      "stationName": "Thornton Moor Reservoir (075233)",
-      "region": "England",
-      "county": "Lancashire",
-      "location": {
-        "lat": 53.79732,
-        "long": -1.924807
-      },
-      "value": 19.7
-    },
-    {
-      "rank": 6,
+      "rank": 9,
       "station": "079621",
       "stationName": "Heckmondwike Bottoms (079621)",
       "region": "England",
@@ -77,7 +113,7 @@
       "value": 19.4
     },
     {
-      "rank": 7,
+      "rank": 10,
       "station": "078772",
       "stationName": "Brownhill Reservoir (078772)",
       "region": "England",
@@ -89,7 +125,55 @@
       "value": 19.4
     },
     {
-      "rank": 8,
+      "rank": 11,
+      "station": "591419",
+      "stationName": "Calder Hall (591419)",
+      "region": "England",
+      "county": "Cumbria",
+      "location": {
+        "lat": 54.427181,
+        "long": -3.488178
+      },
+      "value": 19
+    },
+    {
+      "rank": 12,
+      "station": "075233",
+      "stationName": "Thornton Moor Reservoir (075233)",
+      "region": "England",
+      "county": "Lancashire",
+      "location": {
+        "lat": 53.79732,
+        "long": -1.924807
+      },
+      "value": 19
+    },
+    {
+      "rank": 13,
+      "station": "588705",
+      "stationName": "Poaka Beck (588705)",
+      "region": "England",
+      "county": "Cumbria",
+      "location": {
+        "lat": 54.190769,
+        "long": -3.163942
+      },
+      "value": 19
+    },
+    {
+      "rank": 14,
+      "station": "588886",
+      "stationName": "Palace Nook (588886)",
+      "region": "England",
+      "county": "Cumbria",
+      "location": {
+        "lat": 54.136092,
+        "long": -3.238939
+      },
+      "value": 18.2
+    },
+    {
+      "rank": 15,
       "station": "558975",
       "stationName": "Padfield Reservoir (558975)",
       "region": "England",
@@ -101,7 +185,19 @@
       "value": 17.8
     },
     {
-      "rank": 9,
+      "rank": 16,
+      "station": "073422",
+      "stationName": "Malham Tarn (073422)",
+      "region": "England",
+      "county": "Cumbria",
+      "location": {
+        "lat": 54.100116,
+        "long": -2.164345
+      },
+      "value": 17.4
+    },
+    {
+      "rank": 17,
       "station": "077800",
       "stationName": "Great Wolden Edge (077800)",
       "region": "England",
@@ -113,7 +209,7 @@
       "value": 17.2
     },
     {
-      "rank": 10,
+      "rank": 18,
       "station": "558844",
       "stationName": "Woodhead (558844)",
       "region": "England",
@@ -122,10 +218,10 @@
         "lat": 53.49079,
         "long": -1.883147
       },
-      "value": 17.1
+      "value": 17.2
     },
     {
-      "rank": 11,
+      "rank": 19,
       "station": "076204",
       "stationName": "Farnley Hall (076204)",
       "region": "England",
@@ -137,7 +233,7 @@
       "value": 17
     },
     {
-      "rank": 12,
+      "rank": 20,
       "station": "078530",
       "stationName": "Marsden Butterley Reservoir (078530)",
       "region": "England",
@@ -149,19 +245,7 @@
       "value": 17
     },
     {
-      "rank": 13,
-      "station": "073422",
-      "stationName": "Malham Tarn (073422)",
-      "region": "England",
-      "county": "Cumbria",
-      "location": {
-        "lat": 54.100116,
-        "long": -2.164345
-      },
-      "value": 16.8
-    },
-    {
-      "rank": 14,
+      "rank": 21,
       "station": "561299",
       "stationName": "Blackstone Edge (561299)",
       "region": "England",
@@ -173,7 +257,7 @@
       "value": 16.8
     },
     {
-      "rank": 15,
+      "rank": 22,
       "station": "077952",
       "stationName": "Halifax Ogden Reservoir (077952)",
       "region": "England",
@@ -185,7 +269,7 @@
       "value": 16.6
     },
     {
-      "rank": 16,
+      "rank": 23,
       "station": "062046",
       "stationName": "Grimwith Reservoir (062046)",
       "region": "England",
@@ -197,7 +281,19 @@
       "value": 16.6
     },
     {
-      "rank": 17,
+      "rank": 24,
+      "station": "587552",
+      "stationName": "Tower Wood (587552)",
+      "region": "England",
+      "county": "Cumbria",
+      "location": {
+        "lat": 54.313112,
+        "long": -2.946042
+      },
+      "value": 16.4
+    },
+    {
+      "rank": 25,
       "station": "075497",
       "stationName": "Bradford Chellow Heights (075497)",
       "region": "England",
@@ -209,7 +305,7 @@
       "value": 16.1
     },
     {
-      "rank": 18,
+      "rank": 26,
       "station": "E5721",
       "stationName": "Metoff Waddington (E5721)",
       "region": "England",
@@ -221,7 +317,7 @@
       "value": 15.7
     },
     {
-      "rank": 19,
+      "rank": 27,
       "station": "564769",
       "stationName": "Prestbury (564769)",
       "region": "England",
@@ -233,7 +329,7 @@
       "value": 15.6
     },
     {
-      "rank": 20,
+      "rank": 28,
       "station": "Egerton1",
       "stationName": "Egerton Dimple Road (Egerton1)",
       "region": "England",
@@ -242,10 +338,10 @@
         "lat": 53.636515,
         "long": -2.448375
       },
-      "value": 15.5
+      "value": 15.6
     },
     {
-      "rank": 21,
+      "rank": 29,
       "station": "559969",
       "stationName": "Denton (559969)",
       "region": "England",
@@ -257,7 +353,19 @@
       "value": 15.4
     },
     {
-      "rank": 22,
+      "rank": 30,
+      "station": "560631",
+      "stationName": "Bacup (560631)",
+      "region": "England",
+      "county": "Lancashire",
+      "location": {
+        "lat": 53.718989,
+        "long": -2.194675
+      },
+      "value": 15.2
+    },
+    {
+      "rank": 31,
       "station": "558016",
       "stationName": "Cat And Fiddle (558016)",
       "region": "England",
@@ -266,10 +374,46 @@
         "lat": 53.24456,
         "long": -1.997705
       },
-      "value": 15.2
+      "value": 15.1
     },
     {
-      "rank": 23,
+      "rank": 32,
+      "station": "585512",
+      "stationName": "Watchgate (585512)",
+      "region": "England",
+      "county": "Cumbria",
+      "location": {
+        "lat": 54.37577,
+        "long": -2.72272
+      },
+      "value": 15.1
+    },
+    {
+      "rank": 33,
+      "station": "562992",
+      "stationName": "Heaton Park (562992)",
+      "region": "England",
+      "county": "Lancashire",
+      "location": {
+        "lat": 53.535499,
+        "long": -2.263235
+      },
+      "value": 15
+    },
+    {
+      "rank": 34,
+      "station": "586056",
+      "stationName": "Levens Bridge End (586056)",
+      "region": "England",
+      "county": "Cumbria",
+      "location": {
+        "lat": 54.262864,
+        "long": -2.811323
+      },
+      "value": 15
+    },
+    {
+      "rank": 35,
       "station": "47170",
       "stationName": "Stoke Climsland (47170)",
       "region": "England",
@@ -281,31 +425,7 @@
       "value": 14.9
     },
     {
-      "rank": 24,
-      "station": "562992",
-      "stationName": "Heaton Park (562992)",
-      "region": "England",
-      "county": "Lancashire",
-      "location": {
-        "lat": 53.535499,
-        "long": -2.263235
-      },
-      "value": 14.9
-    },
-    {
-      "rank": 25,
-      "station": "560631",
-      "stationName": "Bacup (560631)",
-      "region": "England",
-      "county": "Lancashire",
-      "location": {
-        "lat": 53.718989,
-        "long": -2.194675
-      },
-      "value": 14.8
-    },
-    {
-      "rank": 26,
+      "rank": 36,
       "station": "564595",
       "stationName": "Langley Bottom (564595)",
       "region": "England",
@@ -317,7 +437,7 @@
       "value": 14.7
     },
     {
-      "rank": 27,
+      "rank": 37,
       "station": "49171",
       "stationName": "Trebrownbridge Blackadon (49171)",
       "region": "England",
@@ -329,19 +449,7 @@
       "value": 14.3
     },
     {
-      "rank": 28,
-      "station": "287946TP",
-      "stationName": "Mitcham (287946TP)",
-      "region": "England",
-      "county": "Surrey",
-      "location": {
-        "lat": 51.415955,
-        "long": -0.162865
-      },
-      "value": 14.3
-    },
-    {
-      "rank": 29,
+      "rank": 38,
       "station": "47176",
       "stationName": "Langstone Moor (47176)",
       "region": "England",
@@ -353,7 +461,19 @@
       "value": 14.2
     },
     {
-      "rank": 30,
+      "rank": 39,
+      "station": "575335",
+      "stationName": "Mearley Hall (575335)",
+      "region": "England",
+      "county": "Lancashire",
+      "location": {
+        "lat": 53.862447,
+        "long": -2.348914
+      },
+      "value": 14.2
+    },
+    {
+      "rank": 40,
       "station": "558491",
       "stationName": "Hayfield New Mills (558491)",
       "region": "England",
@@ -365,7 +485,19 @@
       "value": 14.1
     },
     {
-      "rank": 31,
+      "rank": 41,
+      "station": "585160",
+      "stationName": "Kentmere Hallowbank (585160)",
+      "region": "England",
+      "county": "Cumbria",
+      "location": {
+        "lat": 54.43892,
+        "long": -2.825593
+      },
+      "value": 14
+    },
+    {
+      "rank": 42,
       "station": "E5722",
       "stationName": "Metoff Cranwell (E5722)",
       "region": "England",
@@ -374,10 +506,10 @@
         "lat": 53.031102,
         "long": -0.503575
       },
-      "value": 14.1
+      "value": 14
     },
     {
-      "rank": 32,
+      "rank": 43,
       "station": "E7190",
       "stationName": "Toft Newton Reservoir (E7190)",
       "region": "England",
@@ -386,22 +518,10 @@
         "lat": 53.37292,
         "long": -0.449533
       },
-      "value": 14
-    },
-    {
-      "rank": 33,
-      "station": "575335",
-      "stationName": "Mearley Hall (575335)",
-      "region": "England",
-      "county": "Lancashire",
-      "location": {
-        "lat": 53.862447,
-        "long": -2.348914
-      },
       "value": 13.8
     },
     {
-      "rank": 34,
+      "rank": 44,
       "station": "3380",
       "stationName": "Derwent Reservoir (3380)",
       "region": "England",
@@ -413,7 +533,19 @@
       "value": 13.8
     },
     {
-      "rank": 35,
+      "rank": 45,
+      "station": "562656",
+      "stationName": "Ringley (562656)",
+      "region": "England",
+      "county": "Lancashire",
+      "location": {
+        "lat": 53.539768,
+        "long": -2.35078
+      },
+      "value": 13.8
+    },
+    {
+      "rank": 46,
       "station": "058461",
       "stationName": "Scargill Reservoir (058461)",
       "region": "England",
@@ -425,31 +557,7 @@
       "value": 13.6
     },
     {
-      "rank": 36,
-      "station": "562656",
-      "stationName": "Ringley (562656)",
-      "region": "England",
-      "county": "Lancashire",
-      "location": {
-        "lat": 53.539768,
-        "long": -2.35078
-      },
-      "value": 13.6
-    },
-    {
-      "rank": 37,
-      "station": "588006",
-      "stationName": "Coniston Coppermines (588006)",
-      "region": "England",
-      "county": "Cumbria",
-      "location": {
-        "lat": 54.378286,
-        "long": -3.103039
-      },
-      "value": 13.5
-    },
-    {
-      "rank": 38,
+      "rank": 47,
       "station": "47164",
       "stationName": "Dousland (47164)",
       "region": "England",
@@ -461,7 +569,7 @@
       "value": 13.4
     },
     {
-      "rank": 39,
+      "rank": 48,
       "station": "074924",
       "stationName": "Lower Laithe Reservoir (074924)",
       "region": "England",
@@ -470,10 +578,22 @@
         "lat": 53.829697,
         "long": -1.976406
       },
-      "value": 13.2
+      "value": 13.4
     },
     {
-      "rank": 40,
+      "rank": 49,
+      "station": "061431",
+      "stationName": "Littondale (061431)",
+      "region": "England",
+      "county": "Cumbria",
+      "location": {
+        "lat": 54.163943,
+        "long": -2.152346
+      },
+      "value": 13.4
+    },
+    {
+      "rank": 50,
       "station": "46160",
       "stationName": "Whitebarrow (46160)",
       "region": "England",
@@ -485,7 +605,7 @@
       "value": 13.2
     },
     {
-      "rank": 41,
+      "rank": 51,
       "station": "242534TP",
       "stationName": "Ware,broadmeads (242534TP)",
       "region": "England",
@@ -497,7 +617,7 @@
       "value": 13.2
     },
     {
-      "rank": 42,
+      "rank": 52,
       "station": "561613",
       "stationName": "Cowm Res (561613)",
       "region": "England",
@@ -509,19 +629,31 @@
       "value": 13.2
     },
     {
-      "rank": 43,
-      "station": "061431",
-      "stationName": "Littondale (061431)",
+      "rank": 53,
+      "station": "573674",
+      "stationName": "Footholme (573674)",
+      "region": "England",
+      "county": "Lancashire",
+      "location": {
+        "lat": 53.971437,
+        "long": -2.529714
+      },
+      "value": 13.2
+    },
+    {
+      "rank": 54,
+      "station": "600140",
+      "stationName": "Brotherswater (600140)",
       "region": "England",
       "county": "Cumbria",
       "location": {
-        "lat": 54.163943,
-        "long": -2.152346
+        "lat": 54.500172,
+        "long": -2.930285
       },
-      "value": 13
+      "value": 13.1
     },
     {
-      "rank": 44,
+      "rank": 55,
       "station": "080282",
       "stationName": "Wakefield (080282)",
       "region": "England",
@@ -533,19 +665,7 @@
       "value": 12.8
     },
     {
-      "rank": 45,
-      "station": "586056",
-      "stationName": "Levens Bridge End (586056)",
-      "region": "England",
-      "county": "Cumbria",
-      "location": {
-        "lat": 54.262864,
-        "long": -2.811323
-      },
-      "value": 12.8
-    },
-    {
-      "rank": 46,
+      "rank": 56,
       "station": "076413",
       "stationName": "Headingley (076413)",
       "region": "England",
@@ -557,7 +677,7 @@
       "value": 12.8
     },
     {
-      "rank": 47,
+      "rank": 57,
       "station": "49151",
       "stationName": "St Cleer (49151)",
       "region": "England",
@@ -569,7 +689,7 @@
       "value": 12.8
     },
     {
-      "rank": 48,
+      "rank": 58,
       "station": "077836",
       "stationName": "Ringstone Reservoir (077836)",
       "region": "England",
@@ -581,19 +701,55 @@
       "value": 12.8
     },
     {
-      "rank": 49,
-      "station": "573674",
-      "stationName": "Footholme (573674)",
+      "rank": 59,
+      "station": "562417",
+      "stationName": "Sweetloves (562417)",
       "region": "England",
       "county": "Lancashire",
       "location": {
-        "lat": 53.971437,
-        "long": -2.529714
+        "lat": 53.60958,
+        "long": -2.440532
       },
-      "value": 12.6
+      "value": 12.8
     },
     {
-      "rank": 50,
+      "rank": 60,
+      "station": "287946TP",
+      "stationName": "Mitcham (287946TP)",
+      "region": "England",
+      "county": "Surrey",
+      "location": {
+        "lat": 51.415955,
+        "long": -0.162865
+      },
+      "value": 12.7
+    },
+    {
+      "rank": 61,
+      "station": "582837",
+      "stationName": "Turnerford (582837)",
+      "region": "England",
+      "county": "Cumbria",
+      "location": {
+        "lat": 54.090487,
+        "long": -2.425739
+      },
+      "value": 12.7
+    },
+    {
+      "rank": 62,
+      "station": "074385",
+      "stationName": "Snaygill (074385)",
+      "region": "England",
+      "county": "Lancashire",
+      "location": {
+        "lat": 53.947438,
+        "long": -2.020525
+      },
+      "value": 12.5
+    },
+    {
+      "rank": 63,
       "station": "555207",
       "stationName": "Mow Cop (555207)",
       "region": "England",
@@ -605,31 +761,7 @@
       "value": 12.4
     },
     {
-      "rank": 51,
-      "station": "562417",
-      "stationName": "Sweetloves (562417)",
-      "region": "England",
-      "county": "Lancashire",
-      "location": {
-        "lat": 53.60958,
-        "long": -2.440532
-      },
-      "value": 12.4
-    },
-    {
-      "rank": 52,
-      "station": "074385",
-      "stationName": "Snaygill (074385)",
-      "region": "England",
-      "county": "Lancashire",
-      "location": {
-        "lat": 53.947438,
-        "long": -2.020525
-      },
-      "value": 12.3
-    },
-    {
-      "rank": 53,
+      "rank": 64,
       "station": "E1613",
       "stationName": "Tealby (E1613)",
       "region": "England",
@@ -641,19 +773,19 @@
       "value": 12
     },
     {
-      "rank": 54,
-      "station": "3323",
-      "stationName": "Ashbourne (3323)",
+      "rank": 65,
+      "station": "600295",
+      "stationName": "Glenridding Greenside Mines (600295)",
       "region": "England",
-      "county": "Derbyshire",
+      "county": "Cumbria",
       "location": {
-        "lat": 53.025808,
-        "long": -1.723384
+        "lat": 54.548278,
+        "long": -2.983943
       },
       "value": 12
     },
     {
-      "rank": 55,
+      "rank": 66,
       "station": "063518",
       "stationName": "Eccup Reservoir (063518)",
       "region": "England",
@@ -665,7 +797,19 @@
       "value": 12
     },
     {
-      "rank": 56,
+      "rank": 67,
+      "station": "586898",
+      "stationName": "Brathay Hall (586898)",
+      "region": "England",
+      "county": "Cumbria",
+      "location": {
+        "lat": 54.420696,
+        "long": -2.979342
+      },
+      "value": 11.9
+    },
+    {
+      "rank": 68,
       "station": "E45881",
       "stationName": "Canwick (E45881)",
       "region": "England",
@@ -677,31 +821,7 @@
       "value": 11.8
     },
     {
-      "rank": 57,
-      "station": "3602",
-      "stationName": "Waltham On The Wolds (3602)",
-      "region": "England",
-      "county": "Leicestershire",
-      "location": {
-        "lat": 52.813347,
-        "long": -0.803365
-      },
-      "value": 11.8
-    },
-    {
-      "rank": 58,
-      "station": "049902",
-      "stationName": "Lumley Moor Reservoir (049902)",
-      "region": "England",
-      "county": "Lancashire",
-      "location": {
-        "lat": 54.130296,
-        "long": -1.656404
-      },
-      "value": 11.5
-    },
-    {
-      "rank": 59,
+      "rank": 69,
       "station": "074108",
       "stationName": "Lothersdale Proctor Heights (074108)",
       "region": "England",
@@ -710,10 +830,46 @@
         "lat": 53.911448,
         "long": -2.098144
       },
-      "value": 11.4
+      "value": 11.8
     },
     {
-      "rank": 60,
+      "rank": 70,
+      "station": "3602",
+      "stationName": "Waltham On The Wolds (3602)",
+      "region": "England",
+      "county": "Leicestershire",
+      "location": {
+        "lat": 52.813347,
+        "long": -0.803365
+      },
+      "value": 11.6
+    },
+    {
+      "rank": 71,
+      "station": "049902",
+      "stationName": "Lumley Moor Reservoir (049902)",
+      "region": "England",
+      "county": "Lancashire",
+      "location": {
+        "lat": 54.130296,
+        "long": -1.656404
+      },
+      "value": 11.6
+    },
+    {
+      "rank": 72,
+      "station": "571894",
+      "stationName": "Stainforth (571894)",
+      "region": "England",
+      "county": "Cumbria",
+      "location": {
+        "lat": 54.103514,
+        "long": -2.27294
+      },
+      "value": 11.6
+    },
+    {
+      "rank": 73,
       "station": "3572",
       "stationName": "Chapel Reservoir (3572)",
       "region": "England",
@@ -725,7 +881,7 @@
       "value": 11.4
     },
     {
-      "rank": 61,
+      "rank": 74,
       "station": "074329",
       "stationName": "Embsay Reservoir (074329)",
       "region": "England",
@@ -737,7 +893,7 @@
       "value": 11.4
     },
     {
-      "rank": 62,
+      "rank": 75,
       "station": "E1645",
       "stationName": "Goxhill (E1645)",
       "region": "England",
@@ -749,19 +905,43 @@
       "value": 11.2
     },
     {
-      "rank": 63,
-      "station": "077336",
-      "stationName": "Gorple Reservoir (077336)",
+      "rank": 76,
+      "station": "592860",
+      "stationName": "Thirlmere St John&#39;s Beck (592860)",
       "region": "England",
-      "county": "Lancashire",
+      "county": "Cumbria",
       "location": {
-        "lat": 53.77754,
-        "long": -2.084173
+        "lat": 54.56648,
+        "long": -3.063261
       },
-      "value": 10.8
+      "value": 11.2
     },
     {
-      "rank": 64,
+      "rank": 77,
+      "station": "600986",
+      "stationName": "Wet Sleddale (600986)",
+      "region": "England",
+      "county": "Cumbria",
+      "location": {
+        "lat": 54.497284,
+        "long": -2.690895
+      },
+      "value": 11.1
+    },
+    {
+      "rank": 78,
+      "station": "3323",
+      "stationName": "Ashbourne (3323)",
+      "region": "England",
+      "county": "Derbyshire",
+      "location": {
+        "lat": 53.025808,
+        "long": -1.723384
+      },
+      "value": 10.9
+    },
+    {
+      "rank": 79,
       "station": "573342",
       "stationName": "Stocks Res (573342)",
       "region": "England",
@@ -773,7 +953,19 @@
       "value": 10.8
     },
     {
-      "rank": 65,
+      "rank": 80,
+      "station": "052287",
+      "stationName": "Richmond Green Howard Road (052287)",
+      "region": "England",
+      "county": "Lancashire",
+      "location": {
+        "lat": 54.409101,
+        "long": -1.735735
+      },
+      "value": 10.7
+    },
+    {
+      "rank": 81,
       "station": "E1457",
       "stationName": "Till Washland Saxilby (E1457)",
       "region": "England",
@@ -785,19 +977,7 @@
       "value": 10.6
     },
     {
-      "rank": 66,
-      "station": "078922",
-      "stationName": "Honley Ludhill Farm (078922)",
-      "region": "England",
-      "county": "Lancashire",
-      "location": {
-        "lat": 53.60567,
-        "long": -1.766463
-      },
-      "value": 10.5
-    },
-    {
-      "rank": 67,
+      "rank": 82,
       "station": "E1815",
       "stationName": "Ruskington (E1815)",
       "region": "England",
@@ -809,7 +989,7 @@
       "value": 10.5
     },
     {
-      "rank": 68,
+      "rank": 83,
       "station": "575935",
       "stationName": "Sunnyhurst (575935)",
       "region": "England",
@@ -821,31 +1001,55 @@
       "value": 10.5
     },
     {
-      "rank": 69,
-      "station": "588886",
-      "stationName": "Palace Nook (588886)",
+      "rank": 84,
+      "station": "078922",
+      "stationName": "Honley Ludhill Farm (078922)",
       "region": "England",
-      "county": "Cumbria",
+      "county": "Lancashire",
       "location": {
-        "lat": 54.136092,
-        "long": -3.238939
+        "lat": 53.60567,
+        "long": -1.766463
+      },
+      "value": 10.4
+    },
+    {
+      "rank": 85,
+      "station": "077336",
+      "stationName": "Gorple Reservoir (077336)",
+      "region": "England",
+      "county": "Lancashire",
+      "location": {
+        "lat": 53.77754,
+        "long": -2.084173
+      },
+      "value": 10.4
+    },
+    {
+      "rank": 86,
+      "station": "575384",
+      "stationName": "Kebb Farm / Great Harwood (575384)",
+      "region": "England",
+      "county": "Lancashire",
+      "location": {
+        "lat": 53.790306,
+        "long": -2.422692
       },
       "value": 10.3
     },
     {
-      "rank": 70,
-      "station": "052287",
-      "stationName": "Richmond Green Howard Road (052287)",
+      "rank": 87,
+      "station": "569848",
+      "stationName": "Worthington (569848)",
       "region": "England",
       "county": "Lancashire",
       "location": {
-        "lat": 54.409101,
-        "long": -1.735735
+        "lat": 53.58714,
+        "long": -2.633659
       },
-      "value": 10.2
+      "value": 10.3
     },
     {
-      "rank": 71,
+      "rank": 88,
       "station": "3347",
       "stationName": "Loggerheads (3347)",
       "region": "England",
@@ -857,7 +1061,7 @@
       "value": 10.2
     },
     {
-      "rank": 72,
+      "rank": 89,
       "station": "056505",
       "stationName": "Lower Dunsforth (056505)",
       "region": "England",
@@ -869,31 +1073,19 @@
       "value": 10
     },
     {
-      "rank": 73,
-      "station": "585512",
-      "stationName": "Watchgate (585512)",
+      "rank": 90,
+      "station": "564154",
+      "stationName": "Bedford (564154)",
       "region": "England",
-      "county": "Cumbria",
+      "county": "Cheshire",
       "location": {
-        "lat": 54.37577,
-        "long": -2.72272
+        "lat": 53.497891,
+        "long": -2.499671
       },
       "value": 10
     },
     {
-      "rank": 74,
-      "station": "571894",
-      "stationName": "Stainforth (571894)",
-      "region": "England",
-      "county": "Cumbria",
-      "location": {
-        "lat": 54.103514,
-        "long": -2.27294
-      },
-      "value": 9.9
-    },
-    {
-      "rank": 75,
+      "rank": 91,
       "station": "554472",
       "stationName": "Hug Bridge (554472)",
       "region": "England",
@@ -905,19 +1097,19 @@
       "value": 9.9
     },
     {
-      "rank": 76,
-      "station": "600140",
-      "stationName": "Brotherswater (600140)",
+      "rank": 92,
+      "station": "570788",
+      "stationName": "Common Bank (570788)",
       "region": "England",
-      "county": "Cumbria",
+      "county": "Lancashire",
       "location": {
-        "lat": 54.500172,
-        "long": -2.930285
+        "lat": 53.653543,
+        "long": -2.654324
       },
       "value": 9.9
     },
     {
-      "rank": 77,
+      "rank": 93,
       "station": "3687",
       "stationName": "Whissendine (3687)",
       "region": "England",
@@ -929,7 +1121,7 @@
       "value": 9.8
     },
     {
-      "rank": 78,
+      "rank": 94,
       "station": "3571",
       "stationName": "Rock End (3571)",
       "region": "England",
@@ -941,7 +1133,7 @@
       "value": 9.8
     },
     {
-      "rank": 79,
+      "rank": 95,
       "station": "48157",
       "stationName": "Heligan (48157)",
       "region": "England",
@@ -953,19 +1145,19 @@
       "value": 9.8
     },
     {
-      "rank": 80,
-      "station": "564154",
-      "stationName": "Bedford (564154)",
+      "rank": 96,
+      "station": "585122",
+      "stationName": "Dubbs Reservoir (585122)",
       "region": "England",
-      "county": "Cheshire",
+      "county": "Cumbria",
       "location": {
-        "lat": 53.497891,
-        "long": -2.499671
+        "lat": 54.406987,
+        "long": -2.892739
       },
       "value": 9.8
     },
     {
-      "rank": 81,
+      "rank": 97,
       "station": "085322",
       "stationName": "Cannon Hall (085322)",
       "region": "England",
@@ -977,7 +1169,31 @@
       "value": 9.7
     },
     {
-      "rank": 82,
+      "rank": 98,
+      "station": "575092",
+      "stationName": "Mitchells House Res (575092)",
+      "region": "England",
+      "county": "Lancashire",
+      "location": {
+        "lat": 53.742978,
+        "long": -2.323663
+      },
+      "value": 9.7
+    },
+    {
+      "rank": 99,
+      "station": "583948",
+      "stationName": "Schola Green (583948)",
+      "region": "England",
+      "county": "Cumbria",
+      "location": {
+        "lat": 54.064769,
+        "long": -2.863989
+      },
+      "value": 9.7
+    },
+    {
+      "rank": 100,
       "station": "060947",
       "stationName": "Beckermonds (060947)",
       "region": "England",
@@ -987,222 +1203,6 @@
         "long": -2.195488
       },
       "value": 9.6
-    },
-    {
-      "rank": 83,
-      "station": "47159",
-      "stationName": "St Clether (47159)",
-      "region": "England",
-      "county": "Cornwall",
-      "location": {
-        "lat": 50.644847,
-        "long": -4.529589
-      },
-      "value": 9.6
-    },
-    {
-      "rank": 84,
-      "station": "575384",
-      "stationName": "Kebb Farm / Great Harwood (575384)",
-      "region": "England",
-      "county": "Lancashire",
-      "location": {
-        "lat": 53.790306,
-        "long": -2.422692
-      },
-      "value": 9.6
-    },
-    {
-      "rank": 85,
-      "station": "E7165",
-      "stationName": "South Witham (E7165)",
-      "region": "England",
-      "county": "Leicestershire",
-      "location": {
-        "lat": 52.766451,
-        "long": -0.623828
-      },
-      "value": 9.6
-    },
-    {
-      "rank": 86,
-      "station": "570788",
-      "stationName": "Common Bank (570788)",
-      "region": "England",
-      "county": "Lancashire",
-      "location": {
-        "lat": 53.653543,
-        "long": -2.654324
-      },
-      "value": 9.4
-    },
-    {
-      "rank": 87,
-      "station": "000028",
-      "stationName": "Langsett Reservoir (000028)",
-      "region": "England",
-      "county": "Lancashire",
-      "location": {
-        "lat": 53.500289,
-        "long": -1.673575
-      },
-      "value": 9.4
-    },
-    {
-      "rank": 88,
-      "station": "000008",
-      "stationName": "Harley (000008)",
-      "region": "England",
-      "county": "Derbyshire",
-      "location": {
-        "lat": 53.480556,
-        "long": -1.441674
-      },
-      "value": 9.3
-    },
-    {
-      "rank": 89,
-      "station": "E1976",
-      "stationName": "Wing (E1976)",
-      "region": "England",
-      "county": "Leicestershire",
-      "location": {
-        "lat": 52.615107,
-        "long": -0.675844
-      },
-      "value": 9.3
-    },
-    {
-      "rank": 90,
-      "station": "054604",
-      "stationName": "Romanby (054604)",
-      "region": "England",
-      "county": "Yorkshire",
-      "location": {
-        "lat": 54.32908,
-        "long": -1.456389
-      },
-      "value": 9.2
-    },
-    {
-      "rank": 91,
-      "station": "085960",
-      "stationName": "Wombwell (085960)",
-      "region": "England",
-      "county": "Yorkshire",
-      "location": {
-        "lat": 53.527019,
-        "long": -1.385249
-      },
-      "value": 9.2
-    },
-    {
-      "rank": 92,
-      "station": "05973",
-      "stationName": "York Acomb Landing (05973)",
-      "region": "England",
-      "county": "Yorkshire",
-      "location": {
-        "lat": 53.966652,
-        "long": -1.115089
-      },
-      "value": 9.1
-    },
-    {
-      "rank": 93,
-      "station": "082509",
-      "stationName": "Redmires Reservoir (082509)",
-      "region": "England",
-      "county": "Derbyshire",
-      "location": {
-        "lat": 53.367029,
-        "long": -1.59795
-      },
-      "value": 9.1
-    },
-    {
-      "rank": 94,
-      "station": "575092",
-      "stationName": "Mitchells House Res (575092)",
-      "region": "England",
-      "county": "Lancashire",
-      "location": {
-        "lat": 53.742978,
-        "long": -2.323663
-      },
-      "value": 9
-    },
-    {
-      "rank": 95,
-      "station": "588705",
-      "stationName": "Poaka Beck (588705)",
-      "region": "England",
-      "county": "Cumbria",
-      "location": {
-        "lat": 54.190769,
-        "long": -3.163942
-      },
-      "value": 8.9
-    },
-    {
-      "rank": 96,
-      "station": "3688",
-      "stationName": "Evington (3688)",
-      "region": "England",
-      "county": "Leicestershire",
-      "location": {
-        "lat": 52.6315,
-        "long": -1.077247
-      },
-      "value": 8.8
-    },
-    {
-      "rank": 97,
-      "station": "569848",
-      "stationName": "Worthington (569848)",
-      "region": "England",
-      "county": "Lancashire",
-      "location": {
-        "lat": 53.58714,
-        "long": -2.633659
-      },
-      "value": 8.8
-    },
-    {
-      "rank": 98,
-      "station": "570099",
-      "stationName": "Billinge Hill (570099)",
-      "region": "England",
-      "county": "Lancashire",
-      "location": {
-        "lat": 53.511139,
-        "long": -2.721493
-      },
-      "value": 8.8
-    },
-    {
-      "rank": 99,
-      "station": "054507",
-      "stationName": "Brompton Low Moor Farm (054507)",
-      "region": "England",
-      "county": "Yorkshire",
-      "location": {
-        "lat": 54.382707,
-        "long": -1.394093
-      },
-      "value": 8.7
-    },
-    {
-      "rank": 100,
-      "station": "592158",
-      "stationName": "Egremont Ivy Hill (592158)",
-      "region": "England",
-      "county": "Unknown",
-      "location": {
-        "lat": 54.498215,
-        "long": -3.557159
-      },
-      "value": 8.7
     }
   ]
 }
