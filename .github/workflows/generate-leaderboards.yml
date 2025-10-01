@@ -36,6 +36,11 @@ jobs:
     - name: Copy leaderboards to public directory
       run: cp -r data/processed/leaderboards public/data/processed/
     
+    - name: Update file timestamps for cache invalidation
+      run: |
+        # Update file modification times to ensure proper ETag generation
+        touch public/data/processed/leaderboards/*.json
+    
     - name: Configure Git
       run: |
         git config --local user.email "action@github.com"

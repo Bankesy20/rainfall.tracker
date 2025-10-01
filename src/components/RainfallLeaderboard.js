@@ -8,6 +8,7 @@ const RainfallLeaderboard = React.memo(({ onStationSelect, availableStations = {
   const [selectedMetric, setSelectedMetric] = useState('total_rainfall');
   const [selectedPeriod, setSelectedPeriod] = useState('24h');
   const [expanded, setExpanded] = useState(false);
+  const [lastRefresh, setLastRefresh] = useState(null);
 
   const metrics = {
     'total_rainfall': { name: 'Total Rainfall', unit: 'mm' },
@@ -40,11 +41,21 @@ const RainfallLeaderboard = React.memo(({ onStationSelect, availableStations = {
         setLoading(true);
         const loadedLeaderboards = {};
         
+        // Add cache-busting timestamp to force fresh data
+        const cacheBuster = `?t=${Date.now()}`;
+        
         // Load all leaderboard combinations
         for (const metric of Object.keys(metrics)) {
           for (const period of Object.keys(periods)) {
             try {
-              const response = await fetch(`/data/processed/leaderboards/leaderboard-${metric}-${period}.json`);
+              const response = await fetch(`/data/processed/leaderboards/leaderboard-${metric}-${period}.json${cacheBuster}`, {
+                cache: 'no-cache',
+                headers: {
+                  'Cache-Control': 'no-cache, no-store, must-revalidate',
+                  'Pragma': 'no-cache',
+                  'Expires': '0'
+                }
+              });
               if (response.ok) {
                 const data = await response.json();
                 loadedLeaderboards[`${metric}-${period}`] = data;
@@ -58,6 +69,7 @@ const RainfallLeaderboard = React.memo(({ onStationSelect, availableStations = {
         }
         
         setLeaderboards(loadedLeaderboards);
+        setLastRefresh(new Date());
       } catch (err) {
         setError('Failed to load leaderboards');
         console.error('Error loading leaderboards:', err);
@@ -68,6 +80,50 @@ const RainfallLeaderboard = React.memo(({ onStationSelect, availableStations = {
 
     loadLeaderboards();
   }, []);
+
+  // Function to manually refresh leaderboards
+  const refreshLeaderboards = async () => {
+    setLoading(true);
+    setError(null);
+    const loadedLeaderboards = {};
+    
+    // Add cache-busting timestamp to force fresh data
+    const cacheBuster = `?t=${Date.now()}`;
+    
+    try {
+      // Load all leaderboard combinations
+      for (const metric of Object.keys(metrics)) {
+        for (const period of Object.keys(periods)) {
+          try {
+            const response = await fetch(`/data/processed/leaderboards/leaderboard-${metric}-${period}.json${cacheBuster}`, {
+              cache: 'no-cache',
+              headers: {
+                'Cache-Control': 'no-cache, no-store, must-revalidate',
+                'Pragma': 'no-cache',
+                'Expires': '0'
+              }
+            });
+            if (response.ok) {
+              const data = await response.json();
+              loadedLeaderboards[`${metric}-${period}`] = data;
+            } else {
+              console.warn(`Failed to load leaderboard ${metric}-${period}: HTTP ${response.status}`);
+            }
+          } catch (err) {
+            console.warn(`Failed to load leaderboard ${metric}-${period}:`, err);
+          }
+        }
+      }
+      
+      setLeaderboards(loadedLeaderboards);
+      setLastRefresh(new Date());
+    } catch (err) {
+      setError('Failed to refresh leaderboards');
+      console.error('Error refreshing leaderboards:', err);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const currentLeaderboard = leaderboards[`${selectedMetric}-${selectedPeriod}`];
 
@@ -133,6 +189,16 @@ const RainfallLeaderboard = React.memo(({ onStationSelect, availableStations = {
           </h2>
         </div>
         <div className="flex items-center space-x-2">
+          {expanded && (
+            <button
+              onClick={refreshLeaderboards}
+              disabled={loading}
+              className="px-3 py-1 text-xs bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded hover:bg-blue-200 dark:hover:bg-blue-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              title="Refresh leaderboard data"
+            >
+              {loading ? 'Refreshing...' : 'Refresh'}
+            </button>
+          )}
           <span className="text-sm text-gray-600 dark:text-gray-400">
             {expanded ? 'Hide' : 'Show'}
           </span>
@@ -298,8 +364,15 @@ const RainfallLeaderboard = React.memo(({ onStationSelect, availableStations = {
             <div>
               Showing top 10 of {currentLeaderboard.rankings.length} stations with rainfall ({Math.round((currentLeaderboard.rankings.length / 846) * 100)}% of all stations)
             </div>
-            <div>
-              Updated: {dayjs(currentLeaderboard.generated_at).format('MMM DD, HH:mm')}
+            <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4">
+              <div>
+                Data: {dayjs(currentLeaderboard.generated_at).format('MMM DD, HH:mm')}
+              </div>
+              {lastRefresh && (
+                <div>
+                  Refreshed: {dayjs(lastRefresh).format('HH:mm:ss')}
+                </div>
+              )}
             </div>
           </div>
         </div>
