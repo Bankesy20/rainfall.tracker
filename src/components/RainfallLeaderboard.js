@@ -10,6 +10,7 @@ const RainfallLeaderboard = React.memo(({ onStationSelect, availableStations = {
   const [selectedCounty, setSelectedCounty] = useState('all');
   const [expanded, setExpanded] = useState(false);
   const [lastRefresh, setLastRefresh] = useState(null);
+  const [loadingLeaderboard, setLoadingLeaderboard] = useState(false);
 
   const metrics = {
     'total_rainfall': { name: 'Total Rainfall', unit: 'mm' },
@@ -36,91 +37,112 @@ const RainfallLeaderboard = React.memo(({ onStationSelect, availableStations = {
     return null;
   };
 
+  // Load a specific leaderboard
+  const loadLeaderboard = async (metric, period) => {
+    const key = `${metric}-${period}`;
+    
+    // Don't reload if already loaded
+    if (leaderboards[key]) {
+      return leaderboards[key];
+    }
+    
+    try {
+      const cacheBuster = `?t=${Date.now()}`;
+      const response = await fetch(`/data/processed/leaderboards/leaderboard-${metric}-${period}.json${cacheBuster}`, {
+        cache: 'no-cache',
+        headers: {
+          'Cache-Control': 'no-cache, no-store, must-revalidate',
+          'Pragma': 'no-cache',
+          'Expires': '0'
+        }
+      });
+      
+      if (response.ok) {
+        const data = await response.json();
+        setLeaderboards(prev => ({
+          ...prev,
+          [key]: data
+        }));
+        return data;
+      } else {
+        console.warn(`Failed to load leaderboard ${metric}-${period}: HTTP ${response.status}`);
+        return null;
+      }
+    } catch (err) {
+      console.warn(`Failed to load leaderboard ${metric}-${period}:`, err);
+      return null;
+    }
+  };
+
+  // Load initial leaderboard (24h total_rainfall)
   useEffect(() => {
-    const loadLeaderboards = async () => {
+    const loadInitialLeaderboard = async () => {
       try {
         setLoading(true);
-        const loadedLeaderboards = {};
+        setError(null);
         
-        // Add cache-busting timestamp to force fresh data
-        const cacheBuster = `?t=${Date.now()}`;
-        
-        // Load all leaderboard combinations
-        for (const metric of Object.keys(metrics)) {
-          for (const period of Object.keys(periods)) {
-            try {
-              const response = await fetch(`/data/processed/leaderboards/leaderboard-${metric}-${period}.json${cacheBuster}`, {
-                cache: 'no-cache',
-                headers: {
-                  'Cache-Control': 'no-cache, no-store, must-revalidate',
-                  'Pragma': 'no-cache',
-                  'Expires': '0'
-                }
-              });
-              if (response.ok) {
-                const data = await response.json();
-                loadedLeaderboards[`${metric}-${period}`] = data;
-              } else {
-                console.warn(`Failed to load leaderboard ${metric}-${period}: HTTP ${response.status}`);
-              }
-            } catch (err) {
-              console.warn(`Failed to load leaderboard ${metric}-${period}:`, err);
-            }
-          }
+        const data = await loadLeaderboard('total_rainfall', '24h');
+        if (data) {
+          setLastRefresh(new Date());
+        } else {
+          setError('Failed to load initial leaderboard');
         }
-        
-        setLeaderboards(loadedLeaderboards);
-        setLastRefresh(new Date());
       } catch (err) {
-        setError('Failed to load leaderboards');
-        console.error('Error loading leaderboards:', err);
+        setError('Failed to load initial leaderboard');
+        console.error('Error loading initial leaderboard:', err);
       } finally {
         setLoading(false);
       }
     };
 
-    loadLeaderboards();
+    loadInitialLeaderboard();
   }, []);
 
-  // Function to manually refresh leaderboards
+  // Load leaderboard when selection changes
+  useEffect(() => {
+    const loadSelectedLeaderboard = async () => {
+      const key = `${selectedMetric}-${selectedPeriod}`;
+      
+      // Only load if not already loaded
+      if (!leaderboards[key]) {
+        setLoadingLeaderboard(true);
+        try {
+          await loadLeaderboard(selectedMetric, selectedPeriod);
+        } catch (err) {
+          console.error(`Error loading ${key}:`, err);
+        } finally {
+          setLoadingLeaderboard(false);
+        }
+      }
+    };
+
+    loadSelectedLeaderboard();
+  }, [selectedMetric, selectedPeriod, leaderboards]);
+
+  // Function to manually refresh current leaderboard
   const refreshLeaderboards = async () => {
     setLoading(true);
     setError(null);
-    const loadedLeaderboards = {};
-    
-    // Add cache-busting timestamp to force fresh data
-    const cacheBuster = `?t=${Date.now()}`;
     
     try {
-      // Load all leaderboard combinations
-      for (const metric of Object.keys(metrics)) {
-        for (const period of Object.keys(periods)) {
-          try {
-            const response = await fetch(`/data/processed/leaderboards/leaderboard-${metric}-${period}.json${cacheBuster}`, {
-              cache: 'no-cache',
-              headers: {
-                'Cache-Control': 'no-cache, no-store, must-revalidate',
-                'Pragma': 'no-cache',
-                'Expires': '0'
-              }
-            });
-            if (response.ok) {
-              const data = await response.json();
-              loadedLeaderboards[`${metric}-${period}`] = data;
-            } else {
-              console.warn(`Failed to load leaderboard ${metric}-${period}: HTTP ${response.status}`);
-            }
-          } catch (err) {
-            console.warn(`Failed to load leaderboard ${metric}-${period}:`, err);
-          }
-        }
-      }
+      // Clear current leaderboard from cache to force reload
+      const key = `${selectedMetric}-${selectedPeriod}`;
+      setLeaderboards(prev => {
+        const newLeaderboards = { ...prev };
+        delete newLeaderboards[key];
+        return newLeaderboards;
+      });
       
-      setLeaderboards(loadedLeaderboards);
-      setLastRefresh(new Date());
+      // Reload the current leaderboard
+      const data = await loadLeaderboard(selectedMetric, selectedPeriod);
+      if (data) {
+        setLastRefresh(new Date());
+      } else {
+        setError('Failed to refresh leaderboard');
+      }
     } catch (err) {
-      setError('Failed to refresh leaderboards');
-      console.error('Error refreshing leaderboards:', err);
+      setError('Failed to refresh leaderboard');
+      console.error('Error refreshing leaderboard:', err);
     } finally {
       setLoading(false);
     }
@@ -192,6 +214,39 @@ const RainfallLeaderboard = React.memo(({ onStationSelect, availableStations = {
             <span className="ml-3 text-gray-600 dark:text-gray-400">Loading leaderboards...</span>
           </div>
         </div>
+      </section>
+    );
+  }
+
+  if (loadingLeaderboard) {
+    return (
+      <section className="bg-white dark:bg-gray-800 rounded-lg shadow-lg">
+        <div className="px-4 sm:px-6 py-4 flex items-center justify-between">
+          <div className="flex items-center space-x-3">
+            <h2 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">
+              Rainfall Leaderboards
+            </h2>
+          </div>
+          <div className="flex items-center space-x-2">
+            <button
+              onClick={() => setExpanded(!expanded)}
+              className="flex items-center space-x-2 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+            >
+              <span>{expanded ? 'Hide' : 'Show'}</span>
+              <span className="text-gray-400 dark:text-gray-500">
+                {expanded ? '▼' : '▶'}
+              </span>
+            </button>
+          </div>
+        </div>
+        {expanded && (
+          <div className="px-4 sm:px-6 pb-4 sm:pb-6">
+            <div className="flex items-center justify-center py-8">
+              <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-blue-600"></div>
+              <span className="ml-3 text-gray-600 dark:text-gray-400">Loading {metrics[selectedMetric].name} for {periods[selectedPeriod].name}...</span>
+            </div>
+          </div>
+        )}
       </section>
     );
   }
