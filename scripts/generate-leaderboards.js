@@ -15,7 +15,7 @@ const { getCountyFromStation } = require('./county-lookup');
 // Configuration
 const DATA_DIR = path.join(__dirname, '..', 'data', 'processed');
 const LEADERBOARD_DIR = path.join(DATA_DIR, 'leaderboards');
-const MAX_RANKINGS = 100; // Top 100 stations per leaderboard
+const MAX_RANKINGS = 100; // Top 100 stations displayed in UI (but all stations included in data)
 
 // Time periods in hours
 const TIME_PERIODS = {
@@ -201,6 +201,7 @@ function calculateMetric(station, metricKey, period) {
  */
 function generateLeaderboard(stations, metricKey, period) {
   console.log(`📈 Generating ${metricKey} leaderboard for ${period}...`);
+  const startTime = Date.now();
   
   const metric = METRICS[metricKey];
   const cutoffTime = getCutoffTime(period);
@@ -215,13 +216,11 @@ function generateLeaderboard(stations, metricKey, period) {
     value: calculateMetric(station, metricKey, period)
   }));
   
-  // Sort by value (descending) and take top N
+  // Sort by value (descending) - include ALL stations, even those with zero rainfall
   const sorted = stationValues
-    .filter(item => item.value > 0) // Only include stations with data
-    .sort((a, b) => b.value - a.value)
-    .slice(0, MAX_RANKINGS);
+    .sort((a, b) => b.value - a.value);
   
-  // Add rank numbers
+  // Add rank numbers - include all stations
   const rankings = sorted.map((item, index) => ({
     rank: index + 1,
     station: item.station,
@@ -232,12 +231,28 @@ function generateLeaderboard(stations, metricKey, period) {
     value: Math.round(item.value * 100) / 100 // Round to 2 decimal places
   }));
   
+  const endTime = Date.now();
+  const processingTime = endTime - startTime;
+  
+  // Calculate statistics
+  const stationsWithRainfall = rankings.filter(station => station.value > 0).length;
+  const totalStations = rankings.length;
+  const rainfallPercentage = Math.round((stationsWithRainfall / totalStations) * 100);
+  
+  console.log(`⏱️  Processed ${rankings.length} stations in ${processingTime}ms (${(processingTime/rankings.length).toFixed(2)}ms per station)`);
+  console.log(`📊 ${stationsWithRainfall}/${totalStations} stations had rainfall (${rainfallPercentage}%)`);
+  
   return {
     metric: metricKey,
     period: period,
     unit: metric.unit,
     generated_at: dayjs().toISOString(),
-    rankings: rankings
+    rankings: rankings,
+    statistics: {
+      total_stations: totalStations,
+      stations_with_rainfall: stationsWithRainfall,
+      rainfall_percentage: rainfallPercentage
+    }
   };
 }
 
@@ -258,6 +273,7 @@ function saveLeaderboard(leaderboard) {
 async function main() {
   console.log('🚀 Starting rainfall leaderboard generation...');
   console.log(`⏰ Generated at: ${dayjs().format('YYYY-MM-DD HH:mm:ss UTC')}`);
+  const overallStartTime = Date.now();
   
   // Create leaderboard directory if it doesn't exist
   if (!fs.existsSync(LEADERBOARD_DIR)) {
@@ -291,8 +307,13 @@ async function main() {
     }
   }
   
+  const overallEndTime = Date.now();
+  const totalProcessingTime = overallEndTime - overallStartTime;
+  
   console.log(`✅ Generated ${generated}/${totalLeaderboards} leaderboards successfully`);
   console.log(`📁 Leaderboards saved to: ${LEADERBOARD_DIR}`);
+  console.log(`⏱️  Total processing time: ${totalProcessingTime}ms (${(totalProcessingTime/1000).toFixed(2)}s)`);
+  console.log(`📊 Average time per leaderboard: ${(totalProcessingTime/generated).toFixed(0)}ms`);
   
   // Generate summary
   const summary = {
@@ -301,7 +322,9 @@ async function main() {
     total_leaderboards: generated,
     metrics: Object.keys(METRICS),
     periods: Object.keys(TIME_PERIODS),
-    max_rankings_per_leaderboard: MAX_RANKINGS
+    max_rankings_per_leaderboard: MAX_RANKINGS,
+    processing_time_ms: totalProcessingTime,
+    stations_included: "all" // Now includes all stations, not just top 100
   };
   
   const summaryPath = path.join(LEADERBOARD_DIR, 'summary.json');

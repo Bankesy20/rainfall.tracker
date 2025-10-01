@@ -7,6 +7,7 @@ const RainfallLeaderboard = React.memo(({ onStationSelect, availableStations = {
   const [error, setError] = useState(null);
   const [selectedMetric, setSelectedMetric] = useState('total_rainfall');
   const [selectedPeriod, setSelectedPeriod] = useState('24h');
+  const [selectedCounty, setSelectedCounty] = useState('all');
   const [expanded, setExpanded] = useState(false);
   const [lastRefresh, setLastRefresh] = useState(null);
 
@@ -127,6 +128,45 @@ const RainfallLeaderboard = React.memo(({ onStationSelect, availableStations = {
 
   const currentLeaderboard = leaderboards[`${selectedMetric}-${selectedPeriod}`];
 
+  // Extract unique counties from current leaderboard
+  const availableCounties = React.useMemo(() => {
+    if (!currentLeaderboard?.rankings) return [];
+    
+    const counties = [...new Set(currentLeaderboard.rankings.map(entry => entry.county))];
+    return counties.sort();
+  }, [currentLeaderboard]);
+
+  // Filter leaderboard by selected county
+  const filteredRankings = React.useMemo(() => {
+    if (!currentLeaderboard?.rankings) return [];
+    
+    if (selectedCounty === 'all') {
+      return currentLeaderboard.rankings;
+    }
+    
+    return currentLeaderboard.rankings.filter(entry => entry.county === selectedCounty);
+  }, [currentLeaderboard, selectedCounty]);
+
+  // Calculate percentage for filtered results
+  const filteredStats = React.useMemo(() => {
+    if (!filteredRankings.length) return { rainfallPercentage: 0, totalStations: 0, stationsWithRainfall: 0 };
+    
+    const stationsWithRainfall = filteredRankings.filter(entry => entry.value > 0).length;
+    const totalStations = filteredRankings.length;
+    const rainfallPercentage = Math.round((stationsWithRainfall / totalStations) * 100);
+    
+    return {
+      rainfallPercentage,
+      totalStations,
+      stationsWithRainfall
+    };
+  }, [filteredRankings]);
+
+  // Reset county filter when metric or period changes
+  React.useEffect(() => {
+    setSelectedCounty('all');
+  }, [selectedMetric, selectedPeriod]);
+
   const getRankIcon = (rank) => {
     return `#${rank}`;
   };
@@ -179,10 +219,7 @@ const RainfallLeaderboard = React.memo(({ onStationSelect, availableStations = {
   return (
     <section className="bg-white dark:bg-gray-800 rounded-lg shadow-lg">
       {/* Header */}
-      <button
-        onClick={() => setExpanded(!expanded)}
-        className="w-full px-4 sm:px-6 py-4 flex items-center justify-between text-left hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors rounded-lg"
-      >
+      <div className="px-4 sm:px-6 py-4 flex items-center justify-between">
         <div className="flex items-center space-x-3">
           <h2 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">
             Rainfall Leaderboards
@@ -199,14 +236,17 @@ const RainfallLeaderboard = React.memo(({ onStationSelect, availableStations = {
               {loading ? 'Refreshing...' : 'Refresh'}
             </button>
           )}
-          <span className="text-sm text-gray-600 dark:text-gray-400">
-            {expanded ? 'Hide' : 'Show'}
-          </span>
-          <span className="text-gray-400 dark:text-gray-500">
-            {expanded ? '▼' : '▶'}
-          </span>
+          <button
+            onClick={() => setExpanded(!expanded)}
+            className="flex items-center space-x-2 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+          >
+            <span>{expanded ? 'Hide' : 'Show'}</span>
+            <span className="text-gray-400 dark:text-gray-500">
+              {expanded ? '▼' : '▶'}
+            </span>
+          </button>
         </div>
-      </button>
+      </div>
 
       {expanded && (
         <div className="px-4 sm:px-6 pb-4 sm:pb-6">
@@ -225,10 +265,10 @@ const RainfallLeaderboard = React.memo(({ onStationSelect, availableStations = {
               </div>
               <div className="text-right">
                 <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">
-                  {Math.round((currentLeaderboard.rankings.length / 846) * 100)}%
+                  {filteredStats.rainfallPercentage}%
                 </div>
                 <div className="text-xs text-gray-500 dark:text-gray-400">
-                  of stations had rainfall
+                  of {selectedCounty === 'all' ? 'all' : selectedCounty} stations had rainfall
                 </div>
               </div>
             </div>
@@ -271,12 +311,55 @@ const RainfallLeaderboard = React.memo(({ onStationSelect, availableStations = {
                 ))}
               </select>
             </div>
+
+            {/* County Selector */}
+            <div className="flex-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                County
+              </label>
+              <div className="flex gap-2">
+                <select
+                  value={selectedCounty}
+                  onChange={(e) => setSelectedCounty(e.target.value)}
+                  className="flex-1 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+                >
+                  <option value="all">All Counties</option>
+                  {availableCounties.map((county) => (
+                    <option key={county} value={county}>
+                      {county}
+                    </option>
+                  ))}
+                </select>
+                {selectedCounty !== 'all' && (
+                  <button
+                    onClick={() => setSelectedCounty('all')}
+                    className="px-3 py-2 text-xs bg-gray-100 dark:bg-gray-600 text-gray-700 dark:text-gray-300 rounded hover:bg-gray-200 dark:hover:bg-gray-500 transition-colors"
+                    title="Clear county filter"
+                  >
+                    Clear
+                  </button>
+                )}
+              </div>
+            </div>
           </div>
 
           {/* Leaderboard Table */}
           <div className="bg-gray-50 dark:bg-gray-700 rounded-lg overflow-hidden shadow-inner">
-            <div className="overflow-x-auto">
-              <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-600">
+            {filteredRankings.length === 0 ? (
+              <div className="p-8 text-center">
+                <div className="text-gray-500 dark:text-gray-400 mb-2">
+                  {selectedCounty === 'all' ? 'No stations with rainfall data' : `No stations in ${selectedCounty} with rainfall data`}
+                </div>
+                <div className="text-sm text-gray-400 dark:text-gray-500">
+                  {selectedCounty === 'all' 
+                    ? 'Try refreshing the data or check back later'
+                    : 'Try selecting a different county or time period'
+                  }
+                </div>
+              </div>
+            ) : (
+              <div className="overflow-x-auto">
+                <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-600">
                 <thead className="bg-gradient-to-r from-blue-500 to-blue-600 dark:from-blue-600 dark:to-blue-700">
                   <tr>
                     <th className="px-2 sm:px-4 py-3 sm:py-4 text-left text-xs font-semibold text-white uppercase tracking-wider">
@@ -297,7 +380,7 @@ const RainfallLeaderboard = React.memo(({ onStationSelect, availableStations = {
                   </tr>
                 </thead>
                 <tbody className="bg-white dark:bg-gray-800">
-                  {currentLeaderboard.rankings.slice(0, 10).map((entry) => (
+                  {filteredRankings.slice(0, 10).map((entry) => (
                     <tr key={entry.rank} className={`leaderboard-row ${entry.rank <= 3 ? 'bg-gradient-to-r from-yellow-50 to-orange-50 dark:from-yellow-900/10 dark:to-orange-900/10' : ''}`}>
                       <td className="px-2 sm:px-4 py-3 sm:py-4 whitespace-nowrap">
                         <div className="flex items-center">
@@ -356,13 +439,23 @@ const RainfallLeaderboard = React.memo(({ onStationSelect, availableStations = {
                   ))}
                 </tbody>
               </table>
-            </div>
+              </div>
+            )}
           </div>
 
           {/* Footer Info */}
-          <div className="mt-4 flex flex-col sm:flex-row justify-between items-start sm:items-center text-xs text-gray-500 dark:text-gray-400">
+          {filteredRankings.length > 0 && (
+            <div className="mt-4 flex flex-col sm:flex-row justify-between items-start sm:items-center text-xs text-gray-500 dark:text-gray-400">
             <div>
-              Showing top 10 of {currentLeaderboard.rankings.length} stations with rainfall ({Math.round((currentLeaderboard.rankings.length / 846) * 100)}% of all stations)
+              {selectedCounty === 'all' ? (
+                <>
+                  Showing top 10 of {filteredStats.stationsWithRainfall} stations with rainfall ({filteredStats.rainfallPercentage}% of all stations)
+                </>
+              ) : (
+                <>
+                  Showing top 10 of {filteredStats.stationsWithRainfall} stations in {selectedCounty} ({filteredStats.rainfallPercentage}% of {selectedCounty} stations)
+                </>
+              )}
             </div>
             <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4">
               <div>
@@ -374,7 +467,8 @@ const RainfallLeaderboard = React.memo(({ onStationSelect, availableStations = {
                 </div>
               )}
             </div>
-          </div>
+            </div>
+          )}
         </div>
       )}
     </section>
