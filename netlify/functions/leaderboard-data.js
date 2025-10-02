@@ -1,5 +1,3 @@
-const { Handler } = require('@netlify/functions');
-
 const handler = async (event, context) => {
   // Enable CORS
   const headers = {
@@ -48,8 +46,8 @@ const handler = async (event, context) => {
       // Use explicit configuration with environment variables
       const store = getStore({
         name: 'rainfall-data',
-        siteID: process.env.NETLIFY_SITE_ID,
-        token: process.env.NETLIFY_AUTH_TOKEN
+        siteID: process.env.NETLIFY_SITE_ID || 'f9735549-2ceb-4b4b-8263-fd2d52f641bb',
+        token: process.env.NETLIFY_AUTH_TOKEN || 'nfp_DfAAJ5BgQ3FX7HtRJkaJWsYRwUozjtw73a99'
       });
       
       const blobKey = `leaderboards/${filename}`;
@@ -73,6 +71,13 @@ const handler = async (event, context) => {
       }
     } catch (blobError) {
       console.warn('Failed to load from Netlify Blobs:', blobError.message);
+      console.warn('Blob error details:', {
+        message: blobError.message,
+        stack: blobError.stack,
+        siteID: process.env.NETLIFY_SITE_ID || 'f9735549-2ceb-4b4b-8263-fd2d52f641bb',
+        hasToken: !!process.env.NETLIFY_AUTH_TOKEN,
+        filename: filename
+      });
     }
 
     // Fallback to local file
