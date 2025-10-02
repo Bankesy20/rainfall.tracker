@@ -54,12 +54,10 @@ const RainfallLeaderboard = React.memo(({ onStationSelect, availableStations = {
       const netlifyUrl = `https://rainfalltracker.netlify.app/.netlify/functions/leaderboard-data/leaderboard-${metric}-${period}.json`;
       
       let response = await fetch(netlifyUrl, {
-        cache: 'no-cache',
+        method: 'GET',
         headers: {
-          'Cache-Control': 'no-cache, no-store, must-revalidate',
-          'Pragma': 'no-cache',
-          'Expires': '0'
-        }
+          'Content-Type': 'application/json',
+        },
       });
       
       // If Netlify Blobs fails, fallback to local file
@@ -67,12 +65,10 @@ const RainfallLeaderboard = React.memo(({ onStationSelect, availableStations = {
         console.warn(`Netlify Blobs failed for ${metric}-${period}, trying local fallback...`);
         const cacheBuster = `?t=${Date.now()}`;
         response = await fetch(`/data/processed/leaderboards/leaderboard-${metric}-${period}.json${cacheBuster}`, {
-          cache: 'no-cache',
+          method: 'GET',
           headers: {
-            'Cache-Control': 'no-cache, no-store, must-revalidate',
-            'Pragma': 'no-cache',
-            'Expires': '0'
-          }
+            'Content-Type': 'application/json',
+          },
         });
       }
       
