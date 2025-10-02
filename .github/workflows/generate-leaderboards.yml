@@ -33,6 +33,12 @@ jobs:
     - name: Generate leaderboards
       run: node scripts/generate-leaderboards.js
     
+    - name: Upload leaderboards to Netlify Blobs
+      env:
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+      run: node scripts/github-actions-blob-upload.js
+    
     - name: Copy leaderboards to public directory
       run: cp -r data/processed/leaderboards public/data/processed/
     
@@ -72,6 +78,7 @@ jobs:
         echo "- **Periods**: 24h, 7d, 30d, 365d, all-time" >> $GITHUB_STEP_SUMMARY
         echo "- **Stations**: All 846+ weather stations" >> $GITHUB_STEP_SUMMARY
         echo "- **Output**: JSON files in data/processed/leaderboards/" >> $GITHUB_STEP_SUMMARY
+        echo "- **Netlify Blobs**: Uploaded to blob storage for live access" >> $GITHUB_STEP_SUMMARY
         echo "- **Status**: Successfully committed to repository" >> $GITHUB_STEP_SUMMARY
     
     - name: Handle errors

@@ -407,6 +407,56 @@ async function uploadNewData() {
   }
 }
   
+  // Upload leaderboards if this is the leaderboard generation workflow
+  if (process.env.GITHUB_WORKFLOW && process.env.GITHUB_WORKFLOW.includes('Generate Leaderboards')) {
+    console.log('\n📊 Uploading leaderboards to Netlify Blobs...');
+    
+    const leaderboardDir = path.join(dataDir, 'leaderboards');
+    
+    try {
+      const leaderboardFiles = await fs.readdir(leaderboardDir);
+      const jsonFiles = leaderboardFiles.filter(f => f.endsWith('.json'));
+      
+      console.log(`📈 Found ${jsonFiles.length} leaderboard files to upload`);
+      
+      for (const file of jsonFiles) {
+        try {
+          const filePath = path.join(leaderboardDir, file);
+          const fileContent = await fs.readFile(filePath, 'utf-8');
+          const jsonData = JSON.parse(fileContent);
+          
+          // Add upload metadata
+          const blobData = {
+            ...jsonData,
+            uploadedAt: new Date().toISOString(),
+            source: 'github-actions-leaderboards',
+            workflow: process.env.GITHUB_WORKFLOW,
+            runId: process.env.GITHUB_RUN_ID,
+            sha: process.env.GITHUB_SHA,
+            originalFile: file
+          };
+          
+          const blobKey = `leaderboards/${file}`;
+          await store.set(blobKey, JSON.stringify(blobData), {
+            metadata: { 
+              contentType: 'application/json',
+              type: 'leaderboard',
+              source: 'github-actions'
+            }
+          });
+          
+          console.log(`  ✅ Uploaded ${file} to ${blobKey}`);
+          
+        } catch (error) {
+          console.error(`  ❌ Error uploading leaderboard ${file}:`, error.message);
+        }
+      }
+      
+    } catch (error) {
+      console.error('❌ Error uploading leaderboards:', error.message);
+    }
+  }
+
   // Update metadata
   try {
     const metadata = {

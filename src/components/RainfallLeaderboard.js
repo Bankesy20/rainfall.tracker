@@ -37,18 +37,23 @@ const RainfallLeaderboard = React.memo(({ onStationSelect, availableStations = {
     return null;
   };
 
-  // Load a specific leaderboard
+  // Load a specific leaderboard from Netlify Blobs
   const loadLeaderboard = async (metric, period) => {
     const key = `${metric}-${period}`;
     
-    // Don't reload if already loaded
-    if (leaderboards[key]) {
-      return leaderboards[key];
+    // Don't reload if already loaded (unless it's been more than 5 minutes)
+    if (leaderboards[key] && leaderboards[key]._lastFetched) {
+      const fiveMinutesAgo = Date.now() - (5 * 60 * 1000);
+      if (leaderboards[key]._lastFetched > fiveMinutesAgo) {
+        return leaderboards[key];
+      }
     }
     
     try {
-      const cacheBuster = `?t=${Date.now()}`;
-      const response = await fetch(`/data/processed/leaderboards/leaderboard-${metric}-${period}.json${cacheBuster}`, {
+      // Try Netlify function first (always gets latest data from blobs)
+      const netlifyUrl = `https://rainfalltracker.netlify.app/.netlify/functions/leaderboard-data/leaderboard-${metric}-${period}.json`;
+      
+      let response = await fetch(netlifyUrl, {
         cache: 'no-cache',
         headers: {
           'Cache-Control': 'no-cache, no-store, must-revalidate',
@@ -57,8 +62,26 @@ const RainfallLeaderboard = React.memo(({ onStationSelect, availableStations = {
         }
       });
       
+      // If Netlify Blobs fails, fallback to local file
+      if (!response.ok) {
+        console.warn(`Netlify Blobs failed for ${metric}-${period}, trying local fallback...`);
+        const cacheBuster = `?t=${Date.now()}`;
+        response = await fetch(`/data/processed/leaderboards/leaderboard-${metric}-${period}.json${cacheBuster}`, {
+          cache: 'no-cache',
+          headers: {
+            'Cache-Control': 'no-cache, no-store, must-revalidate',
+            'Pragma': 'no-cache',
+            'Expires': '0'
+          }
+        });
+      }
+      
       if (response.ok) {
         const data = await response.json();
+        // Add timestamp for cache management
+        data._lastFetched = Date.now();
+        data._source = response.url.includes('netlify.app') ? 'netlify' : 'local';
+        
         setLeaderboards(prev => ({
           ...prev,
           [key]: data
@@ -519,6 +542,11 @@ const RainfallLeaderboard = React.memo(({ onStationSelect, availableStations = {
               {lastRefresh && (
                 <div>
                   Refreshed: {dayjs(lastRefresh).format('HH:mm:ss')}
+                  {currentLeaderboard._source && (
+                    <span className="ml-2 text-xs px-2 py-1 rounded-full bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400">
+                      {currentLeaderboard._source === 'netlify' ? '🌐 Live' : '📁 Local'}
+                    </span>
+                  )}
                 </div>
               )}
             </div>
@@ -531,3 +559,4 @@ const RainfallLeaderboard = React.memo(({ onStationSelect, availableStations = {
 });
 
 export default RainfallLeaderboard;
+ 
