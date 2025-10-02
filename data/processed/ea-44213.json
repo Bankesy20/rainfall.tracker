@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-10-02T03:54:55.239Z",
+  "lastUpdated": "2025-10-02T09:50:14.666Z",
   "station": "44213",
   "stationName": "Tollerdown (44213)",
   "region": "England",
@@ -8,7 +8,7 @@
     "long": null
   },
   "dataSource": "EA API",
-  "recordCount": 1510,
+  "recordCount": 1513,
   "data": [
     {
       "date": "2025-09-18",
@@ -15113,15 +15113,45 @@
       "station": "44213",
       "stationName": "Tollerdown (44213)",
       "region": "England"
+    },
+    {
+      "date": "2025-10-05",
+      "time": "10:15:00.000",
+      "dateTime": "2025-10-05T10:15:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "44213",
+      "stationName": "Tollerdown (44213)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-05",
+      "time": "10:30:00.000",
+      "dateTime": "2025-10-05T10:30:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "44213",
+      "stationName": "Tollerdown (44213)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-05",
+      "time": "10:45:00.000",
+      "dateTime": "2025-10-05T10:45:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "44213",
+      "stationName": "Tollerdown (44213)",
+      "region": "England"
     }
   ],
   "outlierDetection": {
-    "detectedAt": "2025-10-02T03:54:55.234Z",
+    "detectedAt": "2025-10-02T09:50:14.661Z",
     "threshold": 25,
     "outliersFound": 1,
     "correctionsMade": 1,
     "correctionMethod": "intelligent_interpolation"
   },
-  "previousUpdate": "2025-10-01T21:50:01.442Z",
+  "previousUpdate": "2025-10-02T03:54:55.239Z",
   "incrementalUpdate": true
 }
