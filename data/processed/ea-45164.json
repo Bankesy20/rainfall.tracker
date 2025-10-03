@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-10-03T09:08:24.387Z",
+  "lastUpdated": "2025-10-03T13:38:57.428Z",
   "station": "45164",
   "stationName": "Exmouth (45164)",
   "region": "England",
@@ -8,7 +8,7 @@
     "long": null
   },
   "dataSource": "EA API",
-  "recordCount": 1394,
+  "recordCount": 1446,
   "data": [
     {
       "date": "2025-09-18",
@@ -13820,9 +13820,125 @@
     },
     {
       "date": "2025-10-02",
+      "time": "21:15:00.000",
+      "dateTime": "2025-10-02T21:15:00Z",
+      "rainfall_mm": 24.5,
+      "total_mm": 0,
+      "station": "45164",
+      "stationName": "Exmouth (45164)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-02",
       "time": "21:30:00.000",
       "dateTime": "2025-10-02T21:30:00Z",
       "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "45164",
+      "stationName": "Exmouth (45164)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-02",
+      "time": "21:45:00.000",
+      "dateTime": "2025-10-02T21:45:00Z",
+      "rainfall_mm": 14.7,
+      "total_mm": 0,
+      "station": "45164",
+      "stationName": "Exmouth (45164)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-02",
+      "time": "22:00:00.000",
+      "dateTime": "2025-10-02T22:00:00Z",
+      "rainfall_mm": 16.8,
+      "total_mm": 0,
+      "station": "45164",
+      "stationName": "Exmouth (45164)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-02",
+      "time": "22:15:00.000",
+      "dateTime": "2025-10-02T22:15:00Z",
+      "rainfall_mm": 23.1,
+      "total_mm": 0,
+      "station": "45164",
+      "stationName": "Exmouth (45164)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-02",
+      "time": "22:30:00.000",
+      "dateTime": "2025-10-02T22:30:00Z",
+      "rainfall_mm": 21.5,
+      "total_mm": 0,
+      "station": "45164",
+      "stationName": "Exmouth (45164)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-02",
+      "time": "22:45:00.000",
+      "dateTime": "2025-10-02T22:45:00Z",
+      "rainfall_mm": 21.5,
+      "total_mm": 0,
+      "station": "45164",
+      "stationName": "Exmouth (45164)",
+      "region": "England",
+      "original_rainfall_mm": 28,
+      "corrected": true,
+      "correction_reason": "Outlier detected and corrected via interpolation",
+      "correction_timestamp": "2025-10-03T13:38:57.422Z"
+    },
+    {
+      "date": "2025-10-02",
+      "time": "23:00:00.000",
+      "dateTime": "2025-10-02T23:00:00Z",
+      "rainfall_mm": 19.15,
+      "total_mm": 0,
+      "station": "45164",
+      "stationName": "Exmouth (45164)",
+      "region": "England",
+      "original_rainfall_mm": 26.8,
+      "corrected": true,
+      "correction_reason": "Outlier detected and corrected via interpolation",
+      "correction_timestamp": "2025-10-03T13:38:57.422Z"
+    },
+    {
+      "date": "2025-10-02",
+      "time": "23:15:00.000",
+      "dateTime": "2025-10-02T23:15:00Z",
+      "rainfall_mm": 19.15,
+      "total_mm": 0,
+      "station": "45164",
+      "stationName": "Exmouth (45164)",
+      "region": "England",
+      "original_rainfall_mm": 25.1,
+      "corrected": true,
+      "correction_reason": "Outlier detected and corrected via interpolation",
+      "correction_timestamp": "2025-10-03T13:38:57.422Z"
+    },
+    {
+      "date": "2025-10-02",
+      "time": "23:30:00.000",
+      "dateTime": "2025-10-02T23:30:00Z",
+      "rainfall_mm": 19.15,
+      "total_mm": 0,
+      "station": "45164",
+      "stationName": "Exmouth (45164)",
+      "region": "England",
+      "original_rainfall_mm": 25.7,
+      "corrected": true,
+      "correction_reason": "Outlier detected and corrected via interpolation",
+      "correction_timestamp": "2025-10-03T13:38:57.422Z"
+    },
+    {
+      "date": "2025-10-02",
+      "time": "23:45:00.000",
+      "dateTime": "2025-10-02T23:45:00Z",
+      "rainfall_mm": 22,
       "total_mm": 0,
       "station": "45164",
       "stationName": "Exmouth (45164)",
@@ -13952,6 +14068,190 @@
     },
     {
       "date": "2025-10-03",
+      "time": "02:45:00.000",
+      "dateTime": "2025-10-03T02:45:00Z",
+      "rainfall_mm": 16,
+      "total_mm": 0,
+      "station": "45164",
+      "stationName": "Exmouth (45164)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-03",
+      "time": "03:00:00.000",
+      "dateTime": "2025-10-03T03:00:00Z",
+      "rainfall_mm": 14.4,
+      "total_mm": 0,
+      "station": "45164",
+      "stationName": "Exmouth (45164)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-03",
+      "time": "03:15:00.000",
+      "dateTime": "2025-10-03T03:15:00Z",
+      "rainfall_mm": 12.1,
+      "total_mm": 0,
+      "station": "45164",
+      "stationName": "Exmouth (45164)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-03",
+      "time": "03:30:00.000",
+      "dateTime": "2025-10-03T03:30:00Z",
+      "rainfall_mm": 12.1,
+      "total_mm": 0,
+      "station": "45164",
+      "stationName": "Exmouth (45164)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-03",
+      "time": "03:45:00.000",
+      "dateTime": "2025-10-03T03:45:00Z",
+      "rainfall_mm": 14,
+      "total_mm": 0,
+      "station": "45164",
+      "stationName": "Exmouth (45164)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-03",
+      "time": "04:00:00.000",
+      "dateTime": "2025-10-03T04:00:00Z",
+      "rainfall_mm": 17.9,
+      "total_mm": 0,
+      "station": "45164",
+      "stationName": "Exmouth (45164)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-03",
+      "time": "04:15:00.000",
+      "dateTime": "2025-10-03T04:15:00Z",
+      "rainfall_mm": 10.5,
+      "total_mm": 0,
+      "station": "45164",
+      "stationName": "Exmouth (45164)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-03",
+      "time": "04:30:00.000",
+      "dateTime": "2025-10-03T04:30:00Z",
+      "rainfall_mm": 17.5,
+      "total_mm": 0,
+      "station": "45164",
+      "stationName": "Exmouth (45164)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-03",
+      "time": "04:45:00.000",
+      "dateTime": "2025-10-03T04:45:00Z",
+      "rainfall_mm": 22.7,
+      "total_mm": 0,
+      "station": "45164",
+      "stationName": "Exmouth (45164)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-03",
+      "time": "05:00:00.000",
+      "dateTime": "2025-10-03T05:00:00Z",
+      "rainfall_mm": 14,
+      "total_mm": 0,
+      "station": "45164",
+      "stationName": "Exmouth (45164)",
+      "region": "England",
+      "original_rainfall_mm": 26.4,
+      "corrected": true,
+      "correction_reason": "Outlier detected and corrected via interpolation",
+      "correction_timestamp": "2025-10-03T13:38:57.422Z"
+    },
+    {
+      "date": "2025-10-03",
+      "time": "05:15:00.000",
+      "dateTime": "2025-10-03T05:15:00Z",
+      "rainfall_mm": 17.7,
+      "total_mm": 0,
+      "station": "45164",
+      "stationName": "Exmouth (45164)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-03",
+      "time": "05:30:00.000",
+      "dateTime": "2025-10-03T05:30:00Z",
+      "rainfall_mm": 13.8,
+      "total_mm": 0,
+      "station": "45164",
+      "stationName": "Exmouth (45164)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-03",
+      "time": "05:45:00.000",
+      "dateTime": "2025-10-03T05:45:00Z",
+      "rainfall_mm": 14,
+      "total_mm": 0,
+      "station": "45164",
+      "stationName": "Exmouth (45164)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-03",
+      "time": "06:00:00.000",
+      "dateTime": "2025-10-03T06:00:00Z",
+      "rainfall_mm": 14.1,
+      "total_mm": 0,
+      "station": "45164",
+      "stationName": "Exmouth (45164)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-03",
+      "time": "06:15:00.000",
+      "dateTime": "2025-10-03T06:15:00Z",
+      "rainfall_mm": 12.3,
+      "total_mm": 0,
+      "station": "45164",
+      "stationName": "Exmouth (45164)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-03",
+      "time": "06:30:00.000",
+      "dateTime": "2025-10-03T06:30:00Z",
+      "rainfall_mm": 12.3,
+      "total_mm": 0,
+      "station": "45164",
+      "stationName": "Exmouth (45164)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-03",
+      "time": "06:45:00.000",
+      "dateTime": "2025-10-03T06:45:00Z",
+      "rainfall_mm": 15.7,
+      "total_mm": 0,
+      "station": "45164",
+      "stationName": "Exmouth (45164)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-03",
+      "time": "07:00:00.000",
+      "dateTime": "2025-10-03T07:00:00Z",
+      "rainfall_mm": 19.7,
+      "total_mm": 0,
+      "station": "45164",
+      "stationName": "Exmouth (45164)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-03",
       "time": "07:15:00.000",
       "dateTime": "2025-10-03T07:15:00Z",
       "rainfall_mm": 0,
@@ -13969,24 +14269,255 @@
       "station": "45164",
       "stationName": "Exmouth (45164)",
       "region": "England"
+    },
+    {
+      "date": "2025-10-03",
+      "time": "07:45:00.000",
+      "dateTime": "2025-10-03T07:45:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "45164",
+      "stationName": "Exmouth (45164)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-03",
+      "time": "08:00:00.000",
+      "dateTime": "2025-10-03T08:00:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "45164",
+      "stationName": "Exmouth (45164)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-03",
+      "time": "08:15:00.000",
+      "dateTime": "2025-10-03T08:15:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "45164",
+      "stationName": "Exmouth (45164)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-03",
+      "time": "08:30:00.000",
+      "dateTime": "2025-10-03T08:30:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "45164",
+      "stationName": "Exmouth (45164)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-03",
+      "time": "08:45:00.000",
+      "dateTime": "2025-10-03T08:45:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "45164",
+      "stationName": "Exmouth (45164)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-03",
+      "time": "09:00:00.000",
+      "dateTime": "2025-10-03T09:00:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "45164",
+      "stationName": "Exmouth (45164)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-03",
+      "time": "09:15:00.000",
+      "dateTime": "2025-10-03T09:15:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "45164",
+      "stationName": "Exmouth (45164)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-03",
+      "time": "09:30:00.000",
+      "dateTime": "2025-10-03T09:30:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "45164",
+      "stationName": "Exmouth (45164)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-03",
+      "time": "09:45:00.000",
+      "dateTime": "2025-10-03T09:45:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "45164",
+      "stationName": "Exmouth (45164)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-03",
+      "time": "10:00:00.000",
+      "dateTime": "2025-10-03T10:00:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "45164",
+      "stationName": "Exmouth (45164)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-03",
+      "time": "10:15:00.000",
+      "dateTime": "2025-10-03T10:15:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "45164",
+      "stationName": "Exmouth (45164)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-03",
+      "time": "10:30:00.000",
+      "dateTime": "2025-10-03T10:30:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "45164",
+      "stationName": "Exmouth (45164)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-03",
+      "time": "10:45:00.000",
+      "dateTime": "2025-10-03T10:45:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "45164",
+      "stationName": "Exmouth (45164)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-03",
+      "time": "11:00:00.000",
+      "dateTime": "2025-10-03T11:00:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "45164",
+      "stationName": "Exmouth (45164)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-03",
+      "time": "11:15:00.000",
+      "dateTime": "2025-10-03T11:15:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "45164",
+      "stationName": "Exmouth (45164)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-03",
+      "time": "11:30:00.000",
+      "dateTime": "2025-10-03T11:30:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "45164",
+      "stationName": "Exmouth (45164)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-03",
+      "time": "11:45:00.000",
+      "dateTime": "2025-10-03T11:45:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "45164",
+      "stationName": "Exmouth (45164)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-03",
+      "time": "12:00:00.000",
+      "dateTime": "2025-10-03T12:00:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "45164",
+      "stationName": "Exmouth (45164)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-03",
+      "time": "12:15:00.000",
+      "dateTime": "2025-10-03T12:15:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "45164",
+      "stationName": "Exmouth (45164)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-03",
+      "time": "12:30:00.000",
+      "dateTime": "2025-10-03T12:30:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "45164",
+      "stationName": "Exmouth (45164)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-03",
+      "time": "12:45:00.000",
+      "dateTime": "2025-10-03T12:45:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "45164",
+      "stationName": "Exmouth (45164)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-03",
+      "time": "13:00:00.000",
+      "dateTime": "2025-10-03T13:00:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "45164",
+      "stationName": "Exmouth (45164)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-03",
+      "time": "13:15:00.000",
+      "dateTime": "2025-10-03T13:15:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "45164",
+      "stationName": "Exmouth (45164)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-03",
+      "time": "13:30:00.000",
+      "dateTime": "2025-10-03T13:30:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "45164",
+      "stationName": "Exmouth (45164)",
+      "region": "England"
     }
   ],
   "outlierDetection": {
-    "detectedAt": "2025-10-03T07:31:14.362Z",
+    "detectedAt": "2025-10-03T13:38:57.422Z",
     "threshold": 25,
     "outliersFound": 11,
     "correctionsMade": 11,
     "correctionMethod": "intelligent_interpolation"
   },
-  "previousUpdate": "2025-10-03T02:39:42.803Z",
-  "incrementalUpdate": true,
-  "corrections": [
-    {
-      "timestamp": "2025-10-03T09:08:24.392Z",
-      "type": "high_rainfall_removal",
-      "description": "Removed 28 values over 5mm/hour (1.25mm per 15-min interval)",
-      "threshold": 1.25,
-      "removedCount": 28
-    }
-  ]
+  "previousUpdate": "2025-10-03T09:08:24.387Z",
+  "incrementalUpdate": true
 }
