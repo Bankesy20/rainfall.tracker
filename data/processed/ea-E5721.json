@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-10-04T08:50:42.943Z",
+  "lastUpdated": "2025-10-04T14:50:33.486Z",
   "station": "E5721",
   "stationName": "Metoff Waddington (E5721)",
   "region": "England",
@@ -8,7 +8,7 @@
     "long": null
   },
   "dataSource": "EA API",
-  "recordCount": 503,
+  "recordCount": 511,
   "data": [
     {
       "date": "2025-09-18",
@@ -5032,6 +5032,16 @@
     },
     {
       "date": "2025-10-04",
+      "time": "09:00:00.000",
+      "dateTime": "2025-10-04T09:00:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5721",
+      "stationName": "Metoff Waddington (E5721)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-04",
       "time": "09:30:00.000",
       "dateTime": "2025-10-04T09:30:00Z",
       "rainfall_mm": 0,
@@ -5039,8 +5049,78 @@
       "station": "E5721",
       "stationName": "Metoff Waddington (E5721)",
       "region": "England"
+    },
+    {
+      "date": "2025-10-04",
+      "time": "10:00:00.000",
+      "dateTime": "2025-10-04T10:00:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5721",
+      "stationName": "Metoff Waddington (E5721)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-04",
+      "time": "11:00:00.000",
+      "dateTime": "2025-10-04T11:00:00Z",
+      "rainfall_mm": 0.1,
+      "total_mm": 0,
+      "station": "E5721",
+      "stationName": "Metoff Waddington (E5721)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-04",
+      "time": "12:00:00.000",
+      "dateTime": "2025-10-04T12:00:00Z",
+      "rainfall_mm": 0.1,
+      "total_mm": 0,
+      "station": "E5721",
+      "stationName": "Metoff Waddington (E5721)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-04",
+      "time": "13:00:00.000",
+      "dateTime": "2025-10-04T13:00:00Z",
+      "rainfall_mm": 0.1,
+      "total_mm": 0,
+      "station": "E5721",
+      "stationName": "Metoff Waddington (E5721)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-04",
+      "time": "14:00:00.000",
+      "dateTime": "2025-10-04T14:00:00Z",
+      "rainfall_mm": 0.1,
+      "total_mm": 0,
+      "station": "E5721",
+      "stationName": "Metoff Waddington (E5721)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-04",
+      "time": "14:45:00.000",
+      "dateTime": "2025-10-04T14:45:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5721",
+      "stationName": "Metoff Waddington (E5721)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-04",
+      "time": "15:30:00.000",
+      "dateTime": "2025-10-04T15:30:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5721",
+      "stationName": "Metoff Waddington (E5721)",
+      "region": "England"
     }
   ],
-  "previousUpdate": "2025-10-04T03:09:29.033Z",
+  "previousUpdate": "2025-10-04T08:50:42.943Z",
   "incrementalUpdate": true
 }

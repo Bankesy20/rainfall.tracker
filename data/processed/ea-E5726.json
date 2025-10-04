@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-10-04T08:50:55.242Z",
+  "lastUpdated": "2025-10-04T14:50:46.181Z",
   "station": "E5726",
   "stationName": "Metoff Wittering (E5726)",
   "region": "England",
@@ -8,7 +8,7 @@
     "long": null
   },
   "dataSource": "EA API",
-  "recordCount": 727,
+  "recordCount": 731,
   "data": [
     {
       "date": "2025-09-18",
@@ -6722,6 +6722,16 @@
     },
     {
       "date": "2025-10-04",
+      "time": "09:00:00.000",
+      "dateTime": "2025-10-04T09:00:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5726",
+      "stationName": "Metoff Wittering (E5726)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-04",
       "time": "09:15:00.000",
       "dateTime": "2025-10-04T09:15:00Z",
       "rainfall_mm": 0,
@@ -6794,6 +6804,16 @@
       "date": "2025-10-04",
       "time": "11:45:00.000",
       "dateTime": "2025-10-04T11:45:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5726",
+      "stationName": "Metoff Wittering (E5726)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-04",
+      "time": "12:00:00.000",
+      "dateTime": "2025-10-04T12:00:00Z",
       "rainfall_mm": 0,
       "total_mm": 0,
       "station": "E5726",
@@ -7279,8 +7299,28 @@
       "station": "E5726",
       "stationName": "Metoff Wittering (E5726)",
       "region": "England"
+    },
+    {
+      "date": "2025-10-05",
+      "time": "09:30:00.000",
+      "dateTime": "2025-10-05T09:30:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5726",
+      "stationName": "Metoff Wittering (E5726)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-05",
+      "time": "10:15:00.000",
+      "dateTime": "2025-10-05T10:15:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5726",
+      "stationName": "Metoff Wittering (E5726)",
+      "region": "England"
     }
   ],
-  "previousUpdate": "2025-10-04T03:09:41.221Z",
+  "previousUpdate": "2025-10-04T08:50:55.242Z",
   "incrementalUpdate": true
 }
