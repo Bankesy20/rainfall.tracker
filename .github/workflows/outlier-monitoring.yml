@@ -1,0 +1,99 @@
+name: Outlier Detection and Monitoring
+
+on:
+  schedule:
+    - cron: '0 2,8,14,20 * * *'  # Every 6 hours at 02:00, 08:00, 14:00, 20:00 (offset from data collection)
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'Detection mode'
+        required: false
+        default: 'comprehensive'
+        type: choice
+        options:
+        - quick
+        - comprehensive
+        - area
+      auto_correct:
+        description: 'Auto-correct outliers'
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  outlier-monitoring:
+    runs-on: ubuntu-latest
+    concurrency: outlier-monitoring
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        fetch-depth: 0
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Run outlier monitoring
+      run: |
+        node scripts/outlier-monitor.js \
+          --mode=${{ github.event.inputs.mode || 'comprehensive' }} \
+          --threshold=25 \
+          --radius=30 \
+          --alert=10 \
+          ${{ github.event.inputs.auto_correct == 'true' && '--auto-correct' || '' }}
+    
+    - name: Upload monitoring reports to Netlify Blobs
+      env:
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+      run: |
+        # Upload any generated reports to blob storage
+        if [ -f outlier-monitoring-report-*.json ]; then
+          echo "Uploading monitoring reports to blob storage..."
+          # This would integrate with your existing blob upload system
+        fi
+    
+    - name: Configure Git
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+    
+    - name: Commit monitoring reports
+      run: |
+        if [ -f outlier-monitoring-report-*.json ]; then
+          git add outlier-monitoring-report-*.json
+          git diff --quiet && git diff --staged --quiet || {
+            git commit -m "[skip ci] Outlier monitoring report - $(date -u +'%Y-%m-%d %H:%M:%S UTC')" && git push origin main
+          }
+        fi
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Summary
+      run: |
+        echo "## Outlier Monitoring Complete" >> $GITHUB_STEP_SUMMARY
+        echo "- Mode: ${{ github.event.inputs.mode || 'comprehensive' }}" >> $GITHUB_STEP_SUMMARY
+        echo "- Auto-correct: ${{ github.event.inputs.auto_correct || 'false' }}" >> $GITHUB_STEP_SUMMARY
+        echo "- Timestamp: $(date -u +'%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY
+        if [ -f outlier-monitoring-report-*.json ]; then
+          echo "- Report generated and committed" >> $GITHUB_STEP_SUMMARY
+        fi
+    
+    - name: Handle errors
+      if: failure()
+      run: |
+        echo "## Outlier Monitoring Failed" >> $GITHUB_STEP_SUMMARY
+        echo "- Check logs for details" >> $GITHUB_STEP_SUMMARY
+        echo "- Timestamp: $(date -u +'%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY
