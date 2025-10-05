@@ -2,7 +2,7 @@
   "metric": "max_hourly",
   "period": "30d",
   "unit": "mm/h",
-  "generated_at": "2025-10-05T17:17:42.519Z",
+  "generated_at": "2025-10-05T23:18:55.867Z",
   "rankings": [
     {
       "rank": 1,
@@ -9954,6 +9954,18 @@
     },
     {
       "rank": 830,
+      "station": "E2331",
+      "stationName": "Dingley (E2331)",
+      "region": "England",
+      "county": "Leicestershire",
+      "location": {
+        "lat": 52.473204,
+        "long": -0.862668
+      },
+      "value": 0.2
+    },
+    {
+      "rank": 831,
       "station": "E27621",
       "stationName": "Benfleet Barrier (E27621)",
       "region": "England",
@@ -9965,7 +9977,7 @@
       "value": 0.2
     },
     {
-      "rank": 831,
+      "rank": 832,
       "station": "E37051",
       "stationName": "Chelmsford Brookend (E37051)",
       "region": "England",
@@ -9977,7 +9989,7 @@
       "value": 0.2
     },
     {
-      "rank": 832,
+      "rank": 833,
       "station": "E37241",
       "stationName": "Wethersfield (E37241)",
       "region": "England",
@@ -9989,7 +10001,7 @@
       "value": 0.2
     },
     {
-      "rank": 833,
+      "rank": 834,
       "station": "E44081",
       "stationName": "Wixoe (E44081)",
       "region": "England",
@@ -9999,18 +10011,6 @@
         "long": 0.493671
       },
       "value": 0.2
-    },
-    {
-      "rank": 834,
-      "station": "E2331",
-      "stationName": "Dingley (E2331)",
-      "region": "England",
-      "county": "Leicestershire",
-      "location": {
-        "lat": 52.473204,
-        "long": -0.862668
-      },
-      "value": 0.1
     },
     {
       "rank": 835,
