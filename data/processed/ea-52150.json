@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-10-04T22:34:05.605Z",
+  "lastUpdated": "2025-10-05T04:36:36.175Z",
   "station": "52150",
   "stationName": "Yeovilton Met Office (52150)",
   "region": "England",
@@ -8,7 +8,7 @@
     "long": null
   },
   "dataSource": "EA API",
-  "recordCount": 400,
+  "recordCount": 406,
   "data": [
     {
       "date": "2025-09-18",
@@ -4009,8 +4009,68 @@
       "station": "52150",
       "stationName": "Yeovilton Met Office (52150)",
       "region": "England"
+    },
+    {
+      "date": "2025-10-04",
+      "time": "23:00:00.000",
+      "dateTime": "2025-10-04T23:00:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "52150",
+      "stationName": "Yeovilton Met Office (52150)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-05",
+      "time": "00:00:00.000",
+      "dateTime": "2025-10-05T00:00:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "52150",
+      "stationName": "Yeovilton Met Office (52150)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-05",
+      "time": "01:00:00.000",
+      "dateTime": "2025-10-05T01:00:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "52150",
+      "stationName": "Yeovilton Met Office (52150)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-05",
+      "time": "02:00:00.000",
+      "dateTime": "2025-10-05T02:00:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "52150",
+      "stationName": "Yeovilton Met Office (52150)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-05",
+      "time": "03:00:00.000",
+      "dateTime": "2025-10-05T03:00:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "52150",
+      "stationName": "Yeovilton Met Office (52150)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-05",
+      "time": "04:00:00.000",
+      "dateTime": "2025-10-05T04:00:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "52150",
+      "stationName": "Yeovilton Met Office (52150)",
+      "region": "England"
     }
   ],
-  "previousUpdate": "2025-10-04T16:37:15.301Z",
+  "previousUpdate": "2025-10-04T22:34:05.605Z",
   "incrementalUpdate": true
 }
