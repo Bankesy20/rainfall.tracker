@@ -2,7 +2,7 @@
   "metric": "max_hourly",
   "period": "all-time",
   "unit": "mm/h",
-  "generated_at": "2025-10-06T05:23:06.610Z",
+  "generated_at": "2025-10-06T11:19:28.262Z",
   "rankings": [
     {
       "rank": 1,
@@ -9510,6 +9510,18 @@
     },
     {
       "rank": 793,
+      "station": "238777TP",
+      "stationName": "Moreton (238777TP)",
+      "region": "England",
+      "county": "Essex",
+      "location": {
+        "lat": 51.736595,
+        "long": 0.223782
+      },
+      "value": 1
+    },
+    {
+      "rank": 794,
       "station": "251530TP",
       "stationName": "St. Johns (251530TP)",
       "region": "England",
@@ -9521,7 +9533,7 @@
       "value": 1
     },
     {
-      "rank": 794,
+      "rank": 795,
       "station": "E21288",
       "stationName": "Worlingham (E21288)",
       "region": "England",
@@ -9533,7 +9545,7 @@
       "value": 1
     },
     {
-      "rank": 795,
+      "rank": 796,
       "station": "E21870",
       "stationName": "East Dereham Rain (E21870)",
       "region": "England",
@@ -9545,7 +9557,7 @@
       "value": 1
     },
     {
-      "rank": 796,
+      "rank": 797,
       "station": "E23470",
       "stationName": "Benhall (E23470)",
       "region": "England",
@@ -9557,7 +9569,7 @@
       "value": 1
     },
     {
-      "rank": 797,
+      "rank": 798,
       "station": "E24506",
       "stationName": "Heacham (E24506)",
       "region": "England",
@@ -9569,7 +9581,7 @@
       "value": 1
     },
     {
-      "rank": 798,
+      "rank": 799,
       "station": "E24908",
       "stationName": "Rayleigh (E24908)",
       "region": "England",
@@ -9581,7 +9593,7 @@
       "value": 1
     },
     {
-      "rank": 799,
+      "rank": 800,
       "station": "E24935",
       "stationName": "Tillingham (E24935)",
       "region": "England",
@@ -9593,7 +9605,7 @@
       "value": 1
     },
     {
-      "rank": 800,
+      "rank": 801,
       "station": "E24952",
       "stationName": "Willingale (E24952)",
       "region": "England",
@@ -9605,7 +9617,7 @@
       "value": 1
     },
     {
-      "rank": 801,
+      "rank": 802,
       "station": "E43545",
       "stationName": "Hemingby Bridge Gs Wits (E43545)",
       "region": "England",
@@ -9617,7 +9629,7 @@
       "value": 1
     },
     {
-      "rank": 802,
+      "rank": 803,
       "station": "E24940",
       "stationName": "White Notley (E24940)",
       "region": "England",
@@ -9629,7 +9641,7 @@
       "value": 1
     },
     {
-      "rank": 803,
+      "rank": 804,
       "station": "282290TP",
       "stationName": "Cranleigh (282290TP)",
       "region": "England",
@@ -9641,7 +9653,7 @@
       "value": 0.9
     },
     {
-      "rank": 804,
+      "rank": 805,
       "station": "44132",
       "stationName": "Sutton Poyntz (44132)",
       "region": "England",
@@ -9653,7 +9665,7 @@
       "value": 0.9
     },
     {
-      "rank": 805,
+      "rank": 806,
       "station": "586493",
       "stationName": "High Newton (586493)",
       "region": "England",
@@ -9665,7 +9677,7 @@
       "value": 0.9
     },
     {
-      "rank": 806,
+      "rank": 807,
       "station": "E25173",
       "stationName": "Castle Acre Raine (E25173)",
       "region": "England",
@@ -9677,7 +9689,7 @@
       "value": 0.9
     },
     {
-      "rank": 807,
+      "rank": 808,
       "station": "1413",
       "stationName": "Hartlebury Rain (1413)",
       "region": "England",
@@ -9685,18 +9697,6 @@
       "location": {
         "lat": 52.325619,
         "long": -2.226643
-      },
-      "value": 0.8
-    },
-    {
-      "rank": 808,
-      "station": "238777TP",
-      "stationName": "Moreton (238777TP)",
-      "region": "England",
-      "county": "Essex",
-      "location": {
-        "lat": 51.736595,
-        "long": 0.223782
       },
       "value": 0.8
     },
