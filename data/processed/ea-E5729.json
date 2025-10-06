@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-10-06T03:27:58.457Z",
+  "lastUpdated": "2025-10-06T08:55:35.994Z",
   "station": "E5729",
   "stationName": "Metoff Weybourne (E5729)",
   "region": "England",
@@ -8,7 +8,7 @@
     "long": null
   },
   "dataSource": "EA API",
-  "recordCount": 510,
+  "recordCount": 520,
   "data": [
     {
       "date": "2025-09-18",
@@ -5062,8 +5062,28 @@
     },
     {
       "date": "2025-10-06",
+      "time": "03:00:00.000",
+      "dateTime": "2025-10-06T03:00:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5729",
+      "stationName": "Metoff Weybourne (E5729)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-06",
       "time": "03:30:00.000",
       "dateTime": "2025-10-06T03:30:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5729",
+      "stationName": "Metoff Weybourne (E5729)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-06",
+      "time": "04:00:00.000",
+      "dateTime": "2025-10-06T04:00:00Z",
       "rainfall_mm": 0,
       "total_mm": 0,
       "station": "E5729",
@@ -5102,6 +5122,16 @@
     },
     {
       "date": "2025-10-06",
+      "time": "06:00:00.000",
+      "dateTime": "2025-10-06T06:00:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5729",
+      "stationName": "Metoff Weybourne (E5729)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-06",
       "time": "06:30:00.000",
       "dateTime": "2025-10-06T06:30:00Z",
       "rainfall_mm": 0,
@@ -5109,8 +5139,78 @@
       "station": "E5729",
       "stationName": "Metoff Weybourne (E5729)",
       "region": "England"
+    },
+    {
+      "date": "2025-10-06",
+      "time": "07:00:00.000",
+      "dateTime": "2025-10-06T07:00:00Z",
+      "rainfall_mm": 0.1,
+      "total_mm": 0,
+      "station": "E5729",
+      "stationName": "Metoff Weybourne (E5729)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-06",
+      "time": "08:00:00.000",
+      "dateTime": "2025-10-06T08:00:00Z",
+      "rainfall_mm": 0.1,
+      "total_mm": 0,
+      "station": "E5729",
+      "stationName": "Metoff Weybourne (E5729)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-06",
+      "time": "08:45:00.000",
+      "dateTime": "2025-10-06T08:45:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5729",
+      "stationName": "Metoff Weybourne (E5729)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-06",
+      "time": "09:30:00.000",
+      "dateTime": "2025-10-06T09:30:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5729",
+      "stationName": "Metoff Weybourne (E5729)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-06",
+      "time": "10:15:00.000",
+      "dateTime": "2025-10-06T10:15:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5729",
+      "stationName": "Metoff Weybourne (E5729)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-06",
+      "time": "11:00:00.000",
+      "dateTime": "2025-10-06T11:00:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5729",
+      "stationName": "Metoff Weybourne (E5729)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-06",
+      "time": "11:45:00.000",
+      "dateTime": "2025-10-06T11:45:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5729",
+      "stationName": "Metoff Weybourne (E5729)",
+      "region": "England"
     }
   ],
-  "previousUpdate": "2025-10-05T20:50:38.562Z",
+  "previousUpdate": "2025-10-06T03:27:58.457Z",
   "incrementalUpdate": true
 }
