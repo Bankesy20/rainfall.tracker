@@ -2,7 +2,7 @@
   "metric": "total_rainfall",
   "period": "30d",
   "unit": "mm",
-  "generated_at": "2025-10-07T05:22:01.663Z",
+  "generated_at": "2025-10-07T11:19:46.226Z",
   "rankings": [
     {
       "rank": 1,
@@ -38,7 +38,7 @@
         "lat": 54.498872,
         "long": -3.181948
       },
-      "value": 278.8
+      "value": 280.4
     },
     {
       "rank": 4,
@@ -74,7 +74,7 @@
         "lat": 54.525099,
         "long": -3.417569
       },
-      "value": 231.4
+      "value": 232.9
     },
     {
       "rank": 7,
@@ -134,7 +134,7 @@
         "lat": 54.583702,
         "long": -3.237013
       },
-      "value": 215.1
+      "value": 215.2
     },
     {
       "rank": 12,
@@ -150,6 +150,18 @@
     },
     {
       "rank": 13,
+      "station": "589359",
+      "stationName": "Ulpha (589359)",
+      "region": "England",
+      "county": "Cumbria",
+      "location": {
+        "lat": 54.342135,
+        "long": -3.21744
+      },
+      "value": 184.8
+    },
+    {
+      "rank": 14,
       "station": "600683",
       "stationName": "High Row (600683)",
       "region": "England",
@@ -159,18 +171,6 @@
         "long": -2.950962
       },
       "value": 184.4
-    },
-    {
-      "rank": 14,
-      "station": "589359",
-      "stationName": "Ulpha (589359)",
-      "region": "England",
-      "county": "Cumbria",
-      "location": {
-        "lat": 54.342135,
-        "long": -3.21744
-      },
-      "value": 184
     },
     {
       "rank": 15,
@@ -218,7 +218,7 @@
         "lat": 53.971437,
         "long": -2.529714
       },
-      "value": 169.6
+      "value": 169.8
     },
     {
       "rank": 19,
@@ -282,30 +282,6 @@
     },
     {
       "rank": 24,
-      "station": "592158",
-      "stationName": "Egremont Ivy Hill (592158)",
-      "region": "England",
-      "county": "Cumbria",
-      "location": {
-        "lat": 54.498215,
-        "long": -3.557159
-      },
-      "value": 156.9
-    },
-    {
-      "rank": 25,
-      "station": "588705",
-      "stationName": "Poaka Beck (588705)",
-      "region": "England",
-      "county": "Cumbria",
-      "location": {
-        "lat": 54.190769,
-        "long": -3.163942
-      },
-      "value": 155.5
-    },
-    {
-      "rank": 26,
       "station": "591878",
       "stationName": "Summergrove (591878)",
       "region": "England",
@@ -314,7 +290,31 @@
         "lat": 54.529816,
         "long": -3.545999
       },
-      "value": 153.9
+      "value": 158.9
+    },
+    {
+      "rank": 25,
+      "station": "592158",
+      "stationName": "Egremont Ivy Hill (592158)",
+      "region": "England",
+      "county": "Cumbria",
+      "location": {
+        "lat": 54.498215,
+        "long": -3.557159
+      },
+      "value": 157.8
+    },
+    {
+      "rank": 26,
+      "station": "588705",
+      "stationName": "Poaka Beck (588705)",
+      "region": "England",
+      "county": "Cumbria",
+      "location": {
+        "lat": 54.190769,
+        "long": -3.163942
+      },
+      "value": 155.9
     },
     {
       "rank": 27,
@@ -338,7 +338,7 @@
         "lat": 53.636515,
         "long": -2.448375
       },
-      "value": 151.4
+      "value": 151.5
     },
     {
       "rank": 29,
@@ -402,6 +402,18 @@
     },
     {
       "rank": 34,
+      "station": "575384",
+      "stationName": "Kebb Farm / Great Harwood (575384)",
+      "region": "England",
+      "county": "Lancashire",
+      "location": {
+        "lat": 53.790306,
+        "long": -2.422692
+      },
+      "value": 141.8
+    },
+    {
+      "rank": 35,
       "station": "013045",
       "stationName": "Garrigill Noonstones Hill (013045)",
       "region": "England",
@@ -411,18 +423,6 @@
         "long": -2.378185
       },
       "value": 141.7
-    },
-    {
-      "rank": 35,
-      "station": "575384",
-      "stationName": "Kebb Farm / Great Harwood (575384)",
-      "region": "England",
-      "county": "Lancashire",
-      "location": {
-        "lat": 53.790306,
-        "long": -2.422692
-      },
-      "value": 141.5
     },
     {
       "rank": 36,
@@ -506,7 +506,7 @@
         "lat": 53.604601,
         "long": -2.556847
       },
-      "value": 137.4
+      "value": 137.5
     },
     {
       "rank": 43,
@@ -566,7 +566,7 @@
         "lat": 53.927308,
         "long": -2.719516
       },
-      "value": 133.4
+      "value": 134
     },
     {
       "rank": 48,
@@ -626,7 +626,7 @@
         "lat": 53.694788,
         "long": -2.486856
       },
-      "value": 130.3
+      "value": 130.7
     },
     {
       "rank": 53,
@@ -990,6 +990,18 @@
     },
     {
       "rank": 83,
+      "station": "570788",
+      "stationName": "Common Bank (570788)",
+      "region": "England",
+      "county": "Lancashire",
+      "location": {
+        "lat": 53.653543,
+        "long": -2.654324
+      },
+      "value": 113.8
+    },
+    {
+      "rank": 84,
       "station": "605543",
       "stationName": "Calebreck Hall (605543)",
       "region": "England",
@@ -999,18 +1011,6 @@
         "long": -3.01743
       },
       "value": 113.8
-    },
-    {
-      "rank": 84,
-      "station": "570788",
-      "stationName": "Common Bank (570788)",
-      "region": "England",
-      "county": "Lancashire",
-      "location": {
-        "lat": 53.653543,
-        "long": -2.654324
-      },
-      "value": 113.6
     },
     {
       "rank": 85,
@@ -1178,7 +1178,7 @@
         "lat": 54.703741,
         "long": -3.274806
       },
-      "value": 102.8
+      "value": 103.6
     },
     {
       "rank": 99,
@@ -1422,6 +1422,18 @@
     },
     {
       "rank": 119,
+      "station": "576635",
+      "stationName": "Moor Park Fulwood (576635)",
+      "region": "England",
+      "county": "Lancashire",
+      "location": {
+        "lat": 53.774607,
+        "long": -2.703245
+      },
+      "value": 93.8
+    },
+    {
+      "rank": 120,
       "station": "082509",
       "stationName": "Redmires Reservoir (082509)",
       "region": "England",
@@ -1433,18 +1445,6 @@
       "value": 93.7
     },
     {
-      "rank": 120,
-      "station": "576635",
-      "stationName": "Moor Park Fulwood (576635)",
-      "region": "England",
-      "county": "Lancashire",
-      "location": {
-        "lat": 53.774607,
-        "long": -2.703245
-      },
-      "value": 93.6
-    },
-    {
       "rank": 121,
       "station": "570231",
       "stationName": "Hoscar (570231)",
@@ -1454,7 +1454,7 @@
         "lat": 53.596101,
         "long": -2.789423
       },
-      "value": 93
+      "value": 93.1
     },
     {
       "rank": 122,
@@ -1466,7 +1466,7 @@
         "lat": 53.748659,
         "long": -2.825643
       },
-      "value": 92.6
+      "value": 92.8
     },
     {
       "rank": 123,
@@ -1826,7 +1826,7 @@
         "lat": 53.511139,
         "long": -2.721493
       },
-      "value": 80.6
+      "value": 80.7
     },
     {
       "rank": 153,
@@ -1874,7 +1874,7 @@
         "lat": 54.860973,
         "long": -1.670477
       },
-      "value": 77.5
+      "value": 77.8
     },
     {
       "rank": 157,
@@ -3642,6 +3642,18 @@
     },
     {
       "rank": 304,
+      "station": "E4530",
+      "stationName": "Kingsmill Down (E4530)",
+      "region": "England",
+      "county": "Kent",
+      "location": {
+        "lat": 51.156945,
+        "long": 1.009589
+      },
+      "value": 30.4
+    },
+    {
+      "rank": 305,
       "station": "44101",
       "stationName": "Beaminster Coombe Farm (44101)",
       "region": "England",
@@ -3651,18 +3663,6 @@
         "long": -2.738533
       },
       "value": 30.3
-    },
-    {
-      "rank": 305,
-      "station": "E4530",
-      "stationName": "Kingsmill Down (E4530)",
-      "region": "England",
-      "county": "Kent",
-      "location": {
-        "lat": 51.156945,
-        "long": 1.009589
-      },
-      "value": 30.2
     },
     {
       "rank": 306,
@@ -5066,7 +5066,7 @@
         "lat": 50.733448,
         "long": -4.549952
       },
-      "value": 23.2
+      "value": 23.3
     },
     {
       "rank": 423,
@@ -9606,6 +9606,18 @@
     },
     {
       "rank": 801,
+      "station": "E24854",
+      "stationName": "Burnham On Crouch (E24854)",
+      "region": "England",
+      "county": "Essex",
+      "location": {
+        "lat": 51.623807,
+        "long": 0.826545
+      },
+      "value": 3.2
+    },
+    {
+      "rank": 802,
       "station": "E2382",
       "stationName": "Hannington Reservoir (E2382)",
       "region": "England",
@@ -9617,7 +9629,7 @@
       "value": 3.2
     },
     {
-      "rank": 802,
+      "rank": 803,
       "station": "47167",
       "stationName": "Plympton (47167)",
       "region": "England",
@@ -9629,7 +9641,7 @@
       "value": 3.1
     },
     {
-      "rank": 803,
+      "rank": 804,
       "station": "E46161",
       "stationName": "Scarhouse Gsm (E46161)",
       "region": "England",
@@ -9637,18 +9649,6 @@
       "location": {
         "lat": 51.511603,
         "long": 0.583211
-      },
-      "value": 3
-    },
-    {
-      "rank": 804,
-      "station": "E24854",
-      "stationName": "Burnham On Crouch (E24854)",
-      "region": "England",
-      "county": "Essex",
-      "location": {
-        "lat": 51.623807,
-        "long": 0.826545
       },
       "value": 3
     },
