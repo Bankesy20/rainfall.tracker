@@ -2,7 +2,7 @@
   "metric": "total_rainfall",
   "period": "all-time",
   "unit": "mm",
-  "generated_at": "2025-10-06T23:21:16.366Z",
+  "generated_at": "2025-10-07T05:22:02.279Z",
   "rankings": [
     {
       "rank": 1,
@@ -302,7 +302,7 @@
         "lat": 54.190769,
         "long": -3.163942
       },
-      "value": 155.4
+      "value": 155.5
     },
     {
       "rank": 26,
@@ -1110,6 +1110,18 @@
     },
     {
       "rank": 93,
+      "station": "3307",
+      "stationName": "Hollinsclough (3307)",
+      "region": "England",
+      "county": "Derbyshire",
+      "location": {
+        "lat": 53.196879,
+        "long": -1.901908
+      },
+      "value": 106.4
+    },
+    {
+      "rank": 94,
       "station": "574718",
       "stationName": "Colne Swinden (574718)",
       "region": "England",
@@ -1119,18 +1131,6 @@
         "long": -2.196809
       },
       "value": 106.3
-    },
-    {
-      "rank": 94,
-      "station": "3307",
-      "stationName": "Hollinsclough (3307)",
-      "region": "England",
-      "county": "Derbyshire",
-      "location": {
-        "lat": 53.196879,
-        "long": -1.901908
-      },
-      "value": 106.2
     },
     {
       "rank": 95,
@@ -1814,7 +1814,7 @@
         "lat": 54.843273,
         "long": -3.064299
       },
-      "value": 81.2
+      "value": 81.3
     },
     {
       "rank": 152,
@@ -1866,6 +1866,18 @@
     },
     {
       "rank": 156,
+      "station": "018777",
+      "stationName": "Stanley Hustledown (018777)",
+      "region": "England",
+      "county": "Durham",
+      "location": {
+        "lat": 54.860973,
+        "long": -1.670477
+      },
+      "value": 77.5
+    },
+    {
+      "rank": 157,
       "station": "054371",
       "stationName": "East Cowton (054371)",
       "region": "England",
@@ -1877,7 +1889,7 @@
       "value": 77.4
     },
     {
-      "rank": 157,
+      "rank": 158,
       "station": "057426",
       "stationName": "Rainfall station (057426)",
       "region": "England",
@@ -1885,18 +1897,6 @@
       "location": {
         "lat": 54.18467,
         "long": -1.901124
-      },
-      "value": 77.2
-    },
-    {
-      "rank": 158,
-      "station": "018777",
-      "stationName": "Stanley Hustledown (018777)",
-      "region": "England",
-      "county": "Durham",
-      "location": {
-        "lat": 54.860973,
-        "long": -1.670477
       },
       "value": 77.2
     },
