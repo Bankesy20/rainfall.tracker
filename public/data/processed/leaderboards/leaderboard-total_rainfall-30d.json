@@ -2,7 +2,7 @@
   "metric": "total_rainfall",
   "period": "30d",
   "unit": "mm",
-  "generated_at": "2025-10-08T17:21:11.927Z",
+  "generated_at": "2025-10-08T23:20:42.460Z",
   "rankings": [
     {
       "rank": 1,
@@ -110,7 +110,7 @@
         "lat": 54.583702,
         "long": -3.237013
       },
-      "value": 227.6
+      "value": 227.8
     },
     {
       "rank": 10,
@@ -398,7 +398,7 @@
         "lat": 54.58826,
         "long": -3.316076
       },
-      "value": 145.6
+      "value": 145.7
     },
     {
       "rank": 34,
@@ -458,7 +458,7 @@
         "lat": 54.328305,
         "long": -2.694209
       },
-      "value": 143.2
+      "value": 143.3
     },
     {
       "rank": 39,
@@ -1658,7 +1658,7 @@
         "lat": 53.911448,
         "long": -2.098144
       },
-      "value": 89
+      "value": 89.2
     },
     {
       "rank": 139,
@@ -1826,7 +1826,7 @@
         "lat": 53.511139,
         "long": -2.721493
       },
-      "value": 81
+      "value": 81.1
     },
     {
       "rank": 153,
@@ -2358,6 +2358,18 @@
     },
     {
       "rank": 197,
+      "station": "3860",
+      "stationName": "Maltby Wrw (3860)",
+      "region": "England",
+      "county": "Derbyshire",
+      "location": {
+        "lat": 53.407215,
+        "long": -1.191422
+      },
+      "value": 61
+    },
+    {
+      "rank": 198,
       "station": "026297",
       "stationName": "Hartlepool (026297)",
       "region": "England",
@@ -2367,18 +2379,6 @@
         "long": -1.198486
       },
       "value": 60.8
-    },
-    {
-      "rank": 198,
-      "station": "3860",
-      "stationName": "Maltby Wrw (3860)",
-      "region": "England",
-      "county": "Derbyshire",
-      "location": {
-        "lat": 53.407215,
-        "long": -1.191422
-      },
-      "value": 60.6
     },
     {
       "rank": 199,
@@ -3150,6 +3150,18 @@
     },
     {
       "rank": 263,
+      "station": "E99682",
+      "stationName": "Dunkeswell Aerodrome Met Office (E99682)",
+      "region": "England",
+      "county": "Devon",
+      "location": {
+        "lat": 50.859966,
+        "long": -3.239613
+      },
+      "value": 37.4
+    },
+    {
+      "rank": 264,
       "station": "48170",
       "stationName": "Wendron (48170)",
       "region": "England",
@@ -3161,7 +3173,7 @@
       "value": 37.4
     },
     {
-      "rank": 264,
+      "rank": 265,
       "station": "E4510",
       "stationName": "Sellindge (E4510)",
       "region": "England",
@@ -3173,7 +3185,7 @@
       "value": 37.4
     },
     {
-      "rank": 265,
+      "rank": 266,
       "station": "E45811",
       "stationName": "Beelsby (E45811)",
       "region": "England",
@@ -3183,18 +3195,6 @@
         "long": -0.196218
       },
       "value": 37
-    },
-    {
-      "rank": 266,
-      "station": "E99682",
-      "stationName": "Dunkeswell Aerodrome Met Office (E99682)",
-      "region": "England",
-      "county": "Devon",
-      "location": {
-        "lat": 50.859966,
-        "long": -3.239613
-      },
-      "value": 36.9
     },
     {
       "rank": 267,
@@ -4542,6 +4542,18 @@
     },
     {
       "rank": 379,
+      "station": "E5728",
+      "stationName": "Metoff Marham (E5728)",
+      "region": "England",
+      "county": "Norfolk",
+      "location": {
+        "lat": 52.651369,
+        "long": 0.565622
+      },
+      "value": 25.4
+    },
+    {
+      "rank": 380,
       "station": "44104",
       "stationName": "Friar Waddon (44104)",
       "region": "England",
@@ -4553,7 +4565,7 @@
       "value": 25.4
     },
     {
-      "rank": 380,
+      "rank": 381,
       "station": "E1815",
       "stationName": "Ruskington (E1815)",
       "region": "England",
@@ -4563,18 +4575,6 @@
         "long": -0.374951
       },
       "value": 25.3
-    },
-    {
-      "rank": 381,
-      "station": "E5728",
-      "stationName": "Metoff Marham (E5728)",
-      "region": "England",
-      "county": "Norfolk",
-      "location": {
-        "lat": 52.651369,
-        "long": 0.565622
-      },
-      "value": 25.2
     },
     {
       "rank": 382,
@@ -4722,6 +4722,18 @@
     },
     {
       "rank": 394,
+      "station": "242819TP",
+      "stationName": "Widford (242819TP)",
+      "region": "England",
+      "county": "Essex",
+      "location": {
+        "lat": 51.827809,
+        "long": 0.054118
+      },
+      "value": 24.6
+    },
+    {
+      "rank": 395,
       "station": "43200",
       "stationName": "Wincanton (43200)",
       "region": "England",
@@ -4733,7 +4745,7 @@
       "value": 24.5
     },
     {
-      "rank": 395,
+      "rank": 396,
       "station": "E14900",
       "stationName": "Afton (E14900)",
       "region": "England",
@@ -4745,7 +4757,7 @@
       "value": 24.5
     },
     {
-      "rank": 396,
+      "rank": 397,
       "station": "52225",
       "stationName": "Clewer (52225)",
       "region": "England",
@@ -4757,7 +4769,7 @@
       "value": 24.4
     },
     {
-      "rank": 397,
+      "rank": 398,
       "station": "0744SE",
       "stationName": "Throwley (0744SE)",
       "region": "England",
@@ -4769,7 +4781,7 @@
       "value": 24.4
     },
     {
-      "rank": 398,
+      "rank": 399,
       "station": "E14440",
       "stationName": "Efford (E14440)",
       "region": "England",
@@ -4781,7 +4793,7 @@
       "value": 24.4
     },
     {
-      "rank": 399,
+      "rank": 400,
       "station": "E2493",
       "stationName": "Holbeach Rain (E2493)",
       "region": "England",
@@ -4793,7 +4805,7 @@
       "value": 24.4
     },
     {
-      "rank": 400,
+      "rank": 401,
       "station": "3574",
       "stationName": "Draycott (3574)",
       "region": "England",
@@ -4805,7 +4817,7 @@
       "value": 24.4
     },
     {
-      "rank": 401,
+      "rank": 402,
       "station": "E14940",
       "stationName": "Knighton (E14940)",
       "region": "England",
@@ -4817,7 +4829,7 @@
       "value": 24.3
     },
     {
-      "rank": 402,
+      "rank": 403,
       "station": "284703TP",
       "stationName": "Burstow (284703TP)",
       "region": "England",
@@ -4829,7 +4841,7 @@
       "value": 24.3
     },
     {
-      "rank": 403,
+      "rank": 404,
       "station": "E6780",
       "stationName": "Pett (E6780)",
       "region": "England",
@@ -4841,7 +4853,7 @@
       "value": 24.2
     },
     {
-      "rank": 404,
+      "rank": 405,
       "station": "242534TP",
       "stationName": "Ware,broadmeads (242534TP)",
       "region": "England",
@@ -4851,18 +4863,6 @@
         "long": -0.03963
       },
       "value": 24.2
-    },
-    {
-      "rank": 405,
-      "station": "242819TP",
-      "stationName": "Widford (242819TP)",
-      "region": "England",
-      "county": "Essex",
-      "location": {
-        "lat": 51.827809,
-        "long": 0.054118
-      },
-      "value": 24
     },
     {
       "rank": 406,
@@ -6798,6 +6798,18 @@
     },
     {
       "rank": 567,
+      "station": "E5734",
+      "stationName": "Metoff Shoeburyness (E5734)",
+      "region": "England",
+      "county": "Essex",
+      "location": {
+        "lat": 51.554554,
+        "long": 0.826576
+      },
+      "value": 17.9
+    },
+    {
+      "rank": 568,
       "station": "43103",
       "stationName": "Winterbourne Stoke (43103)",
       "region": "England",
@@ -6807,18 +6819,6 @@
         "long": -1.894828
       },
       "value": 17.9
-    },
-    {
-      "rank": 568,
-      "station": "E5734",
-      "stationName": "Metoff Shoeburyness (E5734)",
-      "region": "England",
-      "county": "Essex",
-      "location": {
-        "lat": 51.554554,
-        "long": 0.826576
-      },
-      "value": 17.8
     },
     {
       "rank": 569,
@@ -7698,6 +7698,18 @@
     },
     {
       "rank": 642,
+      "station": "47102",
+      "stationName": "Crowford Bridge (47102)",
+      "region": "England",
+      "county": "Cornwall",
+      "location": {
+        "lat": 50.766684,
+        "long": -4.425535
+      },
+      "value": 15.4
+    },
+    {
+      "rank": 643,
       "station": "239258TP",
       "stationName": "Epping Forest (239258TP)",
       "region": "England",
@@ -7709,7 +7721,7 @@
       "value": 15.4
     },
     {
-      "rank": 643,
+      "rank": 644,
       "station": "540001RG",
       "stationName": "Luxborough Lane (540001RG)",
       "region": "England",
@@ -7721,7 +7733,7 @@
       "value": 15.3
     },
     {
-      "rank": 644,
+      "rank": 645,
       "station": "52149",
       "stationName": "Sherborne (52149)",
       "region": "England",
@@ -7729,18 +7741,6 @@
       "location": {
         "lat": 50.937299,
         "long": -2.527224
-      },
-      "value": 15.3
-    },
-    {
-      "rank": 645,
-      "station": "47102",
-      "stationName": "Crowford Bridge (47102)",
-      "region": "England",
-      "county": "Cornwall",
-      "location": {
-        "lat": 50.766684,
-        "long": -4.425535
       },
       "value": 15.3
     },
