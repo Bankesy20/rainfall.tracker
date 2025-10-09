@@ -2,7 +2,7 @@
   "metric": "total_rainfall",
   "period": "all-time",
   "unit": "mm",
-  "generated_at": "2025-10-08T23:20:43.126Z",
+  "generated_at": "2025-10-09T05:23:23.934Z",
   "rankings": [
     {
       "rank": 1,
@@ -14,7 +14,7 @@
         "lat": 54.378286,
         "long": -3.103039
       },
-      "value": 315.7
+      "value": 316
     },
     {
       "rank": 2,
@@ -62,7 +62,7 @@
         "lat": 54.548278,
         "long": -2.983943
       },
-      "value": 259
+      "value": 259.1
     },
     {
       "rank": 6,
@@ -830,7 +830,7 @@
         "lat": 53.463871,
         "long": -1.947989
       },
-      "value": 121.6
+      "value": 121.8
     },
     {
       "rank": 70,
@@ -890,7 +890,7 @@
         "lat": 50.473478,
         "long": -3.89184
       },
-      "value": 119.9
+      "value": 120
     },
     {
       "rank": 75,
@@ -938,10 +938,22 @@
         "lat": 53.535499,
         "long": -2.263235
       },
-      "value": 117.2
+      "value": 117.3
     },
     {
       "rank": 79,
+      "station": "605543",
+      "stationName": "Calebreck Hall (605543)",
+      "region": "England",
+      "county": "Cumbria",
+      "location": {
+        "lat": 54.713365,
+        "long": -3.01743
+      },
+      "value": 117.2
+    },
+    {
+      "rank": 80,
       "station": "598691",
       "stationName": "Brackenber (598691)",
       "region": "England",
@@ -951,18 +963,6 @@
         "long": -2.432265
       },
       "value": 117
-    },
-    {
-      "rank": 80,
-      "station": "605543",
-      "stationName": "Calebreck Hall (605543)",
-      "region": "England",
-      "county": "Cumbria",
-      "location": {
-        "lat": 54.713365,
-        "long": -3.01743
-      },
-      "value": 116.9
     },
     {
       "rank": 81,
@@ -1118,7 +1118,7 @@
         "lat": 54.703741,
         "long": -3.274806
       },
-      "value": 108.9
+      "value": 109
     },
     {
       "rank": 94,
@@ -1718,7 +1718,7 @@
         "lat": 54.774946,
         "long": -2.516845
       },
-      "value": 85.6
+      "value": 85.8
     },
     {
       "rank": 144,
