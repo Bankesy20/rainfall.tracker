@@ -2,7 +2,7 @@
   "metric": "total_rainfall",
   "period": "30d",
   "unit": "mm",
-  "generated_at": "2025-10-09T23:21:04.136Z",
+  "generated_at": "2025-10-10T05:23:06.419Z",
   "rankings": [
     {
       "rank": 1,
@@ -74,7 +74,7 @@
         "lat": 54.525099,
         "long": -3.417569
       },
-      "value": 251.8
+      "value": 251.9
     },
     {
       "rank": 7,
@@ -110,7 +110,7 @@
         "lat": 54.583702,
         "long": -3.237013
       },
-      "value": 229
+      "value": 229.5
     },
     {
       "rank": 10,
@@ -258,6 +258,18 @@
     },
     {
       "rank": 22,
+      "station": "591878",
+      "stationName": "Summergrove (591878)",
+      "region": "England",
+      "county": "Cumbria",
+      "location": {
+        "lat": 54.529816,
+        "long": -3.545999
+      },
+      "value": 167.3
+    },
+    {
+      "rank": 23,
       "station": "073422",
       "stationName": "Malham Tarn (073422)",
       "region": "England",
@@ -267,18 +279,6 @@
         "long": -2.164345
       },
       "value": 167.3
-    },
-    {
-      "rank": 23,
-      "station": "591878",
-      "stationName": "Summergrove (591878)",
-      "region": "England",
-      "county": "Cumbria",
-      "location": {
-        "lat": 54.529816,
-        "long": -3.545999
-      },
-      "value": 167.2
     },
     {
       "rank": 24,
@@ -374,7 +374,7 @@
         "lat": 54.427181,
         "long": -3.488178
       },
-      "value": 146.6
+      "value": 146.8
     },
     {
       "rank": 32,
@@ -398,7 +398,7 @@
         "lat": 54.58826,
         "long": -3.316076
       },
-      "value": 146
+      "value": 146.4
     },
     {
       "rank": 34,
@@ -506,7 +506,7 @@
         "lat": 53.927308,
         "long": -2.719516
       },
-      "value": 141.5
+      "value": 141.6
     },
     {
       "rank": 43,
@@ -530,7 +530,7 @@
         "lat": 53.604601,
         "long": -2.556847
       },
-      "value": 139.8
+      "value": 139.9
     },
     {
       "rank": 45,
@@ -542,7 +542,7 @@
         "lat": 53.24456,
         "long": -1.997705
       },
-      "value": 138.5
+      "value": 138.7
     },
     {
       "rank": 46,
@@ -782,7 +782,7 @@
         "lat": 53.58714,
         "long": -2.633659
       },
-      "value": 124.2
+      "value": 124.3
     },
     {
       "rank": 66,
@@ -834,18 +834,6 @@
     },
     {
       "rank": 70,
-      "station": "078922",
-      "stationName": "Honley Ludhill Farm (078922)",
-      "region": "England",
-      "county": "Lancashire",
-      "location": {
-        "lat": 53.60567,
-        "long": -1.766463
-      },
-      "value": 121.3
-    },
-    {
-      "rank": 71,
       "station": "583948",
       "stationName": "Schola Green (583948)",
       "region": "England",
@@ -853,6 +841,18 @@
       "location": {
         "lat": 54.064769,
         "long": -2.863989
+      },
+      "value": 121.4
+    },
+    {
+      "rank": 71,
+      "station": "078922",
+      "stationName": "Honley Ludhill Farm (078922)",
+      "region": "England",
+      "county": "Lancashire",
+      "location": {
+        "lat": 53.60567,
+        "long": -1.766463
       },
       "value": 121.3
     },
@@ -986,7 +986,7 @@
         "lat": 53.653543,
         "long": -2.654324
       },
-      "value": 116.7
+      "value": 116.8
     },
     {
       "rank": 83,
@@ -1034,7 +1034,7 @@
         "lat": 53.240041,
         "long": -2.077118
       },
-      "value": 112
+      "value": 112.3
     },
     {
       "rank": 87,
@@ -1046,7 +1046,7 @@
         "lat": 54.122231,
         "long": -2.572947
       },
-      "value": 111.8
+      "value": 111.9
     },
     {
       "rank": 88,
@@ -1062,6 +1062,18 @@
     },
     {
       "rank": 89,
+      "station": "560557",
+      "stationName": "Sale Depot (560557)",
+      "region": "England",
+      "county": "Cheshire",
+      "location": {
+        "lat": 53.431001,
+        "long": -2.352893
+      },
+      "value": 110.3
+    },
+    {
+      "rank": 90,
       "station": "574718",
       "stationName": "Colne Swinden (574718)",
       "region": "England",
@@ -1071,18 +1083,6 @@
         "long": -2.196809
       },
       "value": 110.3
-    },
-    {
-      "rank": 90,
-      "station": "560557",
-      "stationName": "Sale Depot (560557)",
-      "region": "England",
-      "county": "Cheshire",
-      "location": {
-        "lat": 53.431001,
-        "long": -2.352893
-      },
-      "value": 110.1
     },
     {
       "rank": 91,
@@ -1118,7 +1118,7 @@
         "lat": 54.703741,
         "long": -3.274806
       },
-      "value": 109.3
+      "value": 109.4
     },
     {
       "rank": 94,
@@ -1130,7 +1130,7 @@
         "lat": 53.311933,
         "long": -1.898644
       },
-      "value": 108.6
+      "value": 108.8
     },
     {
       "rank": 95,
@@ -1178,7 +1178,7 @@
         "lat": 53.497891,
         "long": -2.499671
       },
-      "value": 105
+      "value": 105.2
     },
     {
       "rank": 99,
@@ -1298,7 +1298,7 @@
         "lat": 53.459311,
         "long": -2.134747
       },
-      "value": 100.7
+      "value": 100.8
     },
     {
       "rank": 109,
@@ -1346,7 +1346,7 @@
         "lat": 53.300189,
         "long": -2.155251
       },
-      "value": 99
+      "value": 99.1
     },
     {
       "rank": 113,
@@ -1686,6 +1686,18 @@
     },
     {
       "rank": 141,
+      "station": "013336",
+      "stationName": "Hartside (013336)",
+      "region": "England",
+      "county": "Cumbria",
+      "location": {
+        "lat": 54.774946,
+        "long": -2.516845
+      },
+      "value": 86.2
+    },
+    {
+      "rank": 142,
       "station": "037973",
       "stationName": "Hawnby (037973)",
       "region": "England",
@@ -1695,18 +1707,6 @@
         "long": -1.167931
       },
       "value": 86.2
-    },
-    {
-      "rank": 142,
-      "station": "013336",
-      "stationName": "Hartside (013336)",
-      "region": "England",
-      "county": "Cumbria",
-      "location": {
-        "lat": 54.774946,
-        "long": -2.516845
-      },
-      "value": 86
     },
     {
       "rank": 143,
