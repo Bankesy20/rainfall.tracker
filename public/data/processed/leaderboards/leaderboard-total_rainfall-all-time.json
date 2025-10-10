@@ -2,7 +2,7 @@
   "metric": "total_rainfall",
   "period": "all-time",
   "unit": "mm",
-  "generated_at": "2025-10-10T17:24:55.877Z",
+  "generated_at": "2025-10-10T23:20:55.047Z",
   "rankings": [
     {
       "rank": 1,
@@ -218,7 +218,7 @@
         "lat": 53.971437,
         "long": -2.529714
       },
-      "value": 175.4
+      "value": 175.6
     },
     {
       "rank": 19,
@@ -254,7 +254,7 @@
         "lat": 54.100116,
         "long": -2.164345
       },
-      "value": 169.1
+      "value": 169.2
     },
     {
       "rank": 22,
@@ -566,7 +566,7 @@
         "lat": 53.862447,
         "long": -2.348914
       },
-      "value": 136.9
+      "value": 137
     },
     {
       "rank": 48,
@@ -734,7 +734,7 @@
         "lat": 53.823309,
         "long": -2.154144
       },
-      "value": 126.3
+      "value": 126.5
     },
     {
       "rank": 62,
@@ -938,7 +938,7 @@
         "lat": 53.833251,
         "long": -2.102519
       },
-      "value": 118.5
+      "value": 118.6
     },
     {
       "rank": 79,
@@ -1242,6 +1242,18 @@
     },
     {
       "rank": 104,
+      "station": "577794",
+      "stationName": "Abbeystead Gardens (577794)",
+      "region": "England",
+      "county": "Lancashire",
+      "location": {
+        "lat": 53.986056,
+        "long": -2.662577
+      },
+      "value": 101.4
+    },
+    {
+      "rank": 105,
       "station": "563170",
       "stationName": "Oldham (563170)",
       "region": "England",
@@ -1251,18 +1263,6 @@
         "long": -2.162144
       },
       "value": 101.2
-    },
-    {
-      "rank": 105,
-      "station": "577794",
-      "stationName": "Abbeystead Gardens (577794)",
-      "region": "England",
-      "county": "Lancashire",
-      "location": {
-        "lat": 53.986056,
-        "long": -2.662577
-      },
-      "value": 101.1
     },
     {
       "rank": 106,
@@ -3302,7 +3302,7 @@
         "lat": 50.67998,
         "long": -3.408962
       },
-      "value": 34.5
+      "value": 34.7
     },
     {
       "rank": 276,
@@ -5058,6 +5058,18 @@
     },
     {
       "rank": 422,
+      "station": "E5724",
+      "stationName": "Metoff Wainfleet (E5724)",
+      "region": "England",
+      "county": "Lincolnshire",
+      "location": {
+        "lat": 53.088074,
+        "long": 0.270439
+      },
+      "value": 23.3
+    },
+    {
+      "rank": 423,
       "station": "48171",
       "stationName": "Goonhilly (48171)",
       "region": "England",
@@ -5069,7 +5081,7 @@
       "value": 23.3
     },
     {
-      "rank": 423,
+      "rank": 424,
       "station": "E9350",
       "stationName": "Haywards Heath (E9350)",
       "region": "England",
@@ -5081,7 +5093,7 @@
       "value": 23.2
     },
     {
-      "rank": 424,
+      "rank": 425,
       "station": "E9360",
       "stationName": "Ashington (E9360)",
       "region": "England",
@@ -5091,18 +5103,6 @@
         "long": -0.384184
       },
       "value": 23.2
-    },
-    {
-      "rank": 425,
-      "station": "E5724",
-      "stationName": "Metoff Wainfleet (E5724)",
-      "region": "England",
-      "county": "Lincolnshire",
-      "location": {
-        "lat": 53.088074,
-        "long": 0.270439
-      },
-      "value": 23
     },
     {
       "rank": 426,
@@ -7662,6 +7662,18 @@
     },
     {
       "rank": 639,
+      "station": "47102",
+      "stationName": "Crowford Bridge (47102)",
+      "region": "England",
+      "county": "Cornwall",
+      "location": {
+        "lat": 50.766684,
+        "long": -4.425535
+      },
+      "value": 15.5
+    },
+    {
+      "rank": 640,
       "station": "282751",
       "stationName": "Guildford Cathedral (282751)",
       "region": "England",
@@ -7673,7 +7685,7 @@
       "value": 15.4
     },
     {
-      "rank": 640,
+      "rank": 641,
       "station": "490001TP",
       "stationName": "Griggs Bridge (490001TP)",
       "region": "England",
@@ -7685,7 +7697,7 @@
       "value": 15.4
     },
     {
-      "rank": 641,
+      "rank": 642,
       "station": "53106",
       "stationName": "Hardenhuish (53106)",
       "region": "England",
@@ -7697,7 +7709,7 @@
       "value": 15.4
     },
     {
-      "rank": 642,
+      "rank": 643,
       "station": "E24767",
       "stationName": "Stradbroke (E24767)",
       "region": "England",
@@ -7705,18 +7717,6 @@
       "location": {
         "lat": 52.323479,
         "long": 1.278981
-      },
-      "value": 15.4
-    },
-    {
-      "rank": 643,
-      "station": "47102",
-      "stationName": "Crowford Bridge (47102)",
-      "region": "England",
-      "county": "Cornwall",
-      "location": {
-        "lat": 50.766684,
-        "long": -4.425535
       },
       "value": 15.4
     },
