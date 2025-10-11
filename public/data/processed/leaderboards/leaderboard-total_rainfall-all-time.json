@@ -2,7 +2,7 @@
   "metric": "total_rainfall",
   "period": "all-time",
   "unit": "mm",
-  "generated_at": "2025-10-11T17:18:39.542Z",
+  "generated_at": "2025-10-11T23:20:29.990Z",
   "rankings": [
     {
       "rank": 1,
@@ -50,7 +50,7 @@
         "lat": 54.500172,
         "long": -2.930285
       },
-      "value": 279.1
+      "value": 279.2
     },
     {
       "rank": 5,
@@ -2174,7 +2174,7 @@
         "lat": 50.548234,
         "long": -3.940001
       },
-      "value": 68.1
+      "value": 68.2
     },
     {
       "rank": 182,
@@ -3014,7 +3014,7 @@
         "lat": 53.175194,
         "long": -0.524002
       },
-      "value": 38.8
+      "value": 38.9
     },
     {
       "rank": 252,
@@ -3302,7 +3302,7 @@
         "lat": 50.67998,
         "long": -3.408962
       },
-      "value": 34.7
+      "value": 34.9
     },
     {
       "rank": 276,
@@ -3630,6 +3630,18 @@
     },
     {
       "rank": 303,
+      "station": "47160",
+      "stationName": "Kilkhampton (47160)",
+      "region": "England",
+      "county": "Devon",
+      "location": {
+        "lat": 50.877791,
+        "long": -4.488167
+      },
+      "value": 30.6
+    },
+    {
+      "rank": 304,
       "station": "47176",
       "stationName": "Langstone Moor (47176)",
       "region": "England",
@@ -3641,7 +3653,7 @@
       "value": 30.6
     },
     {
-      "rank": 304,
+      "rank": 305,
       "station": "3782",
       "stationName": "Cannock Vc (3782)",
       "region": "England",
@@ -3651,18 +3663,6 @@
         "long": -1.993285
       },
       "value": 30.6
-    },
-    {
-      "rank": 305,
-      "station": "47160",
-      "stationName": "Kilkhampton (47160)",
-      "region": "England",
-      "county": "Devon",
-      "location": {
-        "lat": 50.877791,
-        "long": -4.488167
-      },
-      "value": 30.5
     },
     {
       "rank": 306,
@@ -3774,6 +3774,18 @@
     },
     {
       "rank": 315,
+      "station": "E5723",
+      "stationName": "Metoff Coningsby (E5723)",
+      "region": "England",
+      "county": "Lincolnshire",
+      "location": {
+        "lat": 53.093909,
+        "long": -0.172837
+      },
+      "value": 29.6
+    },
+    {
+      "rank": 316,
       "station": "3687",
       "stationName": "Whissendine (3687)",
       "region": "England",
@@ -3785,7 +3797,7 @@
       "value": 29.6
     },
     {
-      "rank": 316,
+      "rank": 317,
       "station": "45164",
       "stationName": "Exmouth (45164)",
       "region": "England",
@@ -3797,7 +3809,7 @@
       "value": 29.51
     },
     {
-      "rank": 317,
+      "rank": 318,
       "station": "E14880",
       "stationName": "Calbourne (E14880)",
       "region": "England",
@@ -3809,7 +3821,7 @@
       "value": 29.5
     },
     {
-      "rank": 318,
+      "rank": 319,
       "station": "3275",
       "stationName": "Walsall Wood (3275)",
       "region": "England",
@@ -3821,7 +3833,7 @@
       "value": 29.4
     },
     {
-      "rank": 319,
+      "rank": 320,
       "station": "E3474",
       "stationName": "Stourmouth (E3474)",
       "region": "England",
@@ -3833,7 +3845,7 @@
       "value": 29.4
     },
     {
-      "rank": 320,
+      "rank": 321,
       "station": "45164",
       "stationName": "Exmouth (45164)",
       "region": "England",
@@ -3843,18 +3855,6 @@
         "long": -3.380154
       },
       "value": 29.31
-    },
-    {
-      "rank": 321,
-      "station": "E5723",
-      "stationName": "Metoff Coningsby (E5723)",
-      "region": "England",
-      "county": "Lincolnshire",
-      "location": {
-        "lat": 53.093909,
-        "long": -0.172837
-      },
-      "value": 29.2
     },
     {
       "rank": 322,
@@ -4470,6 +4470,18 @@
     },
     {
       "rank": 373,
+      "station": "E5728",
+      "stationName": "Metoff Marham (E5728)",
+      "region": "England",
+      "county": "Norfolk",
+      "location": {
+        "lat": 52.651369,
+        "long": 0.565622
+      },
+      "value": 25.8
+    },
+    {
+      "rank": 374,
       "station": "E10360",
       "stationName": "Princes Marsh (E10360)",
       "region": "England",
@@ -4481,7 +4493,7 @@
       "value": 25.8
     },
     {
-      "rank": 374,
+      "rank": 375,
       "station": "E14430",
       "stationName": "Stem Lane (E14430)",
       "region": "England",
@@ -4493,7 +4505,7 @@
       "value": 25.8
     },
     {
-      "rank": 375,
+      "rank": 376,
       "station": "E12560",
       "stationName": "Warnford (E12560)",
       "region": "England",
@@ -4505,7 +4517,7 @@
       "value": 25.8
     },
     {
-      "rank": 376,
+      "rank": 377,
       "station": "1822SO",
       "stationName": "Folkington (1822SO)",
       "region": "England",
@@ -4517,7 +4529,7 @@
       "value": 25.6
     },
     {
-      "rank": 377,
+      "rank": 378,
       "station": "E12821",
       "stationName": "Bishops Sutton (E12821)",
       "region": "England",
@@ -4529,7 +4541,7 @@
       "value": 25.6
     },
     {
-      "rank": 378,
+      "rank": 379,
       "station": "E14893",
       "stationName": "Broadfield Cowes (E14893)",
       "region": "England",
@@ -4541,7 +4553,7 @@
       "value": 25.6
     },
     {
-      "rank": 379,
+      "rank": 380,
       "station": "48199",
       "stationName": "St Blazey (48199)",
       "region": "England",
@@ -4551,18 +4563,6 @@
         "long": -4.730773
       },
       "value": 25.5
-    },
-    {
-      "rank": 380,
-      "station": "E5728",
-      "stationName": "Metoff Marham (E5728)",
-      "region": "England",
-      "county": "Norfolk",
-      "location": {
-        "lat": 52.651369,
-        "long": 0.565622
-      },
-      "value": 25.4
     },
     {
       "rank": 381,
@@ -4878,6 +4878,18 @@
     },
     {
       "rank": 407,
+      "station": "E5724",
+      "stationName": "Metoff Wainfleet (E5724)",
+      "region": "England",
+      "county": "Lincolnshire",
+      "location": {
+        "lat": 53.088074,
+        "long": 0.270439
+      },
+      "value": 23.9
+    },
+    {
+      "rank": 408,
       "station": "E5732",
       "stationName": "Metoff Wattisham (E5732)",
       "region": "England",
@@ -4889,7 +4901,7 @@
       "value": 23.8
     },
     {
-      "rank": 408,
+      "rank": 409,
       "station": "3771",
       "stationName": "Colwick (3771)",
       "region": "England",
@@ -4901,7 +4913,7 @@
       "value": 23.8
     },
     {
-      "rank": 409,
+      "rank": 410,
       "station": "49108",
       "stationName": "Trefrida (49108)",
       "region": "England",
@@ -4913,7 +4925,7 @@
       "value": 23.7
     },
     {
-      "rank": 410,
+      "rank": 411,
       "station": "281186TP",
       "stationName": "Bordon (281186TP)",
       "region": "England",
@@ -4925,7 +4937,7 @@
       "value": 23.7
     },
     {
-      "rank": 411,
+      "rank": 412,
       "station": "E14850",
       "stationName": "Wroxall (E14850)",
       "region": "England",
@@ -4937,7 +4949,7 @@
       "value": 23.7
     },
     {
-      "rank": 412,
+      "rank": 413,
       "station": "45232",
       "stationName": "Stopgate Farm (45232)",
       "region": "England",
@@ -4949,7 +4961,7 @@
       "value": 23.7
     },
     {
-      "rank": 413,
+      "rank": 414,
       "station": "E14080",
       "stationName": "Overton (E14080)",
       "region": "England",
@@ -4961,7 +4973,7 @@
       "value": 23.6
     },
     {
-      "rank": 414,
+      "rank": 415,
       "station": "E6280",
       "stationName": "Brede (E6280)",
       "region": "England",
@@ -4973,7 +4985,7 @@
       "value": 23.6
     },
     {
-      "rank": 415,
+      "rank": 416,
       "station": "531179",
       "stationName": "Clifton Oakfield Road (531179)",
       "region": "England",
@@ -4985,7 +4997,7 @@
       "value": 23.6
     },
     {
-      "rank": 416,
+      "rank": 417,
       "station": "49104",
       "stationName": "Colliford (49104)",
       "region": "England",
@@ -4997,7 +5009,7 @@
       "value": 23.6
     },
     {
-      "rank": 417,
+      "rank": 418,
       "station": "52148",
       "stationName": "South Perrott (52148)",
       "region": "England",
@@ -5007,18 +5019,6 @@
         "long": -2.745053
       },
       "value": 23.6
-    },
-    {
-      "rank": 418,
-      "station": "E5724",
-      "stationName": "Metoff Wainfleet (E5724)",
-      "region": "England",
-      "county": "Lincolnshire",
-      "location": {
-        "lat": 53.088074,
-        "long": 0.270439
-      },
-      "value": 23.5
     },
     {
       "rank": 419,
