@@ -2,7 +2,7 @@
   "metric": "total_rainfall",
   "period": "all-time",
   "unit": "mm",
-  "generated_at": "2025-10-11T11:18:00.251Z",
+  "generated_at": "2025-10-11T17:18:39.542Z",
   "rankings": [
     {
       "rank": 1,
@@ -458,7 +458,7 @@
         "lat": 54.328305,
         "long": -2.694209
       },
-      "value": 143.6
+      "value": 143.7
     },
     {
       "rank": 39,
@@ -518,7 +518,7 @@
         "lat": 53.49079,
         "long": -1.883147
       },
-      "value": 140.9
+      "value": 141.2
     },
     {
       "rank": 44,
@@ -870,6 +870,18 @@
     },
     {
       "rank": 73,
+      "station": "077336",
+      "stationName": "Gorple Reservoir (077336)",
+      "region": "England",
+      "county": "Lancashire",
+      "location": {
+        "lat": 53.77754,
+        "long": -2.084173
+      },
+      "value": 120.6
+    },
+    {
+      "rank": 74,
       "station": "074385",
       "stationName": "Snaygill (074385)",
       "region": "England",
@@ -879,18 +891,6 @@
         "long": -2.020525
       },
       "value": 120.6
-    },
-    {
-      "rank": 74,
-      "station": "077336",
-      "stationName": "Gorple Reservoir (077336)",
-      "region": "England",
-      "county": "Lancashire",
-      "location": {
-        "lat": 53.77754,
-        "long": -2.084173
-      },
-      "value": 120.4
     },
     {
       "rank": 75,
@@ -1118,7 +1118,7 @@
         "lat": 54.703741,
         "long": -3.274806
       },
-      "value": 109.4
+      "value": 109.5
     },
     {
       "rank": 94,
@@ -2522,7 +2522,7 @@
         "lat": 54.107252,
         "long": -0.128568
       },
-      "value": 53
+      "value": 53.2
     },
     {
       "rank": 211,
@@ -2682,6 +2682,18 @@
     },
     {
       "rank": 224,
+      "station": "037292",
+      "stationName": "Filey (037292)",
+      "region": "England",
+      "county": "Unknown",
+      "location": {
+        "lat": 54.204227,
+        "long": -0.30358
+      },
+      "value": 48.4
+    },
+    {
+      "rank": 225,
       "station": "46169",
       "stationName": "Holne Priddons Farm (46169)",
       "region": "England",
@@ -2691,18 +2703,6 @@
         "long": -3.841369
       },
       "value": 48.3
-    },
-    {
-      "rank": 225,
-      "station": "037292",
-      "stationName": "Filey (037292)",
-      "region": "England",
-      "county": "Unknown",
-      "location": {
-        "lat": 54.204227,
-        "long": -0.30358
-      },
-      "value": 48.2
     },
     {
       "rank": 226,
@@ -3006,6 +3006,18 @@
     },
     {
       "rank": 251,
+      "station": "E5721",
+      "stationName": "Metoff Waddington (E5721)",
+      "region": "England",
+      "county": "Lincolnshire",
+      "location": {
+        "lat": 53.175194,
+        "long": -0.524002
+      },
+      "value": 38.8
+    },
+    {
+      "rank": 252,
       "station": "3998",
       "stationName": "Wiseton (3998)",
       "region": "England",
@@ -3017,7 +3029,7 @@
       "value": 38.8
     },
     {
-      "rank": 252,
+      "rank": 253,
       "station": "040492",
       "stationName": "Winestead (040492)",
       "region": "England",
@@ -3027,18 +3039,6 @@
         "long": -0.031959
       },
       "value": 38.8
-    },
-    {
-      "rank": 253,
-      "station": "E5721",
-      "stationName": "Metoff Waddington (E5721)",
-      "region": "England",
-      "county": "Lincolnshire",
-      "location": {
-        "lat": 53.175194,
-        "long": -0.524002
-      },
-      "value": 38.7
     },
     {
       "rank": 254,
@@ -3846,6 +3846,18 @@
     },
     {
       "rank": 321,
+      "station": "E5723",
+      "stationName": "Metoff Coningsby (E5723)",
+      "region": "England",
+      "county": "Lincolnshire",
+      "location": {
+        "lat": 53.093909,
+        "long": -0.172837
+      },
+      "value": 29.2
+    },
+    {
+      "rank": 322,
       "station": "48192",
       "stationName": "Tolgus (48192)",
       "region": "England",
@@ -3857,7 +3869,7 @@
       "value": 29.2
     },
     {
-      "rank": 322,
+      "rank": 323,
       "station": "E8510",
       "stationName": "Plumpton (E8510)",
       "region": "England",
@@ -3869,7 +3881,7 @@
       "value": 29.2
     },
     {
-      "rank": 323,
+      "rank": 324,
       "station": "48182",
       "stationName": "Truro (48182)",
       "region": "England",
@@ -3879,18 +3891,6 @@
         "long": -5.040268
       },
       "value": 29.2
-    },
-    {
-      "rank": 324,
-      "station": "E5723",
-      "stationName": "Metoff Coningsby (E5723)",
-      "region": "England",
-      "county": "Lincolnshire",
-      "location": {
-        "lat": 53.093909,
-        "long": -0.172837
-      },
-      "value": 29
     },
     {
       "rank": 325,
@@ -6894,6 +6894,18 @@
     },
     {
       "rank": 575,
+      "station": "290578TP",
+      "stationName": "Eynsford (290578TP)",
+      "region": "England",
+      "county": "Kent",
+      "location": {
+        "lat": 51.367354,
+        "long": 0.204407
+      },
+      "value": 17.5
+    },
+    {
+      "rank": 576,
       "station": "E13560",
       "stationName": "Romsey (E13560)",
       "region": "England",
@@ -6905,7 +6917,7 @@
       "value": 17.5
     },
     {
-      "rank": 576,
+      "rank": 577,
       "station": "240470TP",
       "stationName": "Mill Green (240470TP)",
       "region": "England",
@@ -6917,7 +6929,7 @@
       "value": 17.5
     },
     {
-      "rank": 577,
+      "rank": 578,
       "station": "E11060",
       "stationName": "Westergate (E11060)",
       "region": "England",
@@ -6929,7 +6941,7 @@
       "value": 17.5
     },
     {
-      "rank": 578,
+      "rank": 579,
       "station": "287864TP",
       "stationName": "Beddington (287864TP)",
       "region": "England",
@@ -6941,7 +6953,7 @@
       "value": 17.5
     },
     {
-      "rank": 579,
+      "rank": 580,
       "station": "2321SO",
       "stationName": "Broadwater (2321SO)",
       "region": "England",
@@ -6953,7 +6965,7 @@
       "value": 17.4
     },
     {
-      "rank": 580,
+      "rank": 581,
       "station": "E5727",
       "stationName": "Metoff Holbeach (E5727)",
       "region": "England",
@@ -6965,7 +6977,19 @@
       "value": 17.4
     },
     {
-      "rank": 581,
+      "rank": 582,
+      "station": "E82040",
+      "stationName": "Colaton Raleigh Dotton Water Works (E82040)",
+      "region": "England",
+      "county": "Devon",
+      "location": {
+        "lat": 50.686641,
+        "long": -3.300157
+      },
+      "value": 17.4
+    },
+    {
+      "rank": 583,
       "station": "247564",
       "stationName": "Thorpe Lakes (247564)",
       "region": "England",
@@ -6977,7 +7001,7 @@
       "value": 17.4
     },
     {
-      "rank": 582,
+      "rank": 584,
       "station": "285630TP",
       "stationName": "Leatherhead (285630TP)",
       "region": "England",
@@ -6989,19 +7013,7 @@
       "value": 17.4
     },
     {
-      "rank": 583,
-      "station": "290578TP",
-      "stationName": "Eynsford (290578TP)",
-      "region": "England",
-      "county": "Kent",
-      "location": {
-        "lat": 51.367354,
-        "long": 0.204407
-      },
-      "value": 17.4
-    },
-    {
-      "rank": 584,
+      "rank": 585,
       "station": "52227",
       "stationName": "Gold Corner (52227)",
       "region": "England",
@@ -7013,7 +7025,7 @@
       "value": 17.4
     },
     {
-      "rank": 585,
+      "rank": 586,
       "station": "245176TP",
       "stationName": "Hornsey (245176TP)",
       "region": "England",
@@ -7023,18 +7035,6 @@
         "long": -0.112596
       },
       "value": 17.4
-    },
-    {
-      "rank": 586,
-      "station": "E82040",
-      "stationName": "Colaton Raleigh Dotton Water Works (E82040)",
-      "region": "England",
-      "county": "Devon",
-      "location": {
-        "lat": 50.686641,
-        "long": -3.300157
-      },
-      "value": 17.3
     },
     {
       "rank": 587,
