@@ -2,7 +2,7 @@
   "metric": "total_rainfall",
   "period": "30d",
   "unit": "mm",
-  "generated_at": "2025-10-11T05:20:42.847Z",
+  "generated_at": "2025-10-11T11:17:59.487Z",
   "rankings": [
     {
       "rank": 1,
@@ -5010,6 +5010,18 @@
     },
     {
       "rank": 418,
+      "station": "E5724",
+      "stationName": "Metoff Wainfleet (E5724)",
+      "region": "England",
+      "county": "Lincolnshire",
+      "location": {
+        "lat": 53.088074,
+        "long": 0.270439
+      },
+      "value": 23.5
+    },
+    {
+      "rank": 419,
       "station": "E8020",
       "stationName": "Cowbeech (E8020)",
       "region": "England",
@@ -5021,7 +5033,7 @@
       "value": 23.4
     },
     {
-      "rank": 419,
+      "rank": 420,
       "station": "271491TP",
       "stationName": "Camberley (271491TP)",
       "region": "England",
@@ -5033,7 +5045,7 @@
       "value": 23.4
     },
     {
-      "rank": 420,
+      "rank": 421,
       "station": "E11461",
       "stationName": "Worlds End (E11461)",
       "region": "England",
@@ -5045,7 +5057,7 @@
       "value": 23.4
     },
     {
-      "rank": 421,
+      "rank": 422,
       "station": "E8040",
       "stationName": "Vines Cross (E8040)",
       "region": "England",
@@ -5055,18 +5067,6 @@
         "long": 0.267671
       },
       "value": 23.4
-    },
-    {
-      "rank": 422,
-      "station": "E5724",
-      "stationName": "Metoff Wainfleet (E5724)",
-      "region": "England",
-      "county": "Lincolnshire",
-      "location": {
-        "lat": 53.088074,
-        "long": 0.270439
-      },
-      "value": 23.3
     },
     {
       "rank": 423,

@@ -2,7 +2,7 @@
   "metric": "rainy_days",
   "period": "all-time",
   "unit": "days",
-  "generated_at": "2025-10-11T05:21:19.558Z",
+  "generated_at": "2025-10-11T11:18:34.858Z",
   "rankings": [
     {
       "rank": 1,
@@ -114,6 +114,18 @@
     },
     {
       "rank": 10,
+      "station": "E5724",
+      "stationName": "Metoff Wainfleet (E5724)",
+      "region": "England",
+      "county": "Lincolnshire",
+      "location": {
+        "lat": 53.088074,
+        "long": 0.270439
+      },
+      "value": 17
+    },
+    {
+      "rank": 11,
       "station": "013336",
       "stationName": "Hartside (013336)",
       "region": "England",
@@ -125,7 +137,7 @@
       "value": 16
     },
     {
-      "rank": 11,
+      "rank": 12,
       "station": "028502",
       "stationName": "Old Spital Farm (028502)",
       "region": "England",
@@ -137,7 +149,7 @@
       "value": 16
     },
     {
-      "rank": 12,
+      "rank": 13,
       "station": "061431",
       "stationName": "Littondale (061431)",
       "region": "England",
@@ -149,7 +161,7 @@
       "value": 16
     },
     {
-      "rank": 13,
+      "rank": 14,
       "station": "062046",
       "stationName": "Grimwith Reservoir (062046)",
       "region": "England",
@@ -161,7 +173,7 @@
       "value": 16
     },
     {
-      "rank": 14,
+      "rank": 15,
       "station": "077066",
       "stationName": "Gorpley Reservoir (077066)",
       "region": "England",
@@ -173,7 +185,7 @@
       "value": 16
     },
     {
-      "rank": 15,
+      "rank": 16,
       "station": "077800",
       "stationName": "Great Wolden Edge (077800)",
       "region": "England",
@@ -185,7 +197,7 @@
       "value": 16
     },
     {
-      "rank": 16,
+      "rank": 17,
       "station": "078530",
       "stationName": "Marsden Butterley Reservoir (078530)",
       "region": "England",
@@ -197,7 +209,7 @@
       "value": 16
     },
     {
-      "rank": 17,
+      "rank": 18,
       "station": "559586",
       "stationName": "Greenfield (559586)",
       "region": "England",
@@ -209,7 +221,7 @@
       "value": 16
     },
     {
-      "rank": 18,
+      "rank": 19,
       "station": "573674",
       "stationName": "Footholme (573674)",
       "region": "England",
@@ -221,7 +233,7 @@
       "value": 16
     },
     {
-      "rank": 19,
+      "rank": 20,
       "station": "581159",
       "stationName": "Sedbergh (581159)",
       "region": "England",
@@ -233,7 +245,7 @@
       "value": 16
     },
     {
-      "rank": 20,
+      "rank": 21,
       "station": "585160",
       "stationName": "Kentmere Hallowbank (585160)",
       "region": "England",
@@ -245,7 +257,7 @@
       "value": 16
     },
     {
-      "rank": 21,
+      "rank": 22,
       "station": "585512",
       "stationName": "Watchgate (585512)",
       "region": "England",
@@ -257,7 +269,7 @@
       "value": 16
     },
     {
-      "rank": 22,
+      "rank": 23,
       "station": "588006",
       "stationName": "Coniston Coppermines (588006)",
       "region": "England",
@@ -269,7 +281,7 @@
       "value": 16
     },
     {
-      "rank": 23,
+      "rank": 24,
       "station": "591419",
       "stationName": "Calder Hall (591419)",
       "region": "England",
@@ -281,7 +293,7 @@
       "value": 16
     },
     {
-      "rank": 24,
+      "rank": 25,
       "station": "592860",
       "stationName": "Thirlmere St John&#39;s Beck (592860)",
       "region": "England",
@@ -293,7 +305,7 @@
       "value": 16
     },
     {
-      "rank": 25,
+      "rank": 26,
       "station": "605324",
       "stationName": "Force Crag Mine (605324)",
       "region": "England",
@@ -305,7 +317,7 @@
       "value": 16
     },
     {
-      "rank": 26,
+      "rank": 27,
       "station": "E5722",
       "stationName": "Metoff Cranwell (E5722)",
       "region": "England",
@@ -313,18 +325,6 @@
       "location": {
         "lat": 53.031102,
         "long": -0.503575
-      },
-      "value": 16
-    },
-    {
-      "rank": 27,
-      "station": "E5724",
-      "stationName": "Metoff Wainfleet (E5724)",
-      "region": "England",
-      "county": "Lincolnshire",
-      "location": {
-        "lat": 53.088074,
-        "long": 0.270439
       },
       "value": 16
     },
