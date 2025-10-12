@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-10-12T03:27:45.094Z",
+  "lastUpdated": "2025-10-12T08:51:24.512Z",
   "station": "E5727",
   "stationName": "Metoff Holbeach (E5727)",
   "region": "England",
@@ -8,7 +8,7 @@
     "long": null
   },
   "dataSource": "EA API",
-  "recordCount": 798,
+  "recordCount": 807,
   "data": [
     {
       "date": "2025-09-18",
@@ -7942,9 +7942,29 @@
     },
     {
       "date": "2025-10-12",
+      "time": "03:00:00.000",
+      "dateTime": "2025-10-12T03:00:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5727",
+      "stationName": "Metoff Holbeach (E5727)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-12",
       "time": "03:30:00.000",
       "dateTime": "2025-10-12T03:30:00Z",
       "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5727",
+      "stationName": "Metoff Holbeach (E5727)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-12",
+      "time": "04:00:00.000",
+      "dateTime": "2025-10-12T04:00:00Z",
+      "rainfall_mm": 0.1,
       "total_mm": 0,
       "station": "E5727",
       "stationName": "Metoff Holbeach (E5727)",
@@ -7982,6 +8002,16 @@
     },
     {
       "date": "2025-10-12",
+      "time": "06:00:00.000",
+      "dateTime": "2025-10-12T06:00:00Z",
+      "rainfall_mm": 0.1,
+      "total_mm": 0,
+      "station": "E5727",
+      "stationName": "Metoff Holbeach (E5727)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-12",
       "time": "06:30:00.000",
       "dateTime": "2025-10-12T06:30:00Z",
       "rainfall_mm": 0,
@@ -7989,8 +8019,68 @@
       "station": "E5727",
       "stationName": "Metoff Holbeach (E5727)",
       "region": "England"
+    },
+    {
+      "date": "2025-10-12",
+      "time": "07:00:00.000",
+      "dateTime": "2025-10-12T07:00:00Z",
+      "rainfall_mm": 0.1,
+      "total_mm": 0,
+      "station": "E5727",
+      "stationName": "Metoff Holbeach (E5727)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-12",
+      "time": "08:00:00.000",
+      "dateTime": "2025-10-12T08:00:00Z",
+      "rainfall_mm": 0.2,
+      "total_mm": 0,
+      "station": "E5727",
+      "stationName": "Metoff Holbeach (E5727)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-12",
+      "time": "08:45:00.000",
+      "dateTime": "2025-10-12T08:45:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5727",
+      "stationName": "Metoff Holbeach (E5727)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-12",
+      "time": "09:30:00.000",
+      "dateTime": "2025-10-12T09:30:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5727",
+      "stationName": "Metoff Holbeach (E5727)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-12",
+      "time": "10:15:00.000",
+      "dateTime": "2025-10-12T10:15:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5727",
+      "stationName": "Metoff Holbeach (E5727)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-12",
+      "time": "11:00:00.000",
+      "dateTime": "2025-10-12T11:00:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5727",
+      "stationName": "Metoff Holbeach (E5727)",
+      "region": "England"
     }
   ],
-  "previousUpdate": "2025-10-11T20:50:35.374Z",
+  "previousUpdate": "2025-10-12T03:27:45.094Z",
   "incrementalUpdate": true
 }
