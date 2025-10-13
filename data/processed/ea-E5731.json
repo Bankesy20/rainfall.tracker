@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-10-13T03:36:32.997Z",
+  "lastUpdated": "2025-10-13T08:57:16.532Z",
   "station": "E5731",
   "stationName": "Metoff Bedford (E5731)",
   "region": "England",
@@ -8,7 +8,7 @@
     "long": null
   },
   "dataSource": "EA API",
-  "recordCount": 839,
+  "recordCount": 847,
   "data": [
     {
       "date": "2025-09-18",
@@ -8372,8 +8372,28 @@
     },
     {
       "date": "2025-10-13",
+      "time": "04:00:00.000",
+      "dateTime": "2025-10-13T04:00:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5731",
+      "stationName": "Metoff Bedford (E5731)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-13",
       "time": "04:30:00.000",
       "dateTime": "2025-10-13T04:30:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5731",
+      "stationName": "Metoff Bedford (E5731)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-13",
+      "time": "05:00:00.000",
+      "dateTime": "2025-10-13T05:00:00Z",
       "rainfall_mm": 0,
       "total_mm": 0,
       "station": "E5731",
@@ -8399,8 +8419,68 @@
       "station": "E5731",
       "stationName": "Metoff Bedford (E5731)",
       "region": "England"
+    },
+    {
+      "date": "2025-10-13",
+      "time": "07:00:00.000",
+      "dateTime": "2025-10-13T07:00:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5731",
+      "stationName": "Metoff Bedford (E5731)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-13",
+      "time": "08:00:00.000",
+      "dateTime": "2025-10-13T08:00:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5731",
+      "stationName": "Metoff Bedford (E5731)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-13",
+      "time": "08:45:00.000",
+      "dateTime": "2025-10-13T08:45:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5731",
+      "stationName": "Metoff Bedford (E5731)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-13",
+      "time": "09:30:00.000",
+      "dateTime": "2025-10-13T09:30:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5731",
+      "stationName": "Metoff Bedford (E5731)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-13",
+      "time": "10:15:00.000",
+      "dateTime": "2025-10-13T10:15:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5731",
+      "stationName": "Metoff Bedford (E5731)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-13",
+      "time": "11:00:00.000",
+      "dateTime": "2025-10-13T11:00:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5731",
+      "stationName": "Metoff Bedford (E5731)",
+      "region": "England"
     }
   ],
-  "previousUpdate": "2025-10-12T20:49:57.206Z",
+  "previousUpdate": "2025-10-13T03:36:32.997Z",
   "incrementalUpdate": true
 }
