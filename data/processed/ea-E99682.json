@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-10-14T02:42:31.267Z",
+  "lastUpdated": "2025-10-14T07:32:46.559Z",
   "station": "E99682",
   "stationName": "Dunkeswell Aerodrome Met Office (E99682)",
   "region": "England",
@@ -8,7 +8,7 @@
     "long": null
   },
   "dataSource": "EA API",
-  "recordCount": 659,
+  "recordCount": 665,
   "data": [
     {
       "date": "2025-09-18",
@@ -6599,8 +6599,68 @@
       "station": "E99682",
       "stationName": "Dunkeswell Aerodrome Met Office (E99682)",
       "region": "England"
+    },
+    {
+      "date": "2025-10-14",
+      "time": "03:00:00.000",
+      "dateTime": "2025-10-14T03:00:00Z",
+      "rainfall_mm": 0.1,
+      "total_mm": 0,
+      "station": "E99682",
+      "stationName": "Dunkeswell Aerodrome Met Office (E99682)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-14",
+      "time": "04:00:00.000",
+      "dateTime": "2025-10-14T04:00:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E99682",
+      "stationName": "Dunkeswell Aerodrome Met Office (E99682)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-14",
+      "time": "05:00:00.000",
+      "dateTime": "2025-10-14T05:00:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E99682",
+      "stationName": "Dunkeswell Aerodrome Met Office (E99682)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-14",
+      "time": "06:00:00.000",
+      "dateTime": "2025-10-14T06:00:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E99682",
+      "stationName": "Dunkeswell Aerodrome Met Office (E99682)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-14",
+      "time": "07:00:00.000",
+      "dateTime": "2025-10-14T07:00:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E99682",
+      "stationName": "Dunkeswell Aerodrome Met Office (E99682)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-14",
+      "time": "07:45:00.000",
+      "dateTime": "2025-10-14T07:45:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E99682",
+      "stationName": "Dunkeswell Aerodrome Met Office (E99682)",
+      "region": "England"
     }
   ],
-  "previousUpdate": "2025-10-13T19:26:29.052Z",
+  "previousUpdate": "2025-10-14T02:42:31.267Z",
   "incrementalUpdate": true
 }
