@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-10-16T02:59:09.787Z",
+  "lastUpdated": "2025-10-16T07:52:23.739Z",
   "station": "47158",
   "stationName": "Halwill (47158)",
   "region": "England",
@@ -8,7 +8,7 @@
     "long": null
   },
   "dataSource": "EA API",
-  "recordCount": 2651,
+  "recordCount": 2671,
   "data": [
     {
       "date": "2025-09-18",
@@ -26519,8 +26519,223 @@
       "station": "47158",
       "stationName": "Halwill (47158)",
       "region": "England"
+    },
+    {
+      "date": "2025-10-16",
+      "time": "03:00:00.000",
+      "dateTime": "2025-10-16T03:00:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "47158",
+      "stationName": "Halwill (47158)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-16",
+      "time": "03:15:00.000",
+      "dateTime": "2025-10-16T03:15:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "47158",
+      "stationName": "Halwill (47158)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-16",
+      "time": "03:30:00.000",
+      "dateTime": "2025-10-16T03:30:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "47158",
+      "stationName": "Halwill (47158)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-16",
+      "time": "03:45:00.000",
+      "dateTime": "2025-10-16T03:45:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "47158",
+      "stationName": "Halwill (47158)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-16",
+      "time": "04:00:00.000",
+      "dateTime": "2025-10-16T04:00:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "47158",
+      "stationName": "Halwill (47158)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-16",
+      "time": "04:15:00.000",
+      "dateTime": "2025-10-16T04:15:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "47158",
+      "stationName": "Halwill (47158)",
+      "region": "England",
+      "original_rainfall_mm": 257.9,
+      "corrected": true,
+      "correction_reason": "Outlier detected and corrected via interpolation",
+      "correction_timestamp": "2025-10-16T07:52:23.733Z"
+    },
+    {
+      "date": "2025-10-16",
+      "time": "05:00:00.000",
+      "dateTime": "2025-10-16T05:00:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "47158",
+      "stationName": "Halwill (47158)",
+      "region": "England",
+      "original_rainfall_mm": 305406144,
+      "corrected": true,
+      "correction_reason": "Outlier detected and corrected via interpolation",
+      "correction_timestamp": "2025-10-16T07:52:23.733Z"
+    },
+    {
+      "date": "2025-10-16",
+      "time": "05:15:00.000",
+      "dateTime": "2025-10-16T05:15:00Z",
+      "rainfall_mm": -134544800,
+      "total_mm": 0,
+      "station": "47158",
+      "stationName": "Halwill (47158)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-16",
+      "time": "05:30:00.000",
+      "dateTime": "2025-10-16T05:30:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "47158",
+      "stationName": "Halwill (47158)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-16",
+      "time": "05:45:00.000",
+      "dateTime": "2025-10-16T05:45:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "47158",
+      "stationName": "Halwill (47158)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-16",
+      "time": "06:00:00.000",
+      "dateTime": "2025-10-16T06:00:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "47158",
+      "stationName": "Halwill (47158)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-16",
+      "time": "06:15:00.000",
+      "dateTime": "2025-10-16T06:15:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "47158",
+      "stationName": "Halwill (47158)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-16",
+      "time": "06:30:00.000",
+      "dateTime": "2025-10-16T06:30:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "47158",
+      "stationName": "Halwill (47158)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-16",
+      "time": "06:45:00.000",
+      "dateTime": "2025-10-16T06:45:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "47158",
+      "stationName": "Halwill (47158)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-16",
+      "time": "07:00:00.000",
+      "dateTime": "2025-10-16T07:00:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "47158",
+      "stationName": "Halwill (47158)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-16",
+      "time": "07:15:00.000",
+      "dateTime": "2025-10-16T07:15:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "47158",
+      "stationName": "Halwill (47158)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-16",
+      "time": "07:30:00.000",
+      "dateTime": "2025-10-16T07:30:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "47158",
+      "stationName": "Halwill (47158)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-16",
+      "time": "07:45:00.000",
+      "dateTime": "2025-10-16T07:45:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "47158",
+      "stationName": "Halwill (47158)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-16",
+      "time": "08:00:00.000",
+      "dateTime": "2025-10-16T08:00:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "47158",
+      "stationName": "Halwill (47158)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-16",
+      "time": "08:15:00.000",
+      "dateTime": "2025-10-16T08:15:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "47158",
+      "stationName": "Halwill (47158)",
+      "region": "England"
     }
   ],
-  "previousUpdate": "2025-10-15T19:52:10.171Z",
+  "outlierDetection": {
+    "detectedAt": "2025-10-16T07:52:23.733Z",
+    "threshold": 25,
+    "outliersFound": 2,
+    "correctionsMade": 2,
+    "correctionMethod": "intelligent_interpolation"
+  },
+  "previousUpdate": "2025-10-16T02:59:09.787Z",
   "incrementalUpdate": true
 }
