@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-10-16T02:45:37.199Z",
+  "lastUpdated": "2025-10-16T07:31:37.652Z",
   "station": "E99682",
   "stationName": "Dunkeswell Aerodrome Met Office (E99682)",
   "region": "England",
@@ -8,7 +8,7 @@
     "long": null
   },
   "dataSource": "EA API",
-  "recordCount": 714,
+  "recordCount": 719,
   "data": [
     {
       "date": "2025-09-18",
@@ -7149,8 +7149,58 @@
       "station": "E99682",
       "stationName": "Dunkeswell Aerodrome Met Office (E99682)",
       "region": "England"
+    },
+    {
+      "date": "2025-10-16",
+      "time": "04:00:00.000",
+      "dateTime": "2025-10-16T04:00:00Z",
+      "rainfall_mm": 0.1,
+      "total_mm": 0,
+      "station": "E99682",
+      "stationName": "Dunkeswell Aerodrome Met Office (E99682)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-16",
+      "time": "05:00:00.000",
+      "dateTime": "2025-10-16T05:00:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E99682",
+      "stationName": "Dunkeswell Aerodrome Met Office (E99682)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-16",
+      "time": "06:00:00.000",
+      "dateTime": "2025-10-16T06:00:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E99682",
+      "stationName": "Dunkeswell Aerodrome Met Office (E99682)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-16",
+      "time": "07:00:00.000",
+      "dateTime": "2025-10-16T07:00:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E99682",
+      "stationName": "Dunkeswell Aerodrome Met Office (E99682)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-16",
+      "time": "07:45:00.000",
+      "dateTime": "2025-10-16T07:45:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E99682",
+      "stationName": "Dunkeswell Aerodrome Met Office (E99682)",
+      "region": "England"
     }
   ],
-  "previousUpdate": "2025-10-15T19:28:01.227Z",
+  "previousUpdate": "2025-10-16T02:45:37.199Z",
   "incrementalUpdate": true
 }
