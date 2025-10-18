@@ -2,7 +2,7 @@
   "metric": "max_15min",
   "period": "30d",
   "unit": "mm/15min",
-  "generated_at": "2025-10-18T11:19:50.751Z",
+  "generated_at": "2025-10-18T17:19:43.984Z",
   "rankings": [
     {
       "rank": 1,
@@ -9834,18 +9834,6 @@
     },
     {
       "rank": 820,
-      "station": "E27601",
-      "stationName": "Easthaven Barrier (E27601)",
-      "region": "England",
-      "county": "Essex",
-      "location": {
-        "lat": 51.530977,
-        "long": 0.519422
-      },
-      "value": 0.4
-    },
-    {
-      "rank": 821,
       "station": "E37271",
       "stationName": "Steeple Bumpstead (E37271)",
       "region": "England",
@@ -9857,19 +9845,7 @@
       "value": 0.4
     },
     {
-      "rank": 822,
-      "station": "E41311",
-      "stationName": "Croppenburg (E41311)",
-      "region": "England",
-      "county": "Essex",
-      "location": {
-        "lat": 51.520749,
-        "long": 0.616886
-      },
-      "value": 0.4
-    },
-    {
-      "rank": 823,
+      "rank": 821,
       "station": "E46161",
       "stationName": "Scarhouse Gsm (E46161)",
       "region": "England",
@@ -9881,7 +9857,7 @@
       "value": 0.4
     },
     {
-      "rank": 824,
+      "rank": 822,
       "station": "282290TP",
       "stationName": "Cranleigh (282290TP)",
       "region": "England",
@@ -9893,7 +9869,7 @@
       "value": 0.3
     },
     {
-      "rank": 825,
+      "rank": 823,
       "station": "E21602",
       "stationName": "Writtle College Raine (E21602)",
       "region": "England",
@@ -9905,7 +9881,7 @@
       "value": 0.3
     },
     {
-      "rank": 826,
+      "rank": 824,
       "station": "E24925",
       "stationName": "Hanningfield Reservoir Raine (E24925)",
       "region": "England",
@@ -9917,7 +9893,7 @@
       "value": 0.3
     },
     {
-      "rank": 827,
+      "rank": 825,
       "station": "E21018",
       "stationName": "Basildon (E21018)",
       "region": "England",
@@ -9929,7 +9905,7 @@
       "value": 0.2
     },
     {
-      "rank": 828,
+      "rank": 826,
       "station": "E24865",
       "stationName": "Maldon Wwtw Raine (E24865)",
       "region": "England",
@@ -9941,7 +9917,7 @@
       "value": 0.2
     },
     {
-      "rank": 829,
+      "rank": 827,
       "station": "E24879",
       "stationName": "Hullbridge Raine (E24879)",
       "region": "England",
@@ -9953,7 +9929,19 @@
       "value": 0.2
     },
     {
-      "rank": 830,
+      "rank": 828,
+      "station": "E27601",
+      "stationName": "Easthaven Barrier (E27601)",
+      "region": "England",
+      "county": "Essex",
+      "location": {
+        "lat": 51.530977,
+        "long": 0.519422
+      },
+      "value": 0.2
+    },
+    {
+      "rank": 829,
       "station": "E27621",
       "stationName": "Benfleet Barrier (E27621)",
       "region": "England",
@@ -9965,7 +9953,7 @@
       "value": 0.2
     },
     {
-      "rank": 831,
+      "rank": 830,
       "station": "E37051",
       "stationName": "Chelmsford Brookend (E37051)",
       "region": "England",
@@ -9977,7 +9965,7 @@
       "value": 0.2
     },
     {
-      "rank": 832,
+      "rank": 831,
       "station": "E37241",
       "stationName": "Wethersfield (E37241)",
       "region": "England",
@@ -9985,6 +9973,18 @@
       "location": {
         "lat": 51.94816,
         "long": 0.481622
+      },
+      "value": 0.2
+    },
+    {
+      "rank": 832,
+      "station": "E41311",
+      "stationName": "Croppenburg (E41311)",
+      "region": "England",
+      "county": "Essex",
+      "location": {
+        "lat": 51.520749,
+        "long": 0.616886
       },
       "value": 0.2
     },

@@ -2,7 +2,7 @@
   "metric": "max_hourly",
   "period": "30d",
   "unit": "mm/h",
-  "generated_at": "2025-10-18T11:19:39.306Z",
+  "generated_at": "2025-10-18T17:19:32.227Z",
   "rankings": [
     {
       "rank": 1,
@@ -9918,30 +9918,6 @@
     },
     {
       "rank": 827,
-      "station": "E27601",
-      "stationName": "Easthaven Barrier (E27601)",
-      "region": "England",
-      "county": "Essex",
-      "location": {
-        "lat": 51.530977,
-        "long": 0.519422
-      },
-      "value": 0.4
-    },
-    {
-      "rank": 828,
-      "station": "E41311",
-      "stationName": "Croppenburg (E41311)",
-      "region": "England",
-      "county": "Essex",
-      "location": {
-        "lat": 51.520749,
-        "long": 0.616886
-      },
-      "value": 0.4
-    },
-    {
-      "rank": 829,
       "station": "E21018",
       "stationName": "Basildon (E21018)",
       "region": "England",
@@ -9953,7 +9929,7 @@
       "value": 0.2
     },
     {
-      "rank": 830,
+      "rank": 828,
       "station": "E2331",
       "stationName": "Dingley (E2331)",
       "region": "England",
@@ -9965,7 +9941,19 @@
       "value": 0.2
     },
     {
-      "rank": 831,
+      "rank": 829,
+      "station": "E27601",
+      "stationName": "Easthaven Barrier (E27601)",
+      "region": "England",
+      "county": "Essex",
+      "location": {
+        "lat": 51.530977,
+        "long": 0.519422
+      },
+      "value": 0.2
+    },
+    {
+      "rank": 830,
       "station": "E27621",
       "stationName": "Benfleet Barrier (E27621)",
       "region": "England",
@@ -9977,7 +9965,7 @@
       "value": 0.2
     },
     {
-      "rank": 832,
+      "rank": 831,
       "station": "E37051",
       "stationName": "Chelmsford Brookend (E37051)",
       "region": "England",
@@ -9989,7 +9977,7 @@
       "value": 0.2
     },
     {
-      "rank": 833,
+      "rank": 832,
       "station": "E37241",
       "stationName": "Wethersfield (E37241)",
       "region": "England",
@@ -9997,6 +9985,18 @@
       "location": {
         "lat": 51.94816,
         "long": 0.481622
+      },
+      "value": 0.2
+    },
+    {
+      "rank": 833,
+      "station": "E41311",
+      "stationName": "Croppenburg (E41311)",
+      "region": "England",
+      "county": "Essex",
+      "location": {
+        "lat": 51.520749,
+        "long": 0.616886
       },
       "value": 0.2
     },
