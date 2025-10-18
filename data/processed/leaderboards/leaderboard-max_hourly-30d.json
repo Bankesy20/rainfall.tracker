@@ -2,7 +2,7 @@
   "metric": "max_hourly",
   "period": "30d",
   "unit": "mm/h",
-  "generated_at": "2025-10-18T17:19:32.227Z",
+  "generated_at": "2025-10-18T23:22:21.774Z",
   "rankings": [
     {
       "rank": 1,
@@ -9702,18 +9702,6 @@
     },
     {
       "rank": 809,
-      "station": "1413",
-      "stationName": "Hartlebury Rain (1413)",
-      "region": "England",
-      "county": "Worcestershire",
-      "location": {
-        "lat": 52.325619,
-        "long": -2.226643
-      },
-      "value": 0.8
-    },
-    {
-      "rank": 810,
       "station": "E23633",
       "stationName": "Letchworth (E23633)",
       "region": "England",
@@ -9725,7 +9713,7 @@
       "value": 0.8
     },
     {
-      "rank": 811,
+      "rank": 810,
       "station": "E24884",
       "stationName": "Latchingdon (E24884)",
       "region": "England",
@@ -9737,7 +9725,7 @@
       "value": 0.8
     },
     {
-      "rank": 812,
+      "rank": 811,
       "station": "E24901",
       "stationName": "Mersea Island (E24901)",
       "region": "England",
@@ -9749,7 +9737,7 @@
       "value": 0.8
     },
     {
-      "rank": 813,
+      "rank": 812,
       "station": "E24925",
       "stationName": "Hanningfield Reservoir Raine (E24925)",
       "region": "England",
@@ -9761,7 +9749,7 @@
       "value": 0.8
     },
     {
-      "rank": 814,
+      "rank": 813,
       "station": "E37291",
       "stationName": "Great Cornard (E37291)",
       "region": "England",
@@ -9773,7 +9761,7 @@
       "value": 0.8
     },
     {
-      "rank": 815,
+      "rank": 814,
       "station": "E42991",
       "stationName": "Poringland (E42991)",
       "region": "England",
@@ -9785,7 +9773,7 @@
       "value": 0.8
     },
     {
-      "rank": 816,
+      "rank": 815,
       "station": "E44091",
       "stationName": "Sible Hedingham (E44091)",
       "region": "England",
@@ -9797,7 +9785,7 @@
       "value": 0.8
     },
     {
-      "rank": 817,
+      "rank": 816,
       "station": "E24920",
       "stationName": "Southchurch Park (E24920)",
       "region": "England",
@@ -9809,7 +9797,7 @@
       "value": 0.8
     },
     {
-      "rank": 818,
+      "rank": 817,
       "station": "E21602",
       "stationName": "Writtle College Raine (E21602)",
       "region": "England",
@@ -9819,6 +9807,18 @@
         "long": 0.429285
       },
       "value": 0.7
+    },
+    {
+      "rank": 818,
+      "station": "1413",
+      "stationName": "Hartlebury Rain (1413)",
+      "region": "England",
+      "county": "Worcestershire",
+      "location": {
+        "lat": 52.325619,
+        "long": -2.226643
+      },
+      "value": 0.6
     },
     {
       "rank": 819,
