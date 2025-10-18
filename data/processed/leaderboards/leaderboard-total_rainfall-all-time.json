@@ -2,7 +2,7 @@
   "metric": "total_rainfall",
   "period": "all-time",
   "unit": "mm",
-  "generated_at": "2025-10-18T05:21:53.412Z",
+  "generated_at": "2025-10-18T11:19:26.831Z",
   "rankings": [
     {
       "rank": 1,
@@ -5130,6 +5130,18 @@
     },
     {
       "rank": 428,
+      "station": "274178TP",
+      "stationName": "Stokenchurch (274178TP)",
+      "region": "England",
+      "county": "Berkshire",
+      "location": {
+        "lat": 51.667285,
+        "long": -0.923447
+      },
+      "value": 24.2
+    },
+    {
+      "rank": 429,
       "station": "E9350",
       "stationName": "Haywards Heath (E9350)",
       "region": "England",
@@ -5141,7 +5153,7 @@
       "value": 24.2
     },
     {
-      "rank": 429,
+      "rank": 430,
       "station": "E8020",
       "stationName": "Cowbeech (E8020)",
       "region": "England",
@@ -5153,7 +5165,7 @@
       "value": 24.2
     },
     {
-      "rank": 430,
+      "rank": 431,
       "station": "242534TP",
       "stationName": "Ware,broadmeads (242534TP)",
       "region": "England",
@@ -5165,7 +5177,7 @@
       "value": 24.2
     },
     {
-      "rank": 431,
+      "rank": 432,
       "station": "E23420",
       "stationName": "Salle (E23420)",
       "region": "England",
@@ -5177,7 +5189,7 @@
       "value": 24.2
     },
     {
-      "rank": 432,
+      "rank": 433,
       "station": "E7180",
       "stationName": "Powdermill (E7180)",
       "region": "England",
@@ -5189,7 +5201,7 @@
       "value": 24
     },
     {
-      "rank": 433,
+      "rank": 434,
       "station": "3057",
       "stationName": "Overseal (3057)",
       "region": "England",
@@ -5201,7 +5213,19 @@
       "value": 24
     },
     {
-      "rank": 434,
+      "rank": 435,
+      "station": "49108",
+      "stationName": "Trefrida (49108)",
+      "region": "England",
+      "county": "Cornwall",
+      "location": {
+        "lat": 50.733448,
+        "long": -4.549952
+      },
+      "value": 23.9
+    },
+    {
+      "rank": 436,
       "station": "3340",
       "stationName": "Birmingham Airport Falcon Way (3340)",
       "region": "England",
@@ -5213,7 +5237,7 @@
       "value": 23.9
     },
     {
-      "rank": 435,
+      "rank": 437,
       "station": "271491TP",
       "stationName": "Camberley (271491TP)",
       "region": "England",
@@ -5225,19 +5249,7 @@
       "value": 23.9
     },
     {
-      "rank": 436,
-      "station": "49108",
-      "stationName": "Trefrida (49108)",
-      "region": "England",
-      "county": "Cornwall",
-      "location": {
-        "lat": 50.733448,
-        "long": -4.549952
-      },
-      "value": 23.8
-    },
-    {
-      "rank": 437,
+      "rank": 438,
       "station": "E2410",
       "stationName": "Sutton Valence (E2410)",
       "region": "England",
@@ -5249,7 +5261,7 @@
       "value": 23.8
     },
     {
-      "rank": 438,
+      "rank": 439,
       "station": "531179",
       "stationName": "Clifton Oakfield Road (531179)",
       "region": "England",
@@ -5261,7 +5273,7 @@
       "value": 23.8
     },
     {
-      "rank": 439,
+      "rank": 440,
       "station": "49104",
       "stationName": "Colliford (49104)",
       "region": "England",
@@ -5273,7 +5285,7 @@
       "value": 23.8
     },
     {
-      "rank": 440,
+      "rank": 441,
       "station": "3198",
       "stationName": "Hinckley (3198)",
       "region": "England",
@@ -5285,7 +5297,7 @@
       "value": 23.8
     },
     {
-      "rank": 441,
+      "rank": 442,
       "station": "52150",
       "stationName": "Yeovilton Met Office (52150)",
       "region": "England",
@@ -5297,7 +5309,7 @@
       "value": 23.7
     },
     {
-      "rank": 442,
+      "rank": 443,
       "station": "E83440",
       "stationName": "Winsham Forde Grange (E83440)",
       "region": "England",
@@ -5309,7 +5321,7 @@
       "value": 23.7
     },
     {
-      "rank": 443,
+      "rank": 444,
       "station": "1040",
       "stationName": "Henley In Arden Ps (1040)",
       "region": "England",
@@ -5321,7 +5333,7 @@
       "value": 23.6
     },
     {
-      "rank": 444,
+      "rank": 445,
       "station": "3686",
       "stationName": "Fleckney (3686)",
       "region": "England",
@@ -5333,7 +5345,7 @@
       "value": 23.6
     },
     {
-      "rank": 445,
+      "rank": 446,
       "station": "E11461",
       "stationName": "Worlds End (E11461)",
       "region": "England",
@@ -5345,7 +5357,7 @@
       "value": 23.5
     },
     {
-      "rank": 446,
+      "rank": 447,
       "station": "48171",
       "stationName": "Goonhilly (48171)",
       "region": "England",
@@ -5357,7 +5369,7 @@
       "value": 23.4
     },
     {
-      "rank": 447,
+      "rank": 448,
       "station": "283596TP",
       "stationName": "Chobham (283596TP)",
       "region": "England",
@@ -5369,7 +5381,7 @@
       "value": 23.4
     },
     {
-      "rank": 448,
+      "rank": 449,
       "station": "E23487",
       "stationName": "Needham Market Rain (E23487)",
       "region": "England",
@@ -5381,7 +5393,7 @@
       "value": 23.4
     },
     {
-      "rank": 449,
+      "rank": 450,
       "station": "E9360",
       "stationName": "Ashington (E9360)",
       "region": "England",
@@ -5393,7 +5405,7 @@
       "value": 23.4
     },
     {
-      "rank": 450,
+      "rank": 451,
       "station": "52129",
       "stationName": "Chard Snowden Hill (52129)",
       "region": "England",
@@ -5403,18 +5415,6 @@
         "long": -2.981351
       },
       "value": 23.4
-    },
-    {
-      "rank": 451,
-      "station": "274178TP",
-      "stationName": "Stokenchurch (274178TP)",
-      "region": "England",
-      "county": "Berkshire",
-      "location": {
-        "lat": 51.667285,
-        "long": -0.923447
-      },
-      "value": 23.3
     },
     {
       "rank": 452,
@@ -6798,6 +6798,18 @@
     },
     {
       "rank": 567,
+      "station": "47144",
+      "stationName": "Otterham (47144)",
+      "region": "England",
+      "county": "Cornwall",
+      "location": {
+        "lat": 50.677206,
+        "long": -4.612016
+      },
+      "value": 18.6
+    },
+    {
+      "rank": 568,
       "station": "256345TP",
       "stationName": "Byfield (256345TP)",
       "region": "England",
@@ -6809,7 +6821,7 @@
       "value": 18.5
     },
     {
-      "rank": 568,
+      "rank": 569,
       "station": "E1290",
       "stationName": "Godstone (E1290)",
       "region": "England",
@@ -6821,7 +6833,7 @@
       "value": 18.4
     },
     {
-      "rank": 569,
+      "rank": 570,
       "station": "287141TP",
       "stationName": "Cheam (287141TP)",
       "region": "England",
@@ -6833,7 +6845,7 @@
       "value": 18.4
     },
     {
-      "rank": 570,
+      "rank": 571,
       "station": "E7070",
       "stationName": "Yardley Hastings Rain-e Wits (E7070)",
       "region": "England",
@@ -6845,7 +6857,7 @@
       "value": 18.4
     },
     {
-      "rank": 571,
+      "rank": 572,
       "station": "060947",
       "stationName": "Beckermonds (060947)",
       "region": "England",
@@ -6857,7 +6869,7 @@
       "value": 18.4
     },
     {
-      "rank": 572,
+      "rank": 573,
       "station": "52228",
       "stationName": "Clevedon Rgw (52228)",
       "region": "England",
@@ -6865,18 +6877,6 @@
       "location": {
         "lat": 51.440951,
         "long": -2.8222
-      },
-      "value": 18.4
-    },
-    {
-      "rank": 573,
-      "station": "47144",
-      "stationName": "Otterham (47144)",
-      "region": "England",
-      "county": "Cornwall",
-      "location": {
-        "lat": 50.677206,
-        "long": -4.612016
       },
       "value": 18.4
     },
@@ -7818,6 +7818,18 @@
     },
     {
       "rank": 652,
+      "station": "52105",
+      "stationName": "Bridgwater Rivers House (52105)",
+      "region": "England",
+      "county": "Somerset",
+      "location": {
+        "lat": 51.134741,
+        "long": -2.999693
+      },
+      "value": 15.3
+    },
+    {
+      "rank": 653,
       "station": "540001RG",
       "stationName": "Luxborough Lane (540001RG)",
       "region": "England",
@@ -7829,7 +7841,7 @@
       "value": 15.3
     },
     {
-      "rank": 653,
+      "rank": 654,
       "station": "286392TP",
       "stationName": "Hogsmill Valley (286392TP)",
       "region": "England",
@@ -7841,7 +7853,7 @@
       "value": 15.3
     },
     {
-      "rank": 654,
+      "rank": 655,
       "station": "246424TP",
       "stationName": "Holland Park (246424TP)",
       "region": "England",
@@ -7853,7 +7865,7 @@
       "value": 15.2
     },
     {
-      "rank": 655,
+      "rank": 656,
       "station": "53109",
       "stationName": "Bowerhill (53109)",
       "region": "England",
@@ -7865,7 +7877,7 @@
       "value": 15.2
     },
     {
-      "rank": 656,
+      "rank": 657,
       "station": "E3240",
       "stationName": "East Church (E3240)",
       "region": "England",
@@ -7877,7 +7889,7 @@
       "value": 15.2
     },
     {
-      "rank": 657,
+      "rank": 658,
       "station": "276316TP",
       "stationName": "North Mymms (276316TP)",
       "region": "England",
@@ -7889,7 +7901,7 @@
       "value": 15
     },
     {
-      "rank": 658,
+      "rank": 659,
       "station": "E11040",
       "stationName": "Walderton (E11040)",
       "region": "England",
@@ -7901,7 +7913,7 @@
       "value": 15
     },
     {
-      "rank": 659,
+      "rank": 660,
       "station": "52103",
       "stationName": "Sutton Bingham (52103)",
       "region": "England",
@@ -7913,7 +7925,7 @@
       "value": 15
     },
     {
-      "rank": 660,
+      "rank": 661,
       "station": "E10140",
       "stationName": "Kirdford (E10140)",
       "region": "England",
@@ -7925,7 +7937,7 @@
       "value": 14.9
     },
     {
-      "rank": 661,
+      "rank": 662,
       "station": "380002TP",
       "stationName": "The Avenue North (380002TP)",
       "region": "England",
@@ -7937,7 +7949,7 @@
       "value": 14.8
     },
     {
-      "rank": 662,
+      "rank": 663,
       "station": "276651TP",
       "stationName": "St.albans (276651TP)",
       "region": "England",
@@ -7949,7 +7961,7 @@
       "value": 14.8
     },
     {
-      "rank": 663,
+      "rank": 664,
       "station": "E1908",
       "stationName": "Wickenby (E1908)",
       "region": "England",
@@ -7961,7 +7973,7 @@
       "value": 14.8
     },
     {
-      "rank": 664,
+      "rank": 665,
       "station": "47108",
       "stationName": "Mary Tavy (47108)",
       "region": "England",
@@ -7973,7 +7985,7 @@
       "value": 14.8
     },
     {
-      "rank": 665,
+      "rank": 666,
       "station": "237740TP",
       "stationName": "Nag&#39;s Head Lane (237740TP)",
       "region": "England",
@@ -7983,18 +7995,6 @@
         "long": 0.258985
       },
       "value": 14.7
-    },
-    {
-      "rank": 666,
-      "station": "52105",
-      "stationName": "Bridgwater Rivers House (52105)",
-      "region": "England",
-      "county": "Somerset",
-      "location": {
-        "lat": 51.134741,
-        "long": -2.999693
-      },
-      "value": 14.6
     },
     {
       "rank": 667,
