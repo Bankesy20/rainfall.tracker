@@ -2,7 +2,7 @@
   "metric": "total_rainfall",
   "period": "30d",
   "unit": "mm",
-  "generated_at": "2025-10-17T23:21:55.194Z",
+  "generated_at": "2025-10-18T05:21:52.390Z",
   "rankings": [
     {
       "rank": 1,
@@ -1694,7 +1694,7 @@
         "lat": 54.774946,
         "long": -2.516845
       },
-      "value": 86.8
+      "value": 87
     },
     {
       "rank": 142,
@@ -1790,7 +1790,7 @@
         "lat": 54.434842,
         "long": -0.550006
       },
-      "value": 83.7
+      "value": 83.9
     },
     {
       "rank": 150,
@@ -2478,6 +2478,18 @@
     },
     {
       "rank": 207,
+      "station": "038476",
+      "stationName": "Flamborough (038476)",
+      "region": "England",
+      "county": "Unknown",
+      "location": {
+        "lat": 54.107252,
+        "long": -0.128568
+      },
+      "value": 55.2
+    },
+    {
+      "rank": 208,
       "station": "E4753",
       "stationName": "Parsonage Farm (E4753)",
       "region": "England",
@@ -2489,7 +2501,7 @@
       "value": 55.2
     },
     {
-      "rank": 208,
+      "rank": 209,
       "station": "1332",
       "stationName": "Walkmills (1332)",
       "region": "England",
@@ -2501,7 +2513,7 @@
       "value": 55
     },
     {
-      "rank": 209,
+      "rank": 210,
       "station": "3861",
       "stationName": "Nutwell Wtw (3861)",
       "region": "England",
@@ -2513,7 +2525,7 @@
       "value": 54.8
     },
     {
-      "rank": 210,
+      "rank": 211,
       "station": "068416",
       "stationName": "East Ness (068416)",
       "region": "England",
@@ -2525,7 +2537,19 @@
       "value": 54.6
     },
     {
-      "rank": 211,
+      "rank": 212,
+      "station": "037239",
+      "stationName": "Scarborough (037239)",
+      "region": "England",
+      "county": "Unknown",
+      "location": {
+        "lat": 54.27325,
+        "long": -0.422074
+      },
+      "value": 54
+    },
+    {
+      "rank": 213,
       "station": "50105",
       "stationName": "East Okement (50105)",
       "region": "England",
@@ -2535,30 +2559,6 @@
         "long": -3.977548
       },
       "value": 54
-    },
-    {
-      "rank": 212,
-      "station": "038476",
-      "stationName": "Flamborough (038476)",
-      "region": "England",
-      "county": "Unknown",
-      "location": {
-        "lat": 54.107252,
-        "long": -0.128568
-      },
-      "value": 53.8
-    },
-    {
-      "rank": 213,
-      "station": "037239",
-      "stationName": "Scarborough (037239)",
-      "region": "England",
-      "county": "Unknown",
-      "location": {
-        "lat": 54.27325,
-        "long": -0.422074
-      },
-      "value": 52.8
     },
     {
       "rank": 214,
@@ -2670,6 +2670,18 @@
     },
     {
       "rank": 223,
+      "station": "037292",
+      "stationName": "Filey (037292)",
+      "region": "England",
+      "county": "Unknown",
+      "location": {
+        "lat": 54.204227,
+        "long": -0.30358
+      },
+      "value": 50.4
+    },
+    {
+      "rank": 224,
       "station": "576578",
       "stationName": "Haighton Reservoir (576578)",
       "region": "England",
@@ -2681,7 +2693,7 @@
       "value": 50.2
     },
     {
-      "rank": 224,
+      "rank": 225,
       "station": "305111",
       "stationName": "Cherry Gardens (305111)",
       "region": "England",
@@ -2693,7 +2705,7 @@
       "value": 50
     },
     {
-      "rank": 225,
+      "rank": 226,
       "station": "3588",
       "stationName": "Meynell Langley (3588)",
       "region": "England",
@@ -2705,7 +2717,7 @@
       "value": 50
     },
     {
-      "rank": 226,
+      "rank": 227,
       "station": "50187",
       "stationName": "Bradworthy Common (50187)",
       "region": "England",
@@ -2715,18 +2727,6 @@
         "long": -4.380331
       },
       "value": 49.9
-    },
-    {
-      "rank": 227,
-      "station": "037292",
-      "stationName": "Filey (037292)",
-      "region": "England",
-      "county": "Unknown",
-      "location": {
-        "lat": 54.204227,
-        "long": -0.30358
-      },
-      "value": 49.6
     },
     {
       "rank": 228,
@@ -2754,6 +2754,18 @@
     },
     {
       "rank": 230,
+      "station": "039163",
+      "stationName": "Bridlington (039163)",
+      "region": "England",
+      "county": "Unknown",
+      "location": {
+        "lat": 54.100377,
+        "long": -0.208409
+      },
+      "value": 48.8
+    },
+    {
+      "rank": 231,
       "station": "3767",
       "stationName": "Denby Pottery (3767)",
       "region": "England",
@@ -2763,18 +2775,6 @@
         "long": -1.417793
       },
       "value": 48.4
-    },
-    {
-      "rank": 231,
-      "station": "039163",
-      "stationName": "Bridlington (039163)",
-      "region": "England",
-      "county": "Unknown",
-      "location": {
-        "lat": 54.100377,
-        "long": -0.208409
-      },
-      "value": 47.6
     },
     {
       "rank": 232,
@@ -2886,6 +2886,18 @@
     },
     {
       "rank": 241,
+      "station": "043533",
+      "stationName": "Driffield (043533)",
+      "region": "England",
+      "county": "Unknown",
+      "location": {
+        "lat": 53.999217,
+        "long": -0.43093
+      },
+      "value": 45
+    },
+    {
+      "rank": 242,
       "station": "E83400",
       "stationName": "Ivybridge Hanger Down (E83400)",
       "region": "England",
@@ -2897,7 +2909,7 @@
       "value": 44.9
     },
     {
-      "rank": 242,
+      "rank": 243,
       "station": "46103",
       "stationName": "Austins Bridge (46103)",
       "region": "England",
@@ -2907,18 +2919,6 @@
         "long": -3.760983
       },
       "value": 44.9
-    },
-    {
-      "rank": 243,
-      "station": "043533",
-      "stationName": "Driffield (043533)",
-      "region": "England",
-      "county": "Unknown",
-      "location": {
-        "lat": 53.999217,
-        "long": -0.43093
-      },
-      "value": 44.8
     },
     {
       "rank": 244,
@@ -3270,6 +3270,18 @@
     },
     {
       "rank": 273,
+      "station": "040752",
+      "stationName": "Skipsea (040752)",
+      "region": "England",
+      "county": "Unknown",
+      "location": {
+        "lat": 53.983799,
+        "long": -0.227143
+      },
+      "value": 37.4
+    },
+    {
+      "rank": 274,
       "station": "E45811",
       "stationName": "Beelsby (E45811)",
       "region": "England",
@@ -3281,7 +3293,7 @@
       "value": 37.4
     },
     {
-      "rank": 274,
+      "rank": 275,
       "station": "3766",
       "stationName": "Nottingham Watnall (3766)",
       "region": "England",
@@ -3291,18 +3303,6 @@
         "long": -1.251101
       },
       "value": 37
-    },
-    {
-      "rank": 275,
-      "station": "040752",
-      "stationName": "Skipsea (040752)",
-      "region": "England",
-      "county": "Unknown",
-      "location": {
-        "lat": 53.983799,
-        "long": -0.227143
-      },
-      "value": 36.8
     },
     {
       "rank": 276,
@@ -3402,6 +3402,18 @@
     },
     {
       "rank": 284,
+      "station": "039268",
+      "stationName": "Fraisthorpe (039268)",
+      "region": "England",
+      "county": "Unknown",
+      "location": {
+        "lat": 54.04064,
+        "long": -0.241524
+      },
+      "value": 35.4
+    },
+    {
+      "rank": 285,
       "station": "E4540",
       "stationName": "Charing (E4540)",
       "region": "England",
@@ -3413,7 +3425,7 @@
       "value": 35.2
     },
     {
-      "rank": 285,
+      "rank": 286,
       "station": "E46061",
       "stationName": "Laceby Beck (E46061)",
       "region": "England",
@@ -3425,7 +3437,7 @@
       "value": 34.8
     },
     {
-      "rank": 286,
+      "rank": 287,
       "station": "E3474",
       "stationName": "Stourmouth (E3474)",
       "region": "England",
@@ -3437,7 +3449,7 @@
       "value": 34.8
     },
     {
-      "rank": 287,
+      "rank": 288,
       "station": "45168",
       "stationName": "Hockworthy (45168)",
       "region": "England",
@@ -3449,7 +3461,7 @@
       "value": 34.7
     },
     {
-      "rank": 288,
+      "rank": 289,
       "station": "3178",
       "stationName": "Lambley (3178)",
       "region": "England",
@@ -3461,7 +3473,7 @@
       "value": 34.6
     },
     {
-      "rank": 289,
+      "rank": 290,
       "station": "3096",
       "stationName": "Barnhurst (3096)",
       "region": "England",
@@ -3473,7 +3485,7 @@
       "value": 34.6
     },
     {
-      "rank": 290,
+      "rank": 291,
       "station": "E1681",
       "stationName": "Redgate Mill (E1681)",
       "region": "England",
@@ -3485,7 +3497,7 @@
       "value": 34.4
     },
     {
-      "rank": 291,
+      "rank": 292,
       "station": "1331",
       "stationName": "Willey (1331)",
       "region": "England",
@@ -3493,18 +3505,6 @@
       "location": {
         "lat": 52.596394,
         "long": -2.471631
-      },
-      "value": 34.4
-    },
-    {
-      "rank": 292,
-      "station": "039268",
-      "stationName": "Fraisthorpe (039268)",
-      "region": "England",
-      "county": "Unknown",
-      "location": {
-        "lat": 54.04064,
-        "long": -0.241524
       },
       "value": 34.4
     },
@@ -5406,6 +5406,18 @@
     },
     {
       "rank": 451,
+      "station": "274178TP",
+      "stationName": "Stokenchurch (274178TP)",
+      "region": "England",
+      "county": "Berkshire",
+      "location": {
+        "lat": 51.667285,
+        "long": -0.923447
+      },
+      "value": 23.3
+    },
+    {
+      "rank": 452,
       "station": "1775",
       "stationName": "Warwick Racecourse (1775)",
       "region": "England",
@@ -5417,7 +5429,7 @@
       "value": 23.3
     },
     {
-      "rank": 452,
+      "rank": 453,
       "station": "248965TP",
       "stationName": "Rapsgate (248965TP)",
       "region": "England",
@@ -5429,7 +5441,7 @@
       "value": 23.3
     },
     {
-      "rank": 453,
+      "rank": 454,
       "station": "E7295",
       "stationName": "Pevensey (E7295)",
       "region": "England",
@@ -5441,7 +5453,7 @@
       "value": 23.3
     },
     {
-      "rank": 454,
+      "rank": 455,
       "station": "E802",
       "stationName": "Leigh Barrier Gate (E802)",
       "region": "England",
@@ -5453,7 +5465,7 @@
       "value": 23.2
     },
     {
-      "rank": 455,
+      "rank": 456,
       "station": "3781",
       "stationName": "Saltley (3781)",
       "region": "England",
@@ -5465,7 +5477,7 @@
       "value": 23.2
     },
     {
-      "rank": 456,
+      "rank": 457,
       "station": "E13980",
       "stationName": "Andover (E13980)",
       "region": "England",
@@ -5477,7 +5489,7 @@
       "value": 23.1
     },
     {
-      "rank": 457,
+      "rank": 458,
       "station": "46161",
       "stationName": "Brixham (46161)",
       "region": "England",
@@ -5489,7 +5501,7 @@
       "value": 23.1
     },
     {
-      "rank": 458,
+      "rank": 459,
       "station": "E5727",
       "stationName": "Metoff Holbeach (E5727)",
       "region": "England",
@@ -5501,7 +5513,7 @@
       "value": 23
     },
     {
-      "rank": 459,
+      "rank": 460,
       "station": "52222",
       "stationName": "Walters Farm (52222)",
       "region": "England",
@@ -5513,7 +5525,7 @@
       "value": 23
     },
     {
-      "rank": 460,
+      "rank": 461,
       "station": "E2420",
       "stationName": "Bethersden (E2420)",
       "region": "England",
@@ -5525,7 +5537,7 @@
       "value": 22.9
     },
     {
-      "rank": 461,
+      "rank": 462,
       "station": "E10000",
       "stationName": "Hardham (E10000)",
       "region": "England",
@@ -5537,7 +5549,7 @@
       "value": 22.9
     },
     {
-      "rank": 462,
+      "rank": 463,
       "station": "50106",
       "stationName": "Sticklepath (50106)",
       "region": "England",
@@ -5549,7 +5561,7 @@
       "value": 22.8
     },
     {
-      "rank": 463,
+      "rank": 464,
       "station": "E2510",
       "stationName": "Kibworth Rain-e Wits (E2510)",
       "region": "England",
@@ -5561,7 +5573,7 @@
       "value": 22.8
     },
     {
-      "rank": 464,
+      "rank": 465,
       "station": "46107",
       "stationName": "Bellever (46107)",
       "region": "England",
@@ -5573,7 +5585,7 @@
       "value": 22.8
     },
     {
-      "rank": 465,
+      "rank": 466,
       "station": "3778",
       "stationName": "Lichfield (3778)",
       "region": "England",
@@ -5585,7 +5597,7 @@
       "value": 22.8
     },
     {
-      "rank": 466,
+      "rank": 467,
       "station": "E22400",
       "stationName": "Kirtling Green Fgs And Rg Wits (E22400)",
       "region": "England",
@@ -5597,7 +5609,7 @@
       "value": 22.7
     },
     {
-      "rank": 467,
+      "rank": 468,
       "station": "53101",
       "stationName": "Cromhall (53101)",
       "region": "England",
@@ -5609,7 +5621,7 @@
       "value": 22.7
     },
     {
-      "rank": 468,
+      "rank": 469,
       "station": "E8530",
       "stationName": "Barcombe (E8530)",
       "region": "England",
@@ -5621,7 +5633,7 @@
       "value": 22.7
     },
     {
-      "rank": 469,
+      "rank": 470,
       "station": "E12580",
       "stationName": "Harestock (E12580)",
       "region": "England",
@@ -5633,7 +5645,7 @@
       "value": 22.7
     },
     {
-      "rank": 470,
+      "rank": 471,
       "station": "E901",
       "stationName": "Saints Hill (E901)",
       "region": "England",
@@ -5645,7 +5657,7 @@
       "value": 22.6
     },
     {
-      "rank": 471,
+      "rank": 472,
       "station": "E2040",
       "stationName": "Horsmonden (E2040)",
       "region": "England",
@@ -5657,7 +5669,7 @@
       "value": 22.6
     },
     {
-      "rank": 472,
+      "rank": 473,
       "station": "1201",
       "stationName": "Alvechurch (1201)",
       "region": "England",
@@ -5669,7 +5681,7 @@
       "value": 22.6
     },
     {
-      "rank": 473,
+      "rank": 474,
       "station": "251556TP",
       "stationName": "Stowell Park (251556TP)",
       "region": "England",
@@ -5681,7 +5693,7 @@
       "value": 22.5
     },
     {
-      "rank": 474,
+      "rank": 475,
       "station": "46151",
       "stationName": "Davey Park Farm (46151)",
       "region": "England",
@@ -5693,7 +5705,7 @@
       "value": 22.5
     },
     {
-      "rank": 475,
+      "rank": 476,
       "station": "243131TP",
       "stationName": "Stansted (243131TP)",
       "region": "England",
@@ -5705,7 +5717,7 @@
       "value": 22.4
     },
     {
-      "rank": 476,
+      "rank": 477,
       "station": "266523",
       "stationName": "Poulton Farm (266523)",
       "region": "England",
@@ -5717,7 +5729,7 @@
       "value": 22.4
     },
     {
-      "rank": 477,
+      "rank": 478,
       "station": "E1457",
       "stationName": "Till Washland Saxilby (E1457)",
       "region": "England",
@@ -5727,18 +5739,6 @@
         "long": -0.63753
       },
       "value": 22.4
-    },
-    {
-      "rank": 478,
-      "station": "274178TP",
-      "stationName": "Stokenchurch (274178TP)",
-      "region": "England",
-      "county": "Berkshire",
-      "location": {
-        "lat": 51.667285,
-        "long": -0.923447
-      },
-      "value": 22.3
     },
     {
       "rank": 479,
@@ -6882,6 +6882,18 @@
     },
     {
       "rank": 574,
+      "station": "277407TP",
+      "stationName": "Radlet (277407TP)",
+      "region": "England",
+      "county": "Hertfordshire",
+      "location": {
+        "lat": 51.686586,
+        "long": -0.341445
+      },
+      "value": 18.2
+    },
+    {
+      "rank": 575,
       "station": "1082",
       "stationName": "Knightcote (1082)",
       "region": "England",
@@ -6891,18 +6903,6 @@
         "long": -1.418519
       },
       "value": 18.2
-    },
-    {
-      "rank": 575,
-      "station": "277407TP",
-      "stationName": "Radlet (277407TP)",
-      "region": "England",
-      "county": "Hertfordshire",
-      "location": {
-        "lat": 51.686586,
-        "long": -0.341445
-      },
-      "value": 18.1
     },
     {
       "rank": 576,
