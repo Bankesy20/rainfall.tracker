@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-10-19T03:40:34.346Z",
+  "lastUpdated": "2025-10-19T08:52:50.940Z",
   "station": "E5722",
   "stationName": "Metoff Cranwell (E5722)",
   "region": "England",
@@ -8,7 +8,7 @@
     "long": null
   },
   "dataSource": "EA API",
-  "recordCount": 1011,
+  "recordCount": 1022,
   "data": [
     {
       "date": "2025-09-18",
@@ -10072,9 +10072,29 @@
     },
     {
       "date": "2025-10-19",
+      "time": "04:00:00.000",
+      "dateTime": "2025-10-19T04:00:00Z",
+      "rainfall_mm": 0.1,
+      "total_mm": 0,
+      "station": "E5722",
+      "stationName": "Metoff Cranwell (E5722)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-19",
       "time": "04:30:00.000",
       "dateTime": "2025-10-19T04:30:00Z",
       "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5722",
+      "stationName": "Metoff Cranwell (E5722)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-19",
+      "time": "05:00:00.000",
+      "dateTime": "2025-10-19T05:00:00Z",
+      "rainfall_mm": 0.1,
       "total_mm": 0,
       "station": "E5722",
       "stationName": "Metoff Cranwell (E5722)",
@@ -10112,6 +10132,16 @@
     },
     {
       "date": "2025-10-19",
+      "time": "07:00:00.000",
+      "dateTime": "2025-10-19T07:00:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5722",
+      "stationName": "Metoff Cranwell (E5722)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-19",
       "time": "07:30:00.000",
       "dateTime": "2025-10-19T07:30:00Z",
       "rainfall_mm": 0,
@@ -10119,8 +10149,88 @@
       "station": "E5722",
       "stationName": "Metoff Cranwell (E5722)",
       "region": "England"
+    },
+    {
+      "date": "2025-10-19",
+      "time": "08:00:00.000",
+      "dateTime": "2025-10-19T08:00:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5722",
+      "stationName": "Metoff Cranwell (E5722)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-19",
+      "time": "08:45:00.000",
+      "dateTime": "2025-10-19T08:45:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5722",
+      "stationName": "Metoff Cranwell (E5722)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-19",
+      "time": "09:30:00.000",
+      "dateTime": "2025-10-19T09:30:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5722",
+      "stationName": "Metoff Cranwell (E5722)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-19",
+      "time": "10:15:00.000",
+      "dateTime": "2025-10-19T10:15:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5722",
+      "stationName": "Metoff Cranwell (E5722)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-19",
+      "time": "11:00:00.000",
+      "dateTime": "2025-10-19T11:00:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5722",
+      "stationName": "Metoff Cranwell (E5722)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-19",
+      "time": "11:45:00.000",
+      "dateTime": "2025-10-19T11:45:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5722",
+      "stationName": "Metoff Cranwell (E5722)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-19",
+      "time": "12:30:00.000",
+      "dateTime": "2025-10-19T12:30:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5722",
+      "stationName": "Metoff Cranwell (E5722)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-19",
+      "time": "13:15:00.000",
+      "dateTime": "2025-10-19T13:15:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5722",
+      "stationName": "Metoff Cranwell (E5722)",
+      "region": "England"
     }
   ],
-  "previousUpdate": "2025-10-18T20:51:57.962Z",
+  "previousUpdate": "2025-10-19T03:40:34.346Z",
   "incrementalUpdate": true
 }
