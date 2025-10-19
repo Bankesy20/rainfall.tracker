@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-10-19T08:53:16.792Z",
+  "lastUpdated": "2025-10-19T14:51:46.760Z",
   "station": "E5726",
   "stationName": "Metoff Wittering (E5726)",
   "region": "England",
@@ -8,7 +8,7 @@
     "long": null
   },
   "dataSource": "EA API",
-  "recordCount": 1251,
+  "recordCount": 1262,
   "data": [
     {
       "date": "2025-09-18",
@@ -12472,8 +12472,28 @@
     },
     {
       "date": "2025-10-19",
+      "time": "09:00:00.000",
+      "dateTime": "2025-10-19T09:00:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5726",
+      "stationName": "Metoff Wittering (E5726)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-19",
       "time": "09:30:00.000",
       "dateTime": "2025-10-19T09:30:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5726",
+      "stationName": "Metoff Wittering (E5726)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-19",
+      "time": "10:00:00.000",
+      "dateTime": "2025-10-19T10:00:00Z",
       "rainfall_mm": 0,
       "total_mm": 0,
       "station": "E5726",
@@ -12512,6 +12532,16 @@
     },
     {
       "date": "2025-10-19",
+      "time": "12:00:00.000",
+      "dateTime": "2025-10-19T12:00:00Z",
+      "rainfall_mm": 0.2,
+      "total_mm": 0,
+      "station": "E5726",
+      "stationName": "Metoff Wittering (E5726)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-19",
       "time": "12:30:00.000",
       "dateTime": "2025-10-19T12:30:00Z",
       "rainfall_mm": 0,
@@ -12519,8 +12549,88 @@
       "station": "E5726",
       "stationName": "Metoff Wittering (E5726)",
       "region": "England"
+    },
+    {
+      "date": "2025-10-19",
+      "time": "13:00:00.000",
+      "dateTime": "2025-10-19T13:00:00Z",
+      "rainfall_mm": 0.2,
+      "total_mm": 0,
+      "station": "E5726",
+      "stationName": "Metoff Wittering (E5726)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-19",
+      "time": "14:00:00.000",
+      "dateTime": "2025-10-19T14:00:00Z",
+      "rainfall_mm": 0.6,
+      "total_mm": 0,
+      "station": "E5726",
+      "stationName": "Metoff Wittering (E5726)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-19",
+      "time": "14:45:00.000",
+      "dateTime": "2025-10-19T14:45:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5726",
+      "stationName": "Metoff Wittering (E5726)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-19",
+      "time": "15:30:00.000",
+      "dateTime": "2025-10-19T15:30:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5726",
+      "stationName": "Metoff Wittering (E5726)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-19",
+      "time": "16:15:00.000",
+      "dateTime": "2025-10-19T16:15:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5726",
+      "stationName": "Metoff Wittering (E5726)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-19",
+      "time": "17:00:00.000",
+      "dateTime": "2025-10-19T17:00:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5726",
+      "stationName": "Metoff Wittering (E5726)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-19",
+      "time": "17:45:00.000",
+      "dateTime": "2025-10-19T17:45:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5726",
+      "stationName": "Metoff Wittering (E5726)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-19",
+      "time": "18:30:00.000",
+      "dateTime": "2025-10-19T18:30:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5726",
+      "stationName": "Metoff Wittering (E5726)",
+      "region": "England"
     }
   ],
-  "previousUpdate": "2025-10-19T03:40:58.871Z",
+  "previousUpdate": "2025-10-19T08:53:16.792Z",
   "incrementalUpdate": true
 }
