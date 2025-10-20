@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-10-20T14:55:29.631Z",
+  "lastUpdated": "2025-10-20T20:53:50.774Z",
   "station": "E5732",
   "stationName": "Metoff Wattisham (E5732)",
   "region": "England",
@@ -8,7 +8,7 @@
     "long": null
   },
   "dataSource": "EA API",
-  "recordCount": 976,
+  "recordCount": 984,
   "data": [
     {
       "date": "2025-09-18",
@@ -9762,6 +9762,16 @@
     },
     {
       "date": "2025-10-20",
+      "time": "15:00:00.000",
+      "dateTime": "2025-10-20T15:00:00Z",
+      "rainfall_mm": 1.8,
+      "total_mm": 0,
+      "station": "E5732",
+      "stationName": "Metoff Wattisham (E5732)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-20",
       "time": "15:30:00.000",
       "dateTime": "2025-10-20T15:30:00Z",
       "rainfall_mm": 0,
@@ -9769,8 +9779,78 @@
       "station": "E5732",
       "stationName": "Metoff Wattisham (E5732)",
       "region": "England"
+    },
+    {
+      "date": "2025-10-20",
+      "time": "16:00:00.000",
+      "dateTime": "2025-10-20T16:00:00Z",
+      "rainfall_mm": 2.6,
+      "total_mm": 0,
+      "station": "E5732",
+      "stationName": "Metoff Wattisham (E5732)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-20",
+      "time": "17:00:00.000",
+      "dateTime": "2025-10-20T17:00:00Z",
+      "rainfall_mm": 0.1,
+      "total_mm": 0,
+      "station": "E5732",
+      "stationName": "Metoff Wattisham (E5732)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-20",
+      "time": "19:00:00.000",
+      "dateTime": "2025-10-20T19:00:00Z",
+      "rainfall_mm": 0.1,
+      "total_mm": 0,
+      "station": "E5732",
+      "stationName": "Metoff Wattisham (E5732)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-20",
+      "time": "20:00:00.000",
+      "dateTime": "2025-10-20T20:00:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5732",
+      "stationName": "Metoff Wattisham (E5732)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-20",
+      "time": "20:45:00.000",
+      "dateTime": "2025-10-20T20:45:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5732",
+      "stationName": "Metoff Wattisham (E5732)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-20",
+      "time": "21:30:00.000",
+      "dateTime": "2025-10-20T21:30:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5732",
+      "stationName": "Metoff Wattisham (E5732)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-20",
+      "time": "22:15:00.000",
+      "dateTime": "2025-10-20T22:15:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5732",
+      "stationName": "Metoff Wattisham (E5732)",
+      "region": "England"
     }
   ],
-  "previousUpdate": "2025-10-20T09:03:33.204Z",
+  "previousUpdate": "2025-10-20T14:55:29.631Z",
   "incrementalUpdate": true
 }
