@@ -2,7 +2,7 @@
   "metric": "max_15min",
   "period": "all-time",
   "unit": "mm/15min",
-  "generated_at": "2025-10-21T11:23:07.290Z",
+  "generated_at": "2025-10-21T17:24:01.335Z",
   "rankings": [
     {
       "rank": 1,
@@ -9102,6 +9102,18 @@
     },
     {
       "rank": 759,
+      "station": "268103TP",
+      "stationName": "Maddle Farm (268103TP)",
+      "region": "England",
+      "county": "Gloucestershire",
+      "location": {
+        "lat": 51.53833,
+        "long": -1.56235
+      },
+      "value": 1
+    },
+    {
+      "rank": 760,
       "station": "3771",
       "stationName": "Colwick (3771)",
       "region": "England",
@@ -9113,7 +9125,7 @@
       "value": 1
     },
     {
-      "rank": 760,
+      "rank": 761,
       "station": "3999",
       "stationName": "Littlethorpe (3999)",
       "region": "England",
@@ -9125,7 +9137,7 @@
       "value": 1
     },
     {
-      "rank": 761,
+      "rank": 762,
       "station": "44100",
       "stationName": "Lodgehouse Farm (44100)",
       "region": "England",
@@ -9137,7 +9149,7 @@
       "value": 1
     },
     {
-      "rank": 762,
+      "rank": 763,
       "station": "52101",
       "stationName": "Fulwood (52101)",
       "region": "England",
@@ -9149,7 +9161,7 @@
       "value": 1
     },
     {
-      "rank": 763,
+      "rank": 764,
       "station": "E1039",
       "stationName": "Burgh (E1039)",
       "region": "England",
@@ -9161,7 +9173,7 @@
       "value": 1
     },
     {
-      "rank": 764,
+      "rank": 765,
       "station": "E1179",
       "stationName": "Husbands Bosworth (E1179)",
       "region": "England",
@@ -9173,7 +9185,7 @@
       "value": 1
     },
     {
-      "rank": 765,
+      "rank": 766,
       "station": "E1980",
       "stationName": "Dodford (E1980)",
       "region": "England",
@@ -9185,7 +9197,7 @@
       "value": 1
     },
     {
-      "rank": 766,
+      "rank": 767,
       "station": "E21602",
       "stationName": "Writtle College Raine (E21602)",
       "region": "England",
@@ -9197,7 +9209,7 @@
       "value": 1
     },
     {
-      "rank": 767,
+      "rank": 768,
       "station": "E22283",
       "stationName": "Ely (E22283)",
       "region": "England",
@@ -9209,7 +9221,7 @@
       "value": 1
     },
     {
-      "rank": 768,
+      "rank": 769,
       "station": "E22335",
       "stationName": "Toddington (E22335)",
       "region": "England",
@@ -9221,7 +9233,7 @@
       "value": 1
     },
     {
-      "rank": 769,
+      "rank": 770,
       "station": "E23717",
       "stationName": "Bedford (E23717)",
       "region": "England",
@@ -9233,7 +9245,7 @@
       "value": 1
     },
     {
-      "rank": 770,
+      "rank": 771,
       "station": "E24238",
       "stationName": "Brampton (E24238)",
       "region": "England",
@@ -9245,7 +9257,7 @@
       "value": 1
     },
     {
-      "rank": 771,
+      "rank": 772,
       "station": "E2463",
       "stationName": "Crowland Rain-e Wits (E2463)",
       "region": "England",
@@ -9257,7 +9269,7 @@
       "value": 1
     },
     {
-      "rank": 772,
+      "rank": 773,
       "station": "E24847",
       "stationName": "Bocking (E24847)",
       "region": "England",
@@ -9269,7 +9281,7 @@
       "value": 1
     },
     {
-      "rank": 773,
+      "rank": 774,
       "station": "E24889",
       "stationName": "Linstead Parva (E24889)",
       "region": "England",
@@ -9281,7 +9293,7 @@
       "value": 1
     },
     {
-      "rank": 774,
+      "rank": 775,
       "station": "E2527",
       "stationName": "Litchborough (E2527)",
       "region": "England",
@@ -9293,7 +9305,7 @@
       "value": 1
     },
     {
-      "rank": 775,
+      "rank": 776,
       "station": "E7200",
       "stationName": "Hallaton (E7200)",
       "region": "England",
@@ -9305,7 +9317,7 @@
       "value": 1
     },
     {
-      "rank": 776,
+      "rank": 777,
       "station": "251530TP",
       "stationName": "St. Johns (251530TP)",
       "region": "England",
@@ -9317,7 +9329,7 @@
       "value": 0.9
     },
     {
-      "rank": 777,
+      "rank": 778,
       "station": "253340TP",
       "stationName": "Bourton (253340TP)",
       "region": "England",
@@ -9325,18 +9337,6 @@
       "location": {
         "lat": 51.878717,
         "long": -1.737736
-      },
-      "value": 0.9
-    },
-    {
-      "rank": 778,
-      "station": "268103TP",
-      "stationName": "Maddle Farm (268103TP)",
-      "region": "England",
-      "county": "Gloucestershire",
-      "location": {
-        "lat": 51.53833,
-        "long": -1.56235
       },
       "value": 0.9
     },
