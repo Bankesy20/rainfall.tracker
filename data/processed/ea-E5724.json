@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-10-20T20:53:47.485Z",
+  "lastUpdated": "2025-10-21T03:32:25.779Z",
   "station": "E5724",
   "stationName": "Metoff Wainfleet (E5724)",
   "region": "England",
@@ -8,7 +8,7 @@
     "long": null
   },
   "dataSource": "EA API",
-  "recordCount": 966,
+  "recordCount": 976,
   "data": [
     {
       "date": "2025-09-18",
@@ -9642,8 +9642,28 @@
     },
     {
       "date": "2025-10-20",
+      "time": "21:00:00.000",
+      "dateTime": "2025-10-20T21:00:00Z",
+      "rainfall_mm": 0.2,
+      "total_mm": 0,
+      "station": "E5724",
+      "stationName": "Metoff Wainfleet (E5724)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-20",
       "time": "21:30:00.000",
       "dateTime": "2025-10-20T21:30:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5724",
+      "stationName": "Metoff Wainfleet (E5724)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-20",
+      "time": "22:00:00.000",
+      "dateTime": "2025-10-20T22:00:00Z",
       "rainfall_mm": 0,
       "total_mm": 0,
       "station": "E5724",
@@ -9669,8 +9689,88 @@
       "station": "E5724",
       "stationName": "Metoff Wainfleet (E5724)",
       "region": "England"
+    },
+    {
+      "date": "2025-10-21",
+      "time": "00:00:00.000",
+      "dateTime": "2025-10-21T00:00:00Z",
+      "rainfall_mm": 0.1,
+      "total_mm": 0,
+      "station": "E5724",
+      "stationName": "Metoff Wainfleet (E5724)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-21",
+      "time": "01:00:00.000",
+      "dateTime": "2025-10-21T01:00:00Z",
+      "rainfall_mm": 0.1,
+      "total_mm": 0,
+      "station": "E5724",
+      "stationName": "Metoff Wainfleet (E5724)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-21",
+      "time": "03:00:00.000",
+      "dateTime": "2025-10-21T03:00:00Z",
+      "rainfall_mm": 0.1,
+      "total_mm": 0,
+      "station": "E5724",
+      "stationName": "Metoff Wainfleet (E5724)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-21",
+      "time": "03:45:00.000",
+      "dateTime": "2025-10-21T03:45:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5724",
+      "stationName": "Metoff Wainfleet (E5724)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-21",
+      "time": "04:30:00.000",
+      "dateTime": "2025-10-21T04:30:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5724",
+      "stationName": "Metoff Wainfleet (E5724)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-21",
+      "time": "05:15:00.000",
+      "dateTime": "2025-10-21T05:15:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5724",
+      "stationName": "Metoff Wainfleet (E5724)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-21",
+      "time": "06:00:00.000",
+      "dateTime": "2025-10-21T06:00:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5724",
+      "stationName": "Metoff Wainfleet (E5724)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-21",
+      "time": "06:45:00.000",
+      "dateTime": "2025-10-21T06:45:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5724",
+      "stationName": "Metoff Wainfleet (E5724)",
+      "region": "England"
     }
   ],
-  "previousUpdate": "2025-10-20T14:55:26.689Z",
+  "previousUpdate": "2025-10-20T20:53:47.485Z",
   "incrementalUpdate": true
 }

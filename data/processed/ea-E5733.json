@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-10-20T20:53:22.347Z",
+  "lastUpdated": "2025-10-21T03:32:00.129Z",
   "station": "E5733",
   "stationName": "Metoff Andrewsfield (E5733)",
   "region": "England",
@@ -8,7 +8,7 @@
     "long": null
   },
   "dataSource": "EA API",
-  "recordCount": 987,
+  "recordCount": 997,
   "data": [
     {
       "date": "2025-09-18",
@@ -9852,9 +9852,29 @@
     },
     {
       "date": "2025-10-20",
+      "time": "21:00:00.000",
+      "dateTime": "2025-10-20T21:00:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5733",
+      "stationName": "Metoff Andrewsfield (E5733)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-20",
       "time": "21:30:00.000",
       "dateTime": "2025-10-20T21:30:00Z",
       "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5733",
+      "stationName": "Metoff Andrewsfield (E5733)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-20",
+      "time": "22:00:00.000",
+      "dateTime": "2025-10-20T22:00:00Z",
+      "rainfall_mm": 0.1,
       "total_mm": 0,
       "station": "E5733",
       "stationName": "Metoff Andrewsfield (E5733)",
@@ -9879,8 +9899,88 @@
       "station": "E5733",
       "stationName": "Metoff Andrewsfield (E5733)",
       "region": "England"
+    },
+    {
+      "date": "2025-10-21",
+      "time": "00:00:00.000",
+      "dateTime": "2025-10-21T00:00:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5733",
+      "stationName": "Metoff Andrewsfield (E5733)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-21",
+      "time": "01:00:00.000",
+      "dateTime": "2025-10-21T01:00:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5733",
+      "stationName": "Metoff Andrewsfield (E5733)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-21",
+      "time": "03:00:00.000",
+      "dateTime": "2025-10-21T03:00:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5733",
+      "stationName": "Metoff Andrewsfield (E5733)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-21",
+      "time": "03:45:00.000",
+      "dateTime": "2025-10-21T03:45:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5733",
+      "stationName": "Metoff Andrewsfield (E5733)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-21",
+      "time": "04:30:00.000",
+      "dateTime": "2025-10-21T04:30:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5733",
+      "stationName": "Metoff Andrewsfield (E5733)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-21",
+      "time": "05:15:00.000",
+      "dateTime": "2025-10-21T05:15:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5733",
+      "stationName": "Metoff Andrewsfield (E5733)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-21",
+      "time": "06:00:00.000",
+      "dateTime": "2025-10-21T06:00:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5733",
+      "stationName": "Metoff Andrewsfield (E5733)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-21",
+      "time": "06:45:00.000",
+      "dateTime": "2025-10-21T06:45:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5733",
+      "stationName": "Metoff Andrewsfield (E5733)",
+      "region": "England"
     }
   ],
-  "previousUpdate": "2025-10-20T14:55:00.347Z",
+  "previousUpdate": "2025-10-20T20:53:22.347Z",
   "incrementalUpdate": true
 }
