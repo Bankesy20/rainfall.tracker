@@ -2,7 +2,7 @@
   "metric": "max_hourly",
   "period": "7d",
   "unit": "mm/h",
-  "generated_at": "2025-10-22T05:26:09.318Z",
+  "generated_at": "2025-10-22T11:23:28.777Z",
   "rankings": [
     {
       "rank": 1,
@@ -9462,6 +9462,18 @@
     },
     {
       "rank": 789,
+      "station": "E42135",
+      "stationName": "Short Ferry (E42135)",
+      "region": "England",
+      "county": "Lincolnshire",
+      "location": {
+        "lat": 53.232468,
+        "long": -0.366215
+      },
+      "value": 0.2
+    },
+    {
+      "rank": 790,
       "station": "E42297",
       "stationName": "Stoke By Clare (E42297)",
       "region": "England",
@@ -9473,7 +9485,19 @@
       "value": 0.2
     },
     {
-      "rank": 790,
+      "rank": 791,
+      "station": "E42981",
+      "stationName": "Morley (E42981)",
+      "region": "England",
+      "county": "Norfolk",
+      "location": {
+        "lat": 52.554012,
+        "long": 1.032047
+      },
+      "value": 0.2
+    },
+    {
+      "rank": 792,
       "station": "E45811",
       "stationName": "Beelsby (E45811)",
       "region": "England",
@@ -9485,7 +9509,7 @@
       "value": 0.2
     },
     {
-      "rank": 791,
+      "rank": 793,
       "station": "E45871",
       "stationName": "South Ferriby (E45871)",
       "region": "England",
@@ -9497,7 +9521,7 @@
       "value": 0.2
     },
     {
-      "rank": 792,
+      "rank": 794,
       "station": "E45881",
       "stationName": "Canwick (E45881)",
       "region": "England",
@@ -9509,7 +9533,7 @@
       "value": 0.2
     },
     {
-      "rank": 793,
+      "rank": 795,
       "station": "E46361",
       "stationName": "Frampton (E46361)",
       "region": "England",
@@ -9521,7 +9545,7 @@
       "value": 0.2
     },
     {
-      "rank": 794,
+      "rank": 796,
       "station": "E7170",
       "stationName": "Brant Broughton (E7170)",
       "region": "England",
@@ -9533,7 +9557,7 @@
       "value": 0.2
     },
     {
-      "rank": 795,
+      "rank": 797,
       "station": "E7200",
       "stationName": "Hallaton (E7200)",
       "region": "England",
@@ -9545,7 +9569,7 @@
       "value": 0.2
     },
     {
-      "rank": 796,
+      "rank": 798,
       "station": "E21637",
       "stationName": "Uttons Drove (E21637)",
       "region": "England",
@@ -9557,7 +9581,7 @@
       "value": 0.1
     },
     {
-      "rank": 797,
+      "rank": 799,
       "station": "083534",
       "stationName": "Linacre Reservoir (083534)",
       "region": "England",
@@ -9569,7 +9593,7 @@
       "value": 0
     },
     {
-      "rank": 798,
+      "rank": 800,
       "station": "1413",
       "stationName": "Hartlebury Rain (1413)",
       "region": "England",
@@ -9581,7 +9605,7 @@
       "value": 0
     },
     {
-      "rank": 799,
+      "rank": 801,
       "station": "240201TP",
       "stationName": "Runley Wood (240201TP)",
       "region": "England",
@@ -9593,7 +9617,7 @@
       "value": 0
     },
     {
-      "rank": 800,
+      "rank": 802,
       "station": "260221TP",
       "stationName": "Stanford (260221TP)",
       "region": "England",
@@ -9605,7 +9629,7 @@
       "value": 0
     },
     {
-      "rank": 801,
+      "rank": 803,
       "station": "45164",
       "stationName": "Exmouth (45164)",
       "region": "England",
@@ -9617,7 +9641,7 @@
       "value": 0
     },
     {
-      "rank": 802,
+      "rank": 804,
       "station": "46107",
       "stationName": "Bellever (46107)",
       "region": "England",
@@ -9629,7 +9653,7 @@
       "value": 0
     },
     {
-      "rank": 803,
+      "rank": 805,
       "station": "E1179",
       "stationName": "Husbands Bosworth (E1179)",
       "region": "England",
@@ -9641,7 +9665,7 @@
       "value": 0
     },
     {
-      "rank": 804,
+      "rank": 806,
       "station": "E19017",
       "stationName": "Ashdon (E19017)",
       "region": "England",
@@ -9653,7 +9677,7 @@
       "value": 0
     },
     {
-      "rank": 805,
+      "rank": 807,
       "station": "E1908",
       "stationName": "Wickenby (E1908)",
       "region": "England",
@@ -9665,7 +9689,7 @@
       "value": 0
     },
     {
-      "rank": 806,
+      "rank": 808,
       "station": "E1980",
       "stationName": "Dodford (E1980)",
       "region": "England",
@@ -9677,7 +9701,7 @@
       "value": 0
     },
     {
-      "rank": 807,
+      "rank": 809,
       "station": "E21288",
       "stationName": "Worlingham (E21288)",
       "region": "England",
@@ -9689,7 +9713,7 @@
       "value": 0
     },
     {
-      "rank": 808,
+      "rank": 810,
       "station": "E21870",
       "stationName": "East Dereham Rain (E21870)",
       "region": "England",
@@ -9701,7 +9725,7 @@
       "value": 0
     },
     {
-      "rank": 809,
+      "rank": 811,
       "station": "E22205",
       "stationName": "Potton (E22205)",
       "region": "England",
@@ -9713,7 +9737,7 @@
       "value": 0
     },
     {
-      "rank": 810,
+      "rank": 812,
       "station": "E2316",
       "stationName": "Corby Glen (E2316)",
       "region": "England",
@@ -9725,7 +9749,7 @@
       "value": 0
     },
     {
-      "rank": 811,
+      "rank": 813,
       "station": "E2382",
       "stationName": "Hannington Reservoir (E2382)",
       "region": "England",
@@ -9737,7 +9761,7 @@
       "value": 0
     },
     {
-      "rank": 812,
+      "rank": 814,
       "station": "E24238",
       "stationName": "Brampton (E24238)",
       "region": "England",
@@ -9749,7 +9773,7 @@
       "value": 0
     },
     {
-      "rank": 813,
+      "rank": 815,
       "station": "E24889",
       "stationName": "Linstead Parva (E24889)",
       "region": "England",
@@ -9761,7 +9785,7 @@
       "value": 0
     },
     {
-      "rank": 814,
+      "rank": 816,
       "station": "E2527",
       "stationName": "Litchborough (E2527)",
       "region": "England",
@@ -9773,7 +9797,7 @@
       "value": 0
     },
     {
-      "rank": 815,
+      "rank": 817,
       "station": "E2578",
       "stationName": "Ropsley (E2578)",
       "region": "England",
@@ -9785,7 +9809,7 @@
       "value": 0
     },
     {
-      "rank": 816,
+      "rank": 818,
       "station": "E27621",
       "stationName": "Benfleet Barrier (E27621)",
       "region": "England",
@@ -9797,7 +9821,7 @@
       "value": 0
     },
     {
-      "rank": 817,
+      "rank": 819,
       "station": "E37051",
       "stationName": "Chelmsford Brookend (E37051)",
       "region": "England",
@@ -9809,7 +9833,7 @@
       "value": 0
     },
     {
-      "rank": 818,
+      "rank": 820,
       "station": "E37081",
       "stationName": "Briston (E37081)",
       "region": "England",
@@ -9821,7 +9845,7 @@
       "value": 0
     },
     {
-      "rank": 819,
+      "rank": 821,
       "station": "E37151",
       "stationName": "West Bergholt (E37151)",
       "region": "England",
@@ -9833,7 +9857,7 @@
       "value": 0
     },
     {
-      "rank": 820,
+      "rank": 822,
       "station": "E37241",
       "stationName": "Wethersfield (E37241)",
       "region": "England",
@@ -9845,7 +9869,7 @@
       "value": 0
     },
     {
-      "rank": 821,
+      "rank": 823,
       "station": "E37291",
       "stationName": "Great Cornard (E37291)",
       "region": "England",
@@ -9857,7 +9881,7 @@
       "value": 0
     },
     {
-      "rank": 822,
+      "rank": 824,
       "station": "E41311",
       "stationName": "Croppenburg (E41311)",
       "region": "England",
@@ -9869,19 +9893,7 @@
       "value": 0
     },
     {
-      "rank": 823,
-      "station": "E42135",
-      "stationName": "Short Ferry (E42135)",
-      "region": "England",
-      "county": "Lincolnshire",
-      "location": {
-        "lat": 53.232468,
-        "long": -0.366215
-      },
-      "value": 0
-    },
-    {
-      "rank": 824,
+      "rank": 825,
       "station": "E42961",
       "stationName": "Burnham (E42961)",
       "region": "England",
@@ -9889,18 +9901,6 @@
       "location": {
         "lat": 52.945882,
         "long": 0.745281
-      },
-      "value": 0
-    },
-    {
-      "rank": 825,
-      "station": "E42981",
-      "stationName": "Morley (E42981)",
-      "region": "England",
-      "county": "Norfolk",
-      "location": {
-        "lat": 52.554012,
-        "long": 1.032047
       },
       "value": 0
     },
@@ -10051,7 +10051,7 @@
   ],
   "statistics": {
     "total_stations": 837,
-    "stations_with_rainfall": 796,
+    "stations_with_rainfall": 798,
     "rainfall_percentage": 95
   }
 }
