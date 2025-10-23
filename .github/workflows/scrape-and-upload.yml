@@ -44,25 +44,15 @@ jobs:
         NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
       run: node scripts/github-actions-blob-upload.js
     
-    - name: Configure Git
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-    
-    - name: Commit and push changes (backup)
-      run: |
-        git add data/
-        git diff --quiet && git diff --staged --quiet || (git commit -m "[skip ci] Update rainfall data + blob backup - $(date -u +'%Y-%m-%d %H:%M:%S UTC')" && git push origin main)
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    
     - name: Summary
       run: |
         echo "## Rainfall Data Update Complete" >> $GITHUB_STEP_SUMMARY
-        echo "- Data scraped and processed" >> $GITHUB_STEP_SUMMARY
-        echo "- Uploaded to Netlify Blobs" >> $GITHUB_STEP_SUMMARY
-        echo "- Backup committed to repository" >> $GITHUB_STEP_SUMMARY
-        echo "- Timestamp: $(date -u +'%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY
+        echo "- **Stations**: Miserden + Maenclochog" >> $GITHUB_STEP_SUMMARY
+        echo "- **Data Storage**: Netlify Blobs (Primary)" >> $GITHUB_STEP_SUMMARY
+        echo "- **Status**: ✅ Data successfully uploaded to blobs" >> $GITHUB_STEP_SUMMARY
+        echo "- **Timestamp**: $(date -u +'%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "_Note: Data is stored in Netlify Blobs only (no git commits)_" >> $GITHUB_STEP_SUMMARY
     
     - name: Handle errors
       if: failure()

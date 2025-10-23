@@ -23,12 +23,10 @@ jobs:
           export NRW_DAYS=4
           export NRW_TO=$(date -u -d 'tomorrow' +%Y-%m-%d)
           node scripts/download-nrw.js
-      - name: Commit and push
-        run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@users.noreply.github.com"
-          git add data/processed/wales-1099.json public/data/processed/wales-1099.json data/raw/*.csv
-          git commit -m "chore(nrw): update station 1099 data [skip ci]" || echo "No changes"
-          git push
+      - name: Upload to Netlify Blobs
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        run: node scripts/github-actions-blob-upload.js
 
 

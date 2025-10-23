@@ -32,22 +32,17 @@ jobs:
     - name: Run scraping script
       run: node scripts/download-rainfall.js
     
-    - name: Configure Git
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-    
-    - name: Commit and push changes
-      run: |
-        git add data/
-        git diff --quiet && git diff --staged --quiet || (git commit -m "[skip ci] Update rainfall data - $(date -u +'%Y-%m-%d %H:%M:%S UTC')" && git push origin main)
+    - name: Upload to Netlify Blobs
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+      run: node scripts/github-actions-blob-upload.js
     
-    - name: Handle errors
-      if: failure()
+    - name: Summary
       run: |
-        echo "Rainfall scraping failed at $(date)" >> workflow-error.txt
-        git add workflow-error.txt
-        git commit -m "[skip ci] Log scraping error - $(date -u +'%Y-%m-%d %H:%M:%S UTC')" || true
-        git push || true 
+        echo "## Rainfall Data Update Complete" >> $GITHUB_STEP_SUMMARY
+        echo "- **Data Storage**: Netlify Blobs (Primary)" >> $GITHUB_STEP_SUMMARY
+        echo "- **Status**: ✅ Data successfully uploaded to blobs" >> $GITHUB_STEP_SUMMARY
+        echo "- **Timestamp**: $(date -u +'%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "_Note: Data is stored in Netlify Blobs only (no git commits)_" >> $GITHUB_STEP_SUMMARY
