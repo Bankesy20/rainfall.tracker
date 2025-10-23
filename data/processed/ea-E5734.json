@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-10-23T03:30:40.098Z",
+  "lastUpdated": "2025-10-23T09:00:05.909Z",
   "station": "E5734",
   "stationName": "Metoff Shoeburyness (E5734)",
   "region": "England",
@@ -8,7 +8,7 @@
     "long": null
   },
   "dataSource": "EA API",
-  "recordCount": 1054,
+  "recordCount": 1063,
   "data": [
     {
       "date": "2025-09-18",
@@ -10522,9 +10522,29 @@
     },
     {
       "date": "2025-10-23",
+      "time": "03:00:00.000",
+      "dateTime": "2025-10-23T03:00:00Z",
+      "rainfall_mm": 0.2,
+      "total_mm": 0,
+      "station": "E5734",
+      "stationName": "Metoff Shoeburyness (E5734)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-23",
       "time": "03:30:00.000",
       "dateTime": "2025-10-23T03:30:00Z",
       "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5734",
+      "stationName": "Metoff Shoeburyness (E5734)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-23",
+      "time": "04:00:00.000",
+      "dateTime": "2025-10-23T04:00:00Z",
+      "rainfall_mm": 0.1,
       "total_mm": 0,
       "station": "E5734",
       "stationName": "Metoff Shoeburyness (E5734)",
@@ -10549,8 +10569,78 @@
       "station": "E5734",
       "stationName": "Metoff Shoeburyness (E5734)",
       "region": "England"
+    },
+    {
+      "date": "2025-10-23",
+      "time": "06:00:00.000",
+      "dateTime": "2025-10-23T06:00:00Z",
+      "rainfall_mm": 1.2,
+      "total_mm": 0,
+      "station": "E5734",
+      "stationName": "Metoff Shoeburyness (E5734)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-23",
+      "time": "07:00:00.000",
+      "dateTime": "2025-10-23T07:00:00Z",
+      "rainfall_mm": 1.6,
+      "total_mm": 0,
+      "station": "E5734",
+      "stationName": "Metoff Shoeburyness (E5734)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-23",
+      "time": "08:00:00.000",
+      "dateTime": "2025-10-23T08:00:00Z",
+      "rainfall_mm": 0.4,
+      "total_mm": 0,
+      "station": "E5734",
+      "stationName": "Metoff Shoeburyness (E5734)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-23",
+      "time": "08:45:00.000",
+      "dateTime": "2025-10-23T08:45:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5734",
+      "stationName": "Metoff Shoeburyness (E5734)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-23",
+      "time": "09:30:00.000",
+      "dateTime": "2025-10-23T09:30:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5734",
+      "stationName": "Metoff Shoeburyness (E5734)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-23",
+      "time": "10:15:00.000",
+      "dateTime": "2025-10-23T10:15:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5734",
+      "stationName": "Metoff Shoeburyness (E5734)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-23",
+      "time": "11:00:00.000",
+      "dateTime": "2025-10-23T11:00:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E5734",
+      "stationName": "Metoff Shoeburyness (E5734)",
+      "region": "England"
     }
   ],
-  "previousUpdate": "2025-10-22T20:52:41.061Z",
+  "previousUpdate": "2025-10-23T03:30:40.098Z",
   "incrementalUpdate": true
 }
