@@ -4,7 +4,7 @@
  * Rainfall Leaderboard Generator
  * 
  * Generates leaderboards for various rainfall metrics and time periods
- * by analyzing all station JSON files in the data/processed directory.
+ * by analyzing all station JSON files from Netlify Blobs or local files.
  */
 
 const fs = require('fs');
@@ -16,6 +16,9 @@ const { getCountyFromStation } = require('./county-lookup');
 const DATA_DIR = path.join(__dirname, '..', 'data', 'processed');
 const LEADERBOARD_DIR = path.join(DATA_DIR, 'leaderboards');
 const MAX_RANKINGS = 100; // Top 100 stations displayed in UI (but all stations included in data)
+
+// Feature flag: Use Netlify Blobs for data loading (default: true in production)
+const USE_BLOB_STORAGE = process.env.USE_BLOB_STORAGE !== 'false'; // Enabled by default
 
 // Time periods in hours
 const TIME_PERIODS = {
@@ -115,10 +118,120 @@ function loadStationCoordinates() {
 }
 
 /**
- * Load all station data files
+ * Load all station data files from Netlify Blobs
  */
-function loadStationData() {
-  console.log('📁 Loading station data files...');
+async function loadStationDataFromBlobs() {
+  console.log('☁️  Loading station data from Netlify Blobs...');
+  const loadStartTime = Date.now();
+  
+  try {
+    // Dynamic import for @netlify/blobs
+    const { getStore } = await import('@netlify/blobs');
+    
+    // Initialize blob store
+    const store = getStore({
+      name: 'rainfall-data',
+      siteID: process.env.NETLIFY_SITE_ID,
+      token: process.env.NETLIFY_AUTH_TOKEN
+    });
+    
+    console.log(`🔑 Using Netlify Site: ${process.env.NETLIFY_SITE_ID ? '✅ Set' : '❌ Not Set'}`);
+    console.log(`🔑 Auth Token: ${process.env.NETLIFY_AUTH_TOKEN ? '✅ Set' : '❌ Not Set'}`);
+    
+    // Load station coordinates first
+    const stationCoordinates = loadStationCoordinates();
+    
+    // List all station blobs
+    const listStartTime = Date.now();
+    const { blobs } = await store.list({ prefix: 'stations/' });
+    const stationBlobs = blobs.filter(blob => 
+      blob.key.startsWith('stations/') && 
+      blob.key.endsWith('.json')
+    );
+    const listEndTime = Date.now();
+    
+    console.log(`📋 Listed ${stationBlobs.length} station blobs in ${listEndTime - listStartTime}ms`);
+    
+    const stations = [];
+    let totalDownloadSize = 0;
+    let downloadStartTime = Date.now();
+    
+    // Download and process each station blob
+    for (let i = 0; i < stationBlobs.length; i++) {
+      const blob = stationBlobs[i];
+      
+      try {
+        const blobStartTime = Date.now();
+        const blobContent = await store.get(blob.key);
+        const blobEndTime = Date.now();
+        
+        const data = typeof blobContent === 'string' ? JSON.parse(blobContent) : blobContent;
+        totalDownloadSize += (typeof blobContent === 'string' ? blobContent.length : JSON.stringify(blobContent).length);
+        
+        // Log progress every 100 stations
+        if ((i + 1) % 100 === 0) {
+          const elapsed = Date.now() - downloadStartTime;
+          const rate = (i + 1) / (elapsed / 1000);
+          const remaining = stationBlobs.length - (i + 1);
+          const eta = remaining / rate;
+          console.log(`  ⏳ Downloaded ${i + 1}/${stationBlobs.length} stations (${rate.toFixed(1)}/sec, ETA: ${eta.toFixed(0)}s)`);
+        }
+        
+        if (data.station && data.data && Array.isArray(data.data) && data.data.length > 0) {
+          // Get coordinates from the stations file
+          const coords = stationCoordinates[data.station];
+          const stationData = {
+            ...data,
+            lat: coords?.lat,
+            lng: coords?.lng,
+            location: coords ? { lat: coords.lat, long: coords.lng } : data.location
+          };
+          
+          // Get county information using coordinates
+          const county = getCountyFromStation(stationData);
+          
+          stations.push({
+            station: data.station,
+            stationName: data.stationName || coords?.label || data.station,
+            region: data.region || 'Unknown',
+            county: county,
+            location: stationData.location || { lat: null, long: null },
+            data: data.data
+          });
+        }
+      } catch (error) {
+        console.warn(`⚠️  Skipping blob ${blob.key}: ${error.message}`);
+      }
+    }
+    
+    const downloadEndTime = Date.now();
+    const totalLoadTime = downloadEndTime - loadStartTime;
+    const downloadTime = downloadEndTime - downloadStartTime;
+    
+    console.log(`\n✅ BLOB LOADING PERFORMANCE:`);
+    console.log(`   📊 Total stations: ${stations.length}`);
+    console.log(`   📦 Total data size: ${(totalDownloadSize / 1024 / 1024).toFixed(2)} MB`);
+    console.log(`   ⏱️  List blobs: ${listEndTime - listStartTime}ms`);
+    console.log(`   ⏱️  Download all: ${downloadTime}ms (${(downloadTime / 1000).toFixed(1)}s)`);
+    console.log(`   ⏱️  Total time: ${totalLoadTime}ms (${(totalLoadTime / 1000).toFixed(1)}s)`);
+    console.log(`   📈 Download rate: ${(stations.length / (downloadTime / 1000)).toFixed(1)} stations/sec`);
+    console.log(`   📈 Bandwidth: ${((totalDownloadSize / 1024 / 1024) / (downloadTime / 1000)).toFixed(2)} MB/sec\n`);
+    
+    return stations;
+    
+  } catch (error) {
+    console.error(`❌ Failed to load from Netlify Blobs: ${error.message}`);
+    console.log(`⚠️  Falling back to local files...`);
+    return loadStationDataFromFiles();
+  }
+}
+
+/**
+ * Load all station data files from local filesystem
+ */
+function loadStationDataFromFiles() {
+  console.log('📁 Loading station data from local files...');
+  const loadStartTime = Date.now();
   
   // Load station coordinates first
   const stationCoordinates = loadStationCoordinates();
@@ -165,8 +278,27 @@ function loadStationData() {
     }
   }
   
-  console.log(`✅ Loaded ${stations.length} valid stations`);
+  const loadEndTime = Date.now();
+  const totalLoadTime = loadEndTime - loadStartTime;
+  
+  console.log(`\n✅ FILE LOADING PERFORMANCE:`);
+  console.log(`   📊 Total stations: ${stations.length}`);
+  console.log(`   ⏱️  Total time: ${totalLoadTime}ms (${(totalLoadTime / 1000).toFixed(1)}s)\n`);
+  
   return stations;
+}
+
+/**
+ * Load station data - uses blobs if enabled, otherwise local files
+ */
+async function loadStationData() {
+  if (USE_BLOB_STORAGE) {
+    console.log('🌐 Data source: NETLIFY BLOBS (set USE_BLOB_STORAGE=false to use local files)');
+    return await loadStationDataFromBlobs();
+  } else {
+    console.log('💾 Data source: LOCAL FILES (set USE_BLOB_STORAGE=true to use blobs)');
+    return loadStationDataFromFiles();
+  }
 }
 
 /**
@@ -281,8 +413,8 @@ async function main() {
     console.log('📁 Created leaderboard directory');
   }
   
-  // Load station data
-  const stations = loadStationData();
+  // Load station data (async now - can pull from blobs)
+  const stations = await loadStationData();
   
   if (stations.length === 0) {
     console.error('❌ No station data found!');

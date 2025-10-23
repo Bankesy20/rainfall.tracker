@@ -31,6 +31,10 @@ jobs:
       run: npm ci
     
     - name: Generate leaderboards
+      env:
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        USE_BLOB_STORAGE: "true"
       run: node scripts/generate-leaderboards.js
     
     - name: Upload leaderboards to Netlify Blobs
@@ -74,12 +78,15 @@ jobs:
       run: |
         echo "## Rainfall Leaderboards Generated" >> $GITHUB_STEP_SUMMARY
         echo "- **Generated at**: $(date -u +'%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY
+        echo "- **Data Source**: Netlify Blobs" >> $GITHUB_STEP_SUMMARY
         echo "- **Metrics**: Total rainfall, max hourly, max 15min, rainy days" >> $GITHUB_STEP_SUMMARY
-        echo "- **Periods**: 24h, 7d, 30d, 365d, all-time" >> $GITHUB_STEP_SUMMARY
+        echo "- **Periods**: 24h, 7d, 30d, all-time" >> $GITHUB_STEP_SUMMARY
         echo "- **Stations**: All 846+ weather stations" >> $GITHUB_STEP_SUMMARY
         echo "- **Output**: JSON files in data/processed/leaderboards/" >> $GITHUB_STEP_SUMMARY
         echo "- **Netlify Blobs**: Uploaded to blob storage for live access" >> $GITHUB_STEP_SUMMARY
         echo "- **Status**: Successfully committed to repository" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "**Note**: Check workflow logs for detailed performance metrics on blob loading vs local files" >> $GITHUB_STEP_SUMMARY
     
     - name: Handle errors
       if: failure()
