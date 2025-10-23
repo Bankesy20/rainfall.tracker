@@ -95,3 +95,7 @@ temp/
 downloads/ 
 # Local Netlify folder
 .netlify
+
+# Rainfall data (stored in Netlify Blobs, not in git)
+data/raw/
+data/processed/

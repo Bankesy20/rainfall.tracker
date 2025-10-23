@@ -12,7 +12,6 @@ permissions:
 jobs:
   generate-leaderboards:
     runs-on: ubuntu-latest
-    concurrency: leaderboard-generation
     
     steps:
     - name: Checkout repository
@@ -43,50 +42,19 @@ jobs:
         NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
       run: node scripts/github-actions-blob-upload.js
     
-    - name: Copy leaderboards to public directory
-      run: cp -r data/processed/leaderboards public/data/processed/
-    
-    - name: Update file timestamps for cache invalidation
-      run: |
-        # Update file modification times to ensure proper ETag generation
-        touch public/data/processed/leaderboards/*.json
-    
-    - name: Configure Git
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-    
-    - name: Commit and push leaderboard changes
-      run: |
-        git add data/processed/leaderboards/ public/data/processed/leaderboards/
-        git diff --quiet && git diff --staged --quiet || {
-          for i in {1..3}; do
-            echo "Attempt $i of 3 to commit and push leaderboards..."
-            if git commit -m "[skip ci] Update rainfall leaderboards - $(date -u +'%Y-%m-%d %H:%M:%S UTC')" && git push origin main; then
-              echo "Successfully pushed leaderboards on attempt $i"
-              break
-            else
-              echo "Attempt $i failed, waiting before retry..."
-              sleep $((i * 2))
-            fi
-          done
-        }
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    
     - name: Summary
       run: |
         echo "## Rainfall Leaderboards Generated" >> $GITHUB_STEP_SUMMARY
         echo "- **Generated at**: $(date -u +'%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY
-        echo "- **Data Source**: Netlify Blobs" >> $GITHUB_STEP_SUMMARY
+        echo "- **Data Source**: Netlify Blobs (loaded from cloud storage)" >> $GITHUB_STEP_SUMMARY
         echo "- **Metrics**: Total rainfall, max hourly, max 15min, rainy days" >> $GITHUB_STEP_SUMMARY
         echo "- **Periods**: 24h, 7d, 30d, all-time" >> $GITHUB_STEP_SUMMARY
         echo "- **Stations**: All 846+ weather stations" >> $GITHUB_STEP_SUMMARY
-        echo "- **Output**: JSON files in data/processed/leaderboards/" >> $GITHUB_STEP_SUMMARY
-        echo "- **Netlify Blobs**: Uploaded to blob storage for live access" >> $GITHUB_STEP_SUMMARY
-        echo "- **Status**: Successfully committed to repository" >> $GITHUB_STEP_SUMMARY
+        echo "- **Storage**: Netlify Blobs (Primary)" >> $GITHUB_STEP_SUMMARY
+        echo "- **Status**: ✅ Leaderboards successfully uploaded to blobs" >> $GITHUB_STEP_SUMMARY
         echo "" >> $GITHUB_STEP_SUMMARY
-        echo "**Note**: Check workflow logs for detailed performance metrics on blob loading vs local files" >> $GITHUB_STEP_SUMMARY
+        echo "_Note: Check workflow logs for detailed performance metrics on blob loading_" >> $GITHUB_STEP_SUMMARY
+        echo "_Data stored in Netlify Blobs only (no git commits)_" >> $GITHUB_STEP_SUMMARY
     
     - name: Handle errors
       if: failure()
@@ -94,4 +62,4 @@ jobs:
         echo "## Leaderboard Generation Failed" >> $GITHUB_STEP_SUMMARY
         echo "- **Generated at**: $(date -u +'%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY
         echo "- **Error**: Check logs for details" >> $GITHUB_STEP_SUMMARY
-        echo "- **Fallback**: Previous leaderboards still available" >> $GITHUB_STEP_SUMMARY
+        echo "- **Fallback**: Previous leaderboards still available in Netlify Blobs" >> $GITHUB_STEP_SUMMARY
