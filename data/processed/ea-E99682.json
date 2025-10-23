@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-10-23T02:45:42.621Z",
+  "lastUpdated": "2025-10-23T07:34:26.709Z",
   "station": "E99682",
   "stationName": "Dunkeswell Aerodrome Met Office (E99682)",
   "region": "England",
@@ -8,7 +8,7 @@
     "long": null
   },
   "dataSource": "EA API",
-  "recordCount": 907,
+  "recordCount": 912,
   "data": [
     {
       "date": "2025-09-18",
@@ -9079,8 +9079,58 @@
       "station": "E99682",
       "stationName": "Dunkeswell Aerodrome Met Office (E99682)",
       "region": "England"
+    },
+    {
+      "date": "2025-10-23",
+      "time": "03:00:00.000",
+      "dateTime": "2025-10-23T03:00:00Z",
+      "rainfall_mm": 0.6,
+      "total_mm": 0,
+      "station": "E99682",
+      "stationName": "Dunkeswell Aerodrome Met Office (E99682)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-23",
+      "time": "04:00:00.000",
+      "dateTime": "2025-10-23T04:00:00Z",
+      "rainfall_mm": 0.2,
+      "total_mm": 0,
+      "station": "E99682",
+      "stationName": "Dunkeswell Aerodrome Met Office (E99682)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-23",
+      "time": "05:00:00.000",
+      "dateTime": "2025-10-23T05:00:00Z",
+      "rainfall_mm": 0.1,
+      "total_mm": 0,
+      "station": "E99682",
+      "stationName": "Dunkeswell Aerodrome Met Office (E99682)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-23",
+      "time": "06:00:00.000",
+      "dateTime": "2025-10-23T06:00:00Z",
+      "rainfall_mm": 0,
+      "total_mm": 0,
+      "station": "E99682",
+      "stationName": "Dunkeswell Aerodrome Met Office (E99682)",
+      "region": "England"
+    },
+    {
+      "date": "2025-10-23",
+      "time": "07:00:00.000",
+      "dateTime": "2025-10-23T07:00:00Z",
+      "rainfall_mm": 0.1,
+      "total_mm": 0,
+      "station": "E99682",
+      "stationName": "Dunkeswell Aerodrome Met Office (E99682)",
+      "region": "England"
     }
   ],
-  "previousUpdate": "2025-10-22T19:26:58.855Z",
+  "previousUpdate": "2025-10-23T02:45:42.621Z",
   "incrementalUpdate": true
 }
