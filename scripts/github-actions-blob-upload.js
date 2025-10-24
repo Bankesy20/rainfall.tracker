@@ -42,7 +42,7 @@ async function uploadNewData() {
   
   // Determine which stations to upload based on workflow
   const isEATestWorkflow = process.env.GITHUB_WORKFLOW && process.env.GITHUB_WORKFLOW.includes('EA Stations');
-  const isProductionWorkflow = process.env.GITHUB_WORKFLOW && process.env.GITHUB_WORKFLOW.includes('Scrape Rainfall');
+  const isProductionWorkflow = process.env.GITHUB_WORKFLOW && process.env.GITHUB_WORKFLOW.includes('Scrape Rainfall Data and Upload to Blobs');
   const isEAStationWorkflow = process.env.GITHUB_WORKFLOW && process.env.GITHUB_WORKFLOW.includes('EA Station');
   const isEAMultiStationsWorkflow = process.env.GITHUB_WORKFLOW && process.env.GITHUB_WORKFLOW.includes('EA Multi-Stations');
     const isBatchWorkflow = process.env.GITHUB_WORKFLOW && process.env.GITHUB_WORKFLOW.includes('EA Batch');
