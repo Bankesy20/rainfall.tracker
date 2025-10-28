@@ -168,43 +168,13 @@ exports.handler = async (event, context) => {
     }
   };
 
-  // Helper function to normalize data format
-  const normalizeData = (data, station) => {
-    if (!data) return null;
-    
-    // Normalize root-level fields
-    const normalized = {
-      lastUpdated: data.lastUpdated,
-      station: data.station || station,
-      stationName: data.stationName || data.nameEN || data.nameCY || `Station ${data.station || station}`,
-      region: data.region || (data.nameEN || data.nameCY ? 'Wales' : 'England'),
-      location: data.location || {},
-      dataSource: data.dataSource || 'Blob Storage',
-      recordCount: data.recordCount || (data.data ? data.data.length : 0),
-      data: data.data || []
-    };
-    
-    // Normalize individual records if they don't have metadata
-    if (normalized.data.length > 0 && !normalized.data[0].station) {
-      normalized.data = normalized.data.map(record => ({
-        ...record,
-        station: normalized.station,
-        stationName: normalized.stationName,
-        region: normalized.region
-      }));
-    }
-    
-    return normalized;
-  };
-
   try {
     // 1) Try blob storage first (if enabled)
     if (useBlobStorage) {
       const blobData = await tryBlobStorage(station);
       if (blobData) {
         diagnostics.decided = { type: 'blob', station };
-        const normalizedData = normalizeData(blobData, station);
-        const body = { success: true, data: normalizedData, timestamp: new Date().toISOString(), source: 'blob-storage', station };
+        const body = { success: true, data: blobData, timestamp: new Date().toISOString(), source: 'blob-storage', station };
         if (debugMode) body.diagnostics = diagnostics;
         return { statusCode: 200, headers, body: JSON.stringify(body) };
       }
@@ -230,8 +200,7 @@ exports.handler = async (event, context) => {
         const remoteData = await tryFetchJson(url, 10000);
         if (remoteData && remoteData.data && Array.isArray(remoteData.data)) {
           diagnostics.decided = { type: 'remote', url };
-          const normalizedData = normalizeData(remoteData, station);
-          const body = { success: true, data: normalizedData, timestamp: new Date().toISOString(), source: 'remote', url };
+          const body = { success: true, data: remoteData, timestamp: new Date().toISOString(), source: 'remote', url };
           if (debugMode) body.diagnostics = diagnostics;
           return { statusCode: 200, headers, body: JSON.stringify(body) };
         }
@@ -285,8 +254,7 @@ exports.handler = async (event, context) => {
       return { statusCode: 500, headers, body: JSON.stringify({ error: 'Invalid data format', message: 'Data file is corrupted or invalid' }) };
     }
     diagnostics.decided = { type: 'local', path: dataPath };
-    const normalizedData = normalizeData(rainfallData, station);
-    const body = { success: true, data: normalizedData, timestamp: new Date().toISOString(), source: 'local-file', path: dataPath };
+    const body = { success: true, data: rainfallData, timestamp: new Date().toISOString(), source: 'local-file', path: dataPath };
     if (debugMode) body.diagnostics = diagnostics;
     return { statusCode: 200, headers, body: JSON.stringify(body) };
 
