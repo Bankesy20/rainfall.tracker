@@ -56,6 +56,24 @@ async function addWelshStationsToMetadata() {
     const existingStation = existing.stations[stationId];
     const isNew = !existingStation;
     
+    // Create blob key using EA pattern: {name}-{stationId}
+    let cleanName = stationName
+      .replace(/\s*\([^)]*\)$/, '') // Remove (ID) suffix
+      .replace(/\s+raingauge$/i, '') // Remove "raingauge" suffix
+      .replace(/\s+school$/i, '') // Remove "school" suffix
+      .trim();
+    
+    function slugify(input) {
+      return (input || '').toString().trim().toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-+|-+$/g, '');
+    }
+    
+    let blobKey = slugify(cleanName);
+    if (!blobKey.endsWith(`-${stationId}`)) {
+      blobKey = `${blobKey}-${stationId}`;
+    }
+
     // Add/update station metadata
     existing.stations[stationId] = {
       key: stationId,
@@ -75,7 +93,8 @@ async function addWelshStationsToMetadata() {
       catchment: station.catchment,
       dateOpened: station.date_opened,
       hasData: false, // Will be updated when data is processed
-      dataFile: `wales-${stationId}.json`
+      dataFile: `wales-${stationId}.json`,
+      blobKey: blobKey  // ✅ Add blobKey for API lookup
     };
     
     if (isNew) {

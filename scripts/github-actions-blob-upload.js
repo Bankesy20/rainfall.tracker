@@ -319,9 +319,25 @@ async function uploadNewData() {
           const raw = await fs.readFile(path.join(dataDir, f), 'utf8');
           const json = JSON.parse(raw);
           const stationId = json.station || f.replace(/^wales-|\.json$/g, '');
-          const stationName = json.stationName || json.label || `Station ${stationId}`;
-          let key = slugify(stationName, stationId);
-          if (dynamic[key]) key = slugify(`${stationName}-${stationId}`, stationId);
+          const stationName = json.stationName || json.label || json.nameEN || json.nameCY || `Station ${stationId}`;
+          
+          // Create proper slugified key like EA stations
+          // Remove common suffixes and clean up the name
+          let cleanName = stationName
+            .replace(/\s*\([^)]*\)$/, '') // Remove (ID) suffix
+            .replace(/\s+raingauge$/i, '') // Remove "raingauge" suffix
+            .replace(/\s+school$/i, '') // Remove "school" suffix
+            .trim();
+          
+          // Use EA pattern: {name}-{stationId}
+          let key = slugify(cleanName, stationId);
+          if (dynamic[key]) key = slugify(`${cleanName}-${stationId}`, stationId);
+          
+          // Ensure we always include the station ID in the key (EA pattern)
+          if (!key.endsWith(`-${stationId}`)) {
+            key = `${key}-${stationId}`;
+          }
+          
           dynamic[key] = {
             file: f,
             description: stationName,
