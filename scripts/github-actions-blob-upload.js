@@ -45,7 +45,8 @@ async function uploadNewData() {
   const isProductionWorkflow = process.env.GITHUB_WORKFLOW && process.env.GITHUB_WORKFLOW.includes('Scrape Rainfall Data and Upload to Blobs');
   const isEAStationWorkflow = process.env.GITHUB_WORKFLOW && process.env.GITHUB_WORKFLOW.includes('EA Station');
   const isEAMultiStationsWorkflow = process.env.GITHUB_WORKFLOW && process.env.GITHUB_WORKFLOW.includes('EA Multi-Stations');
-    const isBatchWorkflow = process.env.GITHUB_WORKFLOW && process.env.GITHUB_WORKFLOW.includes('EA Batch');
+  const isBatchWorkflow = process.env.GITHUB_WORKFLOW && process.env.GITHUB_WORKFLOW.includes('EA Batch');
+  const isNRWBatchWorkflow = process.env.GITHUB_WORKFLOW && process.env.GITHUB_WORKFLOW.includes('NRW Batch');
   const batchNum = process.env.EA_BATCH_NUM;
   
   console.log(`🔍 Workflow: ${process.env.GITHUB_WORKFLOW}`);
@@ -53,6 +54,8 @@ async function uploadNewData() {
   console.log(`🏭 Production Mode: ${isProductionWorkflow}`);
   console.log(`🌧️ EA Station Mode: ${isEAStationWorkflow}`);
   console.log(`🌧️ EA Multi-Stations Mode: ${isEAMultiStationsWorkflow}`);
+  console.log(`🌧️ EA Batch Mode: ${isBatchWorkflow}`);
+  console.log(`🏴󠁧󠁢󠁷󠁬󠁳󠁿 NRW Batch Mode: ${isNRWBatchWorkflow}`);
   
   // Production stations (only for scrape-and-upload workflow)
   const PRODUCTION_STATIONS = {
@@ -295,6 +298,44 @@ async function uploadNewData() {
       console.log(`📍 Range filter: ${batchStart} → ${batchEnd}`);
     } catch (error) {
       console.error('❌ Error loading batch files:', error.message);
+      STATIONS = {};
+    }
+  } else if (isNRWBatchWorkflow) {
+    // Handle NRW batch workflows - upload Welsh stations
+    console.log(`🏴󠁧󠁢󠁷󠁬󠁳󠁿 NRW Batch Mode: Processing Welsh stations`);
+    
+    const dynamic = {};
+    
+    try {
+      const files = await fs.readdir(dataDir);
+      // Only include Welsh station data files (wales-{STATION_ID}.json)
+      const welshFiles = files.filter(f => {
+        return /^wales-[0-9]+\.json$/.test(f);
+      });
+      console.log(`📦 Found ${welshFiles.length} Welsh station data files`);
+      
+      for (const f of welshFiles) {
+        try {
+          const raw = await fs.readFile(path.join(dataDir, f), 'utf8');
+          const json = JSON.parse(raw);
+          const stationId = json.station || f.replace(/^wales-|\.json$/g, '');
+          const stationName = json.stationName || json.label || `Station ${stationId}`;
+          let key = slugify(stationName, stationId);
+          if (dynamic[key]) key = slugify(`${stationName}-${stationId}`, stationId);
+          dynamic[key] = {
+            file: f,
+            description: stationName,
+            stationId: String(stationId)
+          };
+        } catch (e) {
+          // Skip files that can't be parsed
+        }
+      }
+      
+      STATIONS = dynamic;
+      console.log(`🏴󠁧󠁢󠁷󠁬󠁳󠁿 Using Welsh stations: ${Object.keys(STATIONS).length} files`);
+    } catch (error) {
+      console.error('❌ Error loading Welsh station files:', error.message);
       STATIONS = {};
     }
   } else if (isEAStationWorkflow) {

@@ -1,0 +1,60 @@
+name: NRW Batch 2 (Second Half, 74 Welsh Stations)
+
+on:
+  schedule:
+    - cron: '45 3,9,15,21 * * *'  # Every 6 hours at 03:45, 09:45, 15:45, 21:45
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  nrw-batch-2:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        fetch-depth: 0
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Add Welsh stations to metadata
+      run: node scripts/add-welsh-stations-metadata.js
+    
+    - name: Run NRW batch 2 scraping script
+      run: node scripts/download-nrw-batch-2.js
+    
+    - name: Upload to Netlify Blobs
+      env:
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+      run: node scripts/github-actions-blob-upload.js
+    
+    - name: Summary
+      run: |
+        echo "## NRW Batch 2 Data Update Complete" >> $GITHUB_STEP_SUMMARY
+        echo "- **Range**: Second half of Welsh stations" >> $GITHUB_STEP_SUMMARY
+        echo "- **Stations**: 74 Welsh NRW stations" >> $GITHUB_STEP_SUMMARY
+        echo "- **Data Storage**: Netlify Blobs (Primary)" >> $GITHUB_STEP_SUMMARY
+        echo "- **Status**: ✅ Data successfully uploaded to blobs" >> $GITHUB_STEP_SUMMARY
+        echo "- **Timestamp**: $(date -u +'%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "_Note: Data is stored in Netlify Blobs only (no git commits)_" >> $GITHUB_STEP_SUMMARY
+    
+    - name: Handle errors
+      if: failure()
+      run: |
+        echo "## ❌ NRW Batch 2 Failed" >> $GITHUB_STEP_SUMMARY
+        echo "- **Error**: Workflow failed during execution" >> $GITHUB_STEP_SUMMARY
+        echo "- **Timestamp**: $(date -u +'%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY
