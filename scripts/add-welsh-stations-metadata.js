@@ -92,7 +92,7 @@ async function addWelshStationsToMetadata() {
       waterBody: station.water_body,
       catchment: station.catchment,
       dateOpened: station.date_opened,
-      hasData: false, // Will be updated when data is processed
+      hasData: true, // Welsh stations have data when uploaded
       dataFile: `wales-${stationId}.json`,
       blobKey: blobKey  // ✅ Add blobKey for API lookup
     };
