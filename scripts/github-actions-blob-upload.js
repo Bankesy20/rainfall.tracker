@@ -420,6 +420,11 @@ async function uploadNewData() {
         stationKey: stationKey
       };
       
+      // For Welsh stations, ensure stationName field exists (frontend expects this)
+      if (isNRWBatchWorkflow && !blobData.stationName) {
+        blobData.stationName = blobData.nameEN || blobData.nameCY || `Station ${blobData.station}`;
+      }
+      
       const blobKey = `stations/${stationKey}.json`;
       await store.set(blobKey, JSON.stringify(blobData), {
         metadata: { 
