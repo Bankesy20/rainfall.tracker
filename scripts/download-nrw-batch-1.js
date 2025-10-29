@@ -101,7 +101,7 @@ async function processStation(station, parameterIds) {
     console.log(`🔍 Using parameter ID: ${paramId}`);
 
     // 2) Calculate date range - support env vars for scheduled runs
-    // Default to last 12 months (1 year) for initial backlog
+    // Default to last 4 days for regular updates (new data will append)
     const envFrom = (process.env.NRW_FROM || '').trim();
     const envTo = (process.env.NRW_TO || '').trim();
     const envDays = (process.env.NRW_DAYS || '').trim();
@@ -124,18 +124,18 @@ async function processStation(station, parameterIds) {
         toStr = isYmd(envTo) ? envTo : todayYmd();
         fromStr = minusDays(toStr, days);
       } else {
-        // Invalid days, use default (last year)
+        // Invalid days, use default (4 days)
         const toDate = new Date();
         const fromDate = new Date();
-        fromDate.setFullYear(toDate.getFullYear() - 1);
+        fromDate.setUTCDate(toDate.getUTCDate() - 4);
         fromStr = fromDate.toISOString().split('T')[0];
         toStr = toDate.toISOString().split('T')[0];
       }
     } else {
-      // Default: last 12 months (1 year) for initial backlog
+      // Default: last 4 days for regular updates (data appends automatically via processor)
       const toDate = new Date();
       const fromDate = new Date();
-      fromDate.setFullYear(toDate.getFullYear() - 1);
+      fromDate.setUTCDate(toDate.getUTCDate() - 4);
       fromStr = fromDate.toISOString().split('T')[0];
       toStr = toDate.toISOString().split('T')[0];
     }
