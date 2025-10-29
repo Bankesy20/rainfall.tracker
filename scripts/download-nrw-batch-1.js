@@ -96,19 +96,20 @@ async function processStation(station) {
   try {
     console.log(`\n🚀 Processing station: ${station.station_name} (${station.station_id})`);
     
-    const stationUrl = station.url;
     const stationId = station.station_id.toString();
+    // Use the standard NRW station URL pattern instead of the URL from the JSON
+    const stationUrl = `https://rivers-and-seas.naturalresources.wales/station/${stationId}`;
     
     // 1) Fetch station HTML
     const html = await fetchText(stationUrl);
     console.log(`📄 Fetched station HTML (${html.length} chars)`);
 
-    // 2) Build CSV export URL with date range (NRW requires this for unique data per station)
+    // 2) Build CSV export URL with date range (using same pattern as working Maenclochog downloader)
     let csvUrl = await extractCsvUrlFromHtml(html, stationUrl);
     const PARAM_ID = '10194'; // Rainfall parameter ID
     
     // Calculate date range - support env vars for scheduled runs (like Maenclochog script)
-    // Default to ~13 months for initial backlog,.Clear but allow override via env vars
+    // Default to ~13 months for initial backlog, but allow override via env vars
     const envFrom = (process.env.NRW_FROM || '').trim();
     const envTo = (process.env.NRW_TO || '').trim();
     const envDays = (process.env.NRW_DAYS || '').trim();
@@ -147,18 +148,22 @@ async function processStation(station) {
       toStr = toDate.toISOString().split('T')[0];
     }
     
+    // Build CSV URL using the same pattern as the working Maenclochog downloader
     if (!csvUrl) {
-      // Build CSV URL directly with date range if not found in HTML
       const base = new URL(`/Graph/GetHistoricalCsv?location=${encodeURIComponent(stationId)}&parameter=${encodeURIComponent(PARAM_ID)}`, stationUrl);
-      base.searchParams.set('from', fromStr);
-      base.searchParams.set('to', toStr);
+      if (fromStr && toStr) {
+        base.searchParams.set('from', fromStr);
+        base.searchParams.set('to', toStr);
+      }
       csvUrl = base.toString();
     } else {
       // If URL was extracted from HTML, ensure it has date parameters
       const url = new URL(csvUrl);
       if (!url.searchParams.has('from') || !url.searchParams.has('to')) {
-        url.searchParams.set('from', fromStr);
-        url.searchParams.set('to', toStr);
+        if (fromStr && toStr) {
+          url.searchParams.set('from', fromStr);
+          url.searchParams.set('to', toStr);
+        }
         csvUrl = url.toString();
       }
     }

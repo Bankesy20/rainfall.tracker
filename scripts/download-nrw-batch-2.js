@@ -96,37 +96,74 @@ async function processStation(station) {
   try {
     console.log(`\n🚀 Processing station: ${station.station_name} (${station.station_id})`);
     
-    const stationUrl = station.url;
     const stationId = station.station_id.toString();
+    // Use the standard NRW station URL pattern instead of the URL from the JSON
+    const stationUrl = `https://rivers-and-seas.naturalresources.wales/station/${stationId}`;
     
     // 1) Fetch station HTML
     const html = await fetchText(stationUrl);
     console.log(`📄 Fetched station HTML (${html.length} chars)`);
 
-    // 2) Build CSV export URL with date range (NRW requires this for unique data per station)
+    // 2) Build CSV export URL with date range (using same pattern as working Maenclochog downloader)
     let csvUrl = await extractCsvUrlFromHtml(html, stationUrl);
     const PARAM_ID = '10194'; // Rainfall parameter ID
     
-    // Calculate date range - get last ~13 months of data to match existing data range
-    const toDate = new Date();
-    const fromDate = new Date();
-    fromDate.setMonth(toDate.getMonth() - 13); // ~13 months to ensure we get all historical data
+    // Calculate date range - support env vars for scheduled runs (like Maenclochog script)
+    // Default to ~13 months for initial backlog, but allow override via env vars
+    const envFrom = (process.env.NRW_FROM || '').trim();
+    const envTo = (process.env.NRW_TO || '').trim();
+    const envDays = (process.env.NRW_DAYS || '').trim();
     
-    const fromStr = fromDate.toISOString().split('T')[0];
-    const toStr = toDate.toISOString().split('T')[0];
+    const isYmd = (s) => /^\d{4}-\d{2}-\d{2}$/.test(s);
+    const todayYmd = () => new Date().toISOString().slice(0, 10);
+    const minusDays = (d, days) => {
+      const dt = new Date(d + 'T00:00:00Z');
+      dt.setUTCDate(dt.getUTCDate() - days);
+      return dt.toISOString().slice(0, 10);
+    };
     
+    let fromStr, toStr;
+    if (isYmd(envFrom)) {
+      fromStr = envFrom;
+      toStr = isYmd(envTo) ? envTo : todayYmd();
+    } else if (envDays) {
+      const days = parseInt(envDays, 10);
+      if (days > 0) {
+        toStr = isYmd(envTo) ? envTo : todayYmd();
+        fromStr = minusDays(toStr, days);
+      } else {
+        // Invalid days, use default
+        const toDate = new Date();
+        const fromDate = new Date();
+        fromDate.setMonth(toDate.getMonth() - 13);
+        fromStr = fromDate.toISOString().split('T')[0];
+        toStr = toDate.toISOString().split('T')[0];
+      }
+    } else {
+      // Default: ~13 months for initial backlog
+      const toDate = new Date();
+      const fromDate = new Date();
+      fromDate.setMonth(toDate.getMonth() - 13);
+      fromStr = fromDate.toISOString().split('T')[0];
+      toStr = toDate.toISOString().split('T')[0];
+    }
+    
+    // Build CSV URL using the same pattern as the working Maenclochog downloader
     if (!csvUrl) {
-      // Build CSV URL directly with date range if not found in HTML
       const base = new URL(`/Graph/GetHistoricalCsv?location=${encodeURIComponent(stationId)}&parameter=${encodeURIComponent(PARAM_ID)}`, stationUrl);
-      base.searchParams.set('from', fromStr);
-      base.searchParams.set('to', toStr);
+      if (fromStr && toStr) {
+        base.searchParams.set('from', fromStr);
+        base.searchParams.set('to', toStr);
+      }
       csvUrl = base.toString();
     } else {
       // If URL was extracted from HTML, ensure it has date parameters
       const url = new URL(csvUrl);
       if (!url.searchParams.has('from') || !url.searchParams.has('to')) {
-        url.searchParams.set('from', fromStr);
-        url.searchParams.set('to', toStr);
+        if (fromStr && toStr) {
+          url.searchParams.set('from', fromStr);
+          url.searchParams.set('to', toStr);
+        }
         csvUrl = url.toString();
       }
     }
