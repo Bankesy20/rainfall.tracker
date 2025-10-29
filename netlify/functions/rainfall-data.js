@@ -75,6 +75,25 @@ exports.handler = async (event, context) => {
     return null;
   };
 
+  // Helper function to verify station data matches the requested station
+  const verifyStationData = (data, expectedStationKey, metadata) => {
+    if (!data || !data.data || !Array.isArray(data.data)) {
+      return false;
+    }
+    
+    // Get expected station ID from metadata or use the station key itself
+    let expectedStationId = expectedStationKey;
+    if (metadata && metadata.stations && metadata.stations[expectedStationKey]) {
+      expectedStationId = metadata.stations[expectedStationKey].stationId || expectedStationKey;
+    }
+    
+    // Check if the data's station field matches (convert both to strings for comparison)
+    const dataStationId = String(data.station || '');
+    const expectedId = String(expectedStationId || '');
+    
+    return dataStationId === expectedId;
+  };
+
   // Helper function to try blob storage
   const tryBlobStorage = async (station) => {
     if (!useBlobStorage) return null;
@@ -93,10 +112,12 @@ exports.handler = async (event, context) => {
       // Load stations metadata to get the correct blob key
       const metadata = await loadStationsMetadata();
       let blobKey = null;
+      let expectedStationId = station;
       
       if (metadata && metadata.stations && metadata.stations[station]) {
         blobKey = metadata.stations[station].blobKey;
-        diagnostics.attempts.push({ type: 'blob', key: 'metadata-lookup', ok: true, foundKey: blobKey, station });
+        expectedStationId = metadata.stations[station].stationId || station;
+        diagnostics.attempts.push({ type: 'blob', key: 'metadata-lookup', ok: true, foundKey: blobKey, station, expectedStationId });
       }
       
       // Try the mapped blob key first
@@ -108,9 +129,11 @@ exports.handler = async (event, context) => {
           const blobContent = await store.get(mappedBlobKey);
           const blobData = typeof blobContent === 'string' ? JSON.parse(blobContent) : blobContent;
           
-          if (blobData && blobData.data && Array.isArray(blobData.data)) {
-            diagnostics.attempts.push({ type: 'blob', key: mappedBlobKey, ok: true, size: blobContent.length, records: blobData.data.length, foundBy: 'metadata-mapping' });
+          if (verifyStationData(blobData, station, metadata)) {
+            diagnostics.attempts.push({ type: 'blob', key: mappedBlobKey, ok: true, size: blobContent.length, records: blobData.data.length, foundBy: 'metadata-mapping', stationId: blobData.station });
             return blobData;
+          } else {
+            diagnostics.attempts.push({ type: 'blob', key: mappedBlobKey, ok: false, note: 'station ID mismatch', dataStation: blobData.station, expected: expectedStationId });
           }
         } catch (mappedError) {
           diagnostics.attempts.push({ type: 'blob', key: mappedBlobKey, ok: false, error: mappedError.message });
@@ -125,9 +148,11 @@ exports.handler = async (event, context) => {
         const blobContent = await store.get(directBlobKey);
         const blobData = typeof blobContent === 'string' ? JSON.parse(blobContent) : blobContent;
         
-        if (blobData && blobData.data && Array.isArray(blobData.data)) {
-          diagnostics.attempts.push({ type: 'blob', key: directBlobKey, ok: true, size: blobContent.length, records: blobData.data.length, foundBy: 'direct-lookup' });
+        if (verifyStationData(blobData, station, metadata)) {
+          diagnostics.attempts.push({ type: 'blob', key: directBlobKey, ok: true, size: blobContent.length, records: blobData.data.length, foundBy: 'direct-lookup', stationId: blobData.station });
           return blobData;
+        } else {
+          diagnostics.attempts.push({ type: 'blob', key: directBlobKey, ok: false, note: 'station ID mismatch', dataStation: blobData.station, expected: expectedStationId });
         }
       } catch (directError) {
         diagnostics.attempts.push({ type: 'blob', key: directBlobKey, ok: false, error: directError.message });
@@ -145,8 +170,8 @@ exports.handler = async (event, context) => {
           const blobData = typeof blobContent === 'string' ? JSON.parse(blobContent) : blobContent;
           
           // Check if this blob contains data for the requested station
-          if (blobData && blobData.station === station && blobData.data && Array.isArray(blobData.data)) {
-            diagnostics.attempts.push({ type: 'blob', key: blob.key, ok: true, size: blobContent.length, records: blobData.data.length, foundBy: 'station-id-search' });
+          if (verifyStationData(blobData, station, metadata)) {
+            diagnostics.attempts.push({ type: 'blob', key: blob.key, ok: true, size: blobContent.length, records: blobData.data.length, foundBy: 'station-id-search', stationId: blobData.station });
             return blobData;
           }
         } catch (blobError) {
@@ -198,11 +223,13 @@ exports.handler = async (event, context) => {
     for (const url of remoteSources) {
       try {
         const remoteData = await tryFetchJson(url, 10000);
-        if (remoteData && remoteData.data && Array.isArray(remoteData.data)) {
+        if (verifyStationData(remoteData, station, metadata)) {
           diagnostics.decided = { type: 'remote', url };
           const body = { success: true, data: remoteData, timestamp: new Date().toISOString(), source: 'remote', url };
           if (debugMode) body.diagnostics = diagnostics;
           return { statusCode: 200, headers, body: JSON.stringify(body) };
+        } else {
+          diagnostics.attempts.push({ type: 'remote', url, ok: false, note: 'station ID mismatch', dataStation: remoteData?.station, expected: metadata?.stations?.[station]?.stationId || station });
         }
       } catch (e) {
         // continue to next source
@@ -253,6 +280,13 @@ exports.handler = async (event, context) => {
     if (!rainfallData || !rainfallData.data || !Array.isArray(rainfallData.data)) {
       return { statusCode: 500, headers, body: JSON.stringify({ error: 'Invalid data format', message: 'Data file is corrupted or invalid' }) };
     }
+    
+    // Verify the station ID matches
+    if (!verifyStationData(rainfallData, station, metadata)) {
+      diagnostics.attempts.push({ type: 'local', path: dataPath, ok: false, note: 'station ID mismatch', dataStation: rainfallData.station, expected: metadata?.stations?.[station]?.stationId || station });
+      return { statusCode: 404, headers, body: JSON.stringify({ error: 'Station data not found', message: `Station ${station} data not found in file` }) };
+    }
+    
     diagnostics.decided = { type: 'local', path: dataPath };
     const body = { success: true, data: rainfallData, timestamp: new Date().toISOString(), source: 'local-file', path: dataPath };
     if (debugMode) body.diagnostics = diagnostics;
