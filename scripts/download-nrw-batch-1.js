@@ -10,9 +10,6 @@ const fsPromises = require('fs').promises;
 const path = require('path');
 const { spawn } = require('child_process');
 
-// Import the base functionality from the NRW downloader
-const nrwDownloader = require('./download-nrw');
-
 const DATA_DIR = path.join(__dirname, '..', 'data');
 const RAW_DIR = path.join(DATA_DIR, 'raw');
 const PROCESSED_DIR = path.join(DATA_DIR, 'processed');
@@ -26,86 +23,47 @@ async function ensureDirectoryExists(directoryPath) {
   }
 }
 
-async function fetchText(url) {
-  const response = await fetch(url);
+async function fetchText(url, options = {}) {
+  const response = await fetch(url, {
+    ...options,
+    headers: {
+      'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+      'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+      'Accept-Language': 'en-US,en;q=0.9',
+      ...(options.headers || {})
+    }
+  });
   if (!response.ok) {
     throw new Error(`HTTP ${response.status}: ${response.statusText}`);
   }
   return await response.text();
 }
 
-async function downloadFile(url, filePath) {
-  const response = await fetch(url);
+async function fetchBuffer(url, options = {}) {
+  const response = await fetch(url, {
+    ...options,
+    headers: {
+      'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+      'Accept': 'text/csv,application/octet-stream,*/*',
+      'Accept-Language': 'en-US,en;q=0.9',
+      ...(options.headers || {})
+    }
+  });
   if (!response.ok) {
-    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+    throw new Error(`HTTP ${response.status}`);
   }
-  
-  const buffer = await response.arrayBuffer();
-  await fsPromises.writeFile(filePath, Buffer.from(buffer));
+  const arrayBuffer = await response.arrayBuffer();
+  return Buffer.from(arrayBuffer);
 }
 
-async function extractParameterIdFromHtml(html) {
-  // Extract parameter ID from the JavaScript initialization code
-  // Look for: new NRW.Pages.StationDetails({ "parameters": [{ "id": 10095, "typeId": 2, ... }] })
-  
-  const patterns = [
-    // Pattern 1: Look for StationDetails initialization
-    /new\s+NRW\.Pages\.StationDetails\s*\(\s*({[^}]+"parameters"[^}]+})\s*\)/i,
-    // Pattern 2: Look for parameters array directly
-    /"parameters"\s*:\s*\[([^\]]+)\]/i,
-    // Pattern 3: Look for page variable assignment
-    /var\s+page\s*=\s*new\s+NRW\.Pages\.StationDetails\s*\(([^)]+)\)/i
-  ];
-  
-  for (const pattern of patterns) {
-    const match = html.match(pattern);
-    if (match) {
-      try {
-        // Try to extract the parameters section
-        let jsonStr = match[1];
-        
-        // If we got the full object, extract just the parameters
-        if (jsonStr.includes('"parameters"')) {
-          const paramMatch = jsonStr.match(/"parameters"\s*:\s*\[([^\]]+)\]/);
-          if (paramMatch) {
-            jsonStr = '[' + paramMatch[1] + ']';
-          }
-        } else {
-          // We got just the parameters array content
-          jsonStr = '[' + jsonStr + ']';
-        }
-        
-        // Clean up the JSON string
-        jsonStr = jsonStr
-          .replace(/'/g, '"')  // Replace single quotes with double quotes
-          .replace(/([{,]\s*)([a-zA-Z_][a-zA-Z0-9_]*)\s*:/g, '$1"$2":')  // Quote unquoted keys
-          .replace(/,\s*}/g, '}')  // Remove trailing commas
-          .replace(/,\s*]/g, ']'); // Remove trailing commas in arrays
-        
-        const parameters = JSON.parse(jsonStr);
-        
-        // Find rainfall parameter (typeId: 2)
-        const rainfallParam = parameters.find(p => p.typeId === 2);
-        if (rainfallParam && rainfallParam.id) {
-          return rainfallParam.id.toString();
-        }
-      } catch (e) {
-        console.log(`Failed to parse parameters JSON: ${e.message}`);
-        continue;
-      }
-    }
+function loadParameterIds() {
+  const parameterIdsPath = path.join(__dirname, '..', 'station_parameter_ids.json');
+  try {
+    const raw = fs.readFileSync(parameterIdsPath, 'utf8');
+    return JSON.parse(raw);
+  } catch (error) {
+    throw new Error(`Failed to load parameter IDs from ${parameterIdsPath}: ${error.message}`);
   }
-  
-  // Fallback: look for parameter IDs in the HTML more broadly
-  const paramIdMatches = html.match(/"id"\s*:\s*(\d+)[^}]*"typeId"\s*:\s*2/g);
-  if (paramIdMatches && paramIdMatches.length > 0) {
-    const match = paramIdMatches[0].match(/"id"\s*:\s*(\d+)/);
-    if (match) {
-      return match[1];
-    }
-  }
-  
-  return null;
 }
 
 async function runProcessorOnCsv(csvPath, outputFileName) {
@@ -127,26 +85,22 @@ async function runProcessorOnCsv(csvPath, outputFileName) {
   });
 }
 
-async function processStation(station) {
+async function processStation(station, parameterIds) {
   try {
     console.log(`\n🚀 Processing station: ${station.station_name} (${station.station_id})`);
     
     const stationId = station.station_id.toString();
-    // Use the standard NRW station URL pattern instead of the URL from the JSON
     const stationUrl = `https://rivers-and-seas.naturalresources.wales/station/${stationId}`;
     
-    // 1) Fetch station HTML
-    const html = await fetchText(stationUrl);
-    console.log(`📄 Fetched station HTML (${html.length} chars)`);
-
-    // 2) Extract parameter ID from HTML (each station has unique parameter ID)
-    const paramId = await extractParameterIdFromHtml(html);
-    if (!paramId) {
-      throw new Error(`Could not extract parameter ID for station ${stationId}`);
+    // 1) Get parameter ID from pre-loaded data
+    const parameterInfo = parameterIds[stationId];
+    if (!parameterInfo || !parameterInfo.parameter_id) {
+      throw new Error(`No parameter ID found for station ${stationId}`);
     }
-    console.log(`🔍 Found parameter ID: ${paramId}`);
-    
-    // 3) Calculate date range - support env vars for scheduled runs
+    const paramId = parameterInfo.parameter_id.toString();
+    console.log(`🔍 Using parameter ID: ${paramId}`);
+
+    // 2) Calculate date range - support env vars for scheduled runs
     // Default to last 12 months (1 year) for initial backlog
     const envFrom = (process.env.NRW_FROM || '').trim();
     const envTo = (process.env.NRW_TO || '').trim();
@@ -186,7 +140,9 @@ async function processStation(station) {
       toStr = toDate.toISOString().split('T')[0];
     }
     
-    // 4) Build CSV URL using the NRW API endpoint
+    console.log(`📅 Date range: ${fromStr} to ${toStr}`);
+    
+    // 3) Build CSV URL using the NRW API endpoint
     const base = new URL(`/Graph/GetHistoricalCsv?location=${encodeURIComponent(stationId)}&parameter=${encodeURIComponent(paramId)}`, stationUrl);
     if (fromStr && toStr) {
       base.searchParams.set('from', fromStr);
@@ -196,22 +152,22 @@ async function processStation(station) {
     
     console.log(`📊 CSV URL: ${csvUrl}`);
 
-    // 5) Download CSV
+    // 4) Download CSV
     const now = new Date();
     const isoDate = now.toISOString().split('T')[0];
-    const timestamp = now.toISOString().replace(/[:.]/g, '-').slice(0, 19);
-    const csvFileName = `nrw-${stationId}-${timestamp}.csv`;
+    const csvFileName = `nrw-${stationId}-${isoDate}.csv`;
     const csvPath = path.join(RAW_DIR, csvFileName);
     
-    await downloadFile(csvUrl, csvPath);
-    console.log(`💾 Downloaded CSV: ${csvFileName}`);
+    const csvBuffer = await fetchBuffer(csvUrl);
+    await fsPromises.writeFile(csvPath, csvBuffer);
+    console.log(`💾 Downloaded CSV: ${csvFileName} (${csvBuffer.length} bytes)`);
 
-    // 6) Process CSV
+    // 5) Process CSV
     const outputFileName = `wales-${stationId}.json`;
     await runProcessorOnCsv(csvPath, outputFileName);
     console.log(`⚙️  Processed CSV to: ${outputFileName}`);
 
-    // 7) Clean up raw CSV file
+    // 6) Clean up raw CSV file
     try {
       await fsPromises.unlink(csvPath);
       console.log(`🗑️  Cleaned up raw CSV file`);
@@ -248,21 +204,28 @@ async function downloadBatch1() {
   await ensureDirectoryExists(PROCESSED_DIR);
   await ensureDirectoryExists(PUBLIC_PROCESSED_DIR);
   
-  // Load Welsh stations
-  const stationsJsonPath = path.join(__dirname, '..', 'welsh_rainfall_stations_with_coords.json');
-  
   try {
+    // Load parameter IDs
+    const parameterIds = loadParameterIds();
+    console.log(`📋 Loaded parameter IDs for ${Object.keys(parameterIds).length} stations`);
+    
+    // Load Welsh stations
+    const stationsJsonPath = path.join(__dirname, '..', 'welsh_rainfall_stations_with_coords.json');
     const raw = fs.readFileSync(stationsJsonPath, 'utf8');
     const allStations = JSON.parse(raw);
     
-    // Exclude Maencloghog (1099) as it's handled separately
+    // Filter stations that have parameter IDs and exclude Maencloghog (1099) as it's handled separately
     const excludedIds = new Set(['1099']);
     const validStations = allStations.filter(station => {
-      return station.station_id && station.station_name && !excludedIds.has(station.station_id.toString());
+      const stationId = station.station_id.toString();
+      return station.station_id && 
+             station.station_name && 
+             !excludedIds.has(stationId) &&
+             parameterIds[stationId];
     });
     
     console.log(`📊 Total Welsh stations: ${allStations.length}`);
-    console.log(`📊 Valid stations (excluding Maencloghog): ${validStations.length}`);
+    console.log(`📊 Valid stations with parameter IDs (excluding Maencloghog): ${validStations.length}`);
     
     // Split into two batches - first half
     const batchSize = Math.ceil(validStations.length / 2);
@@ -282,7 +245,7 @@ async function downloadBatch1() {
     
     // Process each station sequentially to avoid overwhelming the server
     for (const station of batch1Stations) {
-      const result = await processStation(station);
+      const result = await processStation(station, parameterIds);
       results.push(result);
       
       if (result.success) {
