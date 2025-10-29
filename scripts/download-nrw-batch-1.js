@@ -103,14 +103,64 @@ async function processStation(station) {
     const html = await fetchText(stationUrl);
     console.log(`📄 Fetched station HTML (${html.length} chars)`);
 
-    // 2) Build CSV export URL
+    // 2) Build CSV export URL with date range (NRW requires this for unique data per station)
     let csvUrl = await extractCsvUrlFromHtml(html, stationUrl);
     const PARAM_ID = '10194'; // Rainfall parameter ID
     
+    // Calculate date range - support env vars for scheduled runs (like Maenclochog script)
+    // Default to ~13 months for initial backlog,.Clear but allow override via env vars
+    const envFrom = (process.env.NRW_FROM || '').trim();
+    const envTo = (process.env.NRW_TO || '').trim();
+    const envDays = (process.env.NRW_DAYS || '').trim();
+    
+    const isYmd = (s) => /^\d{4}-\d{2}-\d{2}$/.test(s);
+    const todayYmd = () => new Date().toISOString().slice(0, 10);
+    const minusDays = (d, days) => {
+      const dt = new Date(d + 'T00:00:00Z');
+      dt.setUTCDate(dt.getUTCDate() - days);
+      return dt.toISOString().slice(0, 10);
+    };
+    
+    let fromStr, toStr;
+    if (isYmd(envFrom)) {
+      fromStr = envFrom;
+      toStr = isYmd(envTo) ? envTo : todayYmd();
+    } else if (envDays) {
+      const days = parseInt(envDays, 10);
+      if (days > 0) {
+        toStr = isYmd(envTo) ? envTo : todayYmd();
+        fromStr = minusDays(toStr, days);
+      } else {
+        // Invalid days, use default
+        const toDate = new Date();
+        const fromDate = new Date();
+        fromDate.setMonth(toDate.getMonth() - 13);
+        fromStr = fromDate.toISOString().split('T')[0];
+        toStr = toDate.toISOString().split('T')[0];
+      }
+    } else {
+      // Default: ~13 months for initial backlog
+      const toDate = new Date();
+      const fromDate = new Date();
+      fromDate.setMonth(toDate.getMonth() - 13);
+      fromStr = fromDate.toISOString().split('T')[0];
+      toStr = toDate.toISOString().split('T')[0];
+    }
+    
     if (!csvUrl) {
-      // Build CSV URL directly if not found in HTML
+      // Build CSV URL directly with date range if not found in HTML
       const base = new URL(`/Graph/GetHistoricalCsv?location=${encodeURIComponent(stationId)}&parameter=${encodeURIComponent(PARAM_ID)}`, stationUrl);
+      base.searchParams.set('from', fromStr);
+      base.searchParams.set('to', toStr);
       csvUrl = base.toString();
+    } else {
+      // If URL was extracted from HTML, ensure it has date parameters
+      const url = new URL(csvUrl);
+      if (!url.searchParams.has('from') || !url.searchParams.has('to')) {
+        url.searchParams.set('from', fromStr);
+        url.searchParams.set('to', toStr);
+        csvUrl = url.toString();
+      }
     }
     
     console.log(`📊 CSV URL: ${csvUrl}`);

@@ -103,14 +103,32 @@ async function processStation(station) {
     const html = await fetchText(stationUrl);
     console.log(`📄 Fetched station HTML (${html.length} chars)`);
 
-    // 2) Build CSV export URL
+    // 2) Build CSV export URL with date range (NRW requires this for unique data per station)
     let csvUrl = await extractCsvUrlFromHtml(html, stationUrl);
     const PARAM_ID = '10194'; // Rainfall parameter ID
     
+    // Calculate date range - get last ~13 months of data to match existing data range
+    const toDate = new Date();
+    const fromDate = new Date();
+    fromDate.setMonth(toDate.getMonth() - 13); // ~13 months to ensure we get all historical data
+    
+    const fromStr = fromDate.toISOString().split('T')[0];
+    const toStr = toDate.toISOString().split('T')[0];
+    
     if (!csvUrl) {
-      // Build CSV URL directly if not found in HTML
+      // Build CSV URL directly with date range if not found in HTML
       const base = new URL(`/Graph/GetHistoricalCsv?location=${encodeURIComponent(stationId)}&parameter=${encodeURIComponent(PARAM_ID)}`, stationUrl);
+      base.searchParams.set('from', fromStr);
+      base.searchParams.set('to', toStr);
       csvUrl = base.toString();
+    } else {
+      // If URL was extracted from HTML, ensure it has date parameters
+      const url = new URL(csvUrl);
+      if (!url.searchParams.has('from') || !url.searchParams.has('to')) {
+        url.searchParams.set('from', fromStr);
+        url.searchParams.set('to', toStr);
+        csvUrl = url.toString();
+      }
     }
     
     console.log(`📊 CSV URL: ${csvUrl}`);
