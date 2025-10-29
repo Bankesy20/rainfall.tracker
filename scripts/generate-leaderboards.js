@@ -187,13 +187,34 @@ async function loadStationDataFromBlobs() {
             location: coords ? { lat: coords.lat, long: coords.lng } : data.location
           };
           
+          // Detect Welsh stations if region is missing
+          let region = data.region;
+          if (!region || region === 'Unknown') {
+            const stationId = String(data.station || '');
+            const stationIdNum = parseInt(stationId, 10);
+            
+            // Welsh stations have IDs in range 1000-1149
+            if (stationIdNum >= 1000 && stationIdNum <= 1149) {
+              region = 'Wales';
+            } else if (data.source === 'NRW' || data.source === 'Natural Resources Wales') {
+              region = 'Wales';
+            } else if (data.provider === 'Natural Resources Wales') {
+              region = 'Wales';
+            } else if (data.country === 'Wales') {
+              region = 'Wales';
+            } else if (data.nameCY || (data.nameEN && data.nameEN.match(/[\u0590-\u05FF\u0600-\u06FF]/))) {
+              // Welsh language indicators
+              region = 'Wales';
+            }
+          }
+          
           // Get county information using coordinates
           const county = getCountyFromStation(stationData);
           
           stations.push({
             station: data.station,
             stationName: data.stationName || coords?.label || data.station,
-            region: data.region || 'Unknown',
+            region: region || 'Unknown',
             county: county,
             location: stationData.location || { lat: null, long: null },
             data: data.data
@@ -261,13 +282,31 @@ function loadStationDataFromFiles() {
           location: coords ? { lat: coords.lat, long: coords.lng } : data.location
         };
         
+        // Detect Welsh stations if region is missing
+        let region = data.region;
+        if (!region || region === 'Unknown') {
+          const stationId = String(data.station || '');
+          const stationIdNum = parseInt(stationId, 10);
+          
+          // Welsh stations have IDs in range 1000-1149
+          if (stationIdNum >= 1000 && stationIdNum <= 1149) {
+            region = 'Wales';
+          } else if (data.source === 'NRW' || data.source === 'Natural Resources Wales') {
+            region = 'Wales';
+          } else if (data.provider === 'Natural Resources Wales') {
+            region = 'Wales';
+          } else if (data.country === 'Wales') {
+            region = 'Wales';
+          }
+        }
+        
         // Get county information using coordinates
         const county = getCountyFromStation(stationData);
         
         stations.push({
           station: data.station,
           stationName: data.stationName || coords?.label || data.station,
-          region: data.region || 'Unknown',
+          region: region || 'Unknown',
           county: county,
           location: stationData.location || { lat: null, long: null },
           data: data.data
