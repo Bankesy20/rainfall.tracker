@@ -44,33 +44,68 @@ async function downloadFile(url, filePath) {
   await fsPromises.writeFile(filePath, Buffer.from(buffer));
 }
 
-async function extractCsvUrlFromHtml(html, baseUrl) {
-  const candidates = [];
+async function extractParameterIdFromHtml(html) {
+  // Extract parameter ID from the JavaScript initialization code
+  // Look for: new NRW.Pages.StationDetails({ "parameters": [{ "id": 10095, "typeId": 2, ... }] })
   
-  // Look for CSV download links in the HTML
-  const csvLinkRegex = /href="([^"]*\.csv[^"]*)"/gi;
-  let match;
-  while ((match = csvLinkRegex.exec(html)) !== null) {
-    candidates.push(match[1]);
+  const patterns = [
+    // Pattern 1: Look for StationDetails initialization
+    /new\s+NRW\.Pages\.StationDetails\s*\(\s*({[^}]+"parameters"[^}]+})\s*\)/i,
+    // Pattern 2: Look for parameters array directly
+    /"parameters"\s*:\s*\[([^\]]+)\]/i,
+    // Pattern 3: Look for page variable assignment
+    /var\s+page\s*=\s*new\s+NRW\.Pages\.StationDetails\s*\(([^)]+)\)/i
+  ];
+  
+  for (const pattern of patterns) {
+    const match = html.match(pattern);
+    if (match) {
+      try {
+        // Try to extract the parameters section
+        let jsonStr = match[1];
+        
+        // If we got the full object, extract just the parameters
+        if (jsonStr.includes('"parameters"')) {
+          const paramMatch = jsonStr.match(/"parameters"\s*:\s*\[([^\]]+)\]/);
+          if (paramMatch) {
+            jsonStr = '[' + paramMatch[1] + ']';
+          }
+        } else {
+          // We got just the parameters array content
+          jsonStr = '[' + jsonStr + ']';
+        }
+        
+        // Clean up the JSON string
+        jsonStr = jsonStr
+          .replace(/'/g, '"')  // Replace single quotes with double quotes
+          .replace(/([{,]\s*)([a-zA-Z_][a-zA-Z0-9_]*)\s*:/g, '$1"$2":')  // Quote unquoted keys
+          .replace(/,\s*}/g, '}')  // Remove trailing commas
+          .replace(/,\s*]/g, ']'); // Remove trailing commas in arrays
+        
+        const parameters = JSON.parse(jsonStr);
+        
+        // Find rainfall parameter (typeId: 2)
+        const rainfallParam = parameters.find(p => p.typeId === 2);
+        if (rainfallParam && rainfallParam.id) {
+          return rainfallParam.id.toString();
+        }
+      } catch (e) {
+        console.log(`Failed to parse parameters JSON: ${e.message}`);
+        continue;
+      }
+    }
   }
   
-  if (candidates.length === 0) {
-    return null;
+  // Fallback: look for parameter IDs in the HTML more broadly
+  const paramIdMatches = html.match(/"id"\s*:\s*(\d+)[^}]*"typeId"\s*:\s*2/g);
+  if (paramIdMatches && paramIdMatches.length > 0) {
+    const match = paramIdMatches[0].match(/"id"\s*:\s*(\d+)/);
+    if (match) {
+      return match[1];
+    }
   }
   
-  // Use the first CSV link found
-  const csvPath = candidates[0];
-  
-  // Resolve relative URLs
-  if (csvPath.startsWith('http')) {
-    return csvPath;
-  } else if (csvPath.startsWith('/')) {
-    const base = new URL(baseUrl);
-    return `${base.protocol}//${base.host}${csvPath}`;
-  } else {
-    const base = new URL(baseUrl);
-    return `${base.protocol}//${base.host}${base.pathname.replace(/\/[^/]*$/, '/')}${csvPath}`;
-  }
+  return null;
 }
 
 async function runProcessorOnCsv(csvPath, outputFileName) {
@@ -104,12 +139,15 @@ async function processStation(station) {
     const html = await fetchText(stationUrl);
     console.log(`📄 Fetched station HTML (${html.length} chars)`);
 
-    // 2) Build CSV export URL with date range (using same pattern as working Maenclochog downloader)
-    let csvUrl = await extractCsvUrlFromHtml(html, stationUrl);
-    const PARAM_ID = '10194'; // Rainfall parameter ID
+    // 2) Extract parameter ID from HTML (each station has unique parameter ID)
+    const paramId = await extractParameterIdFromHtml(html);
+    if (!paramId) {
+      throw new Error(`Could not extract parameter ID for station ${stationId}`);
+    }
+    console.log(`🔍 Found parameter ID: ${paramId}`);
     
-    // Calculate date range - support env vars for scheduled runs (like Maenclochog script)
-    // Default to ~13 months for initial backlog, but allow override via env vars
+    // 3) Calculate date range - support env vars for scheduled runs
+    // Default to last 12 months (1 year) for initial backlog
     const envFrom = (process.env.NRW_FROM || '').trim();
     const envTo = (process.env.NRW_TO || '').trim();
     const envDays = (process.env.NRW_DAYS || '').trim();
@@ -132,45 +170,33 @@ async function processStation(station) {
         toStr = isYmd(envTo) ? envTo : todayYmd();
         fromStr = minusDays(toStr, days);
       } else {
-        // Invalid days, use default
+        // Invalid days, use default (last year)
         const toDate = new Date();
         const fromDate = new Date();
-        fromDate.setMonth(toDate.getMonth() - 13);
+        fromDate.setFullYear(toDate.getFullYear() - 1);
         fromStr = fromDate.toISOString().split('T')[0];
         toStr = toDate.toISOString().split('T')[0];
       }
     } else {
-      // Default: ~13 months for initial backlog
+      // Default: last 12 months (1 year) for initial backlog
       const toDate = new Date();
       const fromDate = new Date();
-      fromDate.setMonth(toDate.getMonth() - 13);
+      fromDate.setFullYear(toDate.getFullYear() - 1);
       fromStr = fromDate.toISOString().split('T')[0];
       toStr = toDate.toISOString().split('T')[0];
     }
     
-    // Build CSV URL using the same pattern as the working Maenclochog downloader
-    if (!csvUrl) {
-      const base = new URL(`/Graph/GetHistoricalCsv?location=${encodeURIComponent(stationId)}&parameter=${encodeURIComponent(PARAM_ID)}`, stationUrl);
-      if (fromStr && toStr) {
-        base.searchParams.set('from', fromStr);
-        base.searchParams.set('to', toStr);
-      }
-      csvUrl = base.toString();
-    } else {
-      // If URL was extracted from HTML, ensure it has date parameters
-      const url = new URL(csvUrl);
-      if (!url.searchParams.has('from') || !url.searchParams.has('to')) {
-        if (fromStr && toStr) {
-          url.searchParams.set('from', fromStr);
-          url.searchParams.set('to', toStr);
-        }
-        csvUrl = url.toString();
-      }
+    // 4) Build CSV URL using the NRW API endpoint
+    const base = new URL(`/Graph/GetHistoricalCsv?location=${encodeURIComponent(stationId)}&parameter=${encodeURIComponent(paramId)}`, stationUrl);
+    if (fromStr && toStr) {
+      base.searchParams.set('from', fromStr);
+      base.searchParams.set('to', toStr);
     }
+    const csvUrl = base.toString();
     
     console.log(`📊 CSV URL: ${csvUrl}`);
 
-    // 3) Download CSV
+    // 5) Download CSV
     const now = new Date();
     const isoDate = now.toISOString().split('T')[0];
     const timestamp = now.toISOString().replace(/[:.]/g, '-').slice(0, 19);
@@ -180,12 +206,12 @@ async function processStation(station) {
     await downloadFile(csvUrl, csvPath);
     console.log(`💾 Downloaded CSV: ${csvFileName}`);
 
-    // 4) Process CSV
+    // 6) Process CSV
     const outputFileName = `wales-${stationId}.json`;
     await runProcessorOnCsv(csvPath, outputFileName);
     console.log(`⚙️  Processed CSV to: ${outputFileName}`);
 
-    // 5) Clean up raw CSV file
+    // 7) Clean up raw CSV file
     try {
       await fsPromises.unlink(csvPath);
       console.log(`🗑️  Cleaned up raw CSV file`);
