@@ -134,12 +134,19 @@ async function main() {
       return { ...r, rainfall_mm: rainfall, total_mm: runningTotal, dateTimeUtc: ensuredDateTimeUtc };
     });
 
+    // Extract station ID from filename or metadata
+    const stationId = (existing && existing.station) || meta.Location || meta.Station || 'unknown';
+    const stationNameEN = (existing && existing.nameEN) || (existing && existing.stationName) || meta.NameEN || meta.TitleEN || undefined;
+    const stationName = stationNameEN ? `${stationNameEN} (${stationId})` : `Station ${stationId}`;
+    
     const history = {
       lastUpdated: new Date().toISOString(),
       // Prefer prior metadata if present, otherwise use NRW metadata
-      station: (existing && existing.station) || meta.Location || meta.Station || 'unknown',
-      nameEN: (existing && existing.nameEN) || meta.NameEN || meta.TitleEN || undefined,
+      station: stationId,
+      stationName: stationName,
+      nameEN: stationNameEN,
       nameCY: (existing && existing.nameCY) || meta.NameCY || meta.TitleCY || undefined,
+      region: 'Wales',
       source: 'NRW',
       data: merged
     };

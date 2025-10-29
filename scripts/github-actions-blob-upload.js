@@ -420,9 +420,15 @@ async function uploadNewData() {
         stationKey: stationKey
       };
       
-      // For Welsh stations, ensure stationName field exists (frontend expects this)
-      if (isNRWBatchWorkflow && !blobData.stationName) {
-        blobData.stationName = blobData.nameEN || blobData.nameCY || `Station ${blobData.station}`;
+      // For Welsh stations, ensure stationName and region fields exist (frontend/leaderboards expect this)
+      if (isNRWBatchWorkflow) {
+        if (!blobData.stationName) {
+          blobData.stationName = blobData.nameEN || blobData.nameCY || `Station ${blobData.station}`;
+        }
+        // Ensure region is set to Wales for Welsh stations
+        if (!blobData.region) {
+          blobData.region = 'Wales';
+        }
       }
       
       const blobKey = `stations/${stationKey}.json`;
