@@ -107,6 +107,7 @@ async function processCSV(csvPath, stationId, stationName) {
       data.push({
         date,
         time,
+        dateTimeUtc: dt.toISOString(),
         rainfall_mm,
         total_mm: 0 // Will be calculated later
       });
@@ -128,100 +129,170 @@ async function processCSV(csvPath, stationId, stationName) {
   }
 }
 
-async function updateHistory(newData, stationId, stationName) {
-  console.log(`Updating station history for ${stationName}...`);
+async function loadExistingDataFromBlob(stationId) {
+  // Try to load existing data from Netlify Blobs (for GitHub Actions)
+  if (process.env.GITHUB_ACTIONS && process.env.NETLIFY_SITE_ID && process.env.NETLIFY_AUTH_TOKEN) {
+    try {
+      console.log('🌐 GitHub Actions detected - attempting to load existing data from Netlify Blobs...');
+      
+      // Dynamic import for @netlify/blobs
+      const { getStore } = await import('@netlify/blobs');
+      
+      const store = getStore({
+        name: 'rainfall-data',
+        siteID: process.env.NETLIFY_SITE_ID,
+        token: process.env.NETLIFY_AUTH_TOKEN
+      });
+      
+      // Generate blob key - try common patterns
+      const possibleKeys = [
+        `stations/wales${stationId}.json`,
+        `stations/wales-${stationId}.json`,
+        `stations/station${stationId}.json`,
+        `stations/station-${stationId}.json`
+      ];
+      
+      let existingBlob = null;
+      let usedKey = null;
+      
+      for (const blobKey of possibleKeys) {
+        console.log(`🔍 Trying blob key: ${blobKey}`);
+        try {
+          existingBlob = await store.get(blobKey);
+          if (existingBlob) {
+            usedKey = blobKey;
+            console.log(`✅ Found blob with key: ${blobKey}`);
+            break;
+          }
+        } catch (e) {
+          // Continue to next key
+        }
+      }
+      
+      if (existingBlob) {
+        const existingData = JSON.parse(existingBlob);
+        console.log(`📂 Loaded existing data from blob with ${existingData.data ? existingData.data.length : 0} records`);
+        return existingData;
+      } else {
+        console.log('📂 No existing blob found with any key pattern');
+        return null;
+      }
+    } catch (error) {
+      console.log(`⚠️  Could not load from blobs: ${error.message}`);
+      return null;
+    }
+  }
+  return null;
+}
+
+async function saveProcessedData(newData, stationId, stationName) {
+  console.log(`Saving processed data for ${stationName}...`);
   
   try {
     const outputFileName = `wales-${stationId}.json`;
     const historyFile = path.join(PROCESSED_DIR, outputFileName);
     const publicHistoryFile = path.join(PUBLIC_PROCESSED_DIR, outputFileName);
     
-    // Load existing history
-    let history = { data: [] };
-    try {
-      const existingContent = await fsPromises.readFile(historyFile, 'utf-8');
-      history = JSON.parse(existingContent);
-    } catch (error) {
-      console.log('No existing history found, creating new one');
-      history = {
-        lastUpdated: new Date().toISOString(),
-        station: stationId,
-        stationName: stationName,
-        nameEN: stationName,
-        region: 'Wales',
-        source: 'NRW',
-        data: []
-      };
-    }
-
-    // Add new data using simple append method (like singular scraper)
-    if (newData && newData.length > 0) {
-      console.log(`Adding ${newData.length} new records to history`);
-      
-      history.data = [...history.data, ...newData];
-      history.lastUpdated = new Date().toISOString();
-      
-      // Remove duplicates based on date and time
-      const uniqueData = [];
-      const seen = new Set();
-      
-      for (const item of history.data) {
-        const key = `${item.date}_${item.time}`;
-        if (!seen.has(key)) {
-          seen.add(key);
-          uniqueData.push(item);
-        }
+    // Load existing data (from blobs in GitHub Actions, local files otherwise)
+    let existingData = await loadExistingDataFromBlob(stationId);
+    
+    if (!existingData) {
+      // Try local file as fallback
+      try {
+        const existingContent = await fsPromises.readFile(historyFile, 'utf-8');
+        existingData = JSON.parse(existingContent);
+        console.log(`📂 Loaded existing local data with ${existingData.data ? existingData.data.length : 0} records`);
+      } catch (error) {
+        console.log('📂 No existing data found, creating new file');
       }
+    }
+    
+    // Prepare new data structure
+    const processedData = {
+      lastUpdated: new Date().toISOString(),
+      station: stationId,
+      nameEN: stationName,
+      nameCY: stationName,
+      region: 'Wales',
+      source: 'NRW',
+      data: newData,
+      recordCount: newData.length
+    };
+    
+    // Merge new data with existing data using EA approach (avoiding duplicates)
+    let mergedData;
+    if (existingData && existingData.data && Array.isArray(existingData.data)) {
+      // Create a set of existing date/time combinations to avoid duplicates
+      const existingKeys = new Set(existingData.data.map(item => `${item.date}_${item.time}`));
       
-      history.data = uniqueData;
-      
-      // Sort by date and time
-      history.data.sort((a, b) => {
-        const dateA = new Date(`${a.date} ${a.time}`);
-        const dateB = new Date(`${b.date} ${b.time}`);
-        return dateA - dateB;
+      // Filter out duplicates from new data
+      const newRecords = processedData.data.filter(item => {
+        const key = `${item.date}_${item.time}`;
+        return !existingKeys.has(key);
       });
       
-      // Check for outliers and correct them
-      console.log('🔍 Checking for rainfall outliers...');
-      const detector = new RainfallOutlierDetector(25);
-      const stationData = {
-        station: history.station || stationId,
-        stationName: history.stationName || stationName,
-        data: history.data
+      console.log(`📊 New data: ${processedData.data.length} records, ${newRecords.length} new (${processedData.data.length - newRecords.length} duplicates skipped)`);
+      
+      // Merge the data using EA approach
+      mergedData = {
+        ...processedData,
+        data: [...existingData.data, ...newRecords].sort((a, b) => {
+          const dateA = new Date(`${a.date} ${a.time}`);
+          const dateB = new Date(`${b.date} ${b.time}`);
+          return dateA - dateB;
+        }),
+        recordCount: existingData.data.length + newRecords.length,
+        lastUpdated: new Date().toISOString(),
+        previousUpdate: existingData.lastUpdated,
+        incrementalUpdate: true
       };
+    } else {
+      // No existing data, use the new data as-is
+      mergedData = {
+        ...processedData,
+        incrementalUpdate: false
+      };
+    }
+    
+    // Apply outlier detection
+    console.log('🔍 Checking for rainfall outliers...');
+    const detector = new RainfallOutlierDetector(25);
+    const stationData = {
+      station: mergedData.station,
+      stationName: mergedData.nameEN || stationName,
+      data: mergedData.data
+    };
+    
+    const outlierResult = detector.processStationData(stationData);
+    mergedData.data = outlierResult.correctedData.data;
+    
+    if (outlierResult.hadOutliers) {
+      console.log(`🔧 Corrected ${outlierResult.corrections.length} outliers in ${stationName}`);
+      // Log corrections for transparency
+      outlierResult.corrections.forEach(correction => {
+        console.log(`  Fixed: ${correction.timestamp} ${correction.original}mm → ${correction.corrected}mm`);
+      });
       
-      const outlierResult = detector.processStationData(stationData);
-      history.data = outlierResult.correctedData.data;
-      
-      if (outlierResult.hadOutliers) {
-        console.log(`🔧 Corrected ${outlierResult.corrections.length} outliers in ${stationName}`);
-        // Log corrections for transparency
-        outlierResult.corrections.forEach(correction => {
-          console.log(`  Fixed: ${correction.timestamp} ${correction.original}mm → ${correction.corrected}mm`);
-        });
-        
-        // Add outlier detection metadata
-        history.outlierDetection = outlierResult.correctedData.outlierDetection;
-      }
-      
-      console.log(`Total records in history: ${history.data.length}`);
+      // Add outlier detection metadata
+      mergedData.outlierDetection = outlierResult.correctedData.outlierDetection;
     }
 
     // Save to processed directory
-    await fsPromises.writeFile(historyFile, JSON.stringify(history, null, 2));
-    console.log(`Updated history with ${newData ? newData.length : 0} new records`);
+    await fsPromises.writeFile(historyFile, JSON.stringify(mergedData, null, 2));
+    console.log(`💾 Saved processed data to: ${historyFile} (${mergedData.recordCount} total records)`);
 
     // Also save to public directory for development
     try {
-      await fsPromises.writeFile(publicHistoryFile, JSON.stringify(history, null, 2));
-      console.log('Copied data to public directory for development server');
+      await fsPromises.writeFile(publicHistoryFile, JSON.stringify(mergedData, null, 2));
+      console.log('🌐 Copied data to public directory for development server');
     } catch (error) {
       console.log('Could not copy to public directory (this is normal in production):', error.message);
     }
+    
+    return historyFile;
 
   } catch (error) {
-    console.error('Failed to update history:', error.message);
+    console.error('Failed to save processed data:', error.message);
     throw error;
   }
 }
@@ -303,10 +374,10 @@ async function processStation(station, parameterIds) {
     await fsPromises.writeFile(csvPath, csvBuffer);
     console.log(`💾 Downloaded CSV: ${csvFileName} (${csvBuffer.length} bytes)`);
 
-    // 5) Process CSV and update history
+    // 5) Process CSV and save data using EA approach
     const newData = await processCSV(csvPath, stationId, station.station_name);
-    await updateHistory(newData, stationId, station.station_name);
-    console.log(`⚙️  Processed CSV and updated history`);
+    const outputFile = await saveProcessedData(newData, stationId, station.station_name);
+    console.log(`⚙️  Processed CSV and saved data using EA approach`);
 
     // 6) Clean up raw CSV file
     try {
@@ -323,7 +394,7 @@ async function processStation(station, parameterIds) {
       stationName: station.station_name,
       region: 'Wales',
       success: true,
-      outputFile: outputFileName
+      outputFile: outputFile
     };
     
   } catch (error) {
