@@ -129,8 +129,10 @@ async function processCSV(csvPath, stationId, stationName) {
   }
 }
 
-async function loadExistingDataFromBlob(stationId) {
+async function loadExistingDataFromBlob(stationId, stationName) {
   // Try to load existing data from Netlify Blobs (for GitHub Actions)
+  console.log(`🔍 Environment check: GITHUB_ACTIONS=${!!process.env.GITHUB_ACTIONS}, NETLIFY_SITE_ID=${!!process.env.NETLIFY_SITE_ID}, NETLIFY_AUTH_TOKEN=${!!process.env.NETLIFY_AUTH_TOKEN}`);
+  
   if (process.env.GITHUB_ACTIONS && process.env.NETLIFY_SITE_ID && process.env.NETLIFY_AUTH_TOKEN) {
     try {
       console.log('🌐 GitHub Actions detected - attempting to load existing data from Netlify Blobs...');
@@ -144,8 +146,28 @@ async function loadExistingDataFromBlob(stationId) {
         token: process.env.NETLIFY_AUTH_TOKEN
       });
       
-      // Generate blob key - try common patterns
+      // Generate blob key - try common patterns based on station name and ID
+      const cleanName = stationName
+        .replace(/\s*\([^)]*\)$/, '') // Remove (ID) suffix
+        .replace(/\s+raingauge$/i, '') // Remove "raingauge" suffix
+        .replace(/\s+school$/i, '') // Remove "school" suffix
+        .trim();
+      
+      // Slugify function (same as in blob upload script)
+      const slugify = (input, fallback) => {
+        const base = (input || '').toString().trim().toLowerCase()
+          .replace(/[^a-z0-9]+/g, '-')
+          .replace(/^-+|-+$/g, '');
+        return base || (fallback ? String(fallback).toLowerCase() : 'station');
+      };
+      
+      let key = slugify(cleanName, stationId);
+      if (!key.endsWith(`-${stationId}`)) {
+        key = `${key}-${stationId}`;
+      }
+      
       const possibleKeys = [
+        `stations/${key}.json`,
         `stations/wales${stationId}.json`,
         `stations/wales-${stationId}.json`,
         `stations/station${stationId}.json`,
@@ -194,7 +216,7 @@ async function saveProcessedData(newData, stationId, stationName) {
     const publicHistoryFile = path.join(PUBLIC_PROCESSED_DIR, outputFileName);
     
     // Load existing data (from blobs in GitHub Actions, local files otherwise)
-    let existingData = await loadExistingDataFromBlob(stationId);
+    let existingData = await loadExistingDataFromBlob(stationId, stationName);
     
     if (!existingData) {
       // Try local file as fallback
