@@ -8,7 +8,8 @@
 const fs = require('fs');
 const fsPromises = require('fs').promises;
 const path = require('path');
-const { spawn } = require('child_process');
+const dayjs = require('dayjs');
+const RainfallOutlierDetector = require('./outlier-detection');
 
 const DATA_DIR = path.join(__dirname, '..', 'data');
 const RAW_DIR = path.join(DATA_DIR, 'raw');
@@ -66,23 +67,163 @@ function loadParameterIds() {
   }
 }
 
-async function runProcessorOnCsv(csvPath, outputFileName) {
-  return new Promise((resolve, reject) => {
-    const child = spawn('node', ['scripts/process-nrw-csv.js', csvPath, outputFileName], {
-      stdio: 'inherit',
-      cwd: path.join(__dirname, '..')
-    });
+async function processCSV(csvPath, stationId, stationName) {
+  console.log(`Processing CSV file: ${csvPath}`);
+  
+  try {
+    const csvContent = await fsPromises.readFile(csvPath, 'utf-8');
+    const lines = csvContent.split('\n').filter(line => line.trim());
+    
+    if (lines.length < 2) {
+      throw new Error('CSV file is empty or invalid');
+    }
 
-    child.on('close', (code) => {
-      if (code === 0) {
-        resolve();
-      } else {
-        reject(new Error(`Processor exited with code ${code}`));
+    // Find the data section (after metadata)
+    let dataStartIndex = 0;
+    for (let i = 0; i < lines.length; i++) {
+      const line = lines[i].trim();
+      if (line === '') { // blank line separates metadata from data table
+        dataStartIndex = i + 2; // skip blank line and header
+        break;
       }
+    }
+    
+    // Parse data rows
+    const data = [];
+    for (let i = dataStartIndex; i < lines.length; i++) {
+      const line = lines[i].trim();
+      if (!line) continue;
+      
+      const [dateStr, valueStr] = line.split(',');
+      if (!dateStr) continue;
+      
+      const dt = dayjs(dateStr);
+      if (!dt.isValid()) continue;
+      
+      const date = dt.format('YYYY-MM-DD');
+      const time = dt.format('HH:mm');
+      const rainfall_mm = parseFloat(valueStr) || 0;
+      
+      data.push({
+        date,
+        time,
+        rainfall_mm,
+        total_mm: 0 // Will be calculated later
+      });
+    }
+
+    // Sort by date and time
+    data.sort((a, b) => {
+      const dateA = new Date(`${a.date} ${a.time}`);
+      const dateB = new Date(`${b.date} ${b.time}`);
+      return dateA - dateB;
     });
 
-    child.on('error', reject);
-  });
+    console.log(`Parsed ${data.length} data rows from CSV`);
+    return data;
+
+  } catch (error) {
+    console.error('Failed to process CSV:', error.message);
+    throw error;
+  }
+}
+
+async function updateHistory(newData, stationId, stationName) {
+  console.log(`Updating station history for ${stationName}...`);
+  
+  try {
+    const outputFileName = `wales-${stationId}.json`;
+    const historyFile = path.join(PROCESSED_DIR, outputFileName);
+    const publicHistoryFile = path.join(PUBLIC_PROCESSED_DIR, outputFileName);
+    
+    // Load existing history
+    let history = { data: [] };
+    try {
+      const existingContent = await fsPromises.readFile(historyFile, 'utf-8');
+      history = JSON.parse(existingContent);
+    } catch (error) {
+      console.log('No existing history found, creating new one');
+      history = {
+        lastUpdated: new Date().toISOString(),
+        station: stationId,
+        stationName: stationName,
+        nameEN: stationName,
+        region: 'Wales',
+        source: 'NRW',
+        data: []
+      };
+    }
+
+    // Add new data using simple append method (like singular scraper)
+    if (newData && newData.length > 0) {
+      console.log(`Adding ${newData.length} new records to history`);
+      
+      history.data = [...history.data, ...newData];
+      history.lastUpdated = new Date().toISOString();
+      
+      // Remove duplicates based on date and time
+      const uniqueData = [];
+      const seen = new Set();
+      
+      for (const item of history.data) {
+        const key = `${item.date}_${item.time}`;
+        if (!seen.has(key)) {
+          seen.add(key);
+          uniqueData.push(item);
+        }
+      }
+      
+      history.data = uniqueData;
+      
+      // Sort by date and time
+      history.data.sort((a, b) => {
+        const dateA = new Date(`${a.date} ${a.time}`);
+        const dateB = new Date(`${b.date} ${b.time}`);
+        return dateA - dateB;
+      });
+      
+      // Check for outliers and correct them
+      console.log('🔍 Checking for rainfall outliers...');
+      const detector = new RainfallOutlierDetector(25);
+      const stationData = {
+        station: history.station || stationId,
+        stationName: history.stationName || stationName,
+        data: history.data
+      };
+      
+      const outlierResult = detector.processStationData(stationData);
+      history.data = outlierResult.correctedData.data;
+      
+      if (outlierResult.hadOutliers) {
+        console.log(`🔧 Corrected ${outlierResult.corrections.length} outliers in ${stationName}`);
+        // Log corrections for transparency
+        outlierResult.corrections.forEach(correction => {
+          console.log(`  Fixed: ${correction.timestamp} ${correction.original}mm → ${correction.corrected}mm`);
+        });
+        
+        // Add outlier detection metadata
+        history.outlierDetection = outlierResult.correctedData.outlierDetection;
+      }
+      
+      console.log(`Total records in history: ${history.data.length}`);
+    }
+
+    // Save to processed directory
+    await fsPromises.writeFile(historyFile, JSON.stringify(history, null, 2));
+    console.log(`Updated history with ${newData ? newData.length : 0} new records`);
+
+    // Also save to public directory for development
+    try {
+      await fsPromises.writeFile(publicHistoryFile, JSON.stringify(history, null, 2));
+      console.log('Copied data to public directory for development server');
+    } catch (error) {
+      console.log('Could not copy to public directory (this is normal in production):', error.message);
+    }
+
+  } catch (error) {
+    console.error('Failed to update history:', error.message);
+    throw error;
+  }
 }
 
 async function processStation(station, parameterIds) {
@@ -101,7 +242,7 @@ async function processStation(station, parameterIds) {
     console.log(`🔍 Using parameter ID: ${paramId}`);
 
     // 2) Calculate date range - support env vars for scheduled runs
-    // Default to last 4 days for regular updates (new data will append)
+    // Default to November 2024 onwards for backfill (new data will append)
     const envFrom = (process.env.NRW_FROM || '').trim();
     const envTo = (process.env.NRW_TO || '').trim();
     const envDays = (process.env.NRW_DAYS || '').trim();
@@ -124,20 +265,14 @@ async function processStation(station, parameterIds) {
         toStr = isYmd(envTo) ? envTo : todayYmd();
         fromStr = minusDays(toStr, days);
       } else {
-        // Invalid days, use default (4 days)
-        const toDate = new Date();
-        const fromDate = new Date();
-        fromDate.setUTCDate(toDate.getUTCDate() - 4);
-        fromStr = fromDate.toISOString().split('T')[0];
-        toStr = toDate.toISOString().split('T')[0];
+        // Invalid days, use default (from November 1, 2024)
+        fromStr = '2024-11-01';
+        toStr = todayYmd();
       }
     } else {
-      // Default: last 4 days for regular updates (data appends automatically via processor)
-      const toDate = new Date();
-      const fromDate = new Date();
-      fromDate.setUTCDate(toDate.getUTCDate() - 4);
-      fromStr = fromDate.toISOString().split('T')[0];
-      toStr = toDate.toISOString().split('T')[0];
+      // Default: from November 1, 2024 to today for backfill
+      fromStr = '2024-11-01';
+      toStr = todayYmd();
     }
     
     console.log(`📅 Date range: ${fromStr} to ${toStr}`);
@@ -162,10 +297,10 @@ async function processStation(station, parameterIds) {
     await fsPromises.writeFile(csvPath, csvBuffer);
     console.log(`💾 Downloaded CSV: ${csvFileName} (${csvBuffer.length} bytes)`);
 
-    // 5) Process CSV
-    const outputFileName = `wales-${stationId}.json`;
-    await runProcessorOnCsv(csvPath, outputFileName);
-    console.log(`⚙️  Processed CSV to: ${outputFileName}`);
+    // 5) Process CSV and update history
+    const newData = await processCSV(csvPath, stationId, station.station_name);
+    await updateHistory(newData, stationId, station.station_name);
+    console.log(`⚙️  Processed CSV and updated history`);
 
     // 6) Clean up raw CSV file
     try {
