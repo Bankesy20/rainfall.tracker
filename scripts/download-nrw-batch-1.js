@@ -146,14 +146,7 @@ async function loadExistingDataFromBlob(stationId, stationName) {
         token: process.env.NETLIFY_AUTH_TOKEN
       });
       
-      // Generate blob key - try common patterns based on station name and ID
-      const cleanName = stationName
-        .replace(/\s*\([^)]*\)$/, '') // Remove (ID) suffix
-        .replace(/\s+raingauge$/i, '') // Remove "raingauge" suffix
-        .replace(/\s+school$/i, '') // Remove "school" suffix
-        .trim();
-      
-      // Slugify function (same as in blob upload script)
+      // Generate blob key - try multiple variations to match upload script logic
       const slugify = (input, fallback) => {
         const base = (input || '').toString().trim().toLowerCase()
           .replace(/[^a-z0-9]+/g, '-')
@@ -161,18 +154,42 @@ async function loadExistingDataFromBlob(stationId, stationName) {
         return base || (fallback ? String(fallback).toLowerCase() : 'station');
       };
       
-      let key = slugify(cleanName, stationId);
-      if (!key.endsWith(`-${stationId}`)) {
-        key = `${key}-${stationId}`;
+      // Try different variations of the station name to match upload script
+      const nameVariations = [
+        // Original name with all suffixes removed
+        stationName
+          .replace(/\s*\([^)]*\)$/, '') // Remove (ID) suffix
+          .replace(/\s+raingauge$/i, '') // Remove "raingauge" suffix
+          .replace(/\s+school$/i, '') // Remove "school" suffix
+          .trim(),
+        // Just remove ID suffix
+        stationName.replace(/\s*\([^)]*\)$/, '').trim(),
+        // Remove raingauge only
+        stationName.replace(/\s+raingauge$/i, '').trim(),
+        // Original name as-is
+        stationName.trim()
+      ];
+      
+      const possibleKeys = [];
+      
+      // Generate keys for each name variation
+      for (const nameVar of nameVariations) {
+        if (nameVar) {
+          let key = slugify(nameVar, stationId);
+          if (!key.endsWith(`-${stationId}`)) {
+            key = `${key}-${stationId}`;
+          }
+          possibleKeys.push(`stations/${key}.json`);
+        }
       }
       
-      const possibleKeys = [
-        `stations/${key}.json`,
+      // Add fallback patterns
+      possibleKeys.push(
         `stations/wales${stationId}.json`,
         `stations/wales-${stationId}.json`,
         `stations/station${stationId}.json`,
         `stations/station-${stationId}.json`
-      ];
+      );
       
       let existingBlob = null;
       let usedKey = null;
@@ -366,10 +383,9 @@ async function processStation(station, parameterIds) {
         toStr = toDate.toISOString().split('T')[0];
       }
     } else {
-      // Default: last 4 days for regular updates
+      // Default: November 2024 to today for backfilling
       const toDate = new Date();
-      const fromDate = new Date();
-      fromDate.setUTCDate(toDate.getUTCDate() - 4);
+      const fromDate = new Date('2024-11-01T00:00:00Z');
       fromStr = fromDate.toISOString().split('T')[0];
       toStr = toDate.toISOString().split('T')[0];
     }

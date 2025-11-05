@@ -33,6 +33,9 @@ jobs:
       run: node scripts/add-welsh-stations-metadata.js
     
     - name: Run NRW batch 2 scraping script
+      env:
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
       run: node scripts/download-nrw-batch-2.js
     
     - name: Upload to Netlify Blobs
