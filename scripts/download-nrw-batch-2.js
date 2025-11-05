@@ -129,8 +129,10 @@ async function processCSV(csvPath, stationId, stationName) {
   }
 }
 
-async function loadExistingDataFromBlob(stationId) {
+async function loadExistingDataFromBlob(stationId, stationName) {
   // Try to load existing data from Netlify Blobs (for GitHub Actions)
+  console.log(`🔍 Environment check: GITHUB_ACTIONS=${!!process.env.GITHUB_ACTIONS}, NETLIFY_SITE_ID=${!!process.env.NETLIFY_SITE_ID}, NETLIFY_AUTH_TOKEN=${!!process.env.NETLIFY_AUTH_TOKEN}`);
+  
   if (process.env.GITHUB_ACTIONS && process.env.NETLIFY_SITE_ID && process.env.NETLIFY_AUTH_TOKEN) {
     try {
       console.log('🌐 GitHub Actions detected - attempting to load existing data from Netlify Blobs...');
@@ -144,13 +146,50 @@ async function loadExistingDataFromBlob(stationId) {
         token: process.env.NETLIFY_AUTH_TOKEN
       });
       
-      // Generate blob key - try common patterns
-      const possibleKeys = [
+      // Generate blob key - try multiple variations to match upload script logic
+      const slugify = (input, fallback) => {
+        const base = (input || '').toString().trim().toLowerCase()
+          .replace(/[^a-z0-9]+/g, '-')
+          .replace(/^-+|-+$/g, '');
+        return base || (fallback ? String(fallback).toLowerCase() : 'station');
+      };
+      
+      // Try different variations of the station name to match upload script
+      const nameVariations = [
+        // Original name with all suffixes removed
+        stationName
+          .replace(/\s*\([^)]*\)$/, '') // Remove (ID) suffix
+          .replace(/\s+raingauge$/i, '') // Remove "raingauge" suffix
+          .replace(/\s+school$/i, '') // Remove "school" suffix
+          .trim(),
+        // Just remove ID suffix
+        stationName.replace(/\s*\([^)]*\)$/, '').trim(),
+        // Remove raingauge only
+        stationName.replace(/\s+raingauge$/i, '').trim(),
+        // Original name as-is
+        stationName.trim()
+      ];
+      
+      const possibleKeys = [];
+      
+      // Generate keys for each name variation
+      for (const nameVar of nameVariations) {
+        if (nameVar) {
+          let key = slugify(nameVar, stationId);
+          if (!key.endsWith(`-${stationId}`)) {
+            key = `${key}-${stationId}`;
+          }
+          possibleKeys.push(`stations/${key}.json`);
+        }
+      }
+      
+      // Add fallback patterns
+      possibleKeys.push(
         `stations/wales${stationId}.json`,
         `stations/wales-${stationId}.json`,
         `stations/station${stationId}.json`,
         `stations/station-${stationId}.json`
-      ];
+      );
       
       let existingBlob = null;
       let usedKey = null;
@@ -194,7 +233,7 @@ async function saveProcessedData(newData, stationId, stationName) {
     const publicHistoryFile = path.join(PUBLIC_PROCESSED_DIR, outputFileName);
     
     // Load existing data (from blobs in GitHub Actions, local files otherwise)
-    let existingData = await loadExistingDataFromBlob(stationId);
+    let existingData = await loadExistingDataFromBlob(stationId, stationName);
     
     if (!existingData) {
       // Try local file as fallback
@@ -313,7 +352,7 @@ async function processStation(station, parameterIds) {
     console.log(`🔍 Using parameter ID: ${paramId}`);
 
     // 2) Calculate date range - support env vars for scheduled runs
-    // Default to November 2024 onwards for backfill (new data will append)
+    // Default to November 2024 to today for backfilling
     const envFrom = (process.env.NRW_FROM || '').trim();
     const envTo = (process.env.NRW_TO || '').trim();
     const envDays = (process.env.NRW_DAYS || '').trim();
@@ -336,14 +375,18 @@ async function processStation(station, parameterIds) {
         toStr = isYmd(envTo) ? envTo : todayYmd();
         fromStr = minusDays(toStr, days);
       } else {
-        // Invalid days, use default (from November 1, 2024)
-        fromStr = '2024-11-01';
-        toStr = todayYmd();
+        // Invalid days, use default (November 2024 to today for backfilling)
+        const toDate = new Date();
+        const fromDate = new Date('2024-11-01T00:00:00Z');
+        fromStr = fromDate.toISOString().split('T')[0];
+        toStr = toDate.toISOString().split('T')[0];
       }
     } else {
-      // Default: from November 1, 2024 to today for backfill
-      fromStr = '2024-11-01';
-      toStr = todayYmd();
+      // Default: November 2024 to today for backfilling
+      const toDate = new Date();
+      const fromDate = new Date('2024-11-01T00:00:00Z');
+      fromStr = fromDate.toISOString().split('T')[0];
+      toStr = toDate.toISOString().split('T')[0];
     }
     
     console.log(`📅 Date range: ${fromStr} to ${toStr}`);
