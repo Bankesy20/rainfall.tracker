@@ -372,23 +372,37 @@ async function processStation(station, parameterIds) {
     } else if (envDays) {
       const days = parseInt(envDays, 10);
       if (days > 0) {
-        toStr = isYmd(envTo) ? envTo : todayYmd();
+        // If envTo is provided, use it; otherwise use tomorrow to ensure we capture today's data
+        if (isYmd(envTo)) {
+          toStr = envTo;
+        } else {
+          const tomorrow = new Date();
+          tomorrow.setUTCDate(tomorrow.getUTCDate() + 1);
+          toStr = tomorrow.toISOString().split('T')[0];
+        }
         fromStr = minusDays(toStr, days);
       } else {
         // Invalid days, use default (4 days)
         const toDate = new Date();
         const fromDate = new Date();
         fromDate.setUTCDate(toDate.getUTCDate() - 4);
+        // Add 1 day to ensure we get today's data when it becomes available
+        const tomorrowDate = new Date(toDate);
+        tomorrowDate.setUTCDate(tomorrowDate.getUTCDate() + 1);
         fromStr = fromDate.toISOString().split('T')[0];
-        toStr = toDate.toISOString().split('T')[0];
+        toStr = tomorrowDate.toISOString().split('T')[0];
       }
     } else {
       // Default: last 4 days for regular updates
+      // Use tomorrow as "to" date to ensure we capture today's data (NRW API may treat "to" as exclusive)
       const toDate = new Date();
       const fromDate = new Date();
       fromDate.setUTCDate(toDate.getUTCDate() - 4);
+      // Add 1 day to ensure we get today's data when it becomes available
+      const tomorrowDate = new Date(toDate);
+      tomorrowDate.setUTCDate(tomorrowDate.getUTCDate() + 1);
       fromStr = fromDate.toISOString().split('T')[0];
-      toStr = toDate.toISOString().split('T')[0];
+      toStr = tomorrowDate.toISOString().split('T')[0];
     }
     
     console.log(`📅 Date range: ${fromStr} to ${toStr}`);
