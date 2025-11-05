@@ -335,7 +335,7 @@ async function processStation(station, parameterIds) {
     console.log(`🔍 Using parameter ID: ${paramId}`);
 
     // 2) Calculate date range - support env vars for scheduled runs
-    // Default to November 2024 onwards for backfill (new data will append)
+    // Default to last 4 days for regular updates (new data will append)
     const envFrom = (process.env.NRW_FROM || '').trim();
     const envTo = (process.env.NRW_TO || '').trim();
     const envDays = (process.env.NRW_DAYS || '').trim();
@@ -358,14 +358,20 @@ async function processStation(station, parameterIds) {
         toStr = isYmd(envTo) ? envTo : todayYmd();
         fromStr = minusDays(toStr, days);
       } else {
-        // Invalid days, use default (from November 1, 2024)
-        fromStr = '2024-11-01';
-        toStr = todayYmd();
+        // Invalid days, use default (4 days)
+        const toDate = new Date();
+        const fromDate = new Date();
+        fromDate.setUTCDate(toDate.getUTCDate() - 4);
+        fromStr = fromDate.toISOString().split('T')[0];
+        toStr = toDate.toISOString().split('T')[0];
       }
     } else {
-      // Default: from November 1, 2024 to today for backfill
-      fromStr = '2024-11-01';
-      toStr = todayYmd();
+      // Default: last 4 days for regular updates
+      const toDate = new Date();
+      const fromDate = new Date();
+      fromDate.setUTCDate(toDate.getUTCDate() - 4);
+      fromStr = fromDate.toISOString().split('T')[0];
+      toStr = toDate.toISOString().split('T')[0];
     }
     
     console.log(`📅 Date range: ${fromStr} to ${toStr}`);
