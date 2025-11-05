@@ -465,18 +465,16 @@ async function downloadBatch1() {
     const raw = fs.readFileSync(stationsJsonPath, 'utf8');
     const allStations = JSON.parse(raw);
     
-    // Filter stations that have parameter IDs and exclude Maencloghog (1099) as it's handled separately
-    const excludedIds = new Set(['1099']);
+    // Filter stations that have parameter IDs
     const validStations = allStations.filter(station => {
       const stationId = station.station_id.toString();
       return station.station_id && 
              station.station_name && 
-             !excludedIds.has(stationId) &&
              parameterIds[stationId];
     });
     
     console.log(`📊 Total Welsh stations: ${allStations.length}`);
-    console.log(`📊 Valid stations with parameter IDs (excluding Maencloghog): ${validStations.length}`);
+    console.log(`📊 Valid stations with parameter IDs: ${validStations.length}`);
     
     // Split into two batches - first half
     const batchSize = Math.ceil(validStations.length / 2);

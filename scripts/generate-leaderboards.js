@@ -199,9 +199,7 @@ async function loadStationDataFromBlobs() {
     let totalDownloadSize = 0;
     let downloadStartTime = Date.now();
     
-    // Calculate cutoff time - we need data for the longest period (30d) plus some buffer for all-time
-    // For efficiency, limit all-time to last year of data (not all historical data)
-    const maxPeriodHours = Math.max(...Object.values(TIME_PERIODS).filter(h => h !== Infinity));
+    // Calculate cutoff time - for efficiency, limit all-time to last year of data (not all historical data)
     const cutoffTime = new Date(Date.now() - 365 * 24 * 60 * 60 * 1000); // Last year for all-time
     
     console.log(`📅 Filtering data to records after: ${cutoffTime.toISOString()} (last year)`);
@@ -373,6 +371,9 @@ function loadStationDataFromFiles() {
             region = 'Wales';
           } else if (data.country === 'Wales') {
             region = 'Wales';
+          } else if (data.nameCY || (data.nameEN && data.nameEN.match(/[\u0590-\u05FF\u0600-\u06FF]/))) {
+            // Welsh language indicators
+            region = 'Wales';
           }
         }
         
@@ -381,7 +382,7 @@ function loadStationDataFromFiles() {
         
         stations.push({
           station: data.station,
-          stationName: data.stationName || coords?.label || data.station,
+          stationName: data.nameEN || data.stationName || coords?.label || data.station,
           region: region || 'Unknown',
           county: county,
           location: stationData.location || { lat: null, long: null },
