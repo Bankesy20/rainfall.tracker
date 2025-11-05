@@ -35,7 +35,10 @@ const METRICS = {
     unit: 'mm',
     calculate: (data, cutoffTime) => {
       return data
-        .filter(record => new Date(record.dateTime) >= cutoffTime)
+        .filter(record => {
+          const recordTime = new Date(record.dateTimeUtc || record.dateTime || `${record.date} ${record.time}`);
+          return recordTime >= cutoffTime;
+        })
         .reduce((sum, record) => sum + (record.rainfall_mm || 0), 0);
     }
   },
@@ -43,13 +46,17 @@ const METRICS = {
     name: 'Max Hourly Rainfall',
     unit: 'mm/h',
     calculate: (data, cutoffTime) => {
-      const filteredData = data.filter(record => new Date(record.dateTime) >= cutoffTime);
+      const filteredData = data.filter(record => {
+        const recordTime = new Date(record.dateTimeUtc || record.dateTime || `${record.date} ${record.time}`);
+        return recordTime >= cutoffTime;
+      });
       let maxHourly = 0;
       
       // Group by hour and sum 15-minute readings
       const hourlyTotals = {};
       filteredData.forEach(record => {
-        const hour = dayjs(record.dateTime).format('YYYY-MM-DD-HH');
+        const dateTime = record.dateTimeUtc || record.dateTime || `${record.date} ${record.time}`;
+        const hour = dayjs(dateTime).format('YYYY-MM-DD-HH');
         hourlyTotals[hour] = (hourlyTotals[hour] || 0) + (record.rainfall_mm || 0);
       });
       
@@ -62,7 +69,10 @@ const METRICS = {
     calculate: (data, cutoffTime) => {
       return Math.max(
         ...data
-          .filter(record => new Date(record.dateTime) >= cutoffTime)
+          .filter(record => {
+            const recordTime = new Date(record.dateTimeUtc || record.dateTime || `${record.date} ${record.time}`);
+            return recordTime >= cutoffTime;
+          })
           .map(record => record.rainfall_mm || 0),
         0
       );
@@ -72,12 +82,16 @@ const METRICS = {
     name: 'Rainy Days',
     unit: 'days',
     calculate: (data, cutoffTime) => {
-      const filteredData = data.filter(record => new Date(record.dateTime) >= cutoffTime);
+      const filteredData = data.filter(record => {
+        const recordTime = new Date(record.dateTimeUtc || record.dateTime || `${record.date} ${record.time}`);
+        return recordTime >= cutoffTime;
+      });
       const dailyTotals = {};
       
       // Group by day and sum rainfall
       filteredData.forEach(record => {
-        const day = dayjs(record.dateTime).format('YYYY-MM-DD');
+        const dateTime = record.dateTimeUtc || record.dateTime || `${record.date} ${record.time}`;
+        const day = dayjs(dateTime).format('YYYY-MM-DD');
         dailyTotals[day] = (dailyTotals[day] || 0) + (record.rainfall_mm || 0);
       });
       
@@ -88,15 +102,18 @@ const METRICS = {
 };
 
 /**
- * Load station coordinates from the stations file
+ * Load station coordinates from both EA and Welsh stations files
  */
 function loadStationCoordinates() {
+  const coordinates = {};
+  let totalLoaded = 0;
+  
+  // Load EA England stations
   try {
     const stationsFile = path.join(DATA_DIR, 'ea-england-stations-with-names.json');
     const content = fs.readFileSync(stationsFile, 'utf8');
     const data = JSON.parse(content);
     
-    const coordinates = {};
     if (data.items && Array.isArray(data.items)) {
       data.items.forEach(station => {
         if (station.stationReference && station.lat && station.long) {
@@ -105,16 +122,42 @@ function loadStationCoordinates() {
             lng: station.long,
             label: station.label
           };
+          totalLoaded++;
         }
       });
     }
-    
-    console.log(`📍 Loaded coordinates for ${Object.keys(coordinates).length} stations`);
-    return coordinates;
+    console.log(`📍 Loaded ${totalLoaded} EA station coordinates`);
   } catch (error) {
-    console.warn('⚠️  Could not load station coordinates:', error.message);
-    return {};
+    console.warn('⚠️  Could not load EA station coordinates:', error.message);
   }
+  
+  // Load Welsh stations
+  try {
+    const welshStationsFile = path.join(__dirname, '..', 'welsh_rainfall_stations_with_coords.json');
+    const content = fs.readFileSync(welshStationsFile, 'utf8');
+    const welshStations = JSON.parse(content);
+    
+    let welshLoaded = 0;
+    if (Array.isArray(welshStations)) {
+      welshStations.forEach(station => {
+        if (station.station_id && station.latitude && station.longitude) {
+          coordinates[station.station_id.toString()] = {
+            lat: station.latitude,
+            lng: station.longitude,
+            label: station.station_name
+          };
+          welshLoaded++;
+          totalLoaded++;
+        }
+      });
+    }
+    console.log(`📍 Loaded ${welshLoaded} Welsh station coordinates`);
+  } catch (error) {
+    console.warn('⚠️  Could not load Welsh station coordinates:', error.message);
+  }
+  
+  console.log(`📍 Total coordinates loaded: ${totalLoaded} stations`);
+  return coordinates;
 }
 
 /**
@@ -156,72 +199,105 @@ async function loadStationDataFromBlobs() {
     let totalDownloadSize = 0;
     let downloadStartTime = Date.now();
     
-    // Download and process each station blob
-    for (let i = 0; i < stationBlobs.length; i++) {
-      const blob = stationBlobs[i];
+    // Calculate cutoff time - we need data for the longest period (30d) plus some buffer for all-time
+    // For efficiency, limit all-time to last year of data (not all historical data)
+    const maxPeriodHours = Math.max(...Object.values(TIME_PERIODS).filter(h => h !== Infinity));
+    const cutoffTime = new Date(Date.now() - 365 * 24 * 60 * 60 * 1000); // Last year for all-time
+    
+    console.log(`📅 Filtering data to records after: ${cutoffTime.toISOString()} (last year)`);
+    console.log(`⚡ Using parallel downloads (concurrency: 10, reduced for memory)`);
+    console.log(`💡 This filters out old data to speed up processing - all-time leaderboard uses last year`);
+    
+    // Process blobs in parallel batches (reduced concurrency to avoid memory issues)
+    const CONCURRENCY = 10;
+    let processedCount = 0;
+    
+    for (let i = 0; i < stationBlobs.length; i += CONCURRENCY) {
+      const batch = stationBlobs.slice(i, i + CONCURRENCY);
       
-      try {
-        const blobStartTime = Date.now();
-        const blobContent = await store.get(blob.key);
-        const blobEndTime = Date.now();
-        
-        const data = typeof blobContent === 'string' ? JSON.parse(blobContent) : blobContent;
-        totalDownloadSize += (typeof blobContent === 'string' ? blobContent.length : JSON.stringify(blobContent).length);
-        
-        // Log progress every 100 stations
-        if ((i + 1) % 100 === 0) {
-          const elapsed = Date.now() - downloadStartTime;
-          const rate = (i + 1) / (elapsed / 1000);
-          const remaining = stationBlobs.length - (i + 1);
-          const eta = remaining / rate;
-          console.log(`  ⏳ Downloaded ${i + 1}/${stationBlobs.length} stations (${rate.toFixed(1)}/sec, ETA: ${eta.toFixed(0)}s)`);
-        }
-        
-        if (data.station && data.data && Array.isArray(data.data) && data.data.length > 0) {
-          // Get coordinates from the stations file
-          const coords = stationCoordinates[data.station];
-          const stationData = {
-            ...data,
-            lat: coords?.lat,
-            lng: coords?.lng,
-            location: coords ? { lat: coords.lat, long: coords.lng } : data.location
-          };
+      const batchPromises = batch.map(async (blob) => {
+        try {
+          const blobContent = await store.get(blob.key);
+          const data = typeof blobContent === 'string' ? JSON.parse(blobContent) : blobContent;
+          totalDownloadSize += (typeof blobContent === 'string' ? blobContent.length : JSON.stringify(blobContent).length);
           
-          // Detect Welsh stations if region is missing
-          let region = data.region;
-          if (!region || region === 'Unknown') {
-            const stationId = String(data.station || '');
-            const stationIdNum = parseInt(stationId, 10);
+          if (data.station && data.data && Array.isArray(data.data) && data.data.length > 0) {
+            // Filter to only recent data (for efficiency - we don't need all historical data)
+            const recentData = data.data.filter(record => {
+              const recordTime = new Date(record.dateTimeUtc || record.dateTime || `${record.date} ${record.time}`);
+              return recordTime >= cutoffTime;
+            });
             
-            // Welsh stations have IDs in range 1000-1149
-            if (stationIdNum >= 1000 && stationIdNum <= 1149) {
-              region = 'Wales';
-            } else if (data.source === 'NRW' || data.source === 'Natural Resources Wales') {
-              region = 'Wales';
-            } else if (data.provider === 'Natural Resources Wales') {
-              region = 'Wales';
-            } else if (data.country === 'Wales') {
-              region = 'Wales';
-            } else if (data.nameCY || (data.nameEN && data.nameEN.match(/[\u0590-\u05FF\u0600-\u06FF]/))) {
-              // Welsh language indicators
-              region = 'Wales';
+            // Skip if no recent data
+            if (recentData.length === 0) {
+              return null;
             }
+            
+            // Get coordinates from the stations file
+            const coords = stationCoordinates[data.station];
+            const stationData = {
+              ...data,
+              lat: coords?.lat,
+              lng: coords?.lng,
+              location: coords ? { lat: coords.lat, long: coords.lng } : data.location
+            };
+            
+            // Detect Welsh stations if region is missing
+            let region = data.region;
+            if (!region || region === 'Unknown') {
+              const stationId = String(data.station || '');
+              const stationIdNum = parseInt(stationId, 10);
+              
+              // Welsh stations have IDs in range 1000-1149
+              if (stationIdNum >= 1000 && stationIdNum <= 1149) {
+                region = 'Wales';
+              } else if (data.source === 'NRW' || data.source === 'Natural Resources Wales') {
+                region = 'Wales';
+              } else if (data.provider === 'Natural Resources Wales') {
+                region = 'Wales';
+              } else if (data.country === 'Wales') {
+                region = 'Wales';
+              } else if (data.nameCY || (data.nameEN && data.nameEN.match(/[\u0590-\u05FF\u0600-\u06FF]/))) {
+                // Welsh language indicators
+                region = 'Wales';
+              }
+            }
+            
+            // Get county information using coordinates
+            const county = getCountyFromStation(stationData);
+            
+            return {
+              station: data.station,
+              stationName: data.nameEN || data.stationName || coords?.label || data.station,
+              region: region || 'Unknown',
+              county: county,
+              location: stationData.location || { lat: null, long: null },
+              data: recentData // Only include recent data
+            };
           }
-          
-          // Get county information using coordinates
-          const county = getCountyFromStation(stationData);
-          
-          stations.push({
-            station: data.station,
-            stationName: data.stationName || coords?.label || data.station,
-            region: region || 'Unknown',
-            county: county,
-            location: stationData.location || { lat: null, long: null },
-            data: data.data
-          });
+          return null;
+        } catch (error) {
+          console.warn(`⚠️  Skipping blob ${blob.key}: ${error.message}`);
+          return null;
         }
-      } catch (error) {
-        console.warn(`⚠️  Skipping blob ${blob.key}: ${error.message}`);
+      });
+      
+      const batchResults = await Promise.all(batchPromises);
+      const validStations = batchResults.filter(s => s !== null);
+      stations.push(...validStations);
+      
+      processedCount += batch.length;
+      
+      // Log progress every batch
+      const elapsed = Date.now() - downloadStartTime;
+      const rate = processedCount / (elapsed / 1000);
+      const remaining = stationBlobs.length - processedCount;
+      const eta = remaining / rate;
+      console.log(`  ⏳ Processed ${processedCount}/${stationBlobs.length} stations (${rate.toFixed(1)}/sec, ETA: ${eta.toFixed(0)}s, ${stations.length} with recent data)`);
+      
+      // Force garbage collection hint every 200 stations (if available)
+      if (global.gc && processedCount % 200 === 0) {
+        global.gc();
       }
     }
     
