@@ -375,16 +375,18 @@ async function processStation(station, parameterIds) {
         toStr = isYmd(envTo) ? envTo : todayYmd();
         fromStr = minusDays(toStr, days);
       } else {
-        // Invalid days, use default (November 2024 to today for backfilling)
+        // Invalid days, use default (4 days)
         const toDate = new Date();
-        const fromDate = new Date('2024-11-01T00:00:00Z');
+        const fromDate = new Date();
+        fromDate.setUTCDate(toDate.getUTCDate() - 4);
         fromStr = fromDate.toISOString().split('T')[0];
         toStr = toDate.toISOString().split('T')[0];
       }
     } else {
-      // Default: November 2024 to today for backfilling
+      // Default: last 4 days for regular updates
       const toDate = new Date();
-      const fromDate = new Date('2024-11-01T00:00:00Z');
+      const fromDate = new Date();
+      fromDate.setUTCDate(toDate.getUTCDate() - 4);
       fromStr = fromDate.toISOString().split('T')[0];
       toStr = toDate.toISOString().split('T')[0];
     }
